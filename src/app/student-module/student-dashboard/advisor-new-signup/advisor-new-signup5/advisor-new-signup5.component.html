@@ -1,0 +1,237 @@
+<div class="stepper-heading text-left">
+  <h3>Education</h3>
+</div>
+<div class="para-grph0lines">
+  <p>This forms part of your profile which our students will see.</p>
+</div>
+
+<div>
+  <div class="background-spec-cl">
+    <div class="inbox-wrapper justify-content-end">
+      <div class="new-exchange">
+        <div class="send-now">
+          <a
+            href="javascript:void(0)"
+            class="border_bule-btn"
+            (click)="addEducation(temp)"
+            >New Education</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="requests-wrper frtopm">
+      <div class="wrp profile" *ngFor="let edu of eduListing; let i = index">
+        <div class="kps-bonus">
+          <img
+            *ngIf="!edu.image"
+            src="assets/images/university.png"
+            alt="img"
+          />
+          <img *ngIf="edu.image" [src]="edu.image" alt="img" />
+        </div>
+        <div class="content-req student-portal-link">
+          <div class="area">
+            <h3>{{ edu?.subject }}</h3>
+            <h4>
+              {{ edu?.university }}
+            </h4>
+            <div class="location">
+              <span class="singleline">Class of {{ edu?.year }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="social_links refer-wpr">
+          <a href="javascript:void(0)" (click)="editEducation(edu, temp)"
+            ><img src="assets/images/editpen.png" alt="img"
+          /></a>
+          <!-- <a href="javascript:void(0)"><img src="assets/images/indeed.png" alt="img" style="height: 28px;"></a> -->
+        </div>
+      </div>
+    </div>
+    <div class="for-more-lisiting" *ngIf="moreData > 0 && !checkData">
+      <a href="javascript:void(0)" (click)="moreCareer()"
+        >{{ moreData }} more educations</a
+      >
+    </div>
+  </div>
+</div>
+
+<input
+  type="button"
+  name="Cancel"
+  class="cancel same-field"
+  value="Skip"
+  (click)="skip()"
+/>
+<input
+  type="button"
+  name="previous"
+  class="previous previous-ab action-button same-field"
+  value="Previous Step"
+  (click)="privious()"
+/>
+<input
+  type="button"
+  name="next"
+  class="next action-button same-field"
+  value="Proceed"
+  (click)="next()"
+/>
+
+<!-- Modal -->
+<ng-template #temp>
+  <div class="advisor-modal">
+    <div class="close-modal-icon meesage-checklist">
+      <div id="career-path">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Education</h5>
+            <button
+              type="button"
+              class="close"
+              (click)="modalRef2.hide()"
+              aria-label="Close"
+            >
+              <span aria-hidden="true"
+                ><img src="assets/images/close-icon.png" alt=""
+              /></span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form [formGroup]="addPosition">
+              <div class="form-group">
+                <label for="">School/University</label>
+      
+                <input
+                  formControlName="school"
+                  placeholder="Enter a school/university"
+                  (input)="universityList()"
+                />
+                <!-- <datalist id="browsers5">
+                  <option
+                    *ngFor="let school of schoolList"
+                    [value]="school.data"
+                  >
+                  </option>
+                </datalist> -->
+                <div  *ngIf="schoolList?.length && hideFieldOfStudyDiv == true" class="form-group newClass">
+                  <div *ngFor="let school of schoolList"  >
+                      <span   (click)="segmentLogo(school?.domain, school?.university )">{{school?.university}}</span>
+                  </div>
+              </div>
+
+                <span
+                  *ngIf="
+                    addPosition.controls['school'].hasError('required') &&
+                    submitForm
+                  "
+                  class="reqrd"
+                  >Required</span
+                >
+              </div>
+              <div class="form-group">
+                <label for="">Qualification</label>
+                <select name="emp" formControlName="qualification">
+                  <option value="" disabled selected>Please select qualification</option>
+                  <option value="GCSE">GCSE</option>
+                  <option value="IB">IB</option>
+                </select>
+                <span
+                  *ngIf="
+                    addPosition.controls['qualification'].hasError(
+                      'required'
+                    ) && submitForm
+                  "
+                  class="reqrd"
+                  >Required</span
+                >
+              </div>
+              <div class="form-group">
+                <label for="">Year</label>
+                <select name="emp" formControlName="year">
+                  <option value="" disabled selected hidden>Please select year</option>
+                  <option *ngFor="let option of options " value="{{option}}">{{option}}</option>
+                </select>
+                <span
+                  *ngIf="
+                    addPosition.controls['year'].hasError('required') &&
+                    submitForm
+                  "
+                  class="reqrd"
+                  >Required</span
+                >
+              </div>
+              <div class="form-group">
+                <label for="">Subject</label>
+                <input
+                  type="text"
+                  formControlName="subject"
+                  placeholder="Enter a subject"
+                />
+                <span
+                  *ngIf="
+                    addPosition.controls['subject'].hasError('required') &&
+                    submitForm
+                  "
+                  class="reqrd"
+                  >Required</span
+                >
+              </div>
+              <div class="form-group">
+                <label for="">Grade</label>
+                <input
+                  type="text"
+                  formControlName="grade"
+                  placeholder="Enter a grade"
+                />
+                <span
+                  *ngIf="
+                    addPosition.controls['grade'].hasError('required') &&
+                    submitForm
+                  "
+                  class="reqrd"
+                  >Required</span
+                >
+              </div>
+
+              <div class="btns">
+                <a
+                  href="javascript:void(0)"
+                  *ngIf="editInfo"
+                  class="trans"
+                  (click)="removeEducation()"
+                  >Remove Qualification</a
+                >
+                <a
+                  href="javascript:void(0)"
+                  *ngIf="!editInfo"
+                  (click)="onAddEducation()"
+                  ><img src="assets/images/addicon.svg" alt="" />&nbsp;Add a
+                  Qualification</a
+                >
+                <a
+                  href="javascript:void(0)"
+                  *ngIf="editInfo"
+                  (click)="onEditEducation()"
+                  ><img src="assets/images/addicon.svg" alt="" />&nbsp;Edit a
+                  Qualification</a
+                >
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ngx-spinner
+  bdOpacity="0.9"
+  bdColor="rgba(22,36,75,0.35)"
+  size="medium"
+  color="#080041"
+  type="ball-square-clockwise-spin"
+  [fullScreen]="true"
+>
+  <p style="color: white;">Please wait...</p>
+</ngx-spinner>

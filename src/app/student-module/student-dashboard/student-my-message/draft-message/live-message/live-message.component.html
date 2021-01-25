@@ -1,0 +1,58 @@
+<div id="LiveMessageExchanges1" class="tab-pane fade in active">
+    <div class="advisore-message-scr" *ngIf="draftData?.length">
+      <div class="invoicebilling basic-membership ">
+        <div class="table-wrpper">
+          <table class="table">
+            <thead>
+              <tr>
+                <th id="checkth" class="rm-chk">
+                  <div class="iline">
+                    <div class="form-group">
+                      <input type="checkbox" id="html7" (change)="selectAll()"
+                        [(ngModel)]="selectedAll">
+                      <label for="html7"></label>
+                    </div>
+                  </div>
+                  Action
+                </th>
+                <!-- <th scope="col">Action</th> -->
+                <th scope="col">Advisor</th>
+                <th scope="col">Subject</th>
+                <th scope="col">Received</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let draftBox of draftData"
+                [ngClass]="{'notClass': draftBox.isRead == false}">
+                <td id="checktd">
+                  <div class="iline">
+                    <div class="form-group">
+                      <input type="checkbox" [id]="draftBox._id" (change)="studentsChecked()"
+                        [(ngModel)]="draftBox.value">
+                      <label [for]="draftBox._id"></label>
+                    </div>
+                  </div>
+                  {{draftBox?.status | titlecase}}
+                </td>
+                <!-- <td (click)="showMesage(draftBox?.questionId?._id)">{{draftBox?.status}}</td> -->
+                <td (click)="showMesage(draftBox?.questionId?._id)">{{draftBox.ownerId.firstName}} {{draftBox.ownerId.lastName}}</td>
+                <td>
+                  <p class="elipsis" (click)="showMesage(draftBox?.questionId?._id)">{{draftBox?.questionId?.title}}</p>
+                  <span class="elipsis" (click)="showMesage(draftBox?.questionId?._id)">{{draftBox?.reply}}</span>
+                </td>
+                <td (click)="showMesage(draftBox?.questionId?._id)">{{draftBox.createdAt | date: 'mediumDate'}}</td> 
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="advisore-message-scr" *ngIf="!draftData?.length">
+      <div class="invoicebilling basic-membership ">
+        <div class="table-wrpper">
+          <p class="new">Your Live message exchanges is empty!</p>
+        </div>
+      </div>
+    </div>
+   
+  </div>

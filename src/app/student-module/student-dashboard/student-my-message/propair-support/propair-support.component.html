@@ -1,0 +1,357 @@
+<div id="propair" class="tab-pane fade">
+    <div class="main new-s-in pror-s-sc">
+      <div class="inbox-wrapper">
+        <div class="archive-section">
+          <p>This is where your messages with ProPair are kept</p>
+        </div>
+        <div class="new-exchange refer-wpr">
+          <div class="new-draft-sc">
+            <div class="send-now" *ngIf="propairListArray?.length">
+              <a (click)="deletePropairSupportPopup()" style="cursor: pointer;" class="border_bule-btn">Delete</a>
+            </div>
+          </div>
+         
+          <a (click)="propairSupport()" style="cursor: pointer;" class="bg">Message ProPair Support</a>
+          <div class="custom-selects" >
+            <select name="" id="" style="cursor: pointer;" (change)="filterPropairSupport($event.target.value)">
+              <option value="all">All Messages</option>
+              <option value="read">Read messages</option>
+              <option value="unRead">Unread messages</option>
+
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="advisore-message-scr" *ngIf="propairListArray?.length">
+        <div class="invoicebilling basic-membership ">
+          <div class="table-wrpper">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th id="checkth" scope="col">
+                    <div class="iline">
+                      <div class="form-group">
+                        <input type="checkbox" id="html13" (change)="selectAllPropairSupport()"
+                          [(ngModel)]="selectedAll">
+                        <label for="html13"></label>
+                      </div>
+                    </div>
+                    Subject
+                </th>
+                <!-- <th scope="col">From</th> -->
+                <!-- <th scope="col">Subject</th> -->
+                <th scope="col">Date</th>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let propair of propairListArray ">
+                <td id="checktd">
+                  <div class="iline">
+                    <div class="form-group">
+                      <input type="checkbox" [id]="propair._id" [(ngModel)]="propair.value"
+                        (change)="propairChecked()">
+                      <label [for]="propair._id"></label>
+                    </div>
+                  </div>
+                  <div class="msg-preview">
+                    <p (click)="navigatePropairSupport(propair._id)" style="cursor: pointer;" class="elipsis">{{propair.subject}}</p>
+                    <span (click)="navigatePropairSupport(propair._id)" style="cursor: pointer;" [ngClass]="{'notClass': propair.isStudentRead == false , 'elipsis': propair.isStudentRead == true}">{{propair?.message}}</span>
+                </div>
+                </td>
+                
+                <!-- <td>{{propair.student[0].firstName ? propair.student[0].firstName : ' Propair Support' }} {{propair.student[0].lastName ? propair.student[0].lastName : '' }}</td> -->
+                <!-- <td *ngIf=" !propair.student[0].firstName">ProPair Support</td> -->
+                <!-- <td (click)="navigatePropairSupport(propair._id)" style="cursor: pointer;">
+                  <p class="elipsis">{{propair.subject}}</p>
+                  <span [ngClass]="{'notClass': propair.isStudentRead == false , 'elipsis': propair.isStudentRead == true}">{{propair?.message}}</span>
+                </td> -->
+                <td (click)="navigatePropairSupport(propair._id)" style="cursor: pointer;">
+                  {{propair.createdAt | date: 'MMM dd yyyy'}}</td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+    </div>
+    <div class="advisore-message-scr" *ngIf="!propairListArray?.length">
+      <div class="invoicebilling basic-membership ">
+        <div class="table-wrpper">
+          <p class="new">Your Propair support is empty!</p>
+      </div>
+    </div>
+    
+  </div>
+  </div>
+
+
+  <div class="close-modal-icon meesage-checklist">
+    <div class="modal fade" id="send-private" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header align-items-center">
+            <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to Send</h5>
+            <span class="outbox-prv-btn">{{typevalue}}</span>
+            <!--           
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+            </button> -->
+          </div>
+          <div class="modal-body">
+            <p class="color-blck">Quick Checklist:</p>
+            <p>Is the content clear?</p>
+            <p> Is the grammar and spelling good?</p>
+            <p> Have I asked & said everything I wanted to?</p>
+          </div>
+          <div class="modal-footer">
+            <div class="sendPopup">
+              <button type="button" class="green" (click)="sendNow()">Yes</button>
+              <button type="button" data-dismiss="modal">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="close-modal-icon infousermodal">
+    <div class="modal fade" id="info" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Message Exchange Statistics</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="flex-row-wrapper info-img">
+              <p>
+                <img src="assets/images/info-user.png" alt="img">
+                <span>{{studentStatsData?.firstName}}</span></p>
+              <p><img src="assets/images/eye-close.png" alt="img" class="eye"></p>
+            </div>
+            <div class="flex-row-wrapper">
+              <p>Date Completed</p>
+              <p>{{statsData?.completedDate | date: 'dd  MMM  y'}}</p>
+            </div>
+            <div class="flex-row-wrapper">
+              <p>My Review</p>
+              <p>{{statsData?.ratings}} Starts</p>
+            </div>
+            <div class="flex-row-wrapper">
+              <p># of Messages w/in</p>
+              <p>4</p>
+            </div>
+            <hr>
+            <div class="flex-row-wrapper">
+              <p>Student Views</p>
+              <p>{{statsData?.views}}</p>
+            </div>
+            <div class="flex-row-wrapper">
+              <p>Up Votes</p>
+              <p>{{statsData?.upvotes}}</p>
+            </div>
+            <div class="flex-row-wrapper">
+              <p>Favourited</p>
+              <p>146</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="close-modal-icon meesage-checklist message-cancel">
+    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header align-items-center">
+            <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to Delete</h5>
+            <!--           
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+                </button> -->
+          </div>
+          <div class="modal-footer">
+            <div class="sendPopup">
+              <button type="button" class="green" (click)="delete()">Yes</button>
+              <button type="button" data-dismiss="modal">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <!-- Modal reveiw-->
+  <div class="close-modal-icon reveiw">
+    <div class="modal fade" id="reveiw-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Review</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="star-rating">
+              <p>Overall rating {{averagevalue}}</p>
+              <ul>
+                <li><i class="fa fa-star " aria-hidden="true" 
+                    [ngClass]="{'green': averagevalue  >= 1}"></i></li>
+                <li><i class="fa fa-star " aria-hidden="true" 
+                    [ngClass]="{'green': averagevalue  >= 2}"></i></li>
+                <li><i class="fa fa-star " aria-hidden="true" 
+                    [ngClass]="{'green': averagevalue >= 3}"></i></li>
+                <li><i class="fa fa-star " aria-hidden="true" 
+                    [ngClass]="{'green': averagevalue  >= 4}"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"
+                    [ngClass]="{'green': averagevalue  ==  5}"></i></li>
+              </ul>
+            </div>
+            <div class="comment">
+              <form [formGroup]="ReviewForm">
+                <textarea formControlName="reviews" #reviewArea (keyup)="0" maxlength="1000">Please give your feedback here - it really helps 
+                  the wider community of students as well helping us
+                  make better matches, Plus you earn MPs for it!</textarea>
+              </form>
+            </div>
+            <div *ngIf="ReviewForm.controls.reviews.hasError('maxlength')">
+              <font color="red"> Please do not exceed 1000 characters </font>
+            </div>
+            <span class="charter-limit">{{reviewArea.value?.length}}/1000Characters</span>
+            <div class="star-rating">
+              <p>Helpfulness</p>
+              <ul>
+                <li><i class="fa fa-star " aria-hidden="true" (click)="helpFul(1)"
+                    [ngClass]="{'green': helpFulValue  >= 1}"></i></li>
+                <li><i class="fa fa-star " aria-hidden="true" (click)="helpFul(2)"
+                    [ngClass]="{'green': helpFulValue  >= 2}"></i></li>
+                <li><i class="fa fa-star " aria-hidden="true" (click)="helpFul(3)"
+                    [ngClass]="{'green': helpFulValue  >= 3}"></i></li>
+                <li><i class="fa fa-star " aria-hidden="true" (click)="helpFul(4)"
+                    [ngClass]="{'green': helpFulValue  >= 4}"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true" (click)="helpFul(5)"
+                    [ngClass]="{'green': helpFulValue  >= 5}"></i></li>
+              </ul>
+            </div>
+            <div class="star-rating">
+              <p>Relevance</p>
+              <ul>
+                <li><i class="fa fa-star " aria-hidden="true" (click)="relevance(1)"
+                    [ngClass]="{'green': relevanceValue  >= 1}"></i></li>
+                <li><i class="fa fa-star " aria-hidden="true" (click)="relevance(2)"
+                    [ngClass]="{'green': relevanceValue  >= 2}"></i></li>
+                <li><i class="fa fa-star " aria-hidden="true" (click)="relevance(3)"
+                    [ngClass]="{'green': relevanceValue  >= 3}"></i></li>
+                <li><i class="fa fa-star " aria-hidden="true" (click)="relevance(4)"
+                    [ngClass]="{'green': relevanceValue  >= 4}"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true" (click)="relevance(5)"
+                    [ngClass]="{'green': relevanceValue  >= 5}"></i></li>
+              </ul>
+            </div>
+            <div class="star-rating">
+              <p>Clarity</p>
+              <ul>
+                <li><i class="fa fa-star " aria-hidden="true" (click)="clarity(1)"
+                    [ngClass]="{'green': clarityValue  >= 1}"></i></li>
+                <li><i class="fa fa-star " aria-hidden="true" (click)="clarity(2)"
+                    [ngClass]="{'green': clarityValue  >= 2}"></i></li>
+                <li><i class="fa fa-star " aria-hidden="true" (click)="clarity(3)"
+                    [ngClass]="{'green': clarityValue  >= 3}"></i></li>
+                <li><i class="fa fa-star " aria-hidden="true" (click)="clarity(4)"
+                    [ngClass]="{'green': clarityValue  >= 4}"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true" (click)="clarity(5)"
+                    [ngClass]="{'green': clarityValue  >= 5}"></i></li>
+              </ul>
+            </div>
+  
+          </div>
+          <div class="modal-footer inline-footer">
+            <button type="button" class="green" (click)="reviewSubmit(1)">Submit</button>
+            <button type="button" (click)="reviewSubmit(0)">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+  
+  
+  <!-- Modal message-inbox studentpopup-->
+  <div class="close-modal-icon  curent-msg-inbox prpr-sup-fr-studnet">
+    <div class="modal fade" id="message-inbox" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">New Message to ProPair Support</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+            </button>
+          </div>
+          <form [formGroup]="propairForm">
+            <div class="modal-body">
+                <input type="text" formControlName="subject" placeholder="Subject" class="w-100">
+                <textarea formControlName="message" row="5" placeholder="Type message here...">  </textarea>
+            </div>
+           
+          </form>
+          <div class="propairImage" *ngIf = "imageUrl?.length">
+            <div *ngFor="let image of imageUrl">
+              <img  [src]="image" class="img-fluid" (click)="imageClick(image)">
+              <span><i class="fa fa-times" aria-hidden="true" (click)="removeImgae(image)"></i></span>
+            </div>
+          </div>
+          <div class="modal-footer inline-footer">
+            <button type="button"  class="cncle"    class="border_bule-btn" data-dismiss="modal" (click)="cancel()">Cancel</button>
+            <div class="upload-btn-wrapper">
+              <button class="btn upicn"><i class="fa fa-paperclip" aria-hidden="true"></i></button>
+              <input type="file"   name="file"  class="" (change)="uploadFile($event.target.files)"/>
+            </div>
+            <button type="button" class="green" (click)="sendPropair()">Send</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+  
+  
+  
+  <div class="close-modal-icon meesage-checklist message-cancel">
+    <div class="modal fade" id="deletePropair" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header align-items-center">
+            <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to Delete</h5>
+                      
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+            </button>
+          </div>
+          <div class="modal-footer">
+            <div class="sendPopup">
+              <button type="button" class="green" (click)="deleteMessagePropairSupport()">Yes</button>
+              <button type="button" data-dismiss="modal">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+

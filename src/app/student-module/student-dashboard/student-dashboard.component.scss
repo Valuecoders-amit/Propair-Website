@@ -1,0 +1,21 @@
+.close-modal-icon .modal-header {padding: 22px 40px;}
+.close-modal-icon .modal-header .modal-title{font-size: 30px; font-family: 'Source Sans Pro', sans-serif; font-weight: 600; }
+.close-modal-icon .modal-footer button{height: 60px;}
+.Dashboard-screen .live-request .number div p{    margin-bottom: 0;}
+@media(max-width:767px){
+    .close-modal-icon .modal-header .modal-title{
+		font-size: 18px;
+	}
+	.close-modal-icon .modal-footer button{
+		height: 40px;
+	}
+}
+
+
+
+@media(max-width:1600px){
+    .close-modal-icon .modal-header .modal-title{
+		font-size: 24px;
+	}
+}
+

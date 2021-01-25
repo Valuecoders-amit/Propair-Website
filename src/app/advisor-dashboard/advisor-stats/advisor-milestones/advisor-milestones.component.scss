@@ -1,0 +1,155 @@
+.milestone {
+    margin-bottom: 30px;
+}
+
+.milestone .card-box {
+    background: #fff;
+    padding: 15px 35px;
+    border-radius: 12px;
+}
+.milestone .card-box .socailimpact {
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    background: #fff;
+    height: auto;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.socailimpact h3 {
+    font-size: 24px;
+    color: #33e2d1;
+    line-height: 36px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 500;
+}
+.milestone .card-box .live-request {
+    margin-top: 30px !important;
+}
+
+.milestone .live-request .number {
+    margin-top: 0;
+    justify-content: space-between;
+}
+.invoicebilling .table-wrpper table {
+    width: 970px;
+}
+.milestone .live-request .number div {
+    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
+    width: auto;
+}
+.socailimpact .live-request .number div p {
+    font-size: 42px;
+    font-weight: 600;
+}
+.milestone .live-request .number div span {
+    color: #7f7f7f;
+    line-height: 34px;
+}
+
+.milestone .card-box .progress {
+    border: 2px solid #f0f0f0;
+    background-color: #fff;
+    border-radius: 9px;
+    padding: 5px;
+    height: 42px;
+}
+
+.milestone .card-box .progress .progress-bar {
+    border-radius: 9px;
+    padding: 5px;
+    background: #d5d5d5;
+}
+
+
+
+.basd-profile {
+    margin-bottom: 25px;
+}
+.basd-profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.permnce-text {
+    font-size: 20px !important;
+    font-weight: 400 !important;
+    color: #33e2d1 !important;
+}
+
+.invoicebilling .table-wrpper {
+    background: #fff;
+    border: none;
+    border-radius: 25px;
+}
+.table thead th{
+    border-bottom: 1px solid #efefef;
+}
+
+.milestone .card-box .live-request.karmabar{
+    margin-top: 46px !important;
+}
+
+@media(max-width:1600px){
+    .col-md-9{
+      max-width: 100%;
+      flex: 0 0 100%;
+    }
+    .milestone .card-box{
+        padding: 15px 30px;
+        height: 169px;
+    }
+   .main{
+        padding: 15px 30px;
+    }
+    .socailimpact h3{    font-size: 20px;}
+    .socailimpact .live-request .number div p {
+        font-size: 26px;
+        margin-bottom: 0;
+    }
+    .milestone .card-box .live-request.karmabar{
+        margin-top: 30px !important;
+    }
+    .table thead th{
+        border-bottom: 1px solid #efefef;
+    }
+    .invoicebilling .table-wrpper table {
+        width: 100%;
+      }
+}
+@media(max-width:1350px){
+    .table thead th{
+        border-bottom: 1px solid #efefef;
+    }
+    .invoicebilling .table-wrpper table {
+      width: 100%;
+    }
+  }
+@media(max-width:991px){
+    .socailimpact .live-request .number div p{
+        font-size: 30px;
+        margin-bottom: 0;
+    }
+    .milestone .card-box .live-request.karmabar{
+        margin-top: 30px !important;
+    }
+    
+}
+@media(max-width:767px){
+    .milestone .card-box{
+        padding: 15px 15px;
+        margin-bottom: 15px;
+    }
+    .milestone{
+        margin-bottom:5px;
+    }
+    .main{
+        padding: 15px 15px;
+    }
+    .socailimpact .live-request .number div p{
+        font-size: 20px;}
+}

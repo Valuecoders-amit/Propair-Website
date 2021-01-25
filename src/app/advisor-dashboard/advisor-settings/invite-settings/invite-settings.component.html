@@ -1,0 +1,124 @@
+<div
+id="i_friend"
+class="tab-pane fade in"
+style="background: #fafafa;"
+>
+<div class="newcards-setting">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="dasshbord-content-wrapper">
+        <h3>Results</h3>
+        <div class="live-request">
+          <div class="number justify-content-between w-100">
+            <div class="text-left">
+              <p>{{ referralData?.views ? (referralData?.views | number) : '0' }}</p>
+              <span>Clicks</span>
+            </div>
+            <div class="text-left">
+              <p>{{ referralData?.signupCount ? (referralData?.signupCount | number) : '0' }}</p>
+              <span>Signups</span>
+            </div>
+            <div class="text-left">
+              <p>{{referralData?.kp ? (referralData?.kp | number) : '0'}}</p>
+              <span>Karma Points</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-4 col-lg-6 col-md-6">
+      <div class="dasshbord-content-wrapper">
+        <div class="email-wrpper">
+          <input
+            type="text"
+            placeholder="Enter your Email"
+            [value]="link"
+            #userinput
+            readonly
+          />
+          <button>
+            <img
+              src="assets/images/emial.png"
+              alt="img"
+              (click)="copyInputMessage(userinput)"
+            />
+          </button>
+        </div>
+        <div class="setting-social-lk">
+
+
+          <!-- <div class="row">
+            <div class="col">
+                <fb-like url={{url}}></fb-like>
+            </div>
+           
+            <div class="col">
+                <tweet url={{url}} text={{text}}></tweet>
+            </div>
+            <div class="col">
+                <linkedin-share url={{url}}></linkedin-share>
+            </div>
+           
+        </div> -->
+
+
+          <ul>
+
+            <!-- <fb-like url="http://propairweb.n1.iworklab.com"></fb-like> -->
+            
+            <li>
+              <a
+                (click)="goToLink(1)"
+                class="facebook-btn"><img
+                  src="assets/images/facebk.png"
+                  alt="img"
+              /></a>
+            </li>
+            <li>
+              <a (click)="goToLink(2)"
+               class="twitter-btn"
+                ><img src="assets/images/twit.png" alt="img"
+              /></a>
+            </li>
+            <li>
+              <a
+                (click)="
+                  goToLink(3)"
+                  class="linkedin-btn"
+                ><img
+                  src="assets/images/linkidin.png"
+                  alt="img"
+              /></a>
+            </li>
+            <!-- <li>
+              <a
+                (click)="
+                  goToLink(4)
+                "
+                class="google-btn"
+                ><img src="assets/images/gmail.png" alt="img"
+              /></a>
+            </li> -->
+          </ul>
+        </div>
+        <!-- <div class="social_container">
+          <ul class="socials">
+             <li>
+                <span>SHARE</span>
+             </li>
+             <li class="facebook">
+                <a [href]="facbookUrl" target="_blank"><img alt="facebook" src="https://www.solodev.com/assets/social-share/facebook.jpg"></a>
+             </li>
+             <li class="twitter">
+                <a [href]="twitterUrl" target="_blank"><img alt="twitter" src="https://www.solodev.com/assets/social-share/twitter.jpg"></a>
+             </li>
+             <li class="linkedin">
+                <a [href]="linkedUrl" target="_blank"><img alt="linkedin" src="https://www.solodev.com/assets/social-share/linkedin.jpg"></a>
+             </li>
+          </ul>
+       </div> -->
+      </div>
+    </div>
+  </div>
+</div>
+</div> 

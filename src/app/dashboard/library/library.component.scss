@@ -1,0 +1,17 @@
+.library_actual { margin-top: 130px; }
+.library_actual .fav-like{ margin: 0 0px 40px 0;display: flex; justify-content: space-between; align-items: flex-start; }
+.library_actual .fav-brn { display: flex; }
+.library_actual .fav-brn div{ display: flex; align-items: center; margin-left: 45px;}
+.library_actual .fav-brn div img{margin-right: 24px;}
+.library_actual .fav-brn div p{font-size: 18px;}
+.library_actual .fav-like .live-heding{position: relative;}
+.library_actual .fav-like .live-heding h5{color: #bdbdbd; font-size: 18px;font-family: 'Source Sans Pro', sans-serif;    line-height: 100px;}
+.library_actual .fav-like .live-heding .live-tag{ position: absolute; font-size: 14px; padding: 7px 18px; background: #33e2d1; color: #fff; top: -35px; border-radius: 25px; right: -65px; -webkit-border-radius: 25px; -moz-border-radius: 25px; -ms-border-radius: 25px; -o-border-radius: 25px; }
+
+
+
+.library_function {padding: 32px 35px; }
+
+#Library_Actual{
+    background: #fafafa;
+}

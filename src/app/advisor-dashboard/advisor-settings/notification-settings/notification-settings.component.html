@@ -1,0 +1,116 @@
+<div id="Notifications" class="tab-pane fade in">
+    <div class="row">
+      <div class="col-12">
+        <div class="school-wrapper">
+          <p class="tag-line-radio">
+            When you have a New Message Exchange Request, when
+            would you like us to let you know?
+          </p>
+          <div class="radio-box">
+            <form >
+              <p>
+                <input
+                  type="radio"
+                  id="test10"
+                  name="radio-group"
+                  [checked]="
+                    userData.newMessageRequest === 'immediately'
+                  "
+                  value="immediately"
+                  (change)="
+                    checkNotification($event.target.value)
+                  "
+                />
+                <label for="test10"
+                  >Let me know Immediately</label
+                >
+              </p>
+              <p>
+                <input
+                  type="radio"
+                  id="test12"
+                  name="radio-group"
+                  [checked]="
+                    userData.newMessageRequest === 'endOfDay'
+                  "
+                  value="endOfDay"
+                  (change)="
+                    checkNotification($event.target.value)
+                  "
+                />
+                <label for="test12"
+                  >Let me know at the end of the day</label
+                >
+              </p>
+              <p>
+                <input
+                  type="radio"
+                  id="test13"
+                  name="radio-group"
+                  [checked]="
+                    userData.newMessageRequest ===
+                    'TurnOffNotification'
+                  "
+                  value="TurnOffNotification"
+                  (change)="
+                    checkNotification($event.target.value)
+                  "
+                />
+                <label for="test13">Turn notifictions off</label>
+              </p>
+            </form>
+          </div>
+          <div class="sbmt-btn">
+            <a (click)="updateNotification()">Save</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12" *ngIf="!hideNotification">
+        <div class="school-wrapper mt">
+          <p class="tag-line-radio">
+            When you have a new message from an on-going Message
+            Exchange, when would you like us to let you know?
+          </p>
+          <div class="radio-box" >
+            <form action="#">
+              <p>
+                <input
+                  type="radio"
+                  id="test7"
+                  name="radio-group"
+                  [checked]="
+                    userData.onGoingMessage === 'immediately'
+                  "
+                  value="immediately"
+                  (change)="
+                    checkOnGoingNotification($event.target.value)
+                  "
+                />
+                <label for="test7">Let me know immediately</label>
+              </p>
+              <p>
+                <input
+                  type="radio"
+                  id="test6"
+                  name="radio-group"
+                  [checked]="
+                    userData.onGoingMessage === 'endOfDay'
+                  "
+                  value="endOfDay"
+                  (change)="
+                    checkOnGoingNotification($event.target.value)
+                  "
+                />
+                <label for="test6"
+                  >Let me know at the end of the day</label
+                >
+              </p>
+            </form>
+          </div>
+          <div class="sbmt-btn">
+            <a (click)="updateOnGoingNotification()">Save</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

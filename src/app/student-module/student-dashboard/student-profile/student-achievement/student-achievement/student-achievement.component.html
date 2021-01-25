@@ -1,0 +1,29 @@
+<div id="education" class="tab-pane fade in">
+    
+    <div  class="background-spec-cl new-sub-tab">
+        <p class="tip"> <img src="assets/images/quicktip.png" alt=""> This information is to help our Advisors understand you better but other students cannot see this </p>
+          <div class="timmy-tabb">
+            <div  class="top-list-bt">
+              <ul class="nav nav-tabs">
+                <li><a data-toggle="tab" 
+                    routerLink="/student-module/dashboard/student-profile/student-achievements/student-education"
+                    [ngClass]="{'active': currentResource == 'student-education'}">Education</a></li>
+                <li><a data-toggle="tab" 
+                    routerLink="/student-module/dashboard/student-profile/student-achievements/student-work"
+                    [ngClass]="{'active': currentResource == 'student-work'}">Work Experience</a></li>
+                <li><a data-toggle="tab"
+                    routerLink="/student-module/dashboard/student-profile/student-achievements/student-extras"
+                    [ngClass]="{'active': currentResource == 'student-extras'}">Extracurricular</a></li>
+                <li><a data-toggle="tab" 
+                    routerLink="/student-module/dashboard/student-profile/student-achievements/student-skill"
+                    [ngClass]="{'active': currentResource == 'student-skill'}">Skills</a></li>
+              </ul>
+            </div>
+            <div class="tab-content remv-prop">
+                <router-outlet></router-outlet>
+                
+            </div>
+          </div>
+     
+    </div>
+  </div>

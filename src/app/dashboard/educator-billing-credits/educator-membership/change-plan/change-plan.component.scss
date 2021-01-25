@@ -1,0 +1,60 @@
+.expirebl .table td, .table th{border-top: none; white-space: nowrap; font-family: 'Source Sans Pro', sans-serif; font-size: 18px; color: #373636;}
+.expirebl .table thead th{border-bottom: 1px solid #efefef; white-space: nowrap; font-family: 'Source Sans Pro', sans-serif; font-weight: 400;  color: #373636;  font-size: 20px;}
+.expirebl .table tr.grey td{color: #b3b2b2;}
+.quicktip-wrp img{margin-left: 8px; height: 18px; cursor: pointer; position: relative; opacity: 50%;}
+
+.chnge-plan a{background: #33e2d1; border-radius: 8px;     font-size: 16px; color: #fff;height: 45px;max-width: 185px;width: 100%; text-align: center; display: flex;align-items: center;justify-content: center; } 
+.chnge-plan.no-bg a{background: transparent; color: #007de4; font-size: 16px; box-shadow: none; height: auto;}
+
+// .table thead th:last-child{
+//     padding-right: 20px !important;
+//     padding-left: 25px !important;
+// }
+// .expirebl table tbody td:last-child{padding-right: 0px !important;}
+
+.quick-tip-box{ padding: 10px 15px; border-radius: 12px; background: #fff; max-width: 320px; width: 100%; display: block; position: absolute; left: 80px;}
+.quick-tip-box h3{font-size: 16px; font-family: 'Source Sans Pro', sans-serif; font-weight: 600}
+.quick-tip-box p{font-size: 14px; color: #7f7f7f; padding-right: 0;}
+
+.riotAccount { font-size: 30px; max-width: 610px; }
+.riotAccount .modal-body{ padding: 0 !important; }
+.riotAccount .import-stu-wrapper .import-stu-box{background: #fff; padding: 40px 0;}
+.riotAccount  .tournament_create_inner h3{background:#e4e4e4; color: #373636; font-family: 'Source Sans Pro', sans-serif; font-weight: 600;  text-align: left; font-size: 30px;   padding: 22px 35px; margin-bottom:0;}
+.riotAccount .modal-dialog{max-width: 700px; text-align: center; }
+// .riotAccount .modal-body{background: #fff; padding: 50px; border-radius: 25px;}
+.riotAccount .modal-body img{max-width: 230px; text-align: center; }
+// .riotAccount .details{ text-align: left; margin-top: 70px; }
+.riotAccount .details label{font-size: 24px; margin: 15px 0;  color:#000; font-family: 'Conv_AvenirLTStd-Medium'; }
+.riotAccount .import-stu-wrapper .import-stu-box .import-button-box .submit{ font-size: 20px; text-transform: capitalize; background: transparent; border:none; max-width: 310px; width: 100%; padding: 13px 0; border-radius:8px; border: 2px solid #ecebeb; margin: 15px 0; font-family: 'Source Sans Pro', sans-serif; color: #7f7f7f; -webkit-border-radius:8px; -moz-border-radius:8px; -ms-border-radius:8px; -o-border-radius:8px; }
+.riotAccount .import-stu-wrapper .import-stu-box .import-button-box img{margin-right: 20px;}
+.fileUpload{ display: none; }
+.riotAccount .import-stu-wrapper .import-stu-box .import-button-box .download{margin-left:55px;  background: #33e2d1; color: #fff; text-transform: capitalize; border: 2px solid #33e2d1;}
+.riotAccount .close{position: absolute; top: 23px; right: 40px;}
+
+
+.close-modal-icon .modal-header {padding: 22px 40px;}
+.close-modal-icon .modal-header .modal-title{font-size: 30px; font-family: 'Source Sans Pro', sans-serif; font-weight: 600; }
+.close-modal-icon .modal-footer button{height: 60px;}
+
+.meesage-checklist .modal-dialog{max-width: 600px;}
+.meesage-checklist .modal-body p{font-size: 20px; color: #7f7f7f; line-height: 48px;     margin: 15px 0;}
+
+#declineModal .modal-dialog{
+	max-width: 590px;
+    width: 100%;
+}
+#ChangePlan .table-wrapper .table tbody td select { 
+    width: 120px;
+    border: 1px solid #efefef;
+}
+
+@media(max-width:1600px){
+    .expirebl .table thead th{font-size: 16px;}
+    .expirebl .table th{font-size: 16px;}
+    .expirebl .table td{font-size: 14px;}
+}
+
+@media(max-width:575px){
+    .table-wrapper{overflow-x: auto; margin-top: 15px;}
+   
+}

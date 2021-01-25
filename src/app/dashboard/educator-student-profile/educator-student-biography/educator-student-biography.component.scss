@@ -1,0 +1,35 @@
+
+
+.brief-bhead p{color: #33e2d1; font-size: 20px;     font-weight: 500;}
+.brief-bhead .custom-selects select{height: 40px;}
+.brief-bhead .custom-selects {max-width: 130px; }
+.brief-bhead .custom-selects select{background: url(/assets/images/cus-sl-arrow.png) 93% / 10% no-repeat #fff;}
+.editableontent-W{padding: 15px 40px; border-radius: 12px;background: #fff; display: flex;}
+.editableontent-W p{width: 100%;  padding-right: 50px; margin-bottom: 0;}
+.background-spec-cl{ margin-top: 30px;     background: #fff;   padding: 40px 40px; border-radius: 12px;}
+
+td p.elipsis{max-width: 400px;}
+
+ .meesage-checklist .modal-dialog{max-width: 600px;}
+ .meesage-checklist .modal-body p{font-size: 20px; color: #7f7f7f; line-height: 48px;     margin: 15px 0;}
+ .message-listing-wrapper .basic-membership .table-wrpper .table td span.elipsis{    width: 300px;}
+
+ .close-modal-icon .modal-header {padding: 22px 35px;}
+ .modal-header h5{
+    font-size: 30px;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 600;
+}
+.mess-re-ex textarea{
+    min-height: 250px;
+}
+.table-wrpper { border-radius: 12px; border: 1px solid #efefef; }
+.table-wrpper p { margin-bottom: 0; }
+
+@media(max-width:1600px){
+    .brief-bhead p { font-size: 16px; }
+    .custom-selects select { font-size: 16px; }
+    .editableontent-W { padding: 15px 30px; }
+    .editableontent-W p { font-size: 14px; }
+    .background-spec-cl { padding: 15px 30px 30px; margin-top: 15px; }
+}

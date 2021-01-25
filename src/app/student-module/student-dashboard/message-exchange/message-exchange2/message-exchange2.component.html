@@ -1,0 +1,164 @@
+
+    <div class="message-exchng primary ">
+      <div class="d-flex justify-content-between">
+        <h3>Tags help the right Advisors find and answer your questions</h3>
+        <div class="custom-selects bigsl">
+          <select name="" id="" (change)="type($event.target.value)" [(ngModel)]="selecetdValue" *ngIf="checkType">
+            <option value="public">Public Message Exchange (1 Credit)</option>
+          </select>
+    
+          <select name="" id="" (change)="type($event.target.value)" [(ngModel)]="selecetdValue" *ngIf="!checkType">
+            <option value="public">Public Message Exchange (1 Credit)</option>
+            <option value="private">Private Message Exchange (2 Credits)</option>
+          </select>
+        </div>
+      </div>
+  </div>
+  <div class="listing-box-title">
+    <div class="quicktip">
+        <p><img style="height:15px; margin-bottom:3px; margin-right: 6px" src="assets/images/quicktip.png" alt="img">Identify your tags by completing the sentence, "My questions are about or involve..."</p>
+    </div>
+    <div class="greenRedlisting">
+          <ul>
+              <li>
+                <img src="assets/images/greentick.svg" alt="">
+                Only include tags that are crucial & relevant
+              </li>
+              <li>
+                <img src="assets/images/greentick.svg" alt="">
+                You can use the drop down menus below to help you
+              </li>
+          </ul>
+          <ul>
+            <li>
+              <img src="assets/images/greentick.svg" alt="">
+              You need to add atleast 3 tags and no more than 10
+            </li>
+        </ul>
+    </div>
+</div>
+    <div class="fild-box">
+      <form [formGroup]="tagForm">
+        <div class="group">
+          <label for="">Tags*</label>
+          <div class="tag-pane-wrapper">
+              <div class="tagList-wrp">
+                <div *ngFor="let questionTag of tempTags ;let i=index;">
+                    <span class="miniblock-s">{{questionTag}}<a (click)="delete(questionTag,i)"><img src="assets/images/close-small-lt.svg" alt="" style="opacity: 0.8;"></a></span> 
+                  </div>
+              </div>
+                <div class=" enter-key">
+                  <input   type="text" name="email" [placeholder]="placeHolder"
+                  formControlName="tags"  (keyup.enter)="enter()"/>
+      
+                </div>
+              </div>
+                  <!-- <div *ngIf="(tagForm.get('tags').invalid) && (tagForm.get('tags').touched)">
+                    <div *ngIf="tagForm.get('tags').errors.required"><font color="red">Please enter tags</font></div>
+        
+                </div> -->
+          <!-- <input type="text" id="fname"  name="email" placeholder="Start typing and/or use the drop down menus below to help you" 
+          formControlName="tags" 
+           (keyup.enter)="enter()"/> -->
+          <!-- <div class="tagList">
+          <div *ngFor="let questionTag of tempTags ;let i=index;">
+              <div>
+          <span class="miniblock">
+            {{questionTag}}</span>
+            <span class="cross_btn" (click)="delete(questionTag,i)"></span>
+           </div>
+        </div>
+      </div> -->
+      </div>
+        <div class="group mt-30">
+          <label for="">Mandatory Tags</label> 
+          <div class="tags-fields">
+              <div class="fields">
+                  <span class="nonwidth">Sectors*</span>
+                  <div class="public-slect">
+
+                    <ng-multiselect-dropdown
+
+                    formControlName="sector"
+                    [placeholder]="' Select Sectors'"
+                    [data]="sectorTags"
+                    [settings]="dropdownSettings"
+                    (onSelect)="onSectorSelect($event)"
+                    (onDeSelect) = "onItemDeSelectSector($event)"
+
+                    
+
+                  >
+                  </ng-multiselect-dropdown>
+
+                  <!-- <select name="" class="dropdownColor" id="" formControlName="sector" >
+                    <option [value]="Tags._id" *ngFor="let sector of sectorTags"><input type="checkbox">{{sector.name}}</option>
+                </select> -->
+                  <!-- <div *ngIf="(tagForm.get('sector').invalid) && (tagForm.get('sector').touched)">
+                    <div *ngIf="tagForm.get('sector').errors.required"><font color="red">Please select sector</font></div>
+
+                </div> -->
+                </div>
+              </div>
+              <div class="fields">
+                <span class="nonwidth">Advice Areas*</span>
+                <div class="public-slect">
+
+                  <ng-multiselect-dropdown
+                  formControlName="adviceAreas"
+                  [placeholder]="'Select Advise Areas'"
+                  [data]="advice"
+                  [settings]="dropdownSettings"
+                  (onSelect)="onAdviseAresSelect($event)"
+                  (onDeSelect) = "onItemDeSelectAdviseArea($event)"
+                >
+                </ng-multiselect-dropdown>
+
+
+                  <!-- <select name="" class="dropdownColor" id="" formControlName="adviceAreas" >
+                    <option [value]="Tags._id" *ngFor="let Tags of advice"><input type="checkbox">{{Tags.name}}</option>
+                </select> -->
+                <!-- <div *ngIf="(tagForm.get('adviceAreas').invalid) && (tagForm.get('adviceAreas').touched)">
+                  <div *ngIf="tagForm.get('adviceAreas').errors.required"><font color="red">Please select advice area</font></div>
+
+              </div> -->
+              </div>
+            </div>
+          </div> 
+        </div>
+      </form>
+    </div>
+    <div class="exchange-buttons">
+      <input type="button" name="Cancel" class="cancel same-field" value="Cancel" (click)="cancel()"/>
+      <input type="button" name="Save Draft" class="Save-Draft same-field" value="Save Draft"  (click)="draft()"/>
+      <input type="button" name="previous" class="previous previous-ab  action-button same-field" value="Previous Step" (click)="privious()" />
+      <input type="button" name="next" class="next action-button same-field" value="Next"  (click)="next()"/>
+      <button [hidden]=true id="cancelModal" data-toggle="modal" data-target="#delet-request">cancel</button>
+    </div>
+
+     <!-- Modal -->
+ <div class="advisor-modal remvspcs">
+  <div class="close-modal-icon meesage-checklist"> 
+    <div class="modal fade" id="delet-request" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to delete?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Make sure you save a draft otherwise you will lose this data</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button"  class="green" (click)="cancelSubmit()">Yes</button>
+            <button type="button" data-dismiss="modal" >Cancel</button>
+            <button [hidden]=true id="closeCancelModal" data-dismiss="modal" data-target="#delet-request">close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->

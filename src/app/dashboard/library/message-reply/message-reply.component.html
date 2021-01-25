@@ -1,0 +1,187 @@
+
+  <div class="customsht-screen">
+    <div class="stud-lib-chat-m">
+      <div class="row">
+    
+        <div class="col-md-12">
+          <div class="library_function">
+            <h3> <a  class="backarrow"><img src="assets/images/backarr.png" alt="img" (click)="back()"></a><span (click)="back()" style="cursor: pointer;">Library</span></h3>
+          </div>
+          <div class="library_actual">
+            <div class="row">
+                <div class="col-12">
+                    <div class="fav-like">
+                        <div class="live-heding">
+                            <h4>{{messageExchangeArchiveThread?.question?.title | titlecase}}</h4>
+                        </div>                                       
+                    </div>
+                    <div class="live-line">
+                      <div *ngIf="messageExchangeArchiveThread?.question?.type == 'public'">
+                      <ul>
+                        <li>Public Message Exchange request submitted on {{messageExchangeArchiveThread?.question?.createdAt |date: 'd MMM y'}}</li>
+                        <li *ngIf="messageExchangeArchiveThread?.question.isCompleted == true">completed on {{messageExchangeArchiveThread?.question?.completedDate |date: 'd MMM y'}}</li>
+                        <li *ngIf="messageExchangeArchiveThread?.question.isCompleted == false">Live</li>
+                      </ul> 
+                    </div> 
+                    <div *ngIf="messageExchangeArchiveThread?.question?.type == 'private'">
+                      <ul>
+                        <li>Private Message Exchange request submitted on {{messageExchangeArchiveThread?.question?.createdAt |date: 'd MMM y'}}</li>
+                        <li *ngIf="messageExchangeArchiveThread?.question.isCompleted == true">completed on {{messageExchangeArchiveThread?.question?.completedDate |date: 'd MMM y'}}</li>
+                        <li *ngIf="messageExchangeArchiveThread?.question.isCompleted == false">Live</li>
+                      </ul>
+                    </div>      
+                    </div>
+                   <div class="data-scince-subject">
+                      <div class="result-box" >
+                        <div class="result li" >
+                            <p *ngFor="let tag of messageExchangeArchiveThread?.question?.tags">{{tag | titlecase}}</p>
+                           
+                        </div>
+                        <div class="relevant">
+                          <!-- <span>Bonus <b>3 KPs</b></span> -->
+                        </div>
+                    </div>
+                   </div>
+                   <div class="row">
+                      <div class="col-xl-1 col-md-1">
+                          <div class="student-portal-link left-upvots">
+                              <div class="view w-100">
+                                <div style="cursor: pointer;">
+                                  <b >{{messageExchangeArchiveThread?.question?.views | number}}</b>
+                                  <br>Views
+                                </div>
+                                  <div style="cursor: pointer;">
+                                    <b>{{messageExchangeArchiveThread?.question?.upvotes | number}}</b>
+                                    <br>Up-votes
+                                  </div>
+                                  <!-- <div style="cursor: pointer;">
+                                    <b >{{messageExchangeArchiveThread?.question?.favorites}}</b>
+                                    <br>Favourites
+                                  </div> -->
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-xl-11 col-md-11">
+                        <div class="chat-mail">
+                          <div class="user-chat w-100">
+                            <div class="profile">
+                              <img *ngIf="!messageExchangeArchiveThread?.question?.student?.image" src="assets/images/user-chat-profile.png" alt="img">
+                              <img *ngIf="messageExchangeArchiveThread?.question?.student?.image" [src]="messageExchangeArchiveThread?.question?.student?.image" alt="img">
+                                <p>Submitted  {{messageExchangeArchiveThread?.question?.createdAt |date: 'd MMM y'}} by <a (click)="studentProfile(messageExchangeArchiveThread.question.student._id)">{{messageExchangeArchiveThread?.question?.student.firstName}} {{messageExchangeArchiveThread?.question?.student.lastName}}</a> </p>
+                            </div>
+                            <div class="application">
+                                <!-- <h6>Hi there</h6> -->
+                                <p> {{messageExchangeArchiveThread?.question?.message | titlecase}}</p>
+        
+                                <!-- <div class="flag-review" >
+                
+                                  <p *ngIf="!messageExchangeArchiveThread?.question?.isFlagged" style="cursor: pointer;"  data-toggle="modal" data-target="#thankyou" (click)="flagshow(temp2 ,messageExchangeArchiveThread.question['_id'])"> <img src="assets/images/quicktip.png" alt="img"  > Flag for review</p>
+                                  <p *ngIf="messageExchangeArchiveThread?.question?.isFlagged"> Flag Submitted</p>
+                             </div> -->
+      
+                            </div>
+                        </div>
+                        <div class="user-chat w-100" *ngFor="let reply of messageExchangeArchiveThread?.replyThread">
+                          <div class="profile">
+                            <img *ngIf="!reply?.ownerId?.image" src="assets/images/user-chat-profile.png" alt="img">
+                            <img *ngIf="reply?.ownerId?.image" [src]="reply?.ownerId?.image" alt="img">
+                              <p>Submitted  {{reply.createdAt |date: 'd MMM y'}} by <a (click)="profile(reply,reply.ownerId._id)">{{reply?.ownerId.screenName ? reply?.ownerId.screenName : reply?.ownerId.firstName}} {{reply?.ownerId.screenName ? '' : reply?.ownerId.lastName}}</a> </p>
+                          </div>
+                          <div class="application">
+                              <!-- <h6>Hi there</h6> -->
+                              <p> {{reply?.reply}}</p>
+        
+                              <!-- <div class="flag-review" >
+                
+                                <p *ngIf="!messageExchangeArchiveThread?.question?.isFlagged" style="cursor: pointer;"  data-toggle="modal" data-target="#thankyou" (click)="flagshow(temp2 ,messageExchangeArchiveThread.question['_id'])"> <img src="assets/images/quicktip.png" alt="img"  > Flag for review</p>
+                                <p *ngIf="messageExchangeArchiveThread?.question?.isFlagged"> Flag Submitted</p>
+                           </div> -->
+                          </div>
+                        </div>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+    
+            </div>
+       </div> 
+        </div>
+      </div>
+    </div>
+    </div>
+
+    
+<!-- Issue Modal Starts -->
+<ng-template #temp2>
+  <div class="advisor-modal chekadvisror">
+    <div class="close-modal-icon meesage-checklist">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Flag Message for Review</h5>
+                        <button type="button" class="close" (click)="flagModal.hide()">
+                            <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+  
+                      <div class="alingment_popup">
+                      <p class="text-center">Please describe the problem <br>(You can select up to 3)</p>
+                     
+                    </div>
+                        <div class="visit-page">
+                            <a href="javascript:void(0)" *ngFor="let issue of issueReason; let i=index;">{{issue.reason}}
+  
+                                <div class="cek">
+                                    <label class="cnt-box">
+                                        <input type="checkbox" [checked]="issue['status']" (click)="flagChange(issue)">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                       
+                        <button type="button" class="green" data-dismiss="modal" (click)="flagSubmit(temp3)">Submit</button>
+                        <button type="button"  (click)="disableFlag()">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        
+    </div>
+  </div>
+
+</ng-template>
+<!-- Ends -->
+
+
+<!-- Success Flag Modal -->
+<ng-template #temp3>
+  <div class="close-modal-icon masseage-sucess advisor-mes">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close"  (click)="flagSuccessModal.hide();" >
+                        <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="assets/images/okay.png" alt="img">
+                    <h3>SUCCESS!</h3>
+                    <p>Your Flag has been submitted.</p>
+  
+                    <div class="btn-boxes">
+                        <a href="javascript:void(0)" (click)="flagSuccessModal.hide();">OK, got it!</a>
+                    </div>
+                </div>
+  
+            </div>
+        </div>
+    
+  </div>
+
+</ng-template>
+
+
+<!-- Success Modal -->

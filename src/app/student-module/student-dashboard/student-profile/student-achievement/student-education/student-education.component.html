@@ -1,0 +1,592 @@
+<div id="Education_t" class="tab-pane fade in active show">
+ 
+  <div class="invoicebilling basic-membership diffrent-tbl">
+    <!-- A level Subjects -->
+    <div class="table-wrpper">
+      <table>
+        <thead>
+          <th>A-level Subjects</th>
+          <th>AS / A</th>
+          <th>Predicted</th>
+          <th>Result</th>
+          <th>
+            <a
+              href="javascript:void(0)"
+              (click)="editTemp(temp3 , 'A level')"
+              ><img style="height:13px;" src="assets/images/editpen.png" alt="img"
+            /></a>
+          </th>
+        </thead>
+        <ng-container *ngFor=" let education of educationData; let i = index; ">
+        <tbody *ngIf="education._id == 'A level'">
+            <tr *ngFor = "let ed of education.records[0].subject;">
+              <td>{{ed.subject}}</td>
+              <td>{{ed.level}}</td>
+              <td>{{ed.predicted}}</td>
+              <td>{{ed.result}}</td>
+              <td></td>
+            </tr>
+        </tbody>
+      </ng-container>
+      </table>
+    </div>
+    <!-- A level Ends -->
+
+    <!-- IB Subjects -->
+    <div class="table-wrpper">
+      <table>
+        <thead>
+          <th>IB Subjects</th>
+          <th>SL/HL</th>
+          <th>Predicted</th>
+          <th>Result</th>
+          <th>
+            <a
+              href="javascript:void(0)"
+              (click)="editTemp(temp1 , 'IB')"
+              ><img style="height:13px;" src="assets/images/editpen.png" alt="img"
+            /></a>
+          </th>
+        </thead>
+        <ng-container *ngFor=" let education of educationData; let i = index; ">
+        <tbody *ngIf="education._id == 'IB'">
+          <tr *ngFor = "let ed of education.records[0].subject;">
+            <td>{{ed.subject}}</td>
+            <td>{{ed.level}}</td>
+            <td>{{ed.predicted}}</td>
+            <td>{{ed.result}}</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </ng-container>
+      </table>
+    </div>
+    <!-- IB Ends -->
+    <!-- GCSE Start -->
+    <div class="table-wrpper lttble">
+      <table>
+        <thead>
+          <th>GCSE Subjects</th>
+          <th>Type</th>
+          <th>Result</th>
+          <th></th>
+          <th>
+            <a
+              href="javascript:void(0)"
+              (click)="editTemp(temp2 , 'GCSE')"
+              ><img style="height:13px;" src="assets/images/editpen.png" alt="img"
+            /></a>
+          </th>
+        </thead>
+        <ng-container *ngFor=" let education of educationData; let i = index; ">
+        <tbody *ngIf="education._id == 'GCSE'">
+          <tr *ngFor = "let ed of education.records[0].subject;">
+            <td>{{ed.subject}}</td>
+            <td>{{ed.level}}</td>
+            <td>{{ed.result}}</td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </ng-container>
+      </table>
+    </div>
+    <!-- GCSE Ends -->
+
+    <!-- Modal Concourse 1 -->
+    <ng-template #temp1>
+      <div class="concourse">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <!-- <div class="">
+              <button type="button" class="close" (click)="modalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div> -->
+            <div class="modal-body">
+              <div class="contentWrapper">
+                <form [formGroup]="educationForm">
+                  <ng-container formGroupName="ibEducation">
+                    <h2>Your IB Grades</h2>
+                    <p class="subcontent">
+                      Please enter your predicted IB grades, and your actual
+                      grades as well, if you know them. You can return to this
+                      display and update the information any time later, if you
+                      need to.
+                    </p>
+                    <h3>IB Subjects</h3>
+                    <div class="subjectstable">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Subject <span class="must">*</span></th>
+                            <th>SL/HL <span class="must">*</span></th>
+                            <th>Predicted</th>
+                            <th>Result</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                          <ng-container formArrayName="ibSubjects">
+                            <tr
+                              *ngFor="
+                                let group of educationForm.controls.ibEducation
+                                  .controls.ibSubjects.controls;
+                                let i = index
+                              "
+                              [formGroupName]="i"
+                            >
+                              <td>
+                                <div class="filed">
+                                  <input
+                                    list="browsers77"
+                                    type="text"
+                                    formControlName="subject"
+                                    (keyup)="getIBList($event)"
+                                    autocomplete="off"/>
+                                   <datalist id="browsers77">
+                                     <option *ngFor="let ib of ibData" [value]="ib.subject">
+                                     </option>
+                                   </datalist>
+                                  <div *ngIf="submitted" >
+                                    <span *ngIf="group.controls.subject.errors?.required" style="color: red; font-size: 15px;">Required.</span>
+                                </div>
+                                </div>
+                              </td>
+                              <td>
+                                <div class="boxed">
+                                  <!-- <form class="boxed"> -->
+                                  <input
+                                    type="radio"
+                                    id="android{{ i }}"
+                                    formControlName="level"
+                                    value="SL"
+                                  />
+                                  <label for="android{{ i }}">SL</label>
+
+                                  <input
+                                    type="radio"
+                                    id="ios{{ i }}"
+                                    formControlName="level"
+                                    value="HL"
+                                  />
+                                  <label for="ios{{ i }}">HL</label>
+                                  <!-- </form> -->
+                                </div>
+                              </td>
+
+                              <td>
+                                <div class="filed">
+                                  <input
+                                  [ngStyle]="{ 'pointer-events' :group.controls.result.value ? 'none' : 'auto'   }"
+                                    type="text"
+                                    class="text-center"
+                                    formControlName="predicted"
+                                    (keyup)="new(i)"
+                                  />
+                                  <div *ngIf="submitted" >
+                                    <span *ngIf="group.controls.predicted.errors?.required" style="color: red; font-size: 15px;">Required.</span>
+                                    <span *ngIf="group.controls.predicted.errors?.pattern" style="color: red; font-size: 15px; width: 68px;
+                                    display: flex;">b/w 0 to 7</span>
+                                </div>
+                                </div>
+                              </td>
+                              <td>
+                                <div class="filed">
+                                  <input
+                                  [ngStyle]="{ 'pointer-events' :group.controls.predicted.value ? 'none' : 'auto'   }"
+                                    type="text"
+                                    class="text-center"
+                                    formControlName="result"
+                                    (keyup)="new(i)"
+                                  />
+                                  <div *ngIf="submitted" >
+                                    <span *ngIf="group.controls.result.errors?.required" style="color: red; font-size: 15px;">Required.</span>
+                                    <span *ngIf="group.controls.result.errors?.pattern" style="color: red; font-size: 15px;width: 68px;
+                                    display: flex; ">b/w 0 to 7</span>
+                                </div>
+                                </div>
+                              </td>
+                              <td class="bordern">
+                                <!-- <img
+                                src="assets/images/close.svg"
+                                *ngIf="i!== 0"
+                                (click)="remove(i, 1)"
+                                alt="img"
+                              /> -->
+                                <img
+                                  src="assets/images/close.svg"
+                                  (click)="remove(i, 1)"
+                                  alt="img"
+                                />
+                              </td>
+                            </tr>
+                          </ng-container>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="addanothers">
+                      <a href="javascript:void(0)" (click)="addItem(1)"
+                        >Add another subject</a
+                      >
+                    </div>
+                    <div
+                      class="subjectstable ib-grade-options theryofkn knobeq"
+                    >
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Theory of Knowledge</th>
+                            <th>Extended Essay</th>
+                            <th>Creativity, Action, Service</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div class="filed">
+                                <select name="" id="" formControlName="theory">
+                                  <option value="A">A</option>
+                                  <option value="B">B</option>
+                                  <option value="C">C</option>
+                                  <option value="D">D</option>
+                                  <option value="E">E</option>
+                                </select>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="filed">
+                                <select
+                                  name=""
+                                  id=""
+                                  formControlName="extended"
+                                >
+                                  <option value="A">A</option>
+                                  <option value="B">B</option>
+                                  <option value="C">C</option>
+                                  <option value="D">D</option>
+                                  <option value="E">E</option>
+                                </select>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="filed">
+                                <select name="" id="" formControlName="action">
+                                  <option value="pass">Pass</option>
+                                  <option value="fail">Fail</option>
+                                </select>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="type-of-grade-wrap">
+                      <p>
+                        Are these grades for the IB Diploma Programme or
+                        Certificates Only?
+                      </p>
+                      <div class="about-degrre">
+                        <div class="boxed">
+                          <input
+                            type="radio"
+                            id="Diploma{{ i }}"
+                            formControlName="degreeType"
+                            value="Android Development"
+                          />
+                          <label for="Diploma{{ i }}">Diploma</label>
+
+                          <input
+                            type="radio"
+                            id="Certificates{{ i }}"
+                            formControlName="degreeType"
+                            value="iOS Development"
+                          />
+                          <label for="Certificates{{ i }}" style="border-left: none;"
+                            >Certificates</label
+                          >
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="modal-fter">
+                      <span for="" 
+                        ><a (click)="modalRef.hide()" 
+                          >Cancel</a
+                        ></span
+                      >
+                      <span for="" class="grn"><a (click)="saveForm(1)" class="green">Save</a></span>
+                    </div>
+                  </ng-container>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    <!--Modal Concourse 1-->
+
+    <!-- Modal Concourse2 -->
+    <ng-template #temp2>
+      <div
+        class="concourse"
+        id="concourse2"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <!-- <div class="">
+              <button type="button" class="close" (click)="modalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div> -->
+            <div class="modal-body">
+              <div class="contentWrapper">
+                <form [formGroup]="educationForm">
+                  <h2>Your GCSE Grades</h2>
+                  <p class="subcontent">
+                    Please enter your predicted GCSE grades, and your actual
+                    grades as well, if you know them. You can return to this
+                    display and update the information any time later, if you
+                    need to.
+                  </p>
+                  <h3>IGSE Subjects</h3>
+                  <div class="subjectstable">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>Subject <span class="must">*</span></th>
+                          <th class="text-center">
+                            Level<span class="must">*</span>
+                          </th>
+                          <th class="text-center">Result</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <ng-container formArrayName="gcseEducation">
+                        <tr  *ngFor="
+                        let group of educationForm.get('gcseEducation')?.controls;
+                        let i = index"
+                      [formGroupName]="i">
+                          <td>
+                            <div class="filed">
+                              <input  
+                               list="browsers22"
+                               type="text" 
+                               formControlName="subject"
+                               (keyup)="getGcseList($event)"
+                               autocomplete="off"/>
+                              <datalist id="browsers22">
+                                <option *ngFor="let gcse of gcseData" [value]="gcse.subject">
+                                </option>
+                              </datalist>
+                              <div *ngIf="submitted" >
+                                <span *ngIf="group.controls.subject.errors?.required" style="color: red; font-size: 15px;">Required.</span>
+                            </div>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="">
+                              <div class="boxed">
+                                <input
+                                  type="radio"
+                                  id="GCSE{{i}}"
+                                  formControlName="level"
+                                  value="GCSE"
+                                />
+                                <label for="GCSE{{ i }}">GCSE</label>
+
+                                <input
+                                  type="radio"
+                                  id="IGCSE{{ i }}"
+                                  formControlName="level"
+                                  value="IGCSE"
+                                />
+                                <label for="IGCSE{{ i }}">IGCSE</label>
+                              </div>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="filed">
+                              <input type="text" class="text-center" formControlName="result" />
+                              <div *ngIf="submitted" >
+                                <span *ngIf="group.controls.result.errors?.required" style="color: red; font-size: 15px;">Required.</span>
+                                <span *ngIf="group.controls.result.errors?.pattern" style="color: red; font-size: 14px; width: 85px;
+                                display: flex;"> A to E or 1 to 9</span>
+                            </div>
+                            </div>
+                          </td>
+                          <td class="bordern">
+                            <!-- <img src="assets/images/close.svg" *ngIf="i!== 0" (click)="remove(i, 2)" alt="img" /> -->
+                            <img src="assets/images/close.svg"  (click)="remove(i, 2)" alt="img" />
+                          </td>
+                        </tr>
+                      </ng-container>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="addanothers">
+                    <a href="javascript:void(0)" (click)="addItem(2)">Add another subject</a>
+                  </div>
+                  <div class="modal-fter">
+                    <span for="" 
+                      ><a (click)="modalRef.hide()" 
+                        >Cancel</a
+                      ></span
+                    >
+                    <span for="" class="grn"><a href="javascript:void(0)" class="green" (click)="saveForm(2)">Save</a></span>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    <!--Modal Concourse2 -->
+
+    <!-- Modal Concourse3 -->
+    <ng-template #temp3>
+      <div
+        class="concourse"
+        id="concourse3"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <!-- <div class="">
+              <button type="button" class="close" (click)="modalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div> -->
+            <div class="modal-body">
+              <div class="contentWrapper">
+                <form [formGroup]="educationForm">
+                <h2>Your A-Level Grades</h2>
+                <p class="subcontent">
+                  Please enter your predicted A-Levels grades, and your actual
+                  grades as well, if you know them. You can return to this
+                  display and update the information any time later, if you need
+                  to.
+                </p>
+                <h3>A-Levels Subjects</h3>
+                <div class="subjectstable">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Subject <span class="must">*</span></th>
+                        <th class="text-center">
+                          AS/A <span class="must">*</span>
+                        </th>
+                        <th class="text-center">Predicted</th>
+                        <th  class="text-center">Result</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <ng-container formArrayName="alevelEducation">
+                        <tr  *ngFor="
+                        let group of educationForm.get('alevelEducation').controls; 
+                        let i = index"
+                      [formGroupName]="i">
+                        <td>
+                          <div class="filed">
+                            <input 
+                             list="browsers23"
+                             type="text" 
+                             formControlName="subject"
+                             (keyup)="getAlevelList($event)"
+                             autocomplete="off"
+                             />
+                             <datalist id="browsers23">
+                              <option *ngFor="let alevel of alevelData" [value]="alevel.subject">
+                              </option>
+                            </datalist>
+                            <div *ngIf="submitted" >
+                              <span *ngIf="group.controls.subject.errors?.required" style="color: red; font-size: 15px;">Required.</span>
+                          </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="">
+                            <div class="boxed">
+                              <input
+                                type="radio"
+                                id="AS{{ i }}"
+                                formControlName="level"
+                                value="AS"
+                              />
+                              <label for="AS{{ i }}">AS</label>
+
+                              <input
+                                type="radio"
+                                id="A{{ i }}"
+                                formControlName="level"
+                                value="A"
+                              />
+                              <label for="A{{ i }}">A</label>
+                            </div>
+                          </div>
+                        </td>
+                        <td >
+                          <!-- {{group.controls.predicted.value}}--- -->
+                          <div class="filed">
+                            <!-- <input [ngStyle]="{'cursor' :group.controls.result.value ? 'not-allowed' : 'normal' , 'pointer-events' :group.controls.result.value ? 'none' : 'auto'   }" type="text" class="text-center" formControlName ="predicted" (keyup)="predict(i)"  /> -->
+                            <input [ngStyle]="{ 'pointer-events' :group.controls.result.value ? 'none' : 'auto'   }" type="text" class="text-center" formControlName ="predicted" (keyup)="predict(i)"  />
+                            <div *ngIf="submitted" >
+                              <span *ngIf="group.controls.predicted.errors?.required" style="color: red; font-size: 15px;">Required.</span>
+                              <span *ngIf="group.controls.predicted.errors?.pattern" style="color: red; font-size: 15px; width: 68px;
+                              display: flex;">b/w A to E</span>
+                          </div>
+                          </div>
+                        </td>
+                        <td >
+                          <div class="filed">
+                            <input [ngStyle]="{ 'pointer-events' : group.controls.predicted.value ? 'none' : 'auto' }" type="text" class="text-center" formControlName = "result" (keyup)="predict(i)"/>
+                            <div *ngIf="submitted" >
+                              <span *ngIf="group.controls.result.errors?.required" style="color: red; font-size: 15px;">Required.</span>
+                              <span *ngIf="group.controls.result.errors?.pattern" style="color: red; font-size: 15px; width: 68px;
+                              display: flex;">b/w A to E</span>
+                          </div>
+                          </div>
+                        </td>
+                        <td class="bordern">
+                          <!-- <img src="assets/images/close.svg" *ngIf="i!== 0" (click)="remove(i,3)" alt="img" /> -->
+                          <img src="assets/images/close.svg"  (click)="remove(i,3)" alt="img" />
+                        </td>
+                      </tr>
+                    </ng-container>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="addanothers">
+                  <a href="javascript:void(0)" (click)="addItem(3)">Add another subject</a>
+                </div>
+
+                <div class="modal-fter">
+                  <span for="" 
+                    ><a (click)="modalRef.hide()" 
+                      >Cancel</a
+                    ></span
+                  >
+                  <span for="" class="grn"><a href="javascript:void(0)" class="green" (click)="saveForm(3 , group)">Save</a></span>
+                </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    <!--Modal Concourse3 -->
+  </div>
+</div>

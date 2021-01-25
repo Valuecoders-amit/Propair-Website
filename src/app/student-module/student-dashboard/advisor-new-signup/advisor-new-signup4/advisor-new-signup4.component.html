@@ -1,0 +1,326 @@
+<div class="stepper-heading text-left">
+  <h3>Career Path</h3>
+</div>
+<div class="para-grph0lines">
+  <p>This forms part of your profile which our students will see.</p>
+</div>
+<div>
+  <div class="background-spec-cl">
+    <div class="inbox-wrapper justify-content-end">
+      <div class="new-exchange">
+        <div class="send-now">
+          <a
+            href="javascript:void(0)"
+            class="border_bule-btn"
+            (click)="addCareer(temp)"
+            >New Positon</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="requests-wrper frtopm">
+      <div
+        class="wrp profile"
+        *ngFor="let career of careeListing; let i = index"
+      >
+        <div class="kps-bonus">
+          <img
+            *ngIf="!career.image"
+            src="assets/images/company.png"
+            alt="img"
+          />
+          <img *ngIf="career.image" [src]="career.image" alt="img" />
+        </div>
+        <div class="content-req student-portal-link">
+          <div class="area">
+            <h3>{{ career?.title }}</h3>
+            <h4>
+              {{ career?.employer }}
+            </h4>
+            <div class="location">
+              <span *ngIf="career?.isCurrentlyWorking == true"
+                >{{ career?.startDate | date }}
+                {{ career?.isCurrentlyWorking ? "- Present" : "" }}
+              </span>
+              <span *ngIf="career?.isCurrentlyWorking == false"
+              >{{ career?.startDate | date }} - {{ career?.endDate | date }}
+            </span>
+              <i></i>
+              <p>{{ career?.startDate | joined: career?.endDate }}</p>
+              <i></i>
+              <p>{{ career?.location  }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="social_links refer-wpr">
+          <a href="javascript:void(0)" (click)="editCareer(career, temp)"
+            ><img src="../../../../assets/images/editpen.png" alt="img"
+          /></a>
+        </div>
+      </div>
+    </div>
+    <div class="for-more-lisiting" *ngIf="moreData > 0 && !checkData">
+      <a href="javascript:void(0);" (click)="moreCareer()"
+        >{{ moreData }} more positions</a
+      >
+    </div>
+  </div>
+</div>
+
+<input
+  type="button"
+  name="Cancel"
+  class="cancel same-field"
+  value="Skip"
+  (click)="skip()"
+/>
+<input
+  type="button"
+  name="previous"
+  class="previous previous-ab action-button same-field"
+  value="Previous Step"
+  (click)="privious()"
+/>
+<input
+  type="button"
+  name="next"
+  class="next action-button same-field"
+  value="Proceed"
+  (click)="next()"
+/>
+
+<!-- Modal -->
+<ng-template #temp>
+  <div class="advisor-modal">
+    <div class="close-modal-icon meesage-checklist">
+      <div id="career-path">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Work Experience
+            </h5>
+            <button
+              type="button"
+              class="close"
+              (click)="modalRef2.hide()"
+              aria-label="Close"
+            >
+              <span aria-hidden="true"
+                ><img src="assets/images/close-icon.png" alt=""
+              /></span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form [formGroup]="addPosition">
+              <div class="form-group">
+                <label for="">Title</label>
+                <input
+                  type="text"
+                  formControlName="title"
+                  placeholder="Enter a Title"
+                />
+                <span
+                  *ngIf="
+                    addPosition.controls['title'].hasError('required') &&
+                    submitForm
+                  "
+                  class="reqrd"
+                  >Required</span
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="">Employer</label>
+
+                <input
+                  list="browsers6"
+                  formControlName="employer"
+                  placeholder="Enter a employer"
+                  (keyup)="employerList()"
+                  (change)="selectCompany($event.target.value)"
+                  autocomplete="off"
+                />
+                <datalist id="browsers6">
+                  <option *ngFor="let option of optionsData" [value]="option.EmployerNames">
+                  </option>
+                </datalist>
+
+                <!-- ends -->
+                <span
+                  *ngIf="
+                    addPosition.controls['employer'].hasError('required') &&
+                    submitForm
+                  "
+                  class="reqrd"
+                  >Required</span
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="">Sectors</label>
+
+                <!-- <input
+                  list="browsers1"
+                  formControlName="sector"
+                  placeholder="Select"
+                  (keyup)="getAllSectors()"
+                  autocomplete="off"
+                /> -->
+                <select name="emp" formControlName="sector">
+                  <option [ngValue]="null" disabled >Please select sector</option>
+                  <option *ngFor="let sector of sectorsData" value="{{sector.name}}">{{sector.name}}</option>
+                </select>
+                <!-- <datalist id="browsers1">
+                  <option *ngFor="let sector of sectorsData" [value]="sector.name">
+                  </option>
+                </datalist> -->
+
+                <span
+                  *ngIf="
+                    addPosition.controls['sector'].hasError('required') &&
+                    submitForm
+                  "
+                  class="reqrd"
+                  >Required</span
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="">Role</label>
+
+                <input
+                  list="browsers2"
+                  name="browser"
+                  id="browser"
+                  formControlName="role"
+                  (keyup)="getAllRoles()"
+                  placeholder="Enter a role"
+                />
+                <datalist id="browsers2">
+                  <option *ngFor="let option of rolesData" [value]="option.typesOfJob">
+                  </option>
+                </datalist>
+
+                <span
+                  *ngIf="
+                    addPosition.controls['role'].hasError('required') &&
+                    submitForm
+                  "
+                  class="reqrd"
+                  >Required</span
+                >
+              </div>
+              <!-- Google Api integration -->
+              <div class="form-group">
+                <label for="">Location</label>
+
+                <input
+                  ngx-google-places-autocomplete
+                  [options]="options"
+                  formControlName="location"
+                  (onAddressChange)="handleAddressChange($event)"
+                />
+
+                <span
+                  *ngIf="
+                    addPosition.controls['location'].hasError('required') &&
+                    submitForm
+                  "
+                  class="reqrd"
+                  >Required</span
+                >
+              </div>
+              <!-- end -->
+              <div class="form-group">
+                <label for=""></label>
+                <span>
+                  <div class="in-chkbox">
+                    <label class="cnt-box">
+                      <input
+                        type="checkbox"
+                        formControlName="checkMark"
+                        (change)="checkPresent()"
+                      />
+                      <span class="checkmark"></span>
+                      <p>I currently work here</p>
+                    </label>
+                  </div>
+                </span>
+              </div>
+              <div class="form-group">
+                <label for="">Start Date</label>
+                <my-date-picker
+                  name="startdate"
+                  [options]="myDatePickerOptions"
+                  formControlName="startDate"
+                  (dateChanged)="onDateChanged($event)"
+                  placeholder="MM/DD/YYYY"
+                ></my-date-picker>
+                <span
+                  *ngIf="
+                    addPosition.controls['startDate'].hasError('required') &&
+                    submitForm
+                  "
+                  class="reqrd"
+                  >Required</span
+                >
+              </div>
+              <div class="form-group" *ngIf="!addPosition.value.checkMark">
+                <label for="">End Date</label>
+                <my-date-picker
+                  name="enddate"
+                  [options]="myDatePickerOptions2"
+                  formControlName="endDate"
+                  placeholder="MM/DD/YYYY"
+                ></my-date-picker>
+                <span
+                  *ngIf="
+                    addPosition.controls['endDate'].hasError('required') &&
+                    submitForm
+                  "
+                  class="reqrd"
+                  >Required</span
+                >
+              </div>
+
+              <div class="btns">
+                <a
+                  href="javascript:void(0)"
+                  *ngIf="editInfo"
+                  class="trans"
+                  (click)="removeCareer()"
+                  >Remove this Employment Item</a
+                >
+                <a
+                  href="javascript:void(0)"
+                  *ngIf="!editInfo"
+                  (click)="onAddPosition()"
+                  ><img src="assets/images/addicon.svg" alt="" />&nbsp;Add a Job</a
+                >
+                <a
+                  href="javascript:void(0)"
+                  *ngIf="editInfo"
+                  (click)="onEditPosition()"
+                  ><img src="assets/images/addicon.svg" alt="" />&nbsp;Edit a Job</a
+                >
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<!-- Modal -->
+
+<ngx-spinner
+  bdOpacity="0.9"
+  bdColor="rgba(22,36,75,0.35)"
+  size="medium"
+  color="#080041"
+  type="ball-square-clockwise-spin"
+  [fullScreen]="true"
+>
+  <p style="color: white;">Please wait...</p>
+</ngx-spinner>

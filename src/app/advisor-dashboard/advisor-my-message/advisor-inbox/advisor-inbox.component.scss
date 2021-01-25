@@ -1,0 +1,128 @@
+#thankyou .modal-footer button{width:100%; max-width: 30%; } 
+#thankyou .visit-page a{background: #eafcfa url(/assets/images/visit-page.png) 95% / 4% no-repeat; padding: 20px; color: #7f7f7f;  font-weight: 500; font-size: 20px;     width: 100%;  display: block;     display: inline-block; margin: 10px 0;}
+.advisor-mes.masseage-sucess h3{margin: 10px 0;}
+.stud-lib-chat-m .library_actual .fav-like .live-heding h4{font-size: 36px; font-weight: 700;}
+.viewupsfav{margin-top: 30px;}
+.viewupsfav div{text-align: center; margin-top: 40px	;}
+.viewupsfav div p{font-size: 22px; font-weight: 600;}
+.viewupsfav div span{font-size: 18px; font-weight: 400;}
+.advisore-message-scr{padding: 45px;}
+.advisore-message-scr .heading-wrapper h3{line-height: inherit; font-size:35px;     margin-bottom: 0; }
+.advisore-message-scr .message-listing-wrapper .main{    padding:40px 40px;}
+.advisore-message-scr .basd-profile p{color: #5a5858;}
+.advisore-message-scr .invoicebilling .table-wrpper{    border: 2px solid #e3e2e2;     margin-top: 20px;}
+.advisore-message-scr .invoicebilling .table-wrpper .table thead th{font-size: 18px;}
+.advisore-message-scr .basic-membership .table-wrpper .table td{font-size: 16px;}
+.advisore-message-scr .sbmt-btns-archive a{font-size: 14px;}
+.chekadvisror #thankyou .visit-page a{background: #eafcfa ; display: flex; justify-content: space-between; align-items: center;}
+.chekadvisror #thankyou .visit-page a .cek .checkmark{    top: -8px; left: -15px;}
+.chekadvisror #thankyou .modal-footer button {width: 100%; max-width: 50%;}
+.basd-profile {display: flex;justify-content: space-between;align-items: center;}
+.basd-profile p{margin-bottom: 0; font-size: 16px; font-weight: 500;}
+.custom-selects {max-width: 200px;width: 100%;}
+.custom-selects select {
+    padding: 0 18px;
+    height: 45px;
+    width: 100%;
+    border: 1px solid #efefef;
+    border-radius: 12px;
+    -webkit-appearance: none;
+    background:#fff url(/assets/images/cus-sl-arrow.png) 93% / 6% no-repeat ;
+    color: #b3b2b2;
+    font-size: 16px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+}
+.advisore-message-scr .message-listing .nav-tabs li {
+    margin: 0 30px;
+}
+
+.new{
+    text-align:center
+}
+
+.notClass {
+	display: block;
+	width: 300px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	color: #007bff !important;
+	// // font-weight: bold !important;
+	// color: black !important;
+	
+}
+
+
+
+.elipsis{
+	display: block;
+  width: 300px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  }
+  .basd-profile p{
+      color: #7f7f7f;
+  }
+
+@media(max-width:1600px){
+    .basd-profile p { font-size: 14px; }
+    .notClass { width: 230px; }
+    .elipsis { width:230px; }
+    .invoicebilling .table-wrpper table { width: 100%; }
+    .custom-selects select{border-radius: 8px; height: 40px;}
+}
+@media(max-width:1350px){
+    .custom-selects select{
+        font-size: 14px;
+        height: 34px;
+        border-radius: 5px;;
+    }
+    .basd-profile p {
+        font-size: 12px!important;
+    }
+    .advisore-message-scr .invoicebilling .table-wrpper .table thead th{
+        font-size: 11px !important;
+    }
+    .advisore-message-scr .basic-membership .table-wrpper .table td{
+        font-size: 13px !important;
+    }
+    .invoicebilling .table-wrpper table { 
+        width: 100%; 
+    }
+    .advisore-message-scr .invoicebilling .table-wrpper .table thead th{
+        font-size: 16px;
+    }
+    .elipsis{
+        width: 270px;
+    }
+}
+@media(max-width:767px){
+    .basd-profile{
+        flex-direction: column;
+    }
+    .basd-profile p{
+        margin-bottom: 15px;
+    }
+    .invoicebilling .table-wrpper table {
+        width: 1320px;
+    }
+    .invoicebilling {
+        margin-top: 15px;
+    }
+    
+}
+@media(max-width:575px){
+    .basd-profile p{
+        text-align: center;
+    }
+}
+
+
+
+
+
+
+
+

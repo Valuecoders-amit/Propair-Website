@@ -1,0 +1,194 @@
+#thankyou .modal-footer button{width:100%; max-width: 30%; } 
+#thankyou .visit-page a{background: #eafcfa url(/assets/images/visit-page.png) 95% / 4% no-repeat; padding: 20px; color: #7f7f7f;  font-weight: 500; font-size: 20px;     width: 100%;  display: block;     display: inline-block; margin: 10px 0;}
+.advisor-mes.masseage-sucess h3{margin: 10px 0;}
+.stud-lib-chat-m .library_actual .fav-like .live-heding h4{font-size: 36px; font-weight: 700;}
+.viewupsfav{margin-top: 30px;}
+.viewupsfav div{text-align: center; margin-top: 40px	;}
+.viewupsfav div p{font-size: 22px; font-weight: 600;}
+.viewupsfav div span{font-size: 18px; font-weight: 400;}
+.send-now a{margin-right: 0 !important;}
+.advisore-message-scr .heading-wrapper h3{line-height: inherit; font-size:35px;     margin-bottom: 0; }
+.advisore-message-scr .message-listing-wrapper .main{    padding:40px 40px;}
+.advisore-message-scr .basd-profile p{color: #5a5858;}
+.advisore-message-scr .invoicebilling .table-wrpper{    border: 1px solid #efefef;  border-radius: 12px;   margin-top: 20px;}
+.advisore-message-scr .invoicebilling .table-wrpper .table thead th{font-size: 18px;}
+.advisore-message-scr .basic-membership .table-wrpper .table td{font-size: 16px;}
+.advisore-message-scr .sbmt-btns-archive a{font-size: 14px;}
+.chekadvisror #thankyou .visit-page a{background: #eafcfa ; display: flex; justify-content: space-between; align-items: center;}
+.chekadvisror #thankyou .visit-page a .cek .checkmark{    top: -8px; left: -15px;}
+.chekadvisror #thankyou .modal-footer button {width: 100%; max-width: 50%;}
+.basd-profile {display: flex;justify-content: space-between;align-items: center;}
+.basd-profile p{margin-bottom: 0; font-size: 16px; font-weight: 500; color: #7f7f7f;}
+.custom-selects {max-width: 200px;width: 100%;}
+.custom-selects select {
+    padding: 0 18px;
+    height: 45px;
+    width: 100%;
+    border: 1px solid #efefef;
+    border-radius: 12px;
+    -webkit-appearance: none;
+    background:#fff url(/assets/images/cus-sl-arrow.png) 93% / 6% no-repeat ;
+    color: #b3b2b2;
+    font-size: 16px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+    box-shadow: 0px 0px 13px 0 
+    rgba(0,0,0,0.1);
+}
+.advisore-message-scr .message-listing .nav-tabs li {
+    margin: 0 30px;
+}
+
+.new{
+    text-align: center;
+}
+
+.send-now a {
+    color: #007de4;
+    background: transparent;
+    box-shadow: none;
+    display: inline-block;
+}
+
+.sendPopup{
+	width:100%;
+    display:flex;
+    justify-content: center;
+}
+
+h5.modal-title{font-size: 30px;  font-family: 'Source Sans Pro', sans-serif; }
+
+.close-modal-icon .modal-footer button{    height: 60px;}
+
+
+.elipsis{
+	display: block;
+  width: 500px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  }
+
+#checkth{
+    display: flex;
+}
+
+#checktd{
+    display: flex;
+}
+
+ .basic-membership .table-wrpper .table td p{    display: block;
+    width: 500px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;}
+    .iline .form-group label:before {
+        height: 20px;
+        width: 20px;
+        margin-top: 4px;
+    }
+    
+    .iline .form-group input:checked+label:after{
+        left: 8px;
+        height: 14px;
+        width: 5px;
+        top: 5px;
+    }
+@media(max-width:1600px){
+    .inbox-wrapper .nav-tabs li a{
+        font-size: 14px;
+    }
+    .advisore-message-scr .basic-membership .table-wrpper{
+        margin-top: 15px;
+    }
+    .basic-membership .table-wrpper .table td p {
+        width: 300px;
+    }
+    .elipsis{
+        width: 280px;
+    }
+    .advisore-message-scr .message-listing-wrapper .main {
+        padding: 30px 30px;
+    }
+    h5.modal-title{font-size: 24px;}
+    
+    .close-modal-icon .modal-footer button{    height: 50px;}
+    .invoicebilling .table-wrpper table {
+		width: 100%;
+    }
+    .border_bule-btn{
+        font-size: 14px;
+        padding: 8px 20px!important;
+    }
+}
+
+    @media(max-width:1500px){
+        .new-exchange{
+            align-self: flex-end;
+        }
+    }
+    @media(max-width:1350px){
+        .border_bule-btn{ font-size: 11px; }
+        .inbox-wrapper .nav-tabs li a{
+            font-size: 12px;
+        }
+        .basic-membership .table-wrpper .table td p{
+            width: 270px;
+        }
+        .refer-wpr a:first-child {
+            font-size: 14px;
+        }
+        .elipsis{
+            width: 270px;
+        }
+        .inbox-wrapper{
+            flex-direction: row;
+        }
+        .advisore-message-scr .basic-membership .table-wrpper .table td {
+            font-size: 13px;
+        }
+        .custom-selects select {
+            height: 34px;
+            font-size: 12px;
+        }
+        .advisore-message-scr .invoicebilling .table-wrpper .table thead th {
+            font-size: 16px;
+        }
+    }
+    @media(max-width:767px){
+        h5.modal-title{font-size: 20px;}
+    
+        .close-modal-icon .modal-footer button{    height: 40px;}
+        .basd-profile{
+            flex-direction: column;
+        }
+        .basd-profile p{
+            margin-bottom: 15px;
+        }
+        .invoicebilling .table-wrpper table {
+            width: 100%;
+        }
+        .invoicebilling {
+            margin-top: 15px;
+        }
+        .table-wrpper .table thead th{
+            font-size: 16px !important;
+        }
+        .new-exchange{
+            justify-content: center;
+         
+            width: 100%;
+        }
+
+        .advisore-message-scr .invoicebilling .table-wrpper{
+            margin-top: 0;
+        }
+    }   
+    @media(max-width:575px){
+        .new-exchange a{
+            padding: 8px 40px;
+        }
+        .sendPopup{flex-direction: column;}
+        .sendPopup button{width: 100%;}
+        .public-slect select { font-size: 14px !important; }
+    }

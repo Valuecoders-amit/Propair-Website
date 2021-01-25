@@ -1,0 +1,26 @@
+<div id="Extracurricular" class="tab-pane fade ">
+    <div class="w-100 add-qualif-wrapper">
+      <!-- <a href="javascript:void(0)" class="add-qualif" (click)="addActivity(temp)">+ Add New Extracurricular</a> -->
+  </div>
+  <div class="invoicebilling basic-membership diffrent-tbl">
+        <div class="table-wrpper" *ngFor="let active of activityData; let i = index;">
+          <table >
+              <thead>
+                <th>{{active._id}}</th>
+                <th></th>
+                <th></th>
+                <th></th>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let data of active.records">
+                      <td class="banjo-g">{{data.name}}</td>
+                      <td></td>
+                      <td></td>
+                      <!-- <td class="text-right"><a href="javascript:void(0)" (click)="editActivity(active._id, data , temp)"><img src="assets/images/editpen.png" alt="img"></a></td> -->
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+     
+  </div>
+  </div>

@@ -1,0 +1,25 @@
+<div id="advice-a" class="tab-pane fade in">
+                                                          
+    <div class="editableontent-W ">
+      <p> <img src="assets/images/quicktip.png" alt="" (mouseenter) ="quickShow=true"  (mouseleave) ="quickShow=false"> Please select all the advice areas that apply to you from the dropdown menus below.</p>
+      <div class="quick-tip-box" *ngIf="quickShow">
+      <h3>Advice Areas</h3>
+      <p>-This helps us best understand how you can best help our students so we can
+      match you with the relevant requests.
+      </p>
+      <br>
+      <p>-Also, the more up to date this section is the better! Thank you.</p>
+      </div>
+      </div>
+    <div class="message-listing-wrapper background-spec-cl">
+        <div class="details-tags">
+            <span *ngFor="let car of career" >{{car.name}}<a href="javascript:void(0)" ></a></span>
+            <span *ngFor="let app of apprentice">{{app.name}} <a href="javascript:void(0)" ></a></span>
+            <span *ngFor="let wo of work"> {{wo.name}} <a href="javascript:void(0)" ></a></span>
+            <span *ngFor="let start of startup">{{start.name}}<a href="javascript:void(0)" ></a></span>
+            <span *ngFor="let oth of other">{{oth.name}}<a href="javascript:void(0)" ></a></span>
+  
+           
+        </div>
+    </div>
+    </div>

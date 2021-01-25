@@ -1,0 +1,16 @@
+<div class="stepper-heading text-left">
+  <h3>Brief Bio</h3>
+</div>
+  <div class="para-grph0lines">
+    <p>This forms part of your profile which our students will see.</p>
+  </div>
+  <div class="new-form-icon" [formGroup]="personalDetail">
+      <div class="content-wrper">
+        <textarea cols="80" rows="20" formControlName = "biography"></textarea>
+      </div>
+  </div>
+  
+  
+  <input type="button" name="Cancel" class="cancel same-field" value="Skip" (click)="skip()"  />
+  <input type="button" name="previous" class="previous previous-ab  action-button same-field" value="Previous Step" (click)="privious()" />
+  <input type="button" name="next" class="next action-button same-field" value="Proceed" (click)="next()" />

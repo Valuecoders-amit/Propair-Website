@@ -1,0 +1,13 @@
+<div id="carer-path" class="tab-pane fade in  request-refteb" >
+    <div class="editableontent-W ">
+        <p> <img src="assets/images/quicktip.png" alt=""> This information is to help our Advisors understand you better but other students cannot see this. </p>
+        </div>
+
+        <div class="editableontent-W margin-tp-spcl">
+            <p *ngIf="!biography">No Data</p>
+            <p *ngIf="!more && biography">{{biography ? (biography | more) : 'No Data'}} <a href="javascript:void(0)" *ngIf="biography.length > 450" (click)="more=true;"> More</a></p>
+            <p *ngIf="more && biography">{{biography }} <a href="javascript:void(0)" *ngIf="biography.length > 450"(click)="more=false;"> Less</a></p>
+            <!-- <p *ngIf="!biography">No Data</p> -->
+            <!-- <a href="javascript:void(0)" (click)="editCareer(temp)"><img src="../../../../assets/images/editpen.png" alt="img"></a> -->
+        </div>
+</div>

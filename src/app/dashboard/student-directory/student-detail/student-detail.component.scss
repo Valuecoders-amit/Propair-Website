@@ -1,0 +1,81 @@
+// #toProjectDate {
+//     opacity: 0;
+//     position: absolute;
+//     z-index: -1;
+//   }
+
+.img{
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  margin: 0 auto;
+}
+
+.highcharts-figure, .highcharts-data-table table {
+  min-width: 310px; 
+  max-width: 800px;
+  margin: 1em auto;
+}
+
+#container {
+  height: 400px;
+}
+
+.highcharts-data-table table {
+font-family: Verdana, sans-serif;
+border-collapse: collapse;
+border: 1px solid #EBEBEB;
+margin: 10px auto;
+text-align: center;
+width: 100%;
+max-width: 500px;
+}
+.highcharts-data-table caption {
+  padding: 1em 0;
+  font-size: 1.2em;
+  color: #555;
+}
+.highcharts-data-table th {
+font-weight: 600;
+  padding: 0.5em;
+}
+.highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+  padding: 0.5em;
+}
+.highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+  background: #f8f8f8;
+}
+.highcharts-data-table tr:hover {
+  background: #f1f7ff;
+}
+
+.riotAccount {
+  font-size: 30px;
+  width: 610px;
+}
+.riotAccount .modal-body{
+  padding: 0 !important;
+}
+.riotAccount .import-stu-wrapper .import-stu-box{background: #fff;}
+.riotAccount  .tournament_create_inner h3{background:#e4e4e4; color: #373636; text-align: left; font-size: 30px; line-height:100px; padding: 0 60px;}
+.riotAccount .modal-dialog{max-width: 700px; text-align: center; }
+// .riotAccount .modal-body{background: #fff; padding: 50px; border-radius: 25px;}
+.riotAccount .modal-body img{max-width: 230px; text-align: center; }
+// .riotAccount .details{ text-align: left; margin-top: 70px; }
+.riotAccount .details label{font-size: 24px; margin: 15px 0;  color:#000; font-family: 'Conv_AvenirLTStd-Medium'; }
+// .riotAccount .details input{border:1px solid #eaeaea; border-radius: 6px; background: #f3f3f3;  width: 100%;}
+.riotAccount .submit { color: #fff; text-transform: uppercase; border:none; border-radius: 5px; max-width: 310px; width: 100%; font-family: 'Conv_AvenirLTStd-Heavy'; font-size:25px; margin-top:50px;height:50px;line-height:50px;cursor:pointer;} 
+.riotAccount .tournament_create_inner .submit{font-size: 20px;margin-top: 18px;min-width: 70px;height: 43px;line-height: 34px;}
+
+.fileUpload{
+  display: none;
+}
+.datePickerStudent{    flex-flow: row; align-items: flex-start; justify-content: flex-start;}
+.datePickerStudent input{width: 110px;}
+.datePickerStudent .input-group{align-items: center;}
+.datePickerStudent .input-group .btn{    padding: 0 10px; color: #d5d5d5;}
+
+
+.handCursor {
+  cursor: pointer;
+}

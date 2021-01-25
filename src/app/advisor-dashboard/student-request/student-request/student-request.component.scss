@@ -1,0 +1,51 @@
+.student-r-wrapper{    padding: 50px 35px;}
+.student-r-wrapper h1{font-weight: 600;   font-family: 'Montserrat', sans-serif; font-size: 36px;}
+.student-r-wrapper .timmy-tabb{margin-top: 50px;}
+.student-r-wrapper .tab-content{ padding: 40px 40px; border-radius: 12px; background: #fff;}
+@media(max-width:1600px){
+    .student-r-wrapper{
+        padding: 35px 15px!important;
+    }
+    .student-r-wrapper h1{
+        font-size: 20px;
+        margin-bottom: 0;
+    }
+    .student-r-wrapper .timmy-tabb{
+        margin-top: 20px;
+    }
+    .student-r-wrapper .tab-content{
+        padding: 10px 30px;
+    }
+    .timmy-tabb .nav-tabs{
+        margin-bottom: 30px;
+    }
+    .timmy-tabb .nav-tabs li a{
+        font-size: 16px;
+    }
+}
+@media (max-width: 1199px){
+    .timmy-tabb .nav-tabs {
+        margin-bottom: 15px;
+    }
+  }
+
+  @media (max-width: 991px)  {
+    .timmy-tabb .nav-tabs{
+        margin-bottom: 15px;
+    }
+  }
+
+  @media (max-width: 767px){
+    .student-r-wrapper .tab-content{
+        padding: 15px 15px;
+    }
+    .student-r-wrapper  .nav-tabs{margin: 15px 0 15px 0; display: flex; flex-direction: column; align-items: center; border: 1px solid #ececec;}
+    .student-r-wrapper .nav-tabs li a{font-size: 18px;     margin: 0 0px; display: block; padding: 10px 0;     border-bottom: 1px solid #ececec;}
+    .student-r-wrapper .nav-tabs li:last-child a{border-bottom: none;}
+    .student-r-wrapper  .nav-tabs li{width: 100%;text-align: center;}
+    .student-r-wrapper .nav-tabs li a.active{background:#33e2d1; color: #fff;}
+    .advisore-message-scr{padding: 30px 0px;}
+    .table-wrpper{margin: 0 0;}
+    .student-r-wrapper .message-listing .nav-tabs{margin: 15px 0 15px 0;}
+    
+  }

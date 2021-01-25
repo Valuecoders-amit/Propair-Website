@@ -1,0 +1,35 @@
+<div class="mystatuswrapper">
+  <div class="row">
+    <div class="col-12">
+      <div class="heading-wrapper">
+        <h3>My Stats</h3>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="message-listing">
+        <ul class="nav nav-tabs">
+          <li>
+            <a data-toggle="tab" [ngClass]="{ active: currentResource == 'stats-overview' }"  routerLink="/advisor-dashboard/advisor-stats/stats-overview">Overview</a>
+          </li>
+          <li>
+            <a data-toggle="tab" [ngClass]="{ active: currentResource == 'stats-milestone' }" routerLink="/advisor-dashboard/advisor-stats/stats-milestone"
+            >Milestones & Privileges</a
+            >
+          </li>
+          <li>
+            <a data-toggle="tab" [ngClass]="{ active: currentResource == 'stats-karma' }" routerLink="/advisor-dashboard/advisor-stats/stats-karma">Karma Points Explained</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="message-listing-wrapper">
+        <div class="tab-content">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

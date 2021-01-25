@@ -1,0 +1,116 @@
+<form id="msform" class="outedit-message" [formGroup]="messageForm">
+  <div class="stud-lib-chat-m ">
+    <div class="library_function text-left ">
+      <h3> <a  class="backarrow"><img src="assets/images/backarr.png " alt="img" (click)="back()"></a><span style="cursor: pointer;" (click)="back()"> Outbox Message Exchange</span></h3>
+    </div>
+  </div>
+  
+  <fieldset>
+  
+                                                <div class="message-exchng primary ">
+                                                  <div class="d-flex justify-content-between">
+                                                    <h3>Review your message (countdown paused)</h3>
+                                                    <div class="public-slect">
+                                                      <select name="" id="" (change)="type($event.target.value)" [(ngModel)]="selecetdValue" [ngModelOptions]="{standalone: true}" *ngIf="checkType">
+                                                        <option value="public">Public Message Exchange (1 Credit)</option>
+                                                      </select>
+                                                
+                                                      <select name="" id="" (change)="type($event.target.value)" [(ngModel)]="selecetdValue" [ngModelOptions]="{standalone: true}" *ngIf="!checkType">
+                                                        <option value="public">Public Message Exchange (1 Credit)</option>
+                                                        <option value="private">Private Message Exchange (2 Credits)</option>
+                                                      </select>
+                                                    </div>
+                                                  </div>
+                                              </div>
+                                             
+                                                <div class="fild-box">
+                                                    <div class="group ">
+                                                      <label for="">Title</label>
+                                                      <input type="text" name="email" placeholder="Please enter title" formControlName="title" maxlength="201"  (keyup)="keyTitleUp()">
+                                                      <div *ngIf="messageForm.controls.title.hasError('maxlength')"><font color="red"> Please do not exceed 200 characters </font></div>
+                                                      <span class="charter-limit"> <i><span *ngIf="availableMinTitleLength && availableMinTitleLength < 20">{{availableMinTitleLength}}</span>
+                                                        <span class = "character" *ngIf="availableMinTitleLength >= 20" >{{availableMinTitleLength}}</span></i> / 200 characters</span>
+                                                      <label for="">Message</label>
+                                                      <textarea name="" id="" cols="30" class="w-100"  placeholder="please enter message" formControlName="message"  maxlength="3001" #box (keyup)="keyUp()"></textarea>
+                                                      <!-- <div *ngIf="(messageForm.get('message').invalid) && (messageForm.get('message').touched)">
+                                                        <div *ngIf="messageForm.get('message').errors.required"><font color="red">Please enter message</font></div>
+                                            
+                                                    </div> -->
+                                                    <div *ngIf="messageForm.controls.message.hasError('maxlength')"><font color="red"> Please do not exceed 3000 characters </font></div>
+                                                    <span class="charter-limit"> <i><span *ngIf="availableMinLength && availableMinLength < 200">{{availableMinLength}}</span>
+                                                      <span class = "character" *ngIf="availableMinLength >= 200" >{{availableMinLength}}</span></i> / 3,000 characters</span>
+
+                                                      <label for="">Tags</label>
+                                                      <div class="tag-pane-wrapper">
+                                                        <div class="tagList-wrp">
+                                                            <div *ngFor="let questionTag of tempTags ;let i=index;">
+                                                                <span class="miniblock-s" >{{questionTag}}<a  (click)="deleteData(questionTag,i)"style="cursor: pointer;"><img src="assets/images/close-icon-small.png" alt="img"></a></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class=" enter-key">
+                                                          <input type="text" name="email" [placeholder]="placeHolder"
+                                                          formControlName="tags"  (keyup.enter)="enter()"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="group mt-30">
+                                                      <label for="">Mandatory Tags</label> 
+                                                      <div class="tags-fields">
+                                                          <div class="fields">
+                                                              <span>Sectors*</span>
+                                                              <div class="public-slect">
+                                            
+                                                                <ng-multiselect-dropdown
+                                            
+                                                                formControlName="sector"
+                                                                [placeholder]="'custom placeholder'"
+                                                                [data]="sectorTags"
+                                                                [settings]="dropdownSettings"
+                                                                (onSelect)="onSectorSelect($event)"
+                                                                (onDeSelect) = "onItemDeSelectSector($event)"
+                                                                                     
+                                                              >
+                                                              </ng-multiselect-dropdown>
+                                            
+                                                              <!-- <select name="" class="dropdownColor" id="" formControlName="sector" >
+                                                                <option [value]="Tags._id" *ngFor="let sector of sectorTags"><input type="checkbox">{{sector.name}}</option>
+                                                            </select> -->
+                                                              <!-- <div *ngIf="(tagForm.get('sector').invalid) && (tagForm.get('sector').touched)">
+                                                                <div *ngIf="tagForm.get('sector').errors.required"><font color="red">Please select sector</font></div>
+                                            
+                                                            </div> -->
+                                                            </div>
+                                                          </div>
+                                                          <div class="fields">
+                                                            <span>Advice Areas*</span>
+                                                            <div class="public-slect">
+                                            
+                                                              <ng-multiselect-dropdown
+                                                              formControlName="adviceAreas"
+                                                              [placeholder]="'custom placeholder'"
+                                                              [data]="advice"
+                                                              [settings]="dropdownSettings"
+                                                              (onSelect)="onAdviseAresSelect($event)"
+                                                              (onDeSelect) = "onItemDeSelectAdviseArea($event)"
+                                                            >
+                                                            </ng-multiselect-dropdown>
+                                            
+                                            
+                                                              <!-- <select name="" class="dropdownColor" id="" formControlName="adviceAreas" >
+                                                                <option [value]="Tags._id" *ngFor="let Tags of advice"><input type="checkbox">{{Tags.name}}</option>
+                                                            </select> -->
+                                                            <!-- <div *ngIf="(tagForm.get('adviceAreas').invalid) && (tagForm.get('adviceAreas').touched)">
+                                                              <div *ngIf="tagForm.get('adviceAreas').errors.required"><font color="red">Please select advice area</font></div>
+                                            
+                                                          </div> -->
+                                                          </div>
+                                                        </div>
+                                                      </div> 
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                        </fieldset>
+                                        <div class="submitting-buttons" id="msform">
+                                          <input type="button" name="Save Draft" class="Save-Draft same-field"   style="cursor: pointer;" value="Save Changes & Resume Countdown" (click)="update()">
+                                          <input type="button" name="next" class="next action-button same-field"   style="cursor: pointer;" value="Send Now" (click)="send()">
+                                      </div>
+</form>

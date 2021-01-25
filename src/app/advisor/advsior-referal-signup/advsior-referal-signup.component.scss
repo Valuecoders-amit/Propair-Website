@@ -1,0 +1,96 @@
+.sign-up{padding:40px 0 0 0;}
+.sign-up .demand-wrapper{padding: 0px 0;}
+.sign-up .demand-wrapper .h3-heading{
+    font-size: 35px;
+    margin-bottom: 0;
+    line-height: 36px;
+}
+.sign-up .demand-wrapper p{font-size: 30px;     margin: 55px auto 65px auto;}
+.sign-up .demand-wrapper a{font-size: 30px; font-weight:400; color: #373636; line-height: 35px;}
+.sign-up-wrapper{ margin:20px auto 0 auto ;  max-width: 700px; width: 100%; background: #fff; padding:42px 40px; border-radius:9px ;     box-shadow: -3px -2px 26px rgba(0,0,0,0.1); -webkit-border-radius:5px ; -moz-border-radius:5px ; -ms-border-radius:5px ; -o-border-radius:5px ; }
+.sign-up-wrapper .form-group .sign-field{     width: 100%; margin: 17px 0; display: flex; align-items: center;}
+.sign-up-wrapper .form-group {
+    margin: 17px 0;
+    display: flex;
+    align-items: center;
+    // flex-direction: column;
+}
+.sign-up-wrapper .form-group.text-center {
+    justify-content: center;
+    margin: 0 0;
+}
+.sign-up-wrapper .form-group label{ font-family: 'Source Sans Pro', sans-serif; width: 35%; text-align: right; padding-right: 35px; font-size: 20px; line-height: 48px; }
+.sign-up-wrapper .form-group input{color: #373636;     height: 70px; font-family: 'Source Sans Pro', sans-serif;     font-size: 18px; line-height: 48px;     border: 2px solid #f0f0f0;}
+.sign-up-wrapper .form-group input:focus{box-shadow: none;}
+
+
+/* demand-wrapper */
+.demand-wrapper{padding: 160px 0;}
+.demand-wrapper .heading-wrapper p{font-size: 36px; line-height: 54px; font-weight: 400; max-width: 900px;     margin:55px  auto 0 auto;}
+.demand-wrapper .saftey-colum{margin-top: 50px;}
+.demand-wrapper .saftey-colum .safty{background: #fff;  display: flex; padding: 65px;     margin: 26px 0; border-radius: 13px; box-shadow: 0px 0px 17px rgba(0,0,0,0.2);}
+.demand-wrapper .saftey-colum .safty .img-box{margin-right: 35px;}
+.demand-wrapper .saftey-colum .safty .img-box img{ height: 85px; max-width: 120px;}
+.demand-wrapper .saftey-colum .safty h4{font-size:40px; line-height: 36px; margin: 28px 0; }
+.demand-wrapper .saftey-colum .safty p{font-size:24px; line-height: 36px;margin-bottom: 52px; }
+/* demand-wrapper close*/
+
+.already-signup h4{
+    line-height: 28px;
+    margin: 20px 0 10px 0;
+}
+.already-signup p a{
+    line-height: 36px;
+}
+
+.eye-pass{position: relative;}
+.eye-pass i{position: absolute; right: 15px; top: 28px; font-size: 30px; opacity:0.4;}
+
+.noteductor{font-size:20px !important; border-bottom:3px solid #33e2d1; margin-top: 15px; display: inline-block;}
+
+@media(max-width:1600px){
+    .demand-wrapper .heading-wrapper p{     margin: 20px auto 0 auto;   font-size: 28px;}
+    .demand-wrapper .saftey-colum .safty{    padding: 40px;  height: 255px; }
+    .demand-wrapper .saftey-colum .safty h4 { font-size: 32px;}
+    .demand-wrapper .saftey-colum .safty p { font-size: 20px; margin-bottom:0;}
+    .demand-wrapper{    padding: 70px 0;}
+    .sign-up { padding: 30px 0; }
+    .sign-up .demand-wrapper .h3-heading { font-size: 24px !important; line-height: 36px; }
+    .sign-up-wrapper {     padding: 30px 30px;   margin:30px auto 0 auto;}
+    .add-space {
+        margin-top: 106px;
+    }
+    .noteductor{    font-size: 18px !important;     margin-top: 0;}
+    .sign-up-wrapper .form-group input{    height: 55px;     font-size: 16px;}
+    .sign-btn button{    font-size: 18px;     padding: 11px 61px;}
+    .already-signup h4 {font-size: 18px;}
+    .already-signup p {
+        font-size: 18px;
+        margin: 0px 0;
+    }
+}   
+
+@media(max-width:992px){
+    .sign-up .demand-wrapper a {
+        font-size: 20px !important;
+    }
+}
+@media(max-width:767px){
+    .add-space{    margin-top: 86px;}
+    .sign-btn button{    padding: 13px 41px !important;}
+    .sign-up { padding: 20px 0 !important;}
+    .sign-up-wrapper .form-group input{    height: 50px !important;}
+}
+@media(max-width:575px){
+    .sign-up-wrapper{ padding: 15px 15px !important;   margin: 15px auto 0 auto;}
+    .sign-up-wrapper .form-group{ margin: 10px 0;}
+    .sign-btn {
+        margin-top: 10px;
+    }
+    .sign-btn button{
+        padding: 8px 41px !important;
+    }
+    .already-signup h4 {font-size: 16px;     margin: 20px 0 0px 0;     line-height: 24px;}
+    .already-signup p { font-size: 15px;}
+    
+}

@@ -1,0 +1,35 @@
+
+<div id="studentrequest" class="tab-pane fade in active">
+    <div class="container-fluid">
+        <div class="student-r-wrapper">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Student Requests</h1>
+                </div>
+                <div class="col-md-12">
+                    <div class="timmy-tabb">
+                        <div class="">
+                          <ul class="nav nav-tabs">
+                            <li><a data-toggle="tab" routerLink="/advisor-dashboard/student-requests/open-request" [ngClass]="{ 'active show' : currentResource == 'open-request'}" class="active show">Open Requests</a></li>
+                            <li><a data-toggle="tab" routerLink="/advisor-dashboard/student-requests/request-referred"  [ngClass]="{'active show' : currentResource == 'request-referred'}">Requests I’ve Referred</a></li>
+                          </ul>
+                        </div>
+                      
+                        <div class="tab-content" >
+                            <router-outlet></router-outlet>
+                           
+                        </div> 
+                    </div>
+                </div>
+            </div>
+            <ngx-spinner 
+            bdColor="rgba(22,36,75,0.10)"
+            [fullScreen]= "false">
+            <img style=" width: 100px; height: 100px;"  src="assets/images/loadingg.gif" />
+              
+              </ngx-spinner>
+            
+        </div> 
+        </div>
+        </div>
+

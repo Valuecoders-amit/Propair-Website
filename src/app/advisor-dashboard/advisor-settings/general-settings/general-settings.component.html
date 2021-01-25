@@ -1,0 +1,315 @@
+<div id="General" class="tab-pane fade in active">
+  <div class="row">
+    <div class="col-12">
+      <div class="school-wrapper">
+        <div class="w-100 school-name">
+          <img *ngIf="!imageSrc" src="assets/images/useoer.png" alt="img" />
+          <img *ngIf="imageSrc" [src]="imageSrc" alt="" />
+          
+          <div class="name">
+            <h3>{{ userData.firstName }} {{ userData.lastName }}</h3>
+
+            <div >
+              <h4>
+                <img src="assets/images/location-small.png" alt="img" />
+                {{ userData.location }}
+              </h4>
+            </div>
+            <p>
+              Member since
+              {{ userData.createdAt | date: "d MMM y" }}
+            </p>
+            <button class="btn" *ngIf="imageSrc" (click)="image(myImage)">Change Profile Image</button>
+          </div>
+        </div>
+        <form [formGroup]="profileForm">
+          <div class="field mt-4">
+            <div class="row">
+              <div class="col-md-3">
+                <label for="" class="tag"> First Name</label>
+              </div>
+              <div class="col-md-6">
+                <div class="edit">
+                  <input type="text" formControlName="firstName"  #focus/>
+                  <a
+                    *ngIf="this.profileForm.controls['firstName'].disabled"
+                    (click)="Edit('Firstname')"
+                    >Edit</a
+                  >
+                  <a
+                    *ngIf="this.profileForm.controls['firstName'].enabled"
+                    (click)="update('Firstname')"
+                    >Save
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3">
+                <label for="" class="tag"> Last Name</label>
+              </div>
+              <div class="col-md-6">
+                <div class="edit">
+                  <input type="text" formControlName="lastName" #focus2/>
+                  <a
+                    *ngIf="this.profileForm.controls['lastName'].disabled"
+                    (click)="Edit('LastName')"
+                    >Edit</a
+                  >
+                  <a
+                    *ngIf="this.profileForm.controls['lastName'].enabled"
+                    (click)="update('LastName')"
+                    >Save</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-3">
+                <label for="" class="tag">Gender</label>
+              </div>
+              <div class="col-md-6">
+                <div class="genderfield">
+                  <select
+                    name=""
+                    id=""
+                    formControlName="gender"
+                    (change)="userGender($event.target.value, myImage)"
+                  >
+                  <option value=null disabled selected>Select gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="binary">Non-Binary</option>
+                    <!-- <option value="other">Other</option> -->
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-3">
+                <label for="" class="tag">Screen Name</label>
+              </div>
+              <div class="col-md-6">
+                <div class="edit">
+                  <input type="text" formControlName="screenName" #focus3/>
+                  <a
+                    *ngIf="this.profileForm.controls['screenName'].disabled"
+                    (click)="Edit('ScreenName')"
+                    >Edit</a
+                  >
+                  <a
+                    *ngIf="this.profileForm.controls['screenName'].enabled"
+                    (click)="update('ScreenName')"
+                    >Save</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3">
+                <label for="" class="tag">Email</label>
+              </div>
+              <div class="col-md-6">
+                <div class="edit">
+                  <input type="text" formControlName="email" readonly />
+                </div>
+              </div>
+            </div>
+
+
+                   <!-- Contact Number -->
+                   <div class="row">
+                    <div class="col-md-3">
+                      <label for="" class="tag">Contact Number</label>
+                    </div>
+
+                    <div *ngIf="!fields['contact']" class="col-md-6">
+                      <div class="edit">
+                        <div class="col-sm-4 p-0">
+                         
+                          <int-phone-prefix
+                          style="
+                            background: transparent;
+                            border: 0px !important;
+                            padding: 0px !important;
+                            margin: 0px !important;
+                          "
+                          *ngIf = "!this.profileForm.controls['contact'].disabled"
+                          [maxLength]="5"
+                          [locale]="'en'"
+                          formControlName="countryCode"
+                        >
+                        </int-phone-prefix>
+                          <input
+                           *ngIf = "this.profileForm.controls['contact'].disabled"
+                           [readonly]="this.profileForm.controls['contact'].disabled"
+                            type="text"
+                            formControlName="countryCode"
+                            placeholder="Code"
+                          />
+                        </div>
+                        <input
+                          type="text"
+                          formControlName="contact"
+                          placeholder="Contact"
+                          #focus4
+                        />
+                        <a
+                          *ngIf="this.profileForm.controls['contact'].disabled"
+                          (click)="Edit('Contact')"
+                          >Edit</a
+                        >
+                        <a
+                        *ngIf="this.profileForm.controls['contact'].enabled"
+                        (click)="update('Contact')"
+                        >Save</a
+                      >
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Contact Ends -->
+
+            <!-- Google Api Integration -->
+            <div class="row">
+              <div class="col-md-3">
+                <label for="" class="tag">Location</label>
+              </div>
+              <div class="col-md-6">
+                <div class="edit">
+                  <input
+                    ngx-google-places-autocomplete
+                    [options]="options"
+                    #placesRef="ngx-places"
+                    formControlName="location"
+                    (onAddressChange)="handleAddressChange($event)"
+                  />
+                </div>
+              </div>
+            </div>
+            <!-- end -->
+
+            <div class="row">
+              <div class="col-md-3">
+                <label for="" class="tag">Password</label>
+              </div>
+              <div class="col-md-6">
+                <div class="edit">
+                  <input type="password" readonly />
+                  <a data-toggle="modal" data-target="#message-inbox">Change</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- setting close -->
+
+<!-- Modal message-inbox studentpopup-->
+<div class="close-modal-icon curent-msg-inbox prpr-sup-fr-studnet">
+  <div
+    class="modal fade"
+    id="message-inbox"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">
+            Change Your Password
+          </h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true"
+              ><img src="assets/images/close-icon.png" alt=""
+            /></span>
+          </button>
+        </div>
+        <form [formGroup]="updatePassword">
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="">New Password</label>
+              <input
+                type="password"
+                formControlName="password"
+                placeholder="New Password"
+                class="form-control"
+              />
+            </div>
+            <div class="form-group">
+              <label for="">Confirm Password</label>
+              <input
+                type="password"
+                formControlName="confirmPassword"
+                placeholder="Confirm Password"
+                class="form-control"
+              />
+            </div>
+            <div class="modal-footer inline-footer">
+              <button
+                [hidden]="true"
+                id="openSuccesModal"
+                data-toggle="modal"
+                data-target="#message-inbox"
+              >
+                success
+              </button>
+              <button
+                type="button"
+                class="green"
+                (click)="updateAdvisorPassword()"
+              >
+                Change
+              </button>
+              <button
+                type="button"
+                class="cncle"
+                class="border_bule-btn"
+                data-dismiss="modal"
+                (click)="cancel()"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+
+<!-- Default Image uploader -->
+<ng-template #myImage>
+  <div class="modal-body upload-sch-l upldprofilepic">
+    <div class="row" *ngIf="logoImages.length">
+      <h5>Please select a logo</h5>
+      <div class="imgwer">
+      <ng-container *ngFor="let img of logoImages">
+        <img
+          width="200px"
+          height="200px"
+          alt="png"
+          [src]="img.image"
+          (click)="updateProfileLogo(img.image)"
+        />
+      </ng-container>
+    </div>
+    </div>
+    <div class="row" *ngIf="!logoImages.length">
+     <p>No Images</p>
+    </div>
+    <button class="btn btn-primary" (click)="modalRef2.hide()">Cancel</button> 
+  </div>
+</ng-template>

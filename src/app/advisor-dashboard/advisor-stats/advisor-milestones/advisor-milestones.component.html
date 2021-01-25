@@ -1,0 +1,101 @@
+<div id="Milestones&Privileges" class="tab-pane fade">
+    <div class="row">
+        <div class="col-md-9">
+         <div class="milestone">
+          <div class="row">
+              <div class="col-md-5">
+                  <div class="card-box">
+                    <div class="socailimpact">
+                      <h3>My Status</h3>
+                        <div class="live-request">
+                          <div class="number  w-100">
+                            <div class="text-left">
+                              <p>{{milestoneData?.kp | number}}</p>
+                              <span>Karma Points</span>
+                          </div> 
+                          <div class="text-left">
+                            <div *ngIf="milestoneData?.kp >= karmaPoints?.advisor && milestoneData?.kp < karmaPoints?.seniorAdvisor ">
+                              <p>Advisor</p>
+                            </div>
+                            <div *ngIf="milestoneData?.kp >= karmaPoints?.seniorAdvisor && milestoneData?.kp < karmaPoints?.fellow ">
+                              <p>Senior Advisor</p>
+                            </div>
+                            <div *ngIf="milestoneData?.kp >= karmaPoints?.fellow ">
+                              <p>Fellow</p>
+                            </div>
+                            <span>Milestone</span>
+                          </div> 
+                        </div>
+                      </div>
+                  </div>
+                  </div>
+              </div>
+              <div class="col-md-7">
+                  <div class="card-box">
+                    <div class="progress">
+                      <div class="progress-bar" role="progressbar" aria-valuenow="10"
+                      [title]="mileprogress"    
+                      aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width.%': mileprogress ? mileprogress : 0 }">
+                      <span class="sr-only"></span>
+                    </div>
+                  </div>
+                    <div class="live-request karmabar">
+                    
+                      <div class="number  w-100">
+                        <div class="text-left">
+                          <!-- <span>{{milestoneData?.kp | number}} KPs</span> -->
+                          <span style="cursor: pointer;" title="{{milestoneData?.kp | number}} KPs">{{milestoneData?.leftPosition}}</span>
+                      </div> 
+                      <div class="text-left">
+                        <!-- <span>{{milestoneData?.maxPoint | number}} KPs</span> -->
+                        <span style="cursor: pointer;" title="{{milestoneData?.maxPoint | number}} KPs">{{milestoneData?.postName}}</span>
+                      </div> 
+                    </div>
+                    </div>
+                  </div>
+              </div>
+          </div>
+         </div>
+          <div class="main">
+            <div class="basd-profile perfomance-stats">
+              <p class="permnce-text">Milestones & Privileges</p>
+          </div>
+            <div class="invoicebilling basic-membership ">
+              <div class="table-wrpper" *ngIf="karmaPoints">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Milestone</th>
+                      <th scope="col">Karma Points Required</th>
+                      <th scope="col">Privileges</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>                                                                                                                   
+                      <td>Advisor</td>
+                      <td>{{karmaPoints?.advisor}}</td>
+                      <td class="elipsis">Lorem ipsum, or lipsum as it is sometimes known.</td>
+                    </tr>
+                    <tr>                                                                                                                   
+                      <td>Senior Advisor</td>
+                      <td>{{karmaPoints?.seniorAdvisor}}</td>
+                      <td class="elipsis">Lorem ipsum, or lipsum as it is sometimes known.</td>
+                    </tr>
+                    <tr>                                                                                                                   
+                      <td>Fellow</td>
+                      <td>{{karmaPoints?.fellow}}</td>
+                      <td class="elipsis">Lorem ipsum, or lipsum as it is sometimes known.</td>
+                    </tr>
+                   
+                  
+                  </tbody>
+                </table>
+              </div>
+              <div class="table-wrpper" *ngIf="!karmaPoints">
+                <p class="text-center">No data found</p>
+              </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>

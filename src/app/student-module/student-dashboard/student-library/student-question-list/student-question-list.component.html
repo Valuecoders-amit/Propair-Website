@@ -1,0 +1,750 @@
+<div class="row">
+    <div class="col-md-3">
+        <div class="library_function">
+            <h3>Library</h3>
+            
+            <div class="serchbox">
+                <input type="text" placeholder="Search by Keyword" [(ngModel)]="searchValue" (keyup.enter)="enter()">
+                <a href="javascript:void(0);"><img src="assets/images/searchicon.png" alt="img"></a>
+                <!-- (keyup)="searchField($event.target.value)" -->
+            </div>
+            <div class="serch-tip">
+                <span><img src="assets/images/quicktip.png" alt="img" (mouseenter) ="quickSearchTip=true"  (mouseleave) ="quickSearchTip=false">Search tips</span>
+                <div class="quick-tip-box " *ngIf="quickSearchTip">
+                    <!-- <h3>Tool tip</h3> -->
+                    <h6>Search Tips</h6>
+                    <p>- Please use quotes to search for an exact phrase</p>
+                    <p>- Please use the filter below to help you</p>
+
+                 </div>
+            </div>
+            <div class="tags-lg">
+                <div class="tags">
+                    <h4>Filter by:</h4>
+                    <div class="accodian-checkbox right">
+                        <h5>ADVISOR</h5>
+                        <div class="accordion">
+                            <!-- span to target fix closing accordion -->
+                            <span class="target-fix" id="accordion"></span>
+                            <!-- First Accoridon Option -->
+                            <div >
+                                <!-- Accordian -->
+                                <ngb-accordion #acc="ngbAccordion">
+                                    <ngb-panel title="Sector">
+                                        <ng-template ngbPanelContent>
+                                            <div class="new">
+                                                <form   (change)="changeValue($event.target.value, 3)">
+                                                    <div class="iline"  *ngFor="let sector of sectorTags" >
+                                                        <div class="form-group">
+                                                            <input type="checkbox" [id]="sector?._id"
+                                                                [value]="sector?.name"
+                                                                [(ngModel)]="filterForm[sector?.name]"
+                                                                [ngModelOptions]="{standalone: true}">
+                                                            <!-- {{checkbox.value}} -->
+                                                            <label [for]="sector?._id" title="{{sector?.name}}">{{sector?.name}}</label>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </form>
+                                                <!-- <a *ngIf="!this.editSector" (click)="addSector()">add new sector</a>
+                                                <input  *ngIf="this.editSector" placeholder="Sectors" [(ngModel)]="sectorSearchValue" (keyup)="sectorSearch()"  >
+    
+                                                <div  *ngIf="sectorSearchData?.length && hideSectorDiv == true">
+                                                    <div *ngFor="let sector of sectorSearchData" >
+                                                        <span   (click)="submitSector(sector.name)">{{sector.name}}</span>
+                                                    </div>
+                                                </div> -->
+                                            </div>
+                                        </ng-template>
+                                    </ngb-panel>
+                                </ngb-accordion>
+                                <ngb-accordion #acc="ngbAccordion">
+                                    <ngb-panel title="Employers">
+                                        <ng-template ngbPanelContent>
+                                            <div class="new">
+                                                <form (change)="changeValue($event.target.value, 4)">
+                                                    <div class="iline"  *ngFor="let employer of emplaoyerData" >
+                                                        <div class="form-group">
+                                                            <input type="checkbox" [id]="employer?._id"
+                                                                [value]="employer?.EmployerNames"
+                                                                [(ngModel)]="filterForm[employer?.EmployerNames]"
+                                                                [ngModelOptions]="{standalone: true}">
+                                                            <!-- {{checkbox.value}} -->
+                                                            <label [for]="employer?._id" title="{{employer?.EmployerNames}}">{{employer?.EmployerNames}}</label>
+                                                        </div>
+                                                    </div>
+                                                    <!-- <a *ngIf="!this.editEmployee" (click)="addemployee()">Add new Employer</a>
+                                                    <input  *ngIf="this.editEmployee" placeholder="Employers" [(ngModel)]="employeeSearchValue"  [ngModelOptions]="{standalone: true}" (keyup)="employersSearch()"  >
+        
+                                                    <div  *ngIf="employeeSearchData?.length && hideEmployeeDiv == true">
+                                                        <div *ngFor="let employee of employeeSearchData">
+                                                            <span   (click)="submitEmploye(employee?.EmployerNames)">{{employee?.EmployerNames}}</span>
+                                                        </div>
+                                                    </div> -->
+                                                </form>
+                                                <a *ngIf="!this.editEmployee" (click)="addemployee()">Add new Employer</a>
+                                                <input  *ngIf="this.editEmployee" placeholder="Employers" [(ngModel)]="employeeSearchValue"  [ngModelOptions]="{standalone: true}" (keyup)="employersSearch()"  >
+    
+                                                <div  *ngIf="employeeSearchData?.length && hideEmployeeDiv == true">
+                                                    <div *ngFor="let employee of employeeSearchData">
+                                                        <span   (click)="submitEmploye(employee?.EmployerNames)">{{employee?.EmployerNames}}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </ng-template>
+                                    </ngb-panel>
+                                </ngb-accordion>
+                                <ngb-accordion #acc="ngbAccordion">
+                                    <ngb-panel title="Type of job">
+                                        <ng-template ngbPanelContent>
+                                            <div class="new">
+                                                <form (change)="changeValue($event.target.value, 5)">
+                                                    <div class="iline"  *ngFor="let typeOfJob of typeOfJobData" >
+                                                        <div class="form-group">
+                                                            <input type="checkbox" [id]="typeOfJob?._id"
+                                                                [value]="typeOfJob?.typesOfJob"
+                                                                [(ngModel)]="filterForm[typeOfJob?.typesOfJob]"
+                                                                [ngModelOptions]="{standalone: true}">
+                                                            <!-- {{checkbox.value}} -->
+                                                            <label [for]="typeOfJob?._id" title="{{typeOfJob?.typesOfJob}}">{{typeOfJob?.typesOfJob}}</label>
+                                                        </div>
+                                                    </div>
+                                                    <!-- <a *ngIf="!this.editTypeOfJOb" (click)="addTypeOfSctor()">add new type of job</a>
+                                                    <input  *ngIf="this.editTypeOfJOb" placeholder="Type of job" [(ngModel)]="typeOfJobSearchValue"  [ngModelOptions]="{standalone: true}" (keyup)="typeOFJoBTSearch()" >
+        
+                                                    <div  *ngIf="typeOfJobSearchData?.length && hideTypeOfJobDiv == true">
+                                                        <div  *ngFor="let type of typeOfJobSearchData">
+                                                            <span   (click)="submitTypeOfJob(type?.typesOfJob)">{{type?.typesOfJob}}</span>
+                                                        </div>
+                                                    </div> -->
+                                                </form>
+                                            </div>
+                                        </ng-template>
+                                    </ngb-panel>
+                                </ngb-accordion>
+                                    <ngb-accordion #acc="ngbAccordion">
+                                        <ngb-panel title="Universities/colleges">
+                                            <ng-template ngbPanelContent>
+                                                <div class="new">
+                                                    <form (change)="changeValue($event.target.value, 6)">
+                                                        <div class="iline"  *ngFor="let colleges of collegesData" >
+                                                            <div class="form-group">
+                                                                <input type="checkbox" [id]="colleges?._id"
+                                                                    [value]="colleges?.university"
+                                                                    [(ngModel)]="filterForm[colleges?.university]"
+                                                                    [ngModelOptions]="{standalone: true}">
+                                                                <!-- {{checkbox.value}} -->
+                                                                <label [for]="colleges?._id" title="{{colleges?.university}}">{{colleges?.university}}</label>
+                                                            </div>
+                                                        </div>
+                                                        <!-- <a *ngIf="!this.editCollege" (click)="addCollege()">Add new University/College</a>
+                                                        <input  *ngIf="this.editCollege" placeholder="Universities" [(ngModel)]="collegeSearchValue"  [ngModelOptions]="{standalone: true}" (keyup)="collegeSearch()" >
+            
+                                                        <div  *ngIf="collegeSearchData?.length && hideCollegeDiv == true">
+                                                            <div  *ngFor="let college of collegeSearchData">
+                                                                <span   (click)="submitCollege(college?.university)">{{college?.university}}</span>
+                                                            </div>
+                                                        </div> -->
+                                                    </form>
+                                                    <a *ngIf="!this.editCollege" (click)="addCollege()">Add new University/College</a>
+                                                    <input  *ngIf="this.editCollege" placeholder="Universities" [(ngModel)]="collegeSearchValue"  [ngModelOptions]="{standalone: true}" (keyup)="collegeSearch()" >
+        
+                                                    <div  *ngIf="collegeSearchData?.length && hideCollegeDiv == true">
+                                                        <div  *ngFor="let college of collegeSearchData">
+                                                            <span   (click)="submitCollege(college?.university)">{{college?.university}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </ng-template>
+                                        </ngb-panel>
+                                    </ngb-accordion>
+                                <ngb-accordion #acc="ngbAccordion">
+                                    <ngb-panel title="Fields of study">
+                                        <ng-template ngbPanelContent>
+                                            <div class="new">
+                                                <form (change)="changeValue($event.target.value, 7)">
+                                                    <div class="iline"  *ngFor="let fieldOfStudy of fieldOfStudyData" >
+                                                        <div class="form-group">
+                                                            <input type="checkbox" [id]="fieldOfStudy?._id"
+                                                                [value]="fieldOfStudy?.name"
+                                                                [(ngModel)]="filterForm[fieldOfStudy?.name]"
+                                                                [ngModelOptions]="{standalone: true}">
+                                                            <!-- {{checkbox.value}} -->
+                                                            <label [for]="fieldOfStudy?._id" title="{{fieldOfStudy?.name}}">{{fieldOfStudy?.name}}</label>
+                                                        </div>
+                                                    </div>
+                                                    <!-- <a *ngIf="!this.editFieldOfStudy" (click)="addFieldOfStudy()">Add new Field of Study</a>
+                                                    <input  *ngIf="this.editFieldOfStudy" placeholder="Field of study" [(ngModel)]="fieldOfStudySearchValue"  [ngModelOptions]="{standalone: true}" (keyup)="fieldOfStudySearch()"  >
+        
+                                                    <div  *ngIf="fieldOfStudySearchData?.length && hideFieldOfStudyDiv == true">
+                                                        <div *ngFor="let fieldOfStudy of fieldOfStudySearchData">
+                                                            <span   (click)="submitFieldOfStudy(fieldOfStudy?.name)">{{fieldOfStudy?.name}}</span>
+                                                        </div>
+                                                    </div> -->
+                                                </form>
+                                                <a *ngIf="!this.editFieldOfStudy" (click)="addFieldOfStudy()">Add new Field of Study</a>
+                                                <input  *ngIf="this.editFieldOfStudy" placeholder="Field of study" [(ngModel)]="fieldOfStudySearchValue"  [ngModelOptions]="{standalone: true}" (keyup)="fieldOfStudySearch()"  >
+    
+                                                <div  *ngIf="fieldOfStudySearchData?.length && hideFieldOfStudyDiv == true">
+                                                    <div *ngFor="let fieldOfStudy of fieldOfStudySearchData">
+                                                        <span   (click)="submitFieldOfStudy(fieldOfStudy?.name)">{{fieldOfStudy?.name}}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </ng-template>
+                                    </ngb-panel>
+                                </ngb-accordion>
+                                <ngb-accordion #acc="ngbAccordion">
+                                    <ngb-panel title="Location">
+                                        <ng-template ngbPanelContent>
+                                            <div class="new">
+                                                <!-- <form (change)="changeValue($event.target.value, $event.target.id)">
+                                                    <div class="iline"  *ngFor="let sector of sectorTags" >
+                                                        <div class="form-group">
+                                                            <input type="checkbox" [id]="checkbox._id"
+                                                                [value]="checkbox.name"
+                                                                [(ngModel)]="filterForm[checkbox.name]"
+                                                                [ngModelOptions]="{standalone: true}"> -->
+                                                            <!-- {{checkbox.value}} -->
+                                                            <!-- <label [for]="checkbox._id">{{sector.name}}</label>
+                                                        </div>
+                                                    </div>
+                                                </form> -->
+                                                
+                                                <input
+                                                ngx-google-places-autocomplete
+                                                [options]="options"
+                                                #placesRef="ngx-places"
+                                                [(ngModel)] = "addAdvisorLocation"
+                                                (onAddressChange)="handleAddressChange($event)"
+                                              />
+                                            </div>
+                                        </ng-template>
+                                    </ngb-panel>
+                                </ngb-accordion>
+    
+                            </div>
+    
+                        </div>
+                    </div>
+                    <div class="accodian-checkbox right">
+                        <h5>Student</h5>
+                        <div class="accordion">
+                            <!-- span to target fix closing accordion -->
+                            <span class="target-fix" id="accordion"></span>
+                            <!-- First Accoridon Option -->
+                            <div >
+                                <!-- Accordian -->
+                                <ngb-accordion #acc="ngbAccordion">
+                                    <ngb-panel title="Year group">
+                                        <ng-template ngbPanelContent>
+                                            <div class="new">
+                                                <form (change)="changeValue($event.target.value, 1)">
+                                                    <div class="iline"  *ngFor="let year of yearTags" >
+                                                        <div class="form-group">
+                                                            <input type="checkbox" [id]="year._id"
+                                                                [value]="year?.name"
+                                                                [(ngModel)]="filterForm[year?.name]"
+                                                                [ngModelOptions]="{standalone: true}">
+                                                            <label [for]="year?._id" title="{{year?.name}}">{{year?.name}}</label>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                                <!-- <a *ngIf="!this.editYear" (click)="this.editYear = true">add new option</a>
+                                                <input list="browserser" *ngIf="this.editYear" name="browser" id="browser"[(ngModel)]="sectorValue" [ngModelOptions]="{standalone: true}" (change)="sector(1)">
+    
+                                                <datalist id="browserser">
+                                                  <option *ngFor="let country of dummySectorData" [value]="country.name">
+                                                </datalist> -->
+                                            </div>
+                                        </ng-template>
+                                    </ngb-panel>
+                                </ngb-accordion>
+                                <!-- <ngb-accordion #acc="ngbAccordion">
+                                    <ngb-panel title="Form">
+                                        <ng-template ngbPanelContent>
+                                            <div class="new">
+                                                <form (change)="changeValue($event.target.value, 2)">
+                                                    <div class="iline"  *ngFor="let formt of formTags" >
+                                                        <div class="form-group">
+                                                            <input type="checkbox" [id]="formt._id"
+                                                                [value]="formt.name"
+                                                                [(ngModel)]="filterForm[formt.name]"
+                                                                [ngModelOptions]="{standalone: true}">
+                                                            <label [for]="checkbox._id">{{formt.name}}</label>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                                <a *ngIf="!this.editForm" (click)="this.editForm = true">add new option</a>
+                                                <input list="browserser" *ngIf="this.editForm" name="browser" id="browser"[(ngModel)]="sectorValue" [ngModelOptions]="{standalone: true}" (change)="sector(2)">
+    
+                                                <datalist id="browserser">
+                                                  <option *ngFor="let country of dummySectorData" [value]="country.name">
+                                                </datalist>
+                                            </div>
+                                        </ng-template>
+                                    </ngb-panel>
+                                </ngb-accordion> -->
+                                <ngb-accordion #acc="ngbAccordion">
+                                    <ngb-panel title="Location">
+                                        <ng-template ngbPanelContent>
+                                            <div class="new">
+                                                <form >
+                                                    <!-- <div class="iline"  *ngFor="let sector of sectorTags" >
+                                                        <div class="form-group">
+                                                            <input type="checkbox" [id]="checkbox._id"
+                                                                [value]="checkbox.name"
+                                                                [(ngModel)]="filterForm[checkbox.name]"
+                                                                [ngModelOptions]="{standalone: true}"> -->
+                                                            <!-- {{checkbox.value}} -->
+                                                            <!-- <label [for]="checkbox._id">{{sector.name}}</label>
+                                                        </div>
+                                                    </div> -->
+                                                    <input
+                                                    ngx-google-places-autocomplete
+                                                    [options]="options2"
+                                                    #placesRef="ngx-places"
+                                                    [(ngModel)] ="addStudentLocation"
+                                                    [ngModelOptions]="{standalone: true}"
+                                                    (onAddressChange)="handleLocationAddressChange($event)"
+                                                  />
+                                                </form>
+                                            </div>
+                                        </ng-template>
+                                    </ngb-panel>
+                                </ngb-accordion>
+    
+                            </div>
+    
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <!-- <button class="btn btn-block">Filters</button> -->
+            
+            <div class="tags-sm">
+                <button class="btn btn-block filter-btn collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    Filter by
+                    <!-- &nbsp;&nbsp;&nbsp;<img src="assets/images/dropdown-angelsmall.svg"> -->
+                </button>
+                <div class="tags collapse" id="collapseOne">
+                    <h4>Filter by:</h4>
+                    <div class="accodian-checkbox right">
+                        <h5>ADVISOR</h5>
+                        <div class="accordion">
+                            <!-- span to target fix closing accordion -->
+                            <span class="target-fix" id="accordion"></span>
+                            <!-- First Accoridon Option -->
+                            <div >
+                                <!-- Accordian -->
+                                <ngb-accordion #acc="ngbAccordion">
+                                    <ngb-panel title="Sector">
+                                        <ng-template ngbPanelContent>
+                                            <div class="new">
+                                                <form   (change)="changeValue($event.target.value, 3)">
+                                                    <div class="iline"  *ngFor="let sector of sectorTags" >
+                                                        <div class="form-group">
+                                                            <input type="checkbox" [id]="sector?._id"
+                                                                [value]="sector?.name"
+                                                                [(ngModel)]="filterForm[sector?.name]"
+                                                                [ngModelOptions]="{standalone: true}">
+                                                            <!-- {{checkbox.value}} -->
+                                                            <label [for]="sector?._id" title="{{sector?.name}}">{{sector?.name}}</label>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </form>
+                                                <!-- <a *ngIf="!this.editSector" (click)="addSector()">add new sector</a>
+                                                <input  *ngIf="this.editSector" placeholder="Sectors" [(ngModel)]="sectorSearchValue" (keyup)="sectorSearch()"  >
+    
+                                                <div  *ngIf="sectorSearchData?.length && hideSectorDiv == true">
+                                                    <div *ngFor="let sector of sectorSearchData" >
+                                                        <span   (click)="submitSector(sector.name)">{{sector.name}}</span>
+                                                    </div>
+                                                </div> -->
+                                            </div>
+                                        </ng-template>
+                                    </ngb-panel>
+                                </ngb-accordion>
+                                <ngb-accordion #acc="ngbAccordion">
+                                    <ngb-panel title="Employers">
+                                        <ng-template ngbPanelContent>
+                                            <div class="new">
+                                                <form (change)="changeValue($event.target.value, 4)">
+                                                    <div class="iline"  *ngFor="let employer of emplaoyerData" >
+                                                        <div class="form-group">
+                                                            <input type="checkbox" [id]="employer?._id"
+                                                                [value]="employer?.EmployerNames"
+                                                                [(ngModel)]="filterForm[employer?.EmployerNames]"
+                                                                [ngModelOptions]="{standalone: true}">
+                                                            <!-- {{checkbox.value}} -->
+                                                            <label [for]="employer?._id" title="{{employer?.EmployerNames}}">{{employer?.EmployerNames}}</label>
+                                                        </div>
+                                                    </div>
+                                                    <!-- <a *ngIf="!this.editEmployee" (click)="addemployee()">Add new Employer</a>
+                                                    <input  *ngIf="this.editEmployee" placeholder="Employers" [(ngModel)]="employeeSearchValue"  [ngModelOptions]="{standalone: true}" (keyup)="employersSearch()"  >
+        
+                                                    <div  *ngIf="employeeSearchData?.length && hideEmployeeDiv == true">
+                                                        <div *ngFor="let employee of employeeSearchData">
+                                                            <span   (click)="submitEmploye(employee?.EmployerNames)">{{employee?.EmployerNames}}</span>
+                                                        </div>
+                                                    </div> -->
+                                                </form>
+                                                <a *ngIf="!this.editEmployee" (click)="addemployee()">Add new Employer</a>
+                                                <input  *ngIf="this.editEmployee" placeholder="Employers" [(ngModel)]="employeeSearchValue"  [ngModelOptions]="{standalone: true}" (keyup)="employersSearch()"  >
+    
+                                                <div  *ngIf="employeeSearchData?.length && hideEmployeeDiv == true">
+                                                    <div *ngFor="let employee of employeeSearchData">
+                                                        <span   (click)="submitEmploye(employee?.EmployerNames)">{{employee?.EmployerNames}}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </ng-template>
+                                    </ngb-panel>
+                                </ngb-accordion>
+                                <ngb-accordion #acc="ngbAccordion">
+                                    <ngb-panel title="Type of job">
+                                        <ng-template ngbPanelContent>
+                                            <div class="new">
+                                                <form (change)="changeValue($event.target.value, 5)">
+                                                    <div class="iline"  *ngFor="let typeOfJob of typeOfJobData" >
+                                                        <div class="form-group">
+                                                            <input type="checkbox" [id]="typeOfJob?._id"
+                                                                [value]="typeOfJob?.typesOfJob"
+                                                                [(ngModel)]="filterForm[typeOfJob?.typesOfJob]"
+                                                                [ngModelOptions]="{standalone: true}">
+                                                            <!-- {{checkbox.value}} -->
+                                                            <label [for]="typeOfJob?._id" title="{{typeOfJob?.typesOfJob}}">{{typeOfJob?.typesOfJob}}</label>
+                                                        </div>
+                                                    </div>
+                                                    <!-- <a *ngIf="!this.editTypeOfJOb" (click)="addTypeOfSctor()">add new type of job</a>
+                                                    <input  *ngIf="this.editTypeOfJOb" placeholder="Type of job" [(ngModel)]="typeOfJobSearchValue"  [ngModelOptions]="{standalone: true}" (keyup)="typeOFJoBTSearch()" >
+        
+                                                    <div  *ngIf="typeOfJobSearchData?.length && hideTypeOfJobDiv == true">
+                                                        <div  *ngFor="let type of typeOfJobSearchData">
+                                                            <span   (click)="submitTypeOfJob(type?.typesOfJob)">{{type?.typesOfJob}}</span>
+                                                        </div>
+                                                    </div> -->
+                                                </form>
+                                            </div>
+                                        </ng-template>
+                                    </ngb-panel>
+                                </ngb-accordion>
+                                    <ngb-accordion #acc="ngbAccordion">
+                                        <ngb-panel title="Universities/colleges">
+                                            <ng-template ngbPanelContent>
+                                                <div class="new">
+                                                    <form (change)="changeValue($event.target.value, 6)">
+                                                        <div class="iline"  *ngFor="let colleges of collegesData" >
+                                                            <div class="form-group">
+                                                                <input type="checkbox" [id]="colleges?._id"
+                                                                    [value]="colleges?.university"
+                                                                    [(ngModel)]="filterForm[colleges?.university]"
+                                                                    [ngModelOptions]="{standalone: true}">
+                                                                <!-- {{checkbox.value}} -->
+                                                                <label [for]="colleges?._id" title="{{colleges?.university}}">{{colleges?.university}}</label>
+                                                            </div>
+                                                        </div>
+                                                        <!-- <a *ngIf="!this.editCollege" (click)="addCollege()">Add new University/College</a>
+                                                        <input  *ngIf="this.editCollege" placeholder="Universities" [(ngModel)]="collegeSearchValue"  [ngModelOptions]="{standalone: true}" (keyup)="collegeSearch()" >
+            
+                                                        <div  *ngIf="collegeSearchData?.length && hideCollegeDiv == true">
+                                                            <div  *ngFor="let college of collegeSearchData">
+                                                                <span   (click)="submitCollege(college?.university)">{{college?.university}}</span>
+                                                            </div>
+                                                        </div> -->
+                                                    </form>
+                                                    <a *ngIf="!this.editCollege" (click)="addCollege()">Add new University/College</a>
+                                                    <input  *ngIf="this.editCollege" placeholder="Universities" [(ngModel)]="collegeSearchValue"  [ngModelOptions]="{standalone: true}" (keyup)="collegeSearch()" >
+        
+                                                    <div  *ngIf="collegeSearchData?.length && hideCollegeDiv == true">
+                                                        <div  *ngFor="let college of collegeSearchData">
+                                                            <span   (click)="submitCollege(college?.university)">{{college?.university}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </ng-template>
+                                        </ngb-panel>
+                                    </ngb-accordion>
+                                <ngb-accordion #acc="ngbAccordion">
+                                    <ngb-panel title="Fields of study">
+                                        <ng-template ngbPanelContent>
+                                            <div class="new">
+                                                <form (change)="changeValue($event.target.value, 7)">
+                                                    <div class="iline"  *ngFor="let fieldOfStudy of fieldOfStudyData" >
+                                                        <div class="form-group">
+                                                            <input type="checkbox" [id]="fieldOfStudy?._id"
+                                                                [value]="fieldOfStudy?.name"
+                                                                [(ngModel)]="filterForm[fieldOfStudy?.name]"
+                                                                [ngModelOptions]="{standalone: true}">
+                                                            <!-- {{checkbox.value}} -->
+                                                            <label [for]="fieldOfStudy?._id" title="{{fieldOfStudy?.name}}">{{fieldOfStudy?.name}}</label>
+                                                        </div>
+                                                    </div>
+                                                    <!-- <a *ngIf="!this.editFieldOfStudy" (click)="addFieldOfStudy()">Add new Field of Study</a>
+                                                    <input  *ngIf="this.editFieldOfStudy" placeholder="Field of study" [(ngModel)]="fieldOfStudySearchValue"  [ngModelOptions]="{standalone: true}" (keyup)="fieldOfStudySearch()"  >
+        
+                                                    <div  *ngIf="fieldOfStudySearchData?.length && hideFieldOfStudyDiv == true">
+                                                        <div *ngFor="let fieldOfStudy of fieldOfStudySearchData">
+                                                            <span   (click)="submitFieldOfStudy(fieldOfStudy?.name)">{{fieldOfStudy?.name}}</span>
+                                                        </div>
+                                                    </div> -->
+                                                </form>
+                                                <a *ngIf="!this.editFieldOfStudy" (click)="addFieldOfStudy()">Add new Field of Study</a>
+                                                <input  *ngIf="this.editFieldOfStudy" placeholder="Field of study" [(ngModel)]="fieldOfStudySearchValue"  [ngModelOptions]="{standalone: true}" (keyup)="fieldOfStudySearch()"  >
+    
+                                                <div  *ngIf="fieldOfStudySearchData?.length && hideFieldOfStudyDiv == true">
+                                                    <div *ngFor="let fieldOfStudy of fieldOfStudySearchData">
+                                                        <span   (click)="submitFieldOfStudy(fieldOfStudy?.name)">{{fieldOfStudy?.name}}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </ng-template>
+                                    </ngb-panel>
+                                </ngb-accordion>
+                                <ngb-accordion #acc="ngbAccordion">
+                                    <ngb-panel title="Location">
+                                        <ng-template ngbPanelContent>
+                                            <div class="new">
+                                                <!-- <form (change)="changeValue($event.target.value, $event.target.id)">
+                                                    <div class="iline"  *ngFor="let sector of sectorTags" >
+                                                        <div class="form-group">
+                                                            <input type="checkbox" [id]="checkbox._id"
+                                                                [value]="checkbox.name"
+                                                                [(ngModel)]="filterForm[checkbox.name]"
+                                                                [ngModelOptions]="{standalone: true}"> -->
+                                                            <!-- {{checkbox.value}} -->
+                                                            <!-- <label [for]="checkbox._id">{{sector.name}}</label>
+                                                        </div>
+                                                    </div>
+                                                </form> -->
+                                                
+                                                <input
+                                                ngx-google-places-autocomplete
+                                                [options]="options"
+                                                #placesRef="ngx-places"
+                                                [(ngModel)] = "addAdvisorLocation"
+                                                (onAddressChange)="handleAddressChange($event)"
+                                              />
+                                            </div>
+                                        </ng-template>
+                                    </ngb-panel>
+                                </ngb-accordion>
+    
+                            </div>
+    
+                        </div>
+                    </div>
+                    <div class="accodian-checkbox right">
+                        <h5>Student</h5>
+                        <div class="accordion">
+                            <!-- span to target fix closing accordion -->
+                            <span class="target-fix" id="accordion"></span>
+                            <!-- First Accoridon Option -->
+                            <div >
+                                <!-- Accordian -->
+                                <ngb-accordion #acc="ngbAccordion">
+                                    <ngb-panel title="Year group">
+                                        <ng-template ngbPanelContent>
+                                            <div class="new">
+                                                <form (change)="changeValue($event.target.value, 1)">
+                                                    <div class="iline"  *ngFor="let year of yearTags" >
+                                                        <div class="form-group">
+                                                            <input type="checkbox" [id]="year._id"
+                                                                [value]="year?.name"
+                                                                [(ngModel)]="filterForm[year?.name]"
+                                                                [ngModelOptions]="{standalone: true}">
+                                                            <label [for]="year?._id" title="{{year?.name}}">{{year?.name}}</label>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                                <!-- <a *ngIf="!this.editYear" (click)="this.editYear = true">add new option</a>
+                                                <input list="browserser" *ngIf="this.editYear" name="browser" id="browser"[(ngModel)]="sectorValue" [ngModelOptions]="{standalone: true}" (change)="sector(1)">
+    
+                                                <datalist id="browserser">
+                                                  <option *ngFor="let country of dummySectorData" [value]="country.name">
+                                                </datalist> -->
+                                            </div>
+                                        </ng-template>
+                                    </ngb-panel>
+                                </ngb-accordion>
+                                <!-- <ngb-accordion #acc="ngbAccordion">
+                                    <ngb-panel title="Form">
+                                        <ng-template ngbPanelContent>
+                                            <div class="new">
+                                                <form (change)="changeValue($event.target.value, 2)">
+                                                    <div class="iline"  *ngFor="let formt of formTags" >
+                                                        <div class="form-group">
+                                                            <input type="checkbox" [id]="formt._id"
+                                                                [value]="formt.name"
+                                                                [(ngModel)]="filterForm[formt.name]"
+                                                                [ngModelOptions]="{standalone: true}">
+                                                            <label [for]="checkbox._id">{{formt.name}}</label>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                                <a *ngIf="!this.editForm" (click)="this.editForm = true">add new option</a>
+                                                <input list="browserser" *ngIf="this.editForm" name="browser" id="browser"[(ngModel)]="sectorValue" [ngModelOptions]="{standalone: true}" (change)="sector(2)">
+    
+                                                <datalist id="browserser">
+                                                  <option *ngFor="let country of dummySectorData" [value]="country.name">
+                                                </datalist>
+                                            </div>
+                                        </ng-template>
+                                    </ngb-panel>
+                                </ngb-accordion> -->
+                                <ngb-accordion #acc="ngbAccordion">
+                                    <ngb-panel title="Location">
+                                        <ng-template ngbPanelContent>
+                                            <div class="new">
+                                                <form >
+                                                    <!-- <div class="iline"  *ngFor="let sector of sectorTags" >
+                                                        <div class="form-group">
+                                                            <input type="checkbox" [id]="checkbox._id"
+                                                                [value]="checkbox.name"
+                                                                [(ngModel)]="filterForm[checkbox.name]"
+                                                                [ngModelOptions]="{standalone: true}"> -->
+                                                            <!-- {{checkbox.value}} -->
+                                                            <!-- <label [for]="checkbox._id">{{sector.name}}</label>
+                                                        </div>
+                                                    </div> -->
+                                                    <input
+                                                    ngx-google-places-autocomplete
+                                                    [options]="options2"
+                                                    #placesRef="ngx-places"
+                                                    [(ngModel)] ="addStudentLocation"
+                                                    [ngModelOptions]="{standalone: true}"
+                                                    (onAddressChange)="handleLocationAddressChange($event)"
+                                                  />
+                                                </form>
+                                            </div>
+                                        </ng-template>
+                                    </ngb-panel>
+                                </ngb-accordion>
+    
+                            </div>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9 message-exchange">
+        <div class="content-box">
+            <div *ngIf="!(studentPoster?.length||SectorTagsArray?.length || employerTagsArray?.length || typeOfJobTagsArray?.length || collegesTagsArray?.length || fieldOfStudyTagsArray?.length || searchArray?.length || advsiorLocationArray?.length || studentLocationArray?.length)">
+                <h3>Top Message Exchanges</h3>
+            </div>
+            <div class="result-box" [ngClass]="{'rstbx-sm' : studentPoster?.length||SectorTagsArray?.length || employerTagsArray?.length || typeOfJobTagsArray?.length || collegesTagsArray?.length || fieldOfStudyTagsArray?.length || searchArray?.length || advsiorLocationArray?.length || studentLocationArray?.length }">
+                <div class="row align-items-center">
+                    <div class="col-3">
+                        <div class="result w-60">
+                            <span class="tot-num">{{messageCount | number}} {{messageCount >1? 'results': 'result'}}</span>
+                        </div>
+                    </div>
+                    <div class="col-3 ml-auto" align="right">
+                        <div class="custom-selects">
+                            <select name="" id="" (change)="filterDropdown($event.target.value)" [(ngModel)]="dropdownField">
+                                <option value="relevant">Relevant</option>
+                                <option value="hot">Hot</option>
+                                <option value="week">Week</option>
+                                <option value="month">Month</option>
+                                <option value="mine">Mine</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="diffrent-tags">
+                            <span *ngIf="studentPoster.length">Year: <span class="tgs" *ngFor="let poster of studentPoster">{{poster}} <img src="../../../../assets/images/close-small-lt.svg" alt="img" (click)="removePoster(poster)" style = "cursor : pointer ;"></span></span>
+                            <span *ngIf="SectorTagsArray?.length">Sector: <span class="tgs" *ngFor="let SectorTags of SectorTagsArray">{{SectorTags}} <img src="../../../../assets/images/close-small-lt.svg" alt="img" (click)="removePoster(SectorTags)" style = "cursor : pointer ;"></span></span>
+                            <span *ngIf="employerTagsArray?.length">Employer: <span class="tgs" *ngFor="let employerTags of employerTagsArray">{{employerTags}} <img src="../../../../assets/images/close-small-lt.svg" alt="img" (click)="removePoster(employerTags)" style = "cursor : pointer ;"></span></span>
+                            <span *ngIf="typeOfJobTagsArray?.length">Type of jobs: <span class="tgs" *ngFor="let typeOfJobTags of typeOfJobTagsArray">{{typeOfJobTags}} <img src="../../../../assets/images/close-small-lt.svg" alt="img" (click)="removePoster(typeOfJobTags)" style = "cursor : pointer ;"></span></span>
+                            <span *ngIf="collegesTagsArray?.length">University/College: <span class="tgs" *ngFor="let collegesTags of collegesTagsArray">{{collegesTags}} <img src="../../../../assets/images/close-small-lt.svg" alt="img" (click)="removePoster(collegesTags)" style = "cursor : pointer ;"></span></span>
+                            <span *ngIf="fieldOfStudyTagsArray?.length">Field of study: <span class="tgs" *ngFor="let fieldOfStudyTags of fieldOfStudyTagsArray">{{fieldOfStudyTags}} <img src="../../../../assets/images/close-small-lt.svg" alt="img" (click)="removePoster(fieldOfStudyTags)" style = "cursor : pointer ;"></span></span>
+                            <span *ngIf="searchArray?.length">Keyword: <span class="tgs" *ngFor="let search of searchArray">{{search}} <img src="../../../../assets/images/close-small-lt.svg" alt="img" (click)="removeSearch(search)" style = "cursor : pointer ;"></span></span>
+                            <span *ngIf="advsiorLocationArray?.length">Location: <span class="tgs" *ngFor="let advsiorLocation of advsiorLocationArray">{{advsiorLocation}} <img src="../../../../assets/images/close-small-lt.svg" alt="img" (click)="removeAdvsiorLocation(advsiorLocation)" style = "cursor : pointer ;"></span></span>
+                            <span *ngIf="studentLocationArray?.length">Student Location: <span class="tgs" *ngFor="let studentLocation of studentLocationArray">{{studentLocation}} <img src="../../../../assets/images/close-small-lt.svg" alt="img" (click)="removeStudentLocation(studentLocation)" style = "cursor : pointer ;"></span></span>
+        
+        
+                            <div class="rest-srch" *ngIf="studentPoster?.length||SectorTagsArray?.length || employerTagsArray?.length || typeOfJobTagsArray?.length || collegesTagsArray?.length || fieldOfStudyTagsArray?.length || searchArray?.length || advsiorLocationArray?.length || studentLocationArray?.length">
+                                <a (click)="resetSearch()">Reset Search</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+               
+            </div>
+        <div *ngIf="schoolDataValue?.length && noData">
+            <div class="student-portal-link right" [ngClass]="{'more':message['more'] }"  *ngFor="let message of schoolDataValue">
+                <div class="view">
+                    <div>
+                        <h6 class="number-data"><b>{{message.upvotes | number}}</b></h6>
+                        <p>Up-votes</p>
+                    </div>
+                    <div>
+                        <h6 class="number-data"><b>{{message.views | number}}</b></h6>
+                        <p>Views</p>
+                    </div>
+                </div>
+                <div class="area">
+                    <h3 (click)="messageDetail(message._id)" style="cursor: pointer;" class="expandabletext">{{message.title}}</h3>
+                    <!-- <p (click)="messageDetail(message._id)"  style="cursor: pointer;" class="expandabletext"  *ngIf="!message['more'] && message.message.length > 450">{{message.message | more }}</p> -->
+                    <p (click)="messageDetail(message._id)"  style="cursor: pointer;"  class="expandabletext" >{{message.message}} </p>
+                        <div class="morelessbtn">
+                            <!-- <a href="javascript:void(0)" *ngIf="message.message.length > 450 && !message['more']" (click)="showMore(message)"> More</a> -->
+                            <!-- <a href="javascript:void(0)" *ngIf="message.message.length > 450 && message['more']" (click)="showLess(message)"> Less</a> -->
+                        </div>
+                    <div class="location">
+
+                      <p style=" font-weight: 300;">{{message.student.firstName}} (Year {{message.student.year}})</p>
+                      <i *ngIf="message.student.location"></i>
+                          <p style=" font-weight: 300;" *ngIf="message.student.location">{{message.student.location}}</p>
+                          <i></i>
+                          <p style=" font-weight: 300;">{{message.duration}} by<a (click)="navigate(message.advisorId._id)">{{message?.advisorId?.screenName}}</a></p>
+                          
+                          <!-- (click)="studentProfileNavigate(message.student._id) this for navigate to student profile" -->
+                        <!-- <p><img src="assets/images/location.png" alt="img"> {{message.location}}</p> -->
+                    </div>
+                </div>
+  
+            </div>
+        </div>
+        <div *ngIf="schoolDataValue?.length && noData" class="cantfind text-center">
+                <p>Can't find what you're looking for? <a style="color:#007de4" (click)="click()">Ask your own career questions now!</a></p>
+        </div>
+        <div *ngIf="!schoolDataValue?.length && noData" class="new">
+            No Data found
+        </div>
+        <!-- <div #click>
+            <p>data</p>
+            
+        </div>
+        <button (click)="entering(click)">enter</button> -->
+        
+        <!-- bdColor="rgba(22,36,75,0.10)" -->
+        <ngx-spinner 
+        bdColor="rgba(255,255,255,0.10)"
+        [fullScreen]= "false">
+        <img style=" width: 100px; height: 100px;"  src="assets/images/loadingg.gif" />
+          
+          </ngx-spinner>
+        
+        </div>
+    </div>
+  </div>
+
+  <pagination
+  
+	*ngIf="schoolDataValue?.length && noData"
+	[totalItems]="messageCount"
+	[(ngModel)]="currentPage"
+	previousText="&lsaquo;&lsaquo;"
+	nextText="&rsaquo;&rsaquo;"
+	(pageChanged)="pageChanged($event)"
+	[maxSize]="10"
+	class="pagination justify-content-center"
+>
+</pagination>

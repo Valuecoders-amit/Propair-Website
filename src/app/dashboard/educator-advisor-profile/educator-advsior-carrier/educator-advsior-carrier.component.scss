@@ -1,0 +1,273 @@
+#carer-path .send-now a{display: block;}
+.background-spec-cl{ margin-top: 30px;   background: #fff; padding: 40px 40px; border-radius: 12px;}
+.requests-wrper{ width: 100%;  border: 1px solid #e3e2e2; border-radius: 12px; margin-top: 35px; border-radius: 12px;}
+
+.requests-wrper .wrp.profile{height: 170px;}
+.requests-wrper .wrp.profile .social_links{    display: flex; flex-direction: column;align-items: center;}
+.requests-wrper .wrp.profile .social_links img{height: 28px;}
+.requests-wrper .wrp.profile .social_links a{border: none;}
+.requests-wrper .wrp .kps-bonus{max-width: 15%; width: 100%; display: flex; flex-direction: column; align-items:center; justify-content: center; height: 100%; padding: 30px 0;}
+.requests-wrper .wrp .kps-bonus img{    height: 99px;width: 99px;border-radius: 50%;}
+.requests-wrper .wrp.profile .content-req .area h3{font-size: 20px; color: #7f7f7f;  margin-bottom: 0;   line-height: 48px;    font-weight: 400;} 
+.requests-wrper .wrp.profile .content-req .area h4{font-size: 20px; color: #5b5858; font-weight: 500; margin-bottom: 0;} 
+.requests-wrper .wrp.profile .content-req .area .location span{ color: #7f7f7f; font-weight: 500;  font-size: 18px;}
+.requests-wrper .wrp.profile .content-req .area .location p{ color: #7f7f7f !important; font-weight: 500;  font-size: 18px;}
+.send-now a{color: #007de4;background: transparent;box-shadow: none;}
+.new-exchange {display: flex;align-self: center;}
+.border_bule-btn {padding-top: 8px !important;padding-bottom: 7px !important;border: 1px solid #efefef;}
+.new-exchange a { box-shadow: 0px 0px 13px 0 rgba(0,0,0,0.1);margin-right: 30px;background: #33e2d1;color: #fff; border-radius: 6px;padding: 14px 42px;font-size: 18px;border-radius: 6px;}
+.send-now a{color: #007de4;background: transparent;box-shadow: none; margin-right: 0;}
+.frtopm{margin-top: 20px !important;}
+.requests-wrper .wrp .content-req{max-width: 65%; width: 100%;  display: flex; flex-direction: column; justify-content: flex-start; height: 100%; padding: 30px 0px;}
+.content-req .area{    width: 100%; padding-left: 0px;}
+.student-portal-link .area .location {
+	display: flex;
+	align-items: center;
+  }
+  .refer-wpr a{max-width: 145px; width: 100%; display: inline-block; color:#7f7f7f; font-size: 18px; border: 1px solid #c4c4c4; border-radius: 6px; padding: 6px 0; text-align: center;     margin: 7px 0;} 
+  .for-more-lisiting a{font-size: 20px; color: #2688e6; margin-top: 20px; display: block;}
+
+
+.content-req .area{    width: 100%; padding-left: 0px;}
+.content-req .area .location i{margin:0 15px; background: #bdbdbd; height: 8px; width: 8px; border-radius: 50%;} 
+
+
+
+//Modal-css
+.advisor-modal #career-path .modal-header {
+  padding: 22px 35px;
+}
+
+.advisor-modal .modal-header {
+  /* background: #e4e4e4; */
+  padding: 40px;
+  align-items: center;
+}
+.advisor-modal .modal-body {
+  padding: 40px 40px;
+}
+.advisor-modal #career-path .modal-body .form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  position: relative;
+}
+.advisor-modal #career-path .modal-body .form-group .reqrd{
+  position: absolute;
+  top:50px;
+  left: 25%;
+  color: red;
+}
+
+.advisor-modal #career-path .modal-body label {
+  font-size: 20px;
+  color: #373636;
+  font-family: 'Source Sans Pro', sans-serif;
+  width: 32%;
+  padding-right: 15px;
+  text-align: right;
+  margin-bottom: 0;
+}
+.advisor-modal #career-path .modal-body input {
+  font-size: 20px;
+  color: #373636;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-family: 'Source Sans Pro', sans-serif;
+  width: 100%;
+  box-shadow: 1px 1px 9px 1px rgba(0,0,0,0.1);
+}
+.advisor-modal #career-path .modal-body select {
+  font-size: 20px;
+  color: #d4d4d4;
+  border: none;
+  padding: 10px 20px;
+  -webkit-appearance: none;
+  border-radius: 6px;
+  font-family: 'Source Sans Pro', sans-serif;
+  width: 79%;
+  background: url(../../../../assets/images/drpd.png) 97% / 5% no-repeat;
+}
+
+
+.advisor-modal #career-path .btns {
+  margin: 0 auto;
+}
+.advisor-modal #career-path .btns .trans {
+  color: #2688e6;
+  font-size: 18px;
+  background: transparent;
+}
+.advisor-modal #career-path .btns a {
+  font-size: 20px;
+  border-radius: 9px;
+  margin: 0 auto;
+  text-align: center;
+  background: #33e2d1;
+  color: #fff;
+  font-family: 'Source Sans Pro', sans-serif;
+  height: 50px;
+  max-width: 300px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+.advisor-modal #career-path .modal-body .in-chkbox label p {
+  line-height: 24px;
+  margin: 0 28px;
+  text-align: left;
+}
+.advisor-modal #career-path .modal-body .in-chkbox {
+  width: 100%;
+  margin-left: 0;
+  margin-top: -6px;
+}
+.advisor-modal #career-path .modal-body .in-chkbox label {
+  width: 100%;
+}
+
+.requests-wrper .wrp .content-req{padding: 30px 30px; border-bottom:none;}
+.requests-wrper .wrp .refer-wpr { max-width: 20%; width: 100%; display: flex;flex-direction: column; align-items: center;justify-content: flex-start;height: 100%; padding: 30px 40px;}
+
+// modal 
+
+.upload-btn-wrapper {
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
+  }
+  .upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    }
+
+.modal-dialog {max-width: 575px !important;}
+::ng-deep ngx-select-dropdown{width: 100% !important;}
+::ng-deep .ngx-dropdown-container button{   width: 68%;    box-shadow: 1px 1px 9px 1px rgba(0, 0, 0, 0.1);  border: 1px solid #f0f0f0 !important; border-radius: 6px !important;  padding: 9px 20px !important;font-size: 20px !important ;color:#d4d4d4 !important;font-family: 'Source Sans Pro', sans-serif !important;}
+::ng-deep .ngx-dropdown-container button .nsdicon-angle-down::before{ opacity: 0.2; top: 10px !important;}
+::ng-deep my-date-picker{    box-shadow: 1px 1px 9px 1px rgba(0, 0, 0, 0.1);  border: 1px solid #f0f0f0 !important; border-radius: 6px !important;  padding: 9px 20px !important;font-size: 20px !important;color: #373636 !important;font-family: 'Source Sans Pro', sans-serif !important; width: 100%;}
+::ng-deep my-date-picker input{height: 100% !important; font-family: 'Source Sans Pro', sans-serif; font-size: 20px; width: 68%;}
+::ng-deep my-date-picker .selbtngroup{height: 100% !important;}
+::ng-deep .mydp{border: none !important;}
+
+input.ng-invalid.ng-touched{
+  border: 1px solid red !important;
+}
+::ng-deep ngx-select-dropdown.ng-valid span{
+  color:#373636 !important;
+}
+::ng-deep .ngx-dropdown-container button span{color:#d4d4d4; }
+
+.advisor-modal #career-path .modal-body input::placeholder{
+  color: #d4d4d4;
+}
+
+.upload-btn-wrapper button{background: #33e2d1; color: #fff; margin-right: 15px; }
+.upld-wrp-bt .reqrd{    top: 35px !important;
+  left: 3% !important; }
+
+ 
+  @media(max-width:1600px){
+    .background-spec-cl{ margin-top: 15px;   padding: 15px 30px 30px;}
+    .frtopm{margin-top: 0 !important;}
+    #carer-path .send-now a {display: block; font-size: 14px;}
+    .requests-wrper .wrp.profile .content-req .area h3{font-size: 16px !important;     line-height: 32px;}
+    .requests-wrper .wrp.profile .content-req .area h4{font-size: 16px;}
+    .requests-wrper .wrp.profile .content-req .area .location span{font-size: 16px; margin-top: 5px;}
+    .advisor-modal #career-path .modal-body label {
+      font-size: 16px;}
+      .advisor-modal #career-path .modal-body input {
+        font-size: 14px;}
+        .advisor-modal #career-path .btns a {
+          font-size: 14px;}
+          .requests-wrper .wrp.profile .content-req .area .location p{font-size: 12px;}
+  }
+  
+@media(max-width:1199px){
+  .requests-wrper .wrp.profile .content-req .area h4 {font-size: 18px;}
+  .requests-wrper .wrp.profile { height: 150px;}
+}
+@media(max-width:767px){
+  .requests-wrper .wrp.profile{
+    flex-direction: column;
+    position: relative;
+    height: auto;
+  }
+  .requests-wrper .wrp .kps-bonus{
+    max-width: 100% !important;
+    padding: 15px 0;
+  }
+  .requests-wrper .wrp .content-req{
+    max-width: 100% !important;
+    padding:0px 15px 15px 15px;
+  }
+  .content-req .area{
+    text-align: center;
+  }
+  .student-portal-link .area .location{
+    margin-top: 5px;
+    justify-content: center;
+  }
+  .requests-wrper .wrp.profile .content-req .area h3{font-size: 16px !important;     line-height: 32px;}
+  .requests-wrper .wrp.profile .content-req .area h4{font-size: 16px;}
+  .requests-wrper .wrp.profile .content-req .area .location span{font-size: 16px;}
+  .requests-wrper .wrp.profile .content-req .area .location p{font-size: 16px;}
+  .requests-wrper .wrp .refer-wpr{
+    position: absolute;
+    right: 0;
+    padding: 0;
+  }
+  .requests-wrper .wrp.profile .social_links img {
+    height: 22px}
+    .advisor-modal #career-path .modal-body label {
+      font-size: 16px;}
+      .advisor-modal #career-path .modal-body input {
+        font-size: 16px;}
+        
+        .meesage-checklist .modal-body p {
+          font-size: 16px;}
+          .advisor-modal #career-path .modal-body .form-group{
+            flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 15px;
+          }
+          .advisor-modal #career-path .modal-body .form-group label{
+            text-align: left;
+            width: 100%;
+          }
+          .advisor-modal .modal-body{
+            padding: 15px 25px !important;
+        }
+        .advisor-modal #career-path .btns .trans {
+          font-size: 16px;
+        }
+        .advisor-modal #career-path .btns a {
+          height: 40px;
+      }
+      .background-spec-cl{
+        padding: 15px 15px !important;
+    }
+}
+@media(max-width:575px){
+  .inbox-wrapper.justify-content-end{
+    justify-content: center !important;
+  }
+}

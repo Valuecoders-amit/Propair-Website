@@ -1,0 +1,176 @@
+<div class="stepper-heading text-left">
+  <h3>Personal Info</h3>
+</div>
+<div class="para-grph0lines">
+  <p>This information is for communication and child safeguarding purposes.</p>
+  <p>
+    For the avoidance of doubt, this information is kept private and
+    confidential.
+  </p>
+</div>
+<div class="new-form-icon">
+  <form [formGroup]="personalDetail">
+    <div class="">
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-6">
+            <label for="Create">Title*</label>
+          </div>
+          <div class="col-md-6">
+            <div class=" ">
+              <input type="text" formControlName="title" placeholder="Title" />
+              <div *ngIf="submitted && f.title.errors">
+                <div *ngIf="f.title.errors.required"><font color="red">Title is required</font></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-6">
+            <label for="Name">First Name*</label>
+          </div>
+          <div class="col-md-6">
+            <div class=" ">
+              <input type="text"  formControlName="firstName" placeholder="First Name"/>
+              <div *ngIf="submitted && f.firstName.errors">
+                <div *ngIf="f.firstName.errors.required"><font color="red">First Name is required</font></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-6">
+            <label for="Name">Last Name*</label>
+          </div>
+          <div class="col-md-6">
+            <div class=" ">
+              <input type="text"  formControlName="lastName" placeholder="Last Name"/>
+              <div *ngIf="submitted && f.lastName.errors">
+                <div *ngIf="f.lastName.errors.required"><font color="red">Last Name is required</font></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-6">
+            <label for="Name">Email Address*</label>
+          </div>
+          <div class="col-md-6">
+            <div class=" ">
+              <input  type="text" formControlName="email" placeholder="Email Address" readonly="true" />
+              <!-- <div *ngIf="submitted && f.email.errors">
+                <div *ngIf="f.email.errors.required"><font color="red">Email is required</font></div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-6">
+            <label for="Name">Mobile*</label>
+          </div>
+          <div class="col-md-6">
+            <div class=" ">
+              <input  type="text" formControlName="contactNumber" placeholder="Mobile Number"/>
+              <div *ngIf="submitted && f.contactNumber.errors">
+                <div *ngIf="f.contactNumber.errors.required"><font color="red">Mobile is required</font></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-6">
+            <label for="Name">Address Line 1*</label>
+          </div>
+          <div class="col-md-6">
+            <div class=" ">
+              <input type="text" formControlName="address1" placeholder="Address" />
+              <div *ngIf="submitted && f.address1.errors">
+                <div *ngIf="f.address1.errors.required"><font color="red">Address Line 1 is required</font></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-6">
+            <label for="Name">Address Line 2*</label>
+          </div>
+          <div class="col-md-6">
+            <div class=" ">
+              <input type="text"  formControlName="address2" placeholder="Address"/>
+              <div *ngIf="submitted && f.address2.errors">
+                <div *ngIf="f.address2.errors.required"><font color="red">Address Line 2 is required</font></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-6">
+            <label for="Name">Location*</label>
+          </div>
+          <div class="col-md-6">
+            <div class=" ">
+              <input
+                ngx-google-places-autocomplete
+                [options]="options"
+                formControlName="location"
+                (onAddressChange)="handleAddressChange($event)"
+              />
+              <div *ngIf="submitted && f.location.errors">
+                <div *ngIf="f.location.errors.required"><font color="red">Location is required</font></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-6">
+            <label for="Name">Postcode*</label>
+          </div>
+          <div class="col-md-6">
+            <div class=" ">
+              <input
+                type="text"
+                formControlName="pincode"
+                placeholder="Postcode"
+              />
+              <div *ngIf="submitted && f.pincode.errors">
+                <div *ngIf="f.pincode.errors.required"><font color="red">Postcode is required</font></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<input
+  type="button"
+  name="Cancel"
+  class="cancel same-field"
+  value="Skip"
+  (click)="next()"
+/>
+<!-- <input type="button" name="previous" class="previous previous-ab  action-button same-field" value="Previous Step" (click)="privious()" /> -->
+<input
+  type="button"
+  name="next"
+  class="next action-button same-field"
+  value="Proceed"
+  (click)="next()"
+/>

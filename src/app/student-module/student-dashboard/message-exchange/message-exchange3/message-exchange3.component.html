@@ -1,0 +1,114 @@
+
+    <div class="message-exchng primary ">
+      <div class="d-flex justify-content-between">
+        <h3>Please tell us your career questions</h3>
+        <div class="custom-selects bigsl">
+          <select name="" id="" (change)="type($event.target.value)" [(ngModel)]="selecetdValue" *ngIf="checkType">
+            <option value="public">Public Message Exchange (1 Credit)</option>
+          </select>
+    
+          <select name="" id="" (change)="type($event.target.value)" [(ngModel)]="selecetdValue" *ngIf="!checkType">
+            <option value="public">Public Message Exchange (1 Credit)</option>
+            <option value="private">Private Message Exchange (2 Credits)</option>
+          </select>
+        </div>
+      </div>
+  </div>
+  <div class="listing-box-title">
+    <div class="quicktip">
+        <p><img style="height: 15px; margin-bottom: 4px; margin-right: 5px;"src="assets/images/quicktip.png" alt="img">Include all the information someone would need to answer your question as best they could</p>
+       
+    </div>
+    <div class="greenRedlisting">
+          <ul>
+              <li>
+                <img src="assets/images/greentick.svg" alt="">
+                Be clear
+              </li>
+              <li>
+                <img src="assets/images/greentick.svg" alt="">
+                Be specific
+              </li>
+              <li>
+                <img src="assets/images/redcross.svg" alt="">
+                Do not share your surname
+              </li>
+          </ul>
+          <ul>
+            <li>
+              <img src="assets/images/greentick.svg" alt="">
+              Be succinct
+            </li>
+            <li>
+              <img src="assets/images/greentick.svg" alt="">
+              Make it count
+            </li>
+            <li>
+              <img src="assets/images/redcross.svg" alt="">
+              Do not share personal contact details
+            </li>
+        </ul>
+    </div>
+</div>
+    <div class="fild-box step3inbox">
+        <div class="group ">
+            <form [formGroup]="questionForm">
+          <label for="">1. Introduce yourself*</label>
+          <textarea name="" id="" cols="30" class="w-100" formControlName="introduce"></textarea>
+          <!-- <div *ngIf="(questionForm.get('introduce').invalid) && (questionForm.get('introduce').touched)">
+            <div *ngIf="questionForm.get('introduce').errors.required"><font color="red">Please introduce</font></div>
+
+        </div> -->
+          <label for="">2. Your career questions*</label>
+          <textarea name="" id="" cols="30" class="w-100" formControlName="questions"></textarea>
+          <!-- <div *ngIf="(questionForm.get('questions').invalid) && (questionForm.get('questions').touched)">
+            <div *ngIf="questionForm.get('questions').errors.required"><font color="red">Please enter question</font></div>
+
+        </div> -->
+          <label for="">3. Provide any relevant background or details & sign off!*</label>
+          <textarea name="" id="" rows="5" cols="30" class="w-100" formControlName="details" #exchange (keyup)="keyUp()" maxlength="3001"></textarea>
+          <!-- <div *ngIf="(questionForm.get('details').invalid) && (questionForm.get('details').touched)">
+            <div *ngIf="questionForm.get('details').errors.required"><font color="red">Please select advice area</font></div>
+
+        </div> -->
+           </form>
+        </div>
+    </div>
+    <div *ngIf="questionForm.controls.details.hasError('maxlength')"><font color="red"> Please do not exceed 3000 characters </font></div>
+    <span class="charter-limit"><span *ngIf=" availableMinLength < 200" style="color:red">{{availableMinLength}}&nbsp;</span>
+    <span class = "character" *ngIf="availableMinLength >= 200" style="color:#373636">{{availableMinLength}} </span>&nbsp;/ 3,000 characters</span>
+    <div class="exchange-buttons">
+      <input type="button" name="Cancel"   style="cursor: pointer;"class="cancel same-field" value="Cancel" (click)="cancel()" />
+      <input type="button" name="Save Draft"   style="cursor: pointer;"class="Save-Draft same-field" value="Save Draft"  (click)="draft()"/>
+      <input type="button" name="previous"   style="cursor: pointer;" class="previous previous-ab  action-button same-field" value="Previous Step" (click)="privious()" />
+      <input type="button" name="next"  style="cursor: pointer;" class="next action-button same-field" value="Next" (click)="next()"/>
+      <button [hidden]=true id="cancelModal" data-toggle="modal" data-target="#delet-request">cancel</button>
+    </div>
+    <!-- Modal -->
+    <div class="advisor-modal remvspcs">
+      <div class="close-modal-icon meesage-checklist"> 
+        <div class="modal fade" id="delet-request" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to delete?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>Make sure you save a draft otherwise you will lose this data</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button"  class="green" (click)="cancelSubmit()">Yes</button>
+                <button type="button" data-dismiss="modal" >Cancel</button>
+                <button [hidden]=true id="closeCancelModal" data-dismiss="modal" data-target="#delet-request">close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal -->
+    
+

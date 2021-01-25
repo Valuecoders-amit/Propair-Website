@@ -1,0 +1,352 @@
+<div id="Credits" class="tab-pane fade in " style="background-color: #fafafa;">
+    <div class="newcards-setting">
+      <div class="row">
+        <div class="col-md-12 col-lg-6">
+            <div class="dasshbord-content-wrapper">
+              <h3>My  Account</h3>
+              <div class="live-request">
+                <div class="number justify-content-between w-100">
+                  <div class="text-left">
+                    <p *ngIf="memberShip?.walletBalance">{{memberShip?.walletBalance}} Credits</p>
+                    <p *ngIf="!memberShip?.walletBalance">0 credit</p>
+                    <span>Balance</span>
+                </div> 
+                <div class="text-right">
+                    <p *ngIf="memberShip?.totalCreditPending">{{memberShip?.totalCreditPending}} Credits</p>
+                    <p *ngIf="!memberShip?.totalCreditPending">0 credit</p>
+                    <span>Pending Request</span> 
+                </div>
+              </div>
+            </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-6">
+          <div class="dasshbord-content-wrapper">
+              <div class="text-left">
+                <div class="row">
+                  <div class="col-3">
+                    <span>Membership</span>
+                  </div>
+                  <div class="col-auto">
+                    <span>ProPair {{memberShip?.membershipExpiryDate?.membershipName}} Membership for Schools</span>
+                  </div>
+                </div>
+              </div>
+              <div class="text-left">
+                <div class="row">
+                  <div class="col-3">
+                    <span>Expiry</span>
+                  </div>
+                  <!-- ({{memberShip?.creditIncluded}} Credit included) -->
+                  <div class="col-auto">
+                    <span>{{memberShip?.membershipExpiryDate?.membershipEndingTime | date:'d MMM y'}} </span>
+                  </div>
+                </div>
+              </div>
+              <div class="by-credits-wrapper">
+                  <a (click)="openBuyCreditPopup(buyCredit)">Buy Credits</a>
+                  <a class="rc"  (click)="emptyValue(sendRequest)">Request Credits</a>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="message-listing-wrapper background-spec-cl">
+          <div class="basd-profile brief-bhead setting-stu">
+            <p>Historical Activity</p>
+            <div class="custom-selects">
+              <select
+                name=""
+                id=""
+                (change)="changeFilter($event.target.value)"
+              >
+                <option value="all">All</option>
+                <option value="approved">Approved</option>
+                <option value="pending">Pending</option>
+              </select>
+            </div>
+        </div>
+        <div class="advisore-message-scr setting-studnet-wrp" *ngIf="creditListData?.length">
+          <div class="invoicebilling basic-membership ">
+              <div class="table-wrpper">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Date</th>
+                      <th scope="col">Action</th>
+                      <th scope="col">Credits</th>
+                      <th scope="col">Price</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Balance</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor = "let  credit of creditListData">                                                                                                                   
+                      <td>{{credit.createdAt | date:'d MMM y'}}</td>
+                      <td>{{credit?.type ? credit?.type : 'N/A'}}</td>
+                      <td>{{credit?.amount ? credit?.amount : 'N/A'}}</td>
+                      <td>
+                        <div *ngIf="!credit?.Prize">
+                          {{credit?.Prize ? credit?.Prize: 'N/A'}}
+                        </div>
+                        <div *ngIf="credit?.Prize">
+                          £{{credit?.Prize ? credit?.Prize: 'N/A'}}
+                        </div>
+                      </td>
+                      <td>{{credit?.status ? credit?.status : 'N/A'}}</td>
+                      <td>{{credit?.balance ? credit?.balance : '0'}}</td>
+                    </tr>                                                                       
+                  </tbody>
+                </table>
+                
+              </div>
+          </div>
+      </div>
+      <div class="advisore-message-scr setting-studnet-wrp" *ngIf="!creditListData?.length">
+        <div class="invoicebilling basic-membership ">
+            <div class="table-wrpper">
+              <p class="new">No data found</p >          
+            </div>
+        </div>
+    </div>
+    </div>
+      </div>
+  </div>
+  </div>
+
+
+
+<!-- Modal message-inbox studentpopup-->
+<ng-template #sendRequest>
+  <div class="close-modal-icon addcard student-settng uicke"> 
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Request Credits</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true"><img src="assets/images/close-icon.png" alt="" (click)="closeSendRequest()"></span>
+            </button>
+          </div>
+          <div class="modal-body">
+                <form [formGroup]="requestCreditForm">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Credits</label>
+                    <div class="new-exchange w-100">
+                      <div class="public-slect scroolData">
+                        <select name="" id=""  formControlName="credit" (change)="creditDropdown($event.target.value)">
+                            <option value=null disabled>Select # of Credits</option>
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Paid By</label>
+                    <div class="new-exchange w-100">
+                      <div class="public-slect ">
+                        <select name="" id="">
+                            <option value="">{{school ? school : 'N/A'}}</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="calculateCredit > 0 ">
+                    <p class="totl-c">Total Cost <span>&#163;{{calculateCredit}}</span></p>
+                  </div>
+  
+                </form>
+                <div class="modal-footer flex-column">
+                  <button [hidden]=true id="openSuccesModal" data-toggle="modal" data-target="#requestcredit">success</button>
+                  <button type="button"class="green w-100"  (click)="sendCreditRequest(requestCredit)">Request Credits</button>
+                  <button [hidden]=true id="openDoneModal" data-dismiss="modal" data-target="#addnewcard">Done</button>
+  
+                </div>
+          </div>
+          
+        </div>
+      </div>
+  </div>
+
+</ng-template>
+<!-- Modal -->
+
+
+
+
+<!-- Modal message-inbox studentpopup-->
+<ng-template #requestCredit>
+  <div class="close-modal-icon addcard student-settng uicke"> 
+      <div class="modal-dialog modal-dialog-centered new" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to send?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="cancel()">
+              <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <div class="credit-detl">
+                  <span># of Credits</span>
+                  <span>{{creditValue}} Credits</span>
+              </div>
+              <div class="credit-detl">
+                <span>Paid by</span>
+                <span>{{school ? school : 'N/A'}}</span>
+              </div>
+              <!-- <div class="credit-detl">
+                <span>Email</span>
+                <span>{{userData?.createdBy?.email}}</span>
+              </div> -->
+              <div class="credit-detl">
+      
+            <span style="color: #373636;">Total Cost</span>
+                <span style="color: #373636;">£{{calculateCredit}}</span>
+              </div>
+              <div class="modal-footer">
+                <button type="button"  class="green"  (click)="senCredit()">Yes</button>
+                <button type="button"  (click)="cancel()">Cancel</button>
+              </div>
+          </div>
+          
+        </div>
+      </div>
+  </div>
+</ng-template>
+<!-- Modal -->
+
+<!-- Modal message-inbox studentpopup-->
+<div class="close-modal-icon addcard student-settng"> 
+  <div class="modal fade" id="newCard" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Buy Credits</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+          </button>
+        </div>
+        <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Credits</label>
+                  <div class="new-exchange w-100">
+                    <div class="public-slect ">
+                      <select name="" id="">
+                          <option value="">Month</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group card-amer">
+                  <label for="exampleInputEmail1">Card Number</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="124*********256">
+                  <img src="assets/images/americanExpress.jpg" alt="">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Expiry Date</label>
+                  <div class=" d-flex MY-filed">
+                      <div class="new-exchange w-50">
+                        <div class="public-slect ">
+                          <select name="" id="">
+                              <option value="">Month</option>
+                          </select>
+                        </div>
+                    </div>
+                    <div class="new-exchange w-50">
+                      <div class="public-slect ">
+                        <select name="" id="">
+                            <option value="">Year</option>
+                        </select>
+                      </div>
+                  </div>
+                 </div>
+              </div>
+              <div class="form-group">
+                  <div class="new-cvv-wrp">
+                    <div class="card-amer cvv">
+                      <label for="exampleInputEmail1">CVV</label>
+                      <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="...">
+                      <img src="assets/images/cvv.png" alt="">
+                    </div>
+                    <div class="rember">
+                      <div class="iline">
+                        <div class="form-group">
+                            <input type="checkbox" id="html3">
+                            <label for="html3">Remember me</label>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              </form>
+              <div class="modal-footer flex-column">
+                <button type="button"class="green w-100" data-dismiss="modal">Pay £5.00 </button>
+              </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+
+
+<!-- Modal message-inbox studentpopup-->
+<ng-template #buyCredit>
+  <div class="close-modal-icon addcard student-settng uicke"> 
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Buy Credits</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true"><img src="assets/images/close-icon.png" alt="" (click)="closeBuyCreditPopup()"></span>
+            </button>
+          </div>
+          <div class="modal-body">
+                <form [formGroup]="buyCreditForm" (ngSubmit)="buyCredits()">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Credits</label>
+                    <div class="new-exchange w-100">
+                      <div class="public-slect scroolData">
+                        <select name="" id=""  formControlName="credit" (change)="buyCreditDropdown($event.target.value)">
+                          <option value=null disabled>Select # of Credits</option>
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="calculateBuyCredit > 0 ">
+                    <p class="totl-c">Total Cost <span>£{{calculateBuyCredit}}</span></p>
+                  </div>
+                  
+                  <div class="modal-footer flex-column">
+                    <!-- <button [hidden]=true id="openSuccesModal" data-toggle="modal" data-target="#requestcredit">success</button> -->
+                    <button type="submit"class="green w-100"  >Buy Credit</button>
+                    <!-- <button [hidden]=true id="openDoneModal" data-dismiss="modal" data-target="#addnewcard">Done</button> -->
+    
+                  </div>
+                </form>
+          </div>
+          
+        </div>
+      </div>
+  </div>
+
+</ng-template>
+<!-- Modal -->
+
+
+
+

@@ -1,0 +1,91 @@
+.karma-text {
+    padding: 20px 35px;
+    border-radius: 12px;
+    background: #fff;
+    margin-bottom: 30px;
+}
+
+.karma-text p {
+    font-size: 16px;
+    color: #373636;
+    margin-bottom: 0;
+    text-align: justify;
+}
+
+.message-listing-wrapper .main {
+    padding: 40px 35px 40px 35px;
+}
+.basd-profile {
+    margin-bottom: 25px;
+}
+.permnce-text {
+    font-size: 20px !important;
+    font-weight: 400 !important;
+    color: #33e2d1 !important;
+}
+
+.invoicebilling .table-wrpper {
+    background: #fff;
+    border:none;
+    border-radius: 25px;
+}
+
+.invoicebilling .table-wrpper table {
+    width: 100%;
+}
+
+.karmatable .table-wrpper .table thead th {
+    font-size: 18px;
+    border-bottom: 1px solid #efefef;
+}
+
+.karmatable .table-wrpper .table tbody .underline {
+    text-decoration: underline;
+}
+
+.karmatable .table-wrpper .table td {
+    font-size: 16px;
+}
+.karmatable .table-wrpper .table tbody .grey td {
+    color: #7f7f7f;
+    font-weight: 500;
+}
+
+@media(max-width:1600px){
+    .message-listing-wrapper .table .grey td {
+        padding: 6px 15px!important;
+    }
+    .message-listing-wrapper .table tr:not(.grey) {
+        padding: 15px 0!important;
+    }
+    .karma-text p{
+        font-size: 14px;
+    }
+    .col-md-9{
+      max-width: 100%;
+      flex: 0 0 100%;
+    }
+    .main{
+        padding: 30px 30px;
+    }
+    .karma-text{
+        padding: 15px 30px;
+    }
+    .karmatable .table-wrpper .table thead th {
+        font-size: 16px;
+        border-bottom: 1px solid #efefef;
+    }
+}
+@media(max-width:1500px){
+    .message-listing-wrapper .table td {
+        padding: 6px 15px!important;
+    }
+    .message-listing-wrapper .table tr:not(.grey) {
+        padding: 15px 0!important;
+    }
+}
+@media(max-width:575px){
+    .invoicebilling .table-wrpper table{
+        width: 900px;
+    }
+}

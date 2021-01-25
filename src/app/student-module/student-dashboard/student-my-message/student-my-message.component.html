@@ -1,0 +1,180 @@
+<div id="message" class="tab-pane fade in active">
+    <div class="container-fluid ">
+      <!-- message section -->
+      <!-- <div class="padd-50">
+          <div class="row">
+            <div class="col-12">
+                <div class="heading-wrapper">
+                    <h3>My Message</h3>
+                </div>
+                <div class="tagline-messsage">
+                  <p>Should I do a degree in Data?</p>
+                </div>
+                <div class="data-scince-subject message-data-seience">
+                  <div class="result-box">
+                    <div class="result li">
+                        <p>data-science</p>
+                        <p>London,UK</p>
+                        <p>career path</p>
+                        <p>data-science</p>
+                        <p>London,UK</p>
+                        <p>career path</p>
+                       
+                    </div>
+                </div>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-12">
+                <div class="message-chat-box">
+                    <div class="user">
+                        <img src="assets/images/user-chat-profile.png" alt="">
+                          <p>Submitted 15 Nov 2019 by<a href="#">Wendy Simmons</a></p>
+                    </div>
+  <textarea name="" id="" class="sent-message" readonly>
+  Hi there
+  
+  My name is Amy I'm a Year 12 student interested in a career in I'm studyig XYZ A- Leavels at school and  am interested in becaoming a 
+  as my strengths lie in and I love. I'm not centain at this stage about whether I should do XYZ at university or evendo an 
+  apprenticeship in I'd be really greatful if you could help me answer te question give your experience and education! So here are my Question:
+  
+  
+  
+  What is the name of the shop down my road wth the windows?
+  What is the name of the shop down my road wth the windows?
+  What is the name of the shop down my road wth the windows?
+  
+  
+  
+  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since
+  the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, 
+  but also the leap into electronic typesetting, remaining essentially unchanged.
+  
+  
+  Thank you very much
+  Amy
+  
+  </textarea>
+                </div>
+                <div class="message-chat-box">
+                  <div class="user">
+                      <img src="assets/images/user-chat-profile.png" alt="">
+                        <p>Submitted 15 Nov 2019 by<a href="#">Wendy Simmons</a></p>
+                  </div>
+  <textarea name="" id="" class="sent-message" readonly>
+  Hi there
+  
+  My name is Amy I'm a Year 12 student interested in a career in I'm studyig XYZ A- Leavels at school and  am interested in becaoming a 
+  as my strengths lie in and I love. I'm not centain at this stage about whether I should do XYZ at university or evendo an 
+  apprenticeship in I'd be really greatful if you could help me answer te question give your experience and education! So here are my Question:
+  
+  
+  
+  What is the name of the shop down my road wth the windows?
+  What is the name of the shop down my road wth the windows?
+  What is the name of the shop down my road wth the windows?
+  
+  
+  
+  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since
+  the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, 
+  but also the leap into electronic typesetting, remaining essentially unchanged.
+  
+  
+  Thank you very much
+  Amy
+  
+  </textarea>
+              </div>
+              <div class="writeerbox">
+                <div class="user">
+                  <img src="assets/images/chat-box-user.png" alt="">
+                 </div>
+                 <div class="chat-wrapper">
+                  <div class="message-chat-box">
+                    <textarea name="" id="" class="sent-message" placeholder="Enter your Message here..."></textarea>
+                  </div>
+                  <p class="charcter-limit">0/1000Characters</p>
+                    <div class="btns-for-message">
+                      <a href="#" class="cancel" data-toggle="modal" data-target="#checklist">Cancel</a>
+                      <a href="#" class="save " data-toggle="modal" data-target="#m-sucsess">Save Draft</a>
+                      <a href="#" class="thank">Thank Advisor & Close Message</a>
+                      <a href="#" class="Send" data-toggle="modal" data-target="#reveiw-modal">Send</a>
+                  </div>
+                 </div>
+              </div>
+            </div>
+         </div>
+        </div> -->
+      <!-- message section close -->
+      <!-- steps for message section -->
+      <!-- steps for message section close -->
+      <!-- inbox section -->
+      <div class="advisore-message-scr">
+        <div class="row">
+          <div class="col-12">
+            <div class="heading-wrapper">
+              <h3>My Messages</h3>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <!-- dropdwon menu -->
+            <!-- <div class="content-wrapper">
+              <div class="dropdown message-listing">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="true">
+                  Menu
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu  nav nav-tabs" aria-labelledby="dropdownMenu1">
+                  <li><a data-toggle="tab" href="#Inbox" class="active">Inbox (4)</a></li>
+                  <li><a data-toggle="tab" href="#Drafts">Drafts ({{draftCount}})</a></li>
+                  <li><a data-toggle="tab" href="#Outbox">Outbox ({{outboxCount}})</a></li>
+                  <li><a data-toggle="tab" href="#Archive">Archive</a></li>
+                  <li><a data-toggle="tab" href="#ProPairSupport">ProPair Support(4)</a></li>
+                </ul>
+              </div>
+            </div> -->
+            <!-- dropdwon menu -->
+            <div class="message-listing">
+              <ul class="nav nav-tabs">
+                <li><a data-toggle="tab" routerLink="/student-module/dashboard/student-my-message/inbox"  
+                    [ngClass]="{'active': currentResource == 'inbox'}">Inbox <span *ngIf="inboxCount > 0">({{inboxCount}})</span></a></li>
+                <li><a data-toggle="tab" routerLink="/student-module/dashboard/student-my-message/draft" 
+                    [ngClass]="{'active': currentResource == 'draft'}">Drafts</a></li>
+                <li><a data-toggle="tab" routerLink="/student-module/dashboard/student-my-message/outbox"
+                    [ngClass]="{'active': currentResource == 'outbox'}">Outbox <span *ngIf="outboxCount > 0">({{outboxCount}})</span></a></li>
+                <li><a data-toggle="tab" routerLink="/student-module/dashboard/student-my-message/archive"
+                    [ngClass]="{'active': currentResource == 'archive'}">Archive</a></li>
+                <li><a data-toggle="tab" routerLink="/student-module/dashboard/student-my-message/propair-support"
+                    [ngClass]="{'active': currentResource == 'propair-support'}">ProPair Support <span *ngIf="propairCount > 0">({{propairCount}})</span></a></li>
+  
+  
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-10">
+            <div class="message-listing-wrapper">
+              <div class="tab-content">
+                <router-outlet></router-outlet>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- inbox section close -->
+    </div>
+  </div>
+  
+
+
+  <ngx-spinner 
+  bdColor="rgba(255,255,255,0.10)"
+  [fullScreen]= "false">
+  <img style=" width: 100px; height: 100px;"  src="assets/images/loadingg.gif" />
+    
+    </ngx-spinner>
+ 

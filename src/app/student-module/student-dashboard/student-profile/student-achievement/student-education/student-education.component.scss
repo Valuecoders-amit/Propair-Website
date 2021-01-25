@@ -1,0 +1,288 @@
+#Education_t {
+    position: relative;
+}
+#Education_t {
+    padding-bottom: 0;
+}
+.add-qualif-wrapper {
+    padding: 0 40px;
+}
+.tab-pane a.add-qualif {
+    color: #2688e6;
+    font-size: 16px;
+    padding: 7px 20px;
+    display: inline-block;
+    border: 1px solid #efefef;
+    border-radius: 12px;
+}
+ .invoicebilling {
+    margin-top: 20px;
+    padding:10px;
+}
+ .invoicebilling .table-wrpper {
+    border-radius: 0;
+    border: none;
+    
+}
+.invoicebilling .table-wrpper table {
+    width: 100%;
+    margin-bottom:10px;
+}
+.invoicebilling.diffrent-tbl table thead th {
+    padding: 10px 35px;
+    font-size: 18px;
+    color: #373636;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 500;
+}
+.basic-membership .table-wrpper table tbody {
+    height: 25px;
+    overflow-y: auto;
+}
+// .diffrent-tbl.invoicebilling table tbody tr {
+//     background: #fafafa;
+// }
+.diffrent-tbl.invoicebilling table tbody tr td {
+    padding: 0px 50px;
+    font-size: 16px;
+    color: #7f7f7f;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+    margin-left: 5px;
+}
+ .tab-pane {
+    padding: 20px 0px;
+}
+
+
+//Modal-css
+.advisor-modal #career-path .modal-header {
+    padding: 22px 35px;
+  }
+  
+  .advisor-modal .modal-header {
+    /* background: #e4e4e4; */
+    padding: 40px;
+    align-items: center;
+  }
+  .advisor-modal .modal-body {
+    padding: 40px 40px;
+  }
+  .advisor-modal #career-path .modal-body .form-group {
+    position: relative;
+    margin-bottom: 30px;
+  }
+  .advisor-modal #career-path .modal-body label {
+    font-size: 20px;
+    color: #373636;
+    font-family: 'Source Sans Pro', sans-serif;
+    width: 20%;
+    padding-right: 15px;
+    text-align: right;
+  }
+  .advisor-modal #career-path .modal-body input {
+    font-size: 20px;
+    color: #373636;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-family: 'Source Sans Pro', sans-serif;
+    width: 79%;
+  }
+  .advisor-modal #career-path .modal-body select {
+    font-size: 20px;
+    color: #d4d4d4;
+    border: none;
+    padding: 10px 20px;
+    -webkit-appearance: none;
+    border-radius: 6px;
+    font-family: 'Source Sans Pro', sans-serif;
+    width: 79%;
+    background: url(../../../../../../assets/images/drpd.png) 97% / 5% no-repeat;
+  }
+ 
+  
+  .advisor-modal #career-path .btns {
+    margin: 0 auto;
+  }
+  .advisor-modal #career-path .btns .trans {
+    color: #2688e6;
+    font-size: 18px;
+    background: transparent;
+  }
+  .advisor-modal #career-path .btns a {
+    font-size: 20px;
+    border-radius: 9px;
+    margin: 0 auto;
+    text-align: center;
+    background: #33e2d1;
+    color: #fff;
+    font-family: 'Source Sans Pro', sans-serif;
+    height: 50px;
+    max-width: 300px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+ .wrp.profil .social_links a img{height: 28px !important;}
+
+ .advisor-modal #career-path .modal-body label{
+  font-size: 20px;
+  color: #373636;
+  font-family: "Source Sans Pro", sans-serif;
+  width: 30%;
+  padding-right: 15px;
+  text-align: right;
+}
+.advisor-modal #career-path .modal-body input{
+  font-size: 20px;
+  color: #373636;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-family: "Source Sans Pro", sans-serif;
+  width: 70%;
+}
+.advisor-modal #career-path .modal-body select{
+  font-size: 20px;
+  color: #d4d4d4;
+  border: none;
+  padding: 10px 20px;
+  -webkit-appearance: none;
+  border-radius: 6px;
+  font-family: "Source Sans Pro", sans-serif;
+  width: 70%;
+}
+
+.advisor-modal #career-path .modal-body input::placeholder{
+  color: #d4d4d4;
+}
+
+::ng-deep ngx-select-dropdown.ng-valid span{
+  color:#373636 !important;
+}
+::ng-deep .ngx-dropdown-container button span{color:#d4d4d4; }
+
+select.ng-valid{color: #373636 !important;} 
+
+.advisor-modal #career-path .modal-body .form-group .reqrd{
+  position: absolute;
+  top:50px;
+  left: 30%;
+  color: red;
+}
+
+
+
+
+
+   /* modal concourse */
+   .concourse .modal-content button.close{    font-size: 50px;}
+   .concourse .modal-content {height: 100%;padding: 30px 25px;border-radius: 0;}
+   .concourse .modal-content .modal-body{padding: 0;}
+   .concourse .modal-dialog{max-width: 900px !important}
+   .concourse .contentWrapper{max-width: 520px; width:100%; margin: 0 auto;}
+   .concourse .contentWrapper h2{font-family: 'Montserrat', sans-serif; font-weight: 600; text-align: center; font-size: 48px; color: #373636; margin: 0px 0px 25px;line-height: 1;}
+   .concourse .contentWrapper p{font-family: 'Source Sans Pro', sans-serif; text-align: center; font-weight: 400; font-size: 16px; color: #373636;     margin: 15px 0;}
+   .concourse .contentWrapper h3{margin-top: 40px; margin-bottom: 10px;   font-family: 'Montserrat', sans-serif;  font-weight: 600; font-size: 18px;}
+   .concourse .contentWrapper .subjectstable .table{margin-bottom: 0;} 
+   .concourse .contentWrapper .subjectstable .table td, .table th{border-top: none;}
+   .concourse .contentWrapper .subjectstable .table thead th{border-bottom: none;     border-right: 10px solid transparent; font-family: 'Montserrat', sans-serif; color: #373636;   padding: 0; font-weight: 600; font-size: 12px;}
+   .concourse .contentWrapper .subjectstable .table .must{color: #f33;}
+   .concourse .contentWrapper .subjectstable .table tbody td{padding: 0; border-bottom: 10px solid transparent; border-right: 10px solid transparent;}
+   .concourse .contentWrapper .subjectstable .table tbody td .filed{height: 38px;background-color: #fff;border: 1px solid #e7eaec;border-radius: 0; padding: 0 10px; vertical-align: middle;}
+   .concourse .contentWrapper .subjectstable .table tbody td.bordern{border:none; text-align: right;}
+   .concourse .contentWrapper .subjectstable .table tbody td input{height: 100%; width: 100%;  border: none;  font-family: 'Source Sans Pro', sans-serif; font-size: 14px; font-weight: 300;}
+   .concourse .contentWrapper .subjectstable .table tbody td.bordern img{height: 15px; margin-bottom: 0; margin-top: 6px;     margin-right: -5px;} 
+   .concourse .contentWrapper .subjectstable .table tbody td:nth-child(3){max-width: 38px;text-align: center;}
+   .concourse .contentWrapper .subjectstable .table tbody td:nth-child(4){max-width: 38px; text-align: center;}
+   .subjectstable.ib-grade-options .table tbody tr td:nth-child(3){border-right: 0;}
+   .concourse .contentWrapper .subjectstable .table tbody td .boxed{display: flex;}
+   .concourse .contentWrapper .subjectstable .table tbody td .boxed label:last-child{border-left: none;}
+   .concourse .contentWrapper .subjectstable .table tbody td .boxed label { display: inline-block; padding: 9px 13px; border: 1px solid #e7eaec; transition: all 0.3s; font-family: 'Source Sans Pro', sans-serif; font-size: 14px; }
+  .concourse .contentWrapper .subjectstable .table tbody td .boxed input[type="radio"] {display: none;} 
+  .concourse .contentWrapper .subjectstable .table tbody td .boxed input[type="radio"]:checked + label {border: 1px solid #e7eaec;background-color:#33e2d1;color: #fff;font-weight: 600;}
+  .concourse .contentWrapper .subjectstable .table tbody td .boxed label:after{display: none;}
+  .concourse .contentWrapper .subjectstable .table tbody td .boxed label:before{display: none;}
+  .addanothers{margin-top: 0px;width: 100%; height: 38px; background-color:#fff;border: 1px dashed rgb(231, 234, 236); display: flex; align-items: center; justify-content: center;}
+  .addanothers a{font-weight: 300;  font-family: 'Source Sans Pro', sans-serif; font-size: 14px;color:#373636;}
+  .ib-grade-options {margin-top: 15px;     margin-left: -2px; margin-right: -2px;}
+  .concourse .contentWrapper .subjectstable.ib-grade-options .table thead th{ border-right: 10px solid transparent;  border-bottom:4px solid transparent; font-family: 'Montserrat', sans-serif; color: #373636;   padding: 0; font-weight: 600; font-size: 12px;}
+  .concourse .contentWrapper .subjectstable.ib-grade-options .table tbody select{height: 100%; width: 100%;  border: none;  font-family: 'Source Sans Pro', sans-serif;   font-size: 14px; font-weight: 300; -webkit-appearance: none; position: relative; background: url(../../../../../../assets/images/modal-dropdown.png) 100% / 6% no-repeat;}
+  .concourse .contentWrapper .subjectstable.ib-grade-options .table tbody td:nth-child(2) select{ background: url(../../../../../../assets/images/modal-dropdown.png) 100% / 7% no-repeat;}
+  .concourse .contentWrapper .subjectstable.ib-grade-options .table tbody td:nth-child(1) select{ background: url(../../../../../../assets/images/modal-dropdown.png) 100% / 7% no-repeat;}
+  .type-of-grade-wrap{margin-bottom: 15px;}
+  .type-of-grade-wrap p{  font-family: 'Open Sans', sans-serif; font-weight: 400;font-size: 14px !important;color: #373636;margin: 20px 0 10px;text-align: center;}
+  .about-degrre .boxed{display: flex; }
+  /* .about-degrre .boxed:first-child label{border-right:1px solid #e7eaec ;} */
+  .about-degrre .boxed label { display: inline-block; padding: 9px 10px;  transition: all 0.3s;     font-family: 'Source Sans Pro', sans-serif;   font-size: 14px; width: 50%; text-align: center; border: 1px solid #e7eaec;}
+  .about-degrre .boxed input[type="radio"] {display: none;} 
+  .about-degrre .boxed input[type="radio"]:checked + label {border: 1px solid #33e2d1; text-align: center; background-color: #33e2d1;color: #fff;font-weight: 600; }
+  .about-degrre .boxed label:after{display: none;}
+  .about-degrre .boxed label:before{display: none;}
+
+  .modal-fter span{width: 100%; height: 43px;border: 0px solid rgb(231, 234, 236);border-radius: 2px; }
+  .modal-fter {display: flex;margin-top: 20px;margin: 35px -7px 0 -7px;}
+  .modal-fter span {margin: 0 7px;}
+  .modal-fter span a{cursor: pointer;font-family: 'Source Sans Pro', sans-serif;font-weight: 400;font-size: 16px;display: flex;align-items: center;justify-content: center;height: 100%; color: #7f7f7f; background: #e4e4e4; }
+  .modal-fter span a.green{color: #fff;background: #33e2d1;}
+  .concourse#concourse2 .contentWrapper .subjectstable .table tbody td .boxed label{width: 100%; text-align: center;}
+  .concourse#concourse3 .contentWrapper .subjectstable .table tbody td .boxed label{width: 100%; text-align: center; height: 38px; }
+  .theryofkn .table{border-collapse: inherit; }
+  .modal-fter label.grn{border: 1px solid #33e2d1;}
+  .cs2{margin-top: 16px !important;}
+  .cs3{margin-top: 16px !important;}
+  .concourse .contentWrapper .subjectstable.knobeq .table tbody td{width: 33.3%;}
+  .concourse .contentWrapper .subjectstable.knobeq .table tbody td select{
+    padding-left: 5px;
+  }
+
+  .diffrent-tbl .table-wrpper table thead th:nth-child(1){width: 280px;}
+  .diffrent-tbl .table-wrpper table thead th:nth-child(2){width: 169px;}
+  .diffrent-tbl .table-wrpper table thead th:nth-child(3){width: 214px;}
+  .diffrent-tbl .table-wrpper table thead th:nth-child(4){width: 178px;}
+  .diffrent-tbl .table-wrpper table thead th:nth-child(5){width: 144px;}
+  .diffrent-tbl .table-wrpper table{width: 100%;}
+  .diffrent-tbl .table-wrpper{overflow-x:auto ;}
+
+  @media(max-width:1600px){
+    .concourse .contentWrapper h2{ font-size: 30px; margin:0; }
+    .concourse .contentWrapper p { font-size: 12px; margin: 10px 0; }
+    .concourse .contentWrapper h3{ font-size: 16px; margin-top: 10px; }
+    .concourse .contentWrapper .subjectstable .table tbody td .filed { height: 30px; }
+    .concourse#concourse3 .contentWrapper .subjectstable .table tbody td .boxed label { height: 30px; padding: 4px 12px; }
+    .concourse .contentWrapper .subjectstable .table tbody td .boxed label { height: 30px; padding: 3px 13px; }
+    .concourse .contentWrapper .subjectstable .table tbody td.bordern img { margin-bottom: -6px; }
+    .concourse .modal-content { padding: 0px 25px; }
+    .concourse .modal-dialog { max-width: 600px !important; }
+    .modal-fter { margin: 10px -7px 0 -7px; margin-top: 20px; }
+    #Education_t{
+      padding: 0;
+    }
+    .modal-dialog {
+      margin: 1rem auto !important;
+  }
+    .diffrent-tbl{
+      margin-top: 0;
+    }
+    .diffrent-tbl .table-wrpper table{
+      width: 100%;
+    }
+    .diffrent-tbl .table-wrpper table thead th{
+      font-size: 14px;
+    }
+    .diffrent-tbl .table-wrpper table tbody tr td{
+      font-size: 12px;
+    }
+  }
+  @media(max-width:1350px) {
+    .diffrent-tbl .table-wrpper table{width: 100%;}
+  }
+  @media(max-width:767px){
+    .invoicebilling.diffrent-tbl table thead th{
+      font-size: 16px;
+    }
+  }

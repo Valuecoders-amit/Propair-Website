@@ -1,0 +1,220 @@
+<div id="Archive" class="tab-pane fade">
+    <div class="main">
+      <div class="basd-profile">
+        <p>This is where your completed student Message Exchanges are kept</p>
+        <div class="custom-selects" >
+            <select name="" id="" style="cursor: pointer;" (change)="filterArchive($event.target.value)">
+              <option value="all">All Messages</option>
+              <option value="private">Private Messages</option>
+              <option value="public">Public Messages</option>
+            </select>
+        </div>
+    </div>
+      <div class="invoicebilling basic-membership " *ngIf="archiveData?.length">
+        <div class="table-wrpper">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Student</th>
+                <th scope="col">Subject</th>
+                <th scope="col">Received</th>
+                <th scope="col">KPs</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let archive of archiveData">                                                                                                                   
+                <td  (click)="navigate(archive._id)" >{{archive?.student?.firstName}} {{archive?.student?.lastName}}</td>
+                <td  (click)="navigate(archive._id)" ><p class="elipsis">{{archive?.title}}</p>                  
+                  <span class="elipsis">{{archive?.details}}</span>
+                </td>
+                        <td class="text-left white-space-n" >
+                          <div  (click)="navigate(archive._id)">
+                            {{archive?.completedDate | date}}
+                            <!-- <br>
+                              <div *ngIf="(archive.type | lowercase)=='private'">
+                              <img  src="assets/images/eye-close.png" alt="img" style="margin-left: 17%;" >
+                            </div>
+                            <div *ngIf="(archive.type | lowercase)=='public'">
+                              <img  src="assets/images/eye.png" alt="img" style="margin-left: 17%;" >
+                            </div> -->
+                        </div>
+                        </td>
+                <td  (click)="navigate(archive._id)">{{archive?.karmaPoint ? archive?.karmaPoint : '-'}}</td>
+                <td>
+                  <div class="sbmt-btns-archive" *ngIf="archive.ratings >= 1 && archive.type == 'public' ">
+                      <a  class="view"  (click)="ViewInfoPopup(archive._id)">View Statistics</a>
+                  </div>
+
+                  <div class="sbmt-btns-archive" *ngIf="archive.ratings >= 1 && archive.type == 'private' ">
+                    <a  class="view"  (click)="ViewInfoPopup(archive._id)">View Statistics</a>
+                </div>
+                </td>
+              </tr>
+
+            
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="invoicebilling basic-membership " *ngIf="!archiveData?.length">
+        <div class="table-wrpper">
+          <p class="new">Your Archive is empty!</p>
+        </div>
+      </div>
+  </div>
+  </div>
+
+
+
+
+
+  <div class="close-modal-icon infousermodal">
+    <div class="modal fade" id="info" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <!-- <h5 class="modal-title" id="exampleModalLabel">Public Message Exchange Info</h5> -->
+            <h5 class="modal-title" id="exampleModalLabel">Message Exchange Statistics</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="flex-row-wrapper">
+              <p>Exchange</p>
+              <p>{{statsData?.type | titlecase}}</p>
+            </div>
+            <div class="flex-row-wrapper">
+              <p>Advisor</p>
+              <p style="color: #5798d3;">{{studentStatsData?.firstName ? studentStatsData?.firstName :'N/A'}}</p>
+            </div>
+            <div class="flex-row-wrapper">
+              <p>Date Started</p>
+              <p>{{statsData?.createdAt | date: 'dd  MMM  y'}}</p>
+            </div>
+            <div class="flex-row-wrapper">
+              <p>Date Completed</p>
+              <p>{{statsData?.completedDate | date: 'dd  MMM  y'}}</p>
+            </div>
+            <div class="flex-row-wrapper">
+              <p>KPs Earned</p>
+              <p>{{kpEarned ? kpEarned :'0'}}</p>
+            </div>
+            <div class="flex-row-wrapper">
+              <p>Bonus KPs Included</p>
+              <p>{{statsData?.bonusPoint ? statsData?.bonusPoint : '0'}}</p>
+            </div>
+           
+            <div class="flex-row-wrapper">
+              <p># of Messages </p>
+              <p>{{messageCount ? messageCount : '0'}}</p>
+            </div>
+            <div class="flex-row-wrapper">
+              <p>First Response Time </p>
+              <p *ngIf="timeUnit == 'minute'">
+                <span *ngIf="firstValueOfTime > 0">
+                  {{ firstValueOfTime }}m {{ secondValueOfTime }}s
+                </span>
+                <span *ngIf="firstValueOfTime <= 0">
+                       {{ secondValueOfTime }}s
+                </span>
+              </p>
+              <p *ngIf="timeUnit == 'hour'">
+                <span *ngIf="firstValueOfTime > 0">
+                  {{ firstValueOfTime }}h {{ secondValueOfTime }}m
+                </span>
+                <span *ngIf="firstValueOfTime <= 0">
+                   {{ secondValueOfTime }}m
+                </span>
+              </p>
+              <p
+                *ngIf="
+                  !(timeUnit == 'minute') &&
+                  !(timeUnit == 'hour')
+                "
+              >
+                <span>0</span>
+              </p>
+            </div>
+            <div class="flex-row-wrapper">
+              <p>Student Views</p>
+              <p>{{statsData?.views ? statsData?.views : '0'}}</p>
+            </div>
+            <div class="flex-row-wrapper">
+              <p>Up-votes</p>
+              <p>{{statsData?.upvotes ? statsData?.upvotes :'0'}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  
+  <div class="close-modal-icon infousermodal">
+    <div class="modal fade" id="privateInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <!-- <h5 class="modal-title" id="exampleModalLabel">Private Message Exchange Info</h5> -->
+            <h5 class="modal-title" id="exampleModalLabel">Message Exchange Statistics</h5>
+
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <!-- <div class="flex-row-wrapper info-img">
+              <p>
+                <img src="assets/images/info-user.png" alt="img">
+                <span>{{studentStatsData?.firstName}}</span></p>
+              <p><img src="assets/images/eye-close.png" alt="img" class="eye"></p>
+            </div> -->
+            <div class="flex-row-wrapper">
+              <p>Exchange</p>
+              <p>Private</p>
+            </div>
+            <div class="flex-row-wrapper">
+              <p>Advisor</p>
+              <p style="color: blue;">{{studentStatsData?.firstName ? studentStatsData?.firstName :'N/A' }}</p>
+            </div>
+            <div class="flex-row-wrapper">
+              <p>Date Started</p>
+              <p>{{statsData?.createdAt | date: 'dd  MMM  y'}}</p>
+            </div>
+            <div class="flex-row-wrapper">
+              <p>Date Completed</p>
+              <p>{{statsData?.completedDate | date: 'dd  MMM  y'}}</p>
+            </div>
+            <div class="flex-row-wrapper">
+              <p>KPs Earned</p>
+              <p>{{kpEarned ? kpEarned :'0'}}</p>
+            </div>
+            <div class="flex-row-wrapper">
+              <p>Bonus KPs Included</p>
+              <p>{{statsData?.bonusPoint ? statsData?.bonusPoint :'0'}}</p>
+            </div>
+           
+            <div class="flex-row-wrapper">
+              <p># of Messages </p>
+              <p>{{messageCount ? messageCount : '0'}}</p>
+            </div>
+            <div class="flex-row-wrapper">
+              <p>First Response Time </p>
+              <p>{{firstResponse ? firstResponse : '0'}}</p>
+            </div>
+            <div class="flex-row-wrapper">
+              <p>Student Views</p>
+              <p>{{statsData?.views ? statsData?.views :'0'}}</p>
+            </div>
+            <div class="flex-row-wrapper">
+              <p>Up-votes</p>
+              <p>{{statsData?.upvotes ? statsData?.upvotes : '0'}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,215 @@
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tg-list-item {
+  margin: 0 2em;
+}
+
+.tgl {
+  display: none;
+
+  // add default box-sizing for this scope
+  &,
+  &:after,
+  &:before,
+  & *,
+  & *:after,
+  & *:before,
+  &+.tgl-btn {
+    box-sizing: border-box;
+
+    &::selection {
+      background: none;
+    }
+  }
+
+  +.tgl-btn {
+    outline: 0;
+    display: block;
+    width: 4em;
+    height: 2em;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+
+    &:after,
+    &:before {
+      position: relative;
+      display: block;
+      content: "";
+      width: 50%;
+      height: 100%;
+    }
+
+    &:after {
+      left: 0;
+    }
+
+    &:before {
+      display: none;
+    }
+  }
+
+  &:checked+.tgl-btn:after {
+    left: 50%;
+  }
+}
+
+// themes
+
+.tgl-ios {
+  +.tgl-btn {
+    // background:#ec9308;
+    border-radius: 2em;
+    padding: 2px;
+    transition: all 0.4s ease;
+    border: 1px solid #e8eae9;
+
+    &:after {
+      border-radius: 2em;
+      background: #fbfbfb;
+      transition: left 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+        padding 0.3s ease, margin 0.3s ease;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 4px 0 rgba(0, 0, 0, 0.08);
+    }
+
+    &:hover:after {
+      will-change: padding;
+    }
+
+    &:active {
+      box-shadow: inset 0 0 0 2em #e8eae9;
+
+      &:after {
+        padding-right: 0.8em;
+      }
+    }
+  }
+
+  &:checked+.tgl-btn {
+    background: #34e2d1;
+
+    &:active {
+      box-shadow: none;
+
+      &:after {
+        margin-left: -0.8em;
+      }
+    }
+  }
+}
+
+.tg-list-item {
+  margin: 22px 2em;
+}
+
+.iti__flag {
+  background-image: url("../../../../assets/images/flags.png");
+}
+
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+  .iti__flag {
+    background-image: url("../../../../assets/images/flags@2x.png");
+  }
+}
+
+// .int-phone-prefix {
+//   background: transparent;
+//   border: 0px !important;
+//   padding: 0px !important;
+//   margin: 0px !important;
+// }
+
+#modal-basic-title {
+  text-align: center;
+    width: 100%;
+}
+
+//   label {
+//     position: absolute;
+//     left: 0;
+//     right: 0;
+//     margin: auto;
+//     text-align: center;
+//     top: 10px;
+// }
+.uploadLogo{
+  
+  box-shadow: -3px -2px 11px rgba(0, 0, 0, 0.1);
+  background: #33e2d1;
+  color: #fff;
+  text-transform: capitalize;
+  border: 11px solid #33e2d1;
+  border-radius: 6px;}
+
+  .uploadSave{
+    box-shadow: -3px -2px 11px rgba(0, 0, 0, 0.1);
+    background: #33e2d1;
+    color: #fff;
+    text-transform: capitalize;
+    border: 11px solid #33e2d1;
+    border-radius: 6px;
+   
+    margin-left: 18rem;
+    width: 197px;
+  }
+  .uploadPassSave{
+    box-shadow: -3px -2px 11px rgba(0, 0, 0, 0.1);
+    background: #33e2d1;
+    color: #fff;
+    text-transform: capitalize;
+    border: 11px solid #33e2d1;
+    border-radius: 6px;
+    margin-left: 2%;
+    width: 197px;
+  }
+  .upload-sch-l .upld-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.upload-sch-l .upld-btn img{
+  margin-right: 10px;
+}
+
+
+.curent-msg-inbox.prpr-sup-fr-studnet .modal-dialog {max-width: 590px;}
+.curent-msg-inbox .modal-body{ padding: 38px 38px;}
+.curent-msg-inbox .modal-body textarea{margin: 25px 0 0 0; border: 1px solid #ecebeb; font-size: 20px; color: #7f7f7f;  padding: 20px 18px; border-radius: 12px; resize: none;}
+.curent-msg-inbox .modal-body input{border: none; padding: 28px 18px; font-size: 20px;     color: #d4d4d4; border-radius: 8px;     box-shadow: 1px 2px 12px 0px rgba(0,0,0,0.1);}
+.curent-msg-inbox .propairImage{width: 100%; max-width: 100%;margin-bottom: 15px;     text-align: center;}
+.curent-msg-inbox .propairImage img{height: 100px;}
+.curent-msg-inbox .inline-footer{justify-content: flex-end;}
+.curent-msg-inbox .inline-footer button{max-width: 47%; margin: 0 7px;}
+.curent-msg-inbox .inline-footer .cncle{ border: none; color: #007de4;background: transparent;box-shadow: none;}
+.curent-msg-inbox.prpr-sup-fr-studnet .modal-header {padding: 22px 40px;}
+.curent-msg-inbox.prpr-sup-fr-studnet .modal-header .modal-title{font-size: 30px; font-family: 'Source Sans Pro', sans-serif; font-weight: 600; }
+.settingbord{padding: 50px 35px;}
+.school-wrapper{padding: 40px 35px;}
+
+.ab-rl .nav-tabs li a{line-height: 24px; font-size: 24px;}
+.ab-rl .nav-tabs{margin: 30px 0;}
+.heading-wrapper h3{margin-bottom: 0;     line-height: 36px;}
+
+@media(max-width:1600px){
+  .settingbord{padding: 30px 15px;}
+  .heading-wrapper h3 {font-size: 24px;}
+  .settingbord .col-xl-9 {flex: 0 0 100% !important; max-width: 100% !important;}
+  .ab-rl .nav-tabs li a{font-size: 16px;}
+  .ab-rl .nav-tabs li a.active { font-weight: 600; }
+}
+
+@media(max-width:767px){
+  #setting{padding: 0 0;}
+  .settingbord{padding: 30px 0;}
+  .ab-rl .nav-tabs{margin: 15px 0 15px 0; display: flex; flex-direction: column; align-items: center; border: 1px solid #ececec;}
+  .ab-rl .nav-tabs li a{font-size: 18px;     margin: 0 0px; display: block; padding: 10px 0;     border-bottom: 1px solid #ececec;}
+  .ab-rl .nav-tabs li:last-child a{border-bottom: none;}
+  .ab-rl .nav-tabs li{width: 100%;text-align: center;}
+  .ab-rl .nav-tabs li a.active{background:#33e2d1; color: #fff;}
+}

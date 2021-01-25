@@ -1,0 +1,414 @@
+<div id="General" class="tab-pane fade in active">
+  <div class="row">
+    <div class="col-12">
+      <div class="school-wrapper">
+        <div class="w-100 school-name">
+          <img *ngIf="!imageSrc" src="assets/images/schoollogo.png" alt="img" />
+          <img *ngIf="imageSrc" [src]="imageSrc" alt="" />
+          <div class="name">
+            <h3>{{ userData?.school }}</h3>
+            <!-- <div>
+              <h4>
+                <img src="assets/images/location-big.png" alt="img" />
+                {{ userData.location }}
+              </h4>
+            </div> -->
+            <p>Member since {{ userData?.createdAt | date: "d MMM y" }}</p>
+          </div>
+        </div>
+        <form [formGroup]="profileForm">
+          <div class="field mt-4" style="overflow: hidden; width: 100%;">
+            <div class="row">
+              <div class="col-md-4">
+                <label for="" class="tag"> First Name</label>
+              </div>
+              <div class="col-md-6">
+                <div class="edit">
+                  <input type="text" formControlName="firstName" #focus/>
+                  <a
+                    *ngIf="this.profileForm.controls['firstName'].disabled"
+                    (click)="Edit('Firstname')"
+                    >Edit</a
+                  >
+                  <a
+                    *ngIf="this.profileForm.controls['firstName'].enabled"
+                    (click)="update('Firstname')"
+                    >Save
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <label for="" class="tag"> Last Name</label>
+              </div>
+              <div class="col-md-6">
+                <div class="edit">
+                  <input type="text" formControlName="lastName" #focus2/>
+                  <a
+                    *ngIf="this.profileForm.controls['lastName'].disabled"
+                    (click)="Edit('LastName')"
+                    >Edit</a
+                  >
+                  <a
+                    *ngIf="this.profileForm.controls['lastName'].enabled"
+                    (click)="update('LastName')"
+                    >Save</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <label for="" class="tag"> School Name</label>
+              </div>
+              <div class="col-md-6">
+                <div class="edit">
+                  <input type="text" formControlName="school" #focus3/>
+                  <a
+                    *ngIf="this.profileForm.controls['school'].disabled"
+                    (click)="Edit('School')"
+                    >Edit</a
+                  >
+                  <a
+                    *ngIf="this.profileForm.controls['school'].enabled"
+                    (click)="update('School')"
+                    >Save</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <label for="" class="tag"> School Icon</label>
+              </div>
+              <div class="col-md-6">
+                <div class="edit">
+                  <input type="text" readonly />
+                  <a (click)="open(mymodal)">Update Icon</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-4">
+                <label for="" class="tag">Email</label>
+              </div>
+              <div class="col-md-6">
+                <div class="edit">
+                  <input type="text" formControlName="email" readonly />
+                </div>
+              </div>
+            </div>
+
+            <!-- Contact Number -->
+            <div class="row">
+              <div class="col-md-4">
+                <label for="" class="tag">Contact Number</label>
+              </div>
+
+              <div *ngIf="!fields['contact']" class="col-md-6">
+                <div class="edit">
+                  <div class="col-sm-4">
+                    <int-phone-prefix
+                      style="
+                        background: transparent;
+                        border: 0px !important;
+                        padding: 0px !important;
+                        margin: 0px !important;
+                      "
+                      *ngIf="!this.profileForm.controls['contact'].disabled"
+                      [maxLength]="5"
+                      [locale]="'en'"
+                      formControlName="countryCode"
+                    >
+                    </int-phone-prefix>
+                    <input
+                      *ngIf="this.profileForm.controls['contact'].disabled"
+                      [readonly]="this.profileForm.controls['contact'].disabled"
+                      type="text"
+                      formControlName="countryCode"
+                      placeholder="Code"
+                    />
+                  </div>
+                  <input
+                    type="text"
+                    formControlName="contact"
+                    placeholder="Contact"
+                    #focus4
+                  />
+                  <a
+                    *ngIf="this.profileForm.controls['contact'].disabled"
+                    (click)="Edit('Contact')"
+                    >Edit</a
+                  >
+                  <a
+                    *ngIf="this.profileForm.controls['contact'].enabled"
+                    (click)="update('Contact')"
+                    >Save</a
+                  >
+                </div>
+              </div>
+            </div>
+            <!-- Contact Ends -->
+
+            <div class="row">
+              <div class="col-md-4">
+                <label for="" class="tag">Password</label>
+              </div>
+              <div class="col-md-6">
+                <div class="edit">
+                  <input type="password" readonly />
+                  <a data-toggle="modal" data-target="#message-inbox">Change</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-4">
+                <label for="" class="tag">Student Credits Request Functionality</label>
+              </div>
+              <div class="col-md-6">
+                <div class="edit">
+                  <input type="password" [placeholder]="creditValue"  readonly />
+                  <a *ngIf="acceptingCredit == false" (click)="creditButton(true)">Switch On</a>
+                  <a *ngIf="acceptingCredit == true" (click)="creditButton(false)">Turn OFF</a>
+                </div>
+              </div>
+            </div>
+            <!-- <div *ngIf="creditData" class="row">
+              <div class="col-md-6">
+                <label for="" class="tag">Credits Request Limit</label>
+              </div>
+              <div class="col-md-6">
+                <div class="edit">
+                  <input type="number" formControlName="crLimit"/>
+                  <a
+                  *ngIf="this.profileForm.controls['crLimit'].disabled"
+                  (click)="Edit('CrLimit')"
+                  >Edit</a>
+                  <a *ngIf="this.profileForm.controls['crLimit'].enabled" (click)="update('CrLimit')"
+                  >Save</a> -->
+                  <!-- <a *ngIf="creditData" (click)="creditButton()">OFF</a> -->
+                <!-- </div>
+              </div>
+            </div> -->
+            <div *ngIf="acceptingCredit == true" class="row">
+              <div class="col-md-4">
+                <label for="" class="tag">Credits Request Limit</label>
+              </div>
+              <div class="col-md-6">
+                <div class="genderfield">
+                  <select name="" id="" formControlName="crLimit" (change)="changeCredits($event.target.value)" >
+                  <option value="null" disabled selected>Select Credits</option>
+                  <option value="5">5</option>
+                  <option value="10">10</option>
+                  <option value="15">15</option>
+                  <option value="20">20</option>
+                  <option value="20">20</option>
+                  <option value="25">25</option>
+                  <option value="50">50</option>
+                  <!-- <option value="other">Other</option> -->
+                </select>
+                  <!-- <a *ngIf="creditData" (click)="creditButton()">OFF</a> -->
+                </div>
+              </div>
+            </div>
+
+             <ng-template #mymodal let-modal>
+              <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title">
+                  Upload Student Logo
+                </h4>
+                <button
+                  type="button"
+                  class="close"
+                  aria-label="Close"
+                  (click)="modal.dismiss('Cross click'); resetImage()"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <div class="modal-body upload-sch-l">
+                <div class="upld-btn">
+                  <img
+                    *ngIf="!imageChangedEvent"
+                    alt="png"
+                    src="../../../assets/images/manuall-add.png"
+                  />
+                  <label *ngIf="!imageChangedEvent" class="uploadLogo" for="img"
+                    >Click to upload new image</label
+                  >
+                </div>
+
+                <input
+                  name="uploadfile"
+                  id="img"
+                  style="display: none;"
+                  (change)="fileChangeEvent($event)"
+                  type="file"
+                  enctype="multipart/form-data"
+                  accept="image/x-png"
+                />
+
+                <image-cropper
+                  [imageChangedEvent]="imageChangedEvent"
+                  [maintainAspectRatio]="true"
+                  [resizeToWidth]="128"
+                  format="png"
+                  (imageCropped)="imageCropped($event)"
+                  (imageLoaded)="imageLoaded()"
+                  (cropperReady)="cropperReady()"
+                  (loadImageFailed)="loadImageFailed()"
+                  autoCrop="true"
+                  outputType="file"
+                  #cropper
+                >
+                </image-cropper>
+                <br />
+                <button
+                  *ngIf="imageChangedEvent"
+                  class="uploadSave"
+                  (click)="imageUpload(); modal.dismiss('Cross click')"
+                >
+                  Update
+                </button>
+                <hr />
+                <button
+                  *ngIf="imageChangedEvent"
+                  class="uploadSave"
+                  (click)="newImageSelect()"
+                >
+                  Select other image
+                </button>
+                
+              </div>
+            </ng-template>
+
+            <!-- <div class="row" *ngIf="logoImages.length">
+              <ng-container *ngFor="let img of logoImages">
+                <img
+                  width="200px"
+                  height="200px"
+                  alt="png"
+                  [src]="img.image"
+                  (click)="updateProfileLogo(img.image)"
+                />
+              </ng-container>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>  -->
+
+            <!-- Modal message-inbox studentpopup-->
+            <div class="close-modal-icon curent-msg-inbox prpr-sup-fr-studnet">
+              <div
+                class="modal fade"
+                id="message-inbox"
+                tabindex="-1"
+                role="dialog"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">
+                        Change Your Password
+                      </h5>
+                      <button
+                        type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                      >
+                        <span aria-hidden="true"
+                          ><img src="assets/images/close-icon.png" alt=""
+                        /></span>
+                      </button>
+                    </div>
+                    <form [formGroup]="updatePassword">
+                      <div class="modal-body">
+                        <div class="form-group">
+                          <label for="">New Password</label>
+                          <input
+                            type="password"
+                            formControlName="password"
+                            placeholder="New Password"
+                            class="form-control"
+                          />
+                        </div>
+                        <div class="form-group">
+                          <label for="">Confirm Password</label>
+                          <input
+                            type="password"
+                            formControlName="confirmPassword"
+                            placeholder="Confirm Password"
+                            class="form-control"
+                          />
+                        </div>
+                        <div class="modal-footer inline-footer">
+                          <button
+                            [hidden]="true"
+                            id="openSuccesModal"
+                            data-toggle="modal"
+                            data-target="#message-inbox"
+                          >
+                            success
+                          </button>
+                          <button
+                            type="button"
+                            class="green"
+                            (click)="updateAdvisorPassword()"
+                          >
+                            Change
+                          </button>
+                          <button
+                            type="button"
+                            class="cncle"
+                            class="border_bule-btn"
+                            data-dismiss="modal"
+                            (click)="cancel()"
+                          >
+                            Cancel
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Modal -->
+
+            <!-- Default Image uploader -->
+            <ng-template #myImage>
+              <div class="modal-body upload-sch-l upldprofilepic">
+                <div class="row" *ngIf="logoImages.length">
+                  <h5>Please select a logo</h5>
+                  <div class="imgwer">
+                    <ng-container *ngFor="let img of logoImages">
+                      <img
+                        alt="png"
+                        [src]="img.image"
+                        (click)="updateProfileLogo(img.image)"
+                      />
+                    </ng-container>
+                  </div>
+                </div>
+                <div class="row" *ngIf="!logoImages.length">
+                  <p>No Images</p>
+                </div>
+                <button class="btn" (click)="modalRef2.hide()">Cancel</button>
+              </div>
+            </ng-template>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,84 @@
+<!-- <p>student-sidebar works!</p> -->
+<div class="sidebar">
+  <div class="logo-wrapper">
+    <div class="shrink-db-none">
+      <img style="cursor: pointer" src="assets/images/logo.svg" alt="img" routerLink="/student-module/dashboard/stats" />
+    </div>
+    <div class="logo-shrink">
+      <img style="cursor: pointer" class="logo-shrink"  src="assets/images/logo-shrink.svg" alt="img" routerLink="/student-module/dashboard/stats"/>
+    </div>
+    <a class="toggle-btn1">
+      <img src="assets/images/collapse.svg" id="collapse" alt="img" class="collapse-left" (click)="submit()" />
+      <img
+        src="assets/images/collapseright.svg"
+        alt="img"
+        id="collapse"
+        class="collapse-right"
+        
+        (click)="submit()"
+      />
+    </a>
+  </div>
+
+  <div class="menus">
+    <ul class="nav nav-tabs">
+      <li>
+        <a
+          data-toggle="tab"
+          class="active"
+          [ngClass]="{ active: currentResource == 'stats' }"
+          routerLink="/student-module/dashboard/stats"
+          ><img src="assets/images/dashboard.svg" alt="img" />
+          <p>Dashboard</p></a
+        >
+      </li>
+      <li>
+        <a
+          data-toggle="tab"
+          [ngClass]="{ active: currentResource == 'student-library' }"
+          routerLink="/student-module/dashboard/student-library/student-question-list"
+          ><img src="assets/images/library.svg" alt="img" />
+          <p>Library</p>
+        </a>
+      </li>
+      <li>
+        <a
+          data-toggle="tab"
+          [ngClass]="{ active: currentResource == 'student-my-message' }"
+          routerLink="/student-module/dashboard/student-my-message/inbox"
+          ><img src="assets/images/my-message.svg" alt="img" />
+          <p>My Messages</p>
+        </a>
+      </li>
+      <li>
+        <a
+          data-toggle="tab"
+          [ngClass]="{ active: currentResource == 'student-profile' }"
+          routerLink="/student-module/dashboard/student-profile/student-biography"
+          ><img src="assets/images/profile.svg" alt="img" />
+          <p>My Profile</p>
+        </a>
+      </li>
+      <li>
+        <a
+          data-toggle="tab"
+          [ngClass]="{ active: currentResource == 'student-settings' }"
+          routerLink="/student-module/dashboard/student-settings"
+          ><img src="assets/images/setting.svg" alt="img" />
+          <p>Settings</p>
+        </a>
+      </li>
+      <li>
+        <a
+          data-toggle="tab"
+          [ngClass]="{ active: currentResource == 'student-helpCenter' }"
+          routerLink="/student-module/dashboard/student-helpCenter"
+          ><img src="assets/images/helpcenter.svg" alt="img" />
+          <p>Help Center</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+

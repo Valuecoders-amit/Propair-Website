@@ -1,0 +1,75 @@
+
+
+.brief-bhead p{color: #33e2d1; font-size: 20px;     font-weight: 500;}
+.brief-bhead .custom-selects select{height: 40px;}
+.brief-bhead .custom-selects {max-width: 130px; }
+.brief-bhead .custom-selects select{background: url(/assets/images/cus-sl-arrow.png) 93% / 10% no-repeat #fff;}
+.editableontent-W{padding: 30px 40px; border-radius: 12px;background: #fff; display: flex;}
+.editableontent-W p{width: 100%; margin-bottom: 0; text-align: justify; }
+.editableontent-W a { display: flex; justify-content: flex-end; }
+.background-spec-cl{ margin-top: 30px;     background: #fff;  padding: 40px 40px; border-radius: 12px;}
+// .editableontent-W p{
+//     display: -webkit-box;
+//     -webkit-line-clamp: 3;
+//     -webkit-box-orient: vertical;
+//     overflow: hidden;
+//     text-align: justify;
+//     position: relative;
+// }
+
+.new{
+    text-align: center;
+}
+
+.morebtn{    right: 50px; top: 69%;     background: #fff;   position: absolute; box-shadow: 1px 1px 10px 2px rgba(255, 255, 255, 0.6); padding-left: 5px;}
+ .meesage-checklist .modal-dialog{max-width: 600px;}
+ .meesage-checklist .modal-body p{font-size: 20px; color: #7f7f7f; line-height: 48px;     margin: 15px 0;}
+ .message-listing-wrapper .basic-membership .table-wrpper .table td span.elipsis{    width: 300px;}
+ .message-listing-wrapper .basic-membership .table-wrpper .table td p { width: 300px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+
+ .close-modal-icon .modal-header {padding: 22px 35px;}
+ .modal-header h5{
+    font-size: 30px;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 600;
+}
+.mess-re-ex textarea{
+    min-height: 250px;
+}
+
+@media(max-width:1600px){
+    .editableontent-W{    padding: 15px 30px;}
+    .editableontent-W p { font-size: 14px; }
+    .brief-bhead p { font-size: 16px; }
+    .custom-selects select { font-size: 16px; height: 40px; }
+    .background-spec-cl{ padding: 15px 30px 30px;}
+    .modal-header h5 {
+        font-size: 20px;
+     
+    }
+    .close-modal-icon .modal-footer button.green{
+        font-size: 18px;
+    }
+    .mess-re-ex textarea{
+        font-size: 16px;
+    }
+}
+
+@media(max-width:767px){
+    .background-spec-cl{      padding: 15px 15px !important;  margin-top: 15px;}
+    .brief-bhead p{    font-size: 18px;}
+    .invoicebilling {margin-top: 15px;}
+    .brief-bhead p{ font-size: 16px;}
+    .requests-wrper .wrp.profile .content-req .area h3{font-size: 16px !important;}
+    .modal-header h5 {
+        font-size: 20px;
+     
+    }
+    .close-modal-icon .modal-footer button.green{
+        font-size: 18px;
+    }
+}
+@media(max-width:575px){
+    .editableontent-W p{    padding-right: 0;}
+    .morebtn{    right: 3px;}
+}

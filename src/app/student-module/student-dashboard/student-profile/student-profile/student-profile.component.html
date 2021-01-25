@@ -1,0 +1,63 @@
+<section>
+
+
+<div class="student-r-wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 data-toggle="modal" data-target="#thankyou">My Profile</h1>
+        </div>
+        <div class="col-md-12"> 
+          <div class="mp-mem-detal">
+              <div class="img-wrpr">
+                  <img *ngIf="studentDetails?.image && noData" [src]="studentDetails?.image" alt="img">
+                  <img *ngIf="!studentDetails?.image && noData" src="assets/images/useoer.png" alt="img">
+
+              </div>
+              <div class="dtsls w-100">
+                  <span *ngIf="studentDetails && noData"><p class="hed">{{studentDetails?.firstName ? studentDetails?.firstName : 'N/A'}}</p></span>
+                  <span *ngIf="studentDetails && noData"><p>Year {{studentDetails?.year ? studentDetails?.year :'0'}}</p> <p><img src="../../../../assets/images/watch.png" alt="" style="margin-bottom:5px; margin-right:2px;"/> Member for {{studentDetails?.joinedDate | joined}}</p></span>
+                  <span *ngIf="studentDetails && noData"> <p>{{studentDetails?.messagesCount ? studentDetails?.messagesCount :'0'}} Message Exchanges</p> <p>
+                    <img
+                    *ngIf="studentDetails && noData"
+                    src="../../../../assets/images/location-small.png"
+                    alt=""
+                    style="margin-bottom:5px; margin-right:2px;"
+                  /> {{studentDetails?.location ? studentDetails?.location : 'No location' }}</p></span>
+              </div>
+          </div>
+        </div>
+        <div class="col-md-12 col-lg-10 col-xl-10">
+            <div class="timmy-tabb">
+                <div  class="top-list-bt">
+                  <ul class="nav nav-tabs">
+                    <li><a data-toggle="tab"
+                      routerLink="/student-module/dashboard/student-profile/student-biography"
+                      [ngClass]="{'active': currentResource == 'student-biography'}">Brief Biography</a></li>
+                    <li><a data-toggle="tab"
+                      routerLink="/student-module/dashboard/student-profile/student-career"
+                      [ngClass]="{'active': currentResource == 'student-career'}">Career Goals</a></li>
+                    <li><a data-toggle="tab" 
+                      routerLink="/student-module/dashboard/student-profile/student-achievements/student-education"
+                      [ngClass]="{'active': currentResource == 'student-achievements'}">Achievements & Interests</a></li>
+                    <li><a data-toggle="tab" 
+                      routerLink="/student-module/dashboard/student-profile/student-watched"
+                      [ngClass]="{'active': currentResource == 'student-watched'}">My Watched Tags</a></li>
+                  </ul>
+                </div>
+                <div class="tab-content remv-prop">
+                     
+                     <router-outlet></router-outlet>
+                
+                </div>
+            </div> 
+        </div>
+     
+    </div>
+      
+</div> 
+
+
+
+
+
+</section>

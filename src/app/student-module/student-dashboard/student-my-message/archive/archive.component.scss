@@ -1,0 +1,271 @@
+#thankyou .modal-footer button{width:100%; max-width: 30%; } 
+#thankyou .visit-page a{background: #eafcfa url(/assets/images/visit-page.png) 95% / 4% no-repeat; padding: 20px; color: #7f7f7f;  font-weight: 500; font-size: 20px;     width: 100%;  display: block;     display: inline-block; margin: 10px 0;}
+.advisor-mes.masseage-sucess h3{margin: 10px 0;}
+.stud-lib-chat-m .library_actual .fav-like .live-heding h4{font-size: 36px; font-weight: 700; }
+.viewupsfav{margin-top: 30px;}
+.viewupsfav div{text-align: center; margin-top: 40px	;}
+.viewupsfav div p{font-size: 22px; font-weight: 600;}
+.viewupsfav div span{font-size: 18px; font-weight: 400;}
+
+.advisore-message-scr .heading-wrapper h3{line-height: inherit; font-size:35px;     margin-bottom: 0; }
+.advisore-message-scr .message-listing-wrapper .main{    padding:40px 40px;}
+.advisore-message-scr .basd-profile p{color: #5a5858;}
+.advisore-message-scr .invoicebilling .table-wrpper{    border: 1px solid #efefef;   border-radius: 12px;  margin-top: 20px;}
+.advisore-message-scr .invoicebilling .table-wrpper .table thead th{font-size: 18px;}
+.advisore-message-scr .basic-membership .table-wrpper .table td{font-size: 16px;}
+.advisore-message-scr .sbmt-btns-archive a{font-size: 14px;}
+.chekadvisror #thankyou .visit-page a{background: #eafcfa ; display: flex; justify-content: space-between; align-items: center;}
+.chekadvisror #thankyou .visit-page a .cek .checkmark{    top: -8px; left: -15px;}
+.chekadvisror #thankyou .modal-footer button {width: 100%; max-width: 50%;}
+.basd-profile {display: flex;justify-content: space-between;align-items: center;}
+.basd-profile p{margin-bottom: 0; font-size: 16px; font-weight: 500; color: #7f7f7f;}
+.custom-selects {max-width: 200px;width: 100%;}
+.custom-selects select {
+    padding: 0 18px;
+    height: 45px;
+    width: 100%;
+    border: 1px solid #efefef;
+    border-radius: 6px;
+    -webkit-appearance: none;
+    background:#fff url(/assets/images/cus-sl-arrow.png) 93% / 6% no-repeat ;
+    color: #b3b2b2;
+    font-size: 16px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+}
+.advisore-message-scr .message-listing .nav-tabs li {
+    margin: 0 30px;
+}
+.new{
+    text-align: center;
+}
+
+.star {
+    position: relative;
+    display: inline-block;
+    font-size: 3rem;
+    color: #d3d3d3;
+  }
+  .full {
+    color: #33e2d1;
+  }
+  .half {
+    position: absolute;
+    display: inline-block;
+    overflow: hidden;
+    color: #33e2d1;
+  }
+
+.charter-limit i{font-style: normal; color: #ff4747;}
+
+.character{
+	color:#d4d4d4;
+  }
+.overall-rating {
+    margin-left: 50px;
+}
+.help-rating {
+    margin-left: 85px;
+}
+.relevance-rating {
+    margin-left: 97px;
+}
+.clarity-rating {
+    margin-left: 125px;
+}
+.send-now a {
+    color: #007de4;
+    background: transparent;
+    box-shadow: none;
+    display: inline-block;
+}
+.message-exchange-info{
+    max-width: 300px;
+}
+.sendPopup{
+	width:100%;
+	display:flex
+}
+
+h5.modal-title{font-size: 30px;  font-family: 'Source Sans Pro', sans-serif;  font-weight: 600;}
+
+.close-modal-icon .modal-footer button{    height: 50px;}
+
+
+.elipsis{
+	display: block;
+  width: 500px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  }
+
+
+
+ .basic-membership .table-wrpper .table td p{    display: block;
+    width: 500px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;}
+
+    .message-listing .nav-tabs li a{    line-height: 40px;}
+    .prvtemesge-arc-s .message-listing .message-listing-wrapper{ margin-top: 15px;}
+
+
+
+    .reveiw p{margin-bottom: 0;     line-height: 24px;}
+    .reveiw .star-rating{align-items: center;}
+    .reveiw .star-rating ul{margin-bottom: 0;}
+
+    .refer-wpr.withbg a.sbmt {
+        color: #ffffff!important;
+        background-color: #33e2d1;
+        border: none;
+        padding: 7px 5px;
+    }
+    .advisore-message-scr .basd-profile p{
+        color: #7f7f7f;
+    }
+    .reveiw .comment{
+        background: #fff;
+        padding: 0;
+        border: 0px solid #f2f2f2;
+    }
+    
+
+@media(max-width:1600px){
+    .rating-section { padding: 0 10px; }
+    .close-modal-icon .modal-footer button { width: 47%; margin: 0 6px; }
+    #msform .fild-box .group input, textarea{ font-size: 14px!important; }
+    .basd-profile p{ font-size: 14px; }
+    .basic-membership .table-wrpper .table td p{
+        width:210px;
+    }
+    .elipsis{
+        width: 210px;
+    }
+    .invoicebilling .table-wrpper table {
+		width: 100%;
+    }
+    .advisore-message-scr .invoicebilling .table-wrpper{
+        margin-top: 15px;
+    }
+    .inbox-wrapper{
+        flex-direction: row;
+    }
+    .advisore-message-scr .message-listing-wrapper .main {
+        padding: 30px 30px;
+    }
+    h5.modal-title{font-size: 24px;     line-height: 24px;}
+    .reveiw p{    line-height: 24px; margin-bottom: 0;}
+    .reveiw .star-rating ul{margin-bottom: 0;}
+    .reveiw .star-rating ul li{    font-size: 16px;}
+    .reveiw .comment { padding: 10px; margin: 0;}
+        .reveiw .modal-body, .modal-footer {
+            padding: 1rem 20px;
+        }
+        .close-modal-icon .modal-footer button{    height: 50px;}
+        .message-listing .nav-tabs li a{    font-size: 20px;     line-height: 24px;}
+        .close-modal-icon .flex-row-wrapper p{      margin: 0px 0;  font-size: 16px;}
+        .star{    font-size: 30px;}
+        .reveiw p {font-size: 18px;}
+        .reveiw .charter-limit { margin-top: 5px; font-size: 12px; }
+        .modal-dialog {
+            max-width: 470px !important;
+        }
+        .close-modal-icon .flex-row-wrapper:first{ margin-top: 15px!important; }
+}
+
+
+    @media(max-width:1500px){
+        .new-exchange{
+            align-self: flex-end;
+        }
+    }
+    @media(max-width:1350px){
+        .basd-profile p{ font-size: 12px; }
+        .basic-membership .table-wrpper .table td p{
+            width: 155px;
+        }
+        .refer-wpr a:first-child {
+            font-size: 12px;
+        }
+        .elipsis{
+            width: 155px;
+        }
+        .inbox-wrapper{
+            flex-direction: row;
+        }
+        .invoicebilling .table-wrpper table {
+            width: 100%;
+        }
+        .advisore-message-scr .basic-membership .table-wrpper .table td {
+            font-size: 13px;
+        }
+        .custom-selects select {
+            height: 34px;
+            font-size: 12px;
+        }
+        .advisore-message-scr .invoicebilling .table-wrpper .table thead th {
+            font-size: 16px;
+        }
+    }
+    @media(max-width:767px){
+        .basic-membership .table-wrpper .table td p{
+            width: 120px!important;
+        }
+        .elipsis{
+            width: 120px!important;
+        }
+        .basd-profile{
+            flex-direction: column;
+        }
+        .basd-profile .custom-selects {
+            margin-top: 0px;
+        }
+        .basd-profile p{
+            margin-bottom: 7px;
+        }
+        .invoicebilling .table-wrpper table {
+            width: 100%;
+        }
+        .invoicebilling {
+            margin-top: 15px;
+        }
+        .table-wrpper .table thead th{
+            font-size: 16px !important;
+        }
+        h5.modal-title{
+            font-size: 20px;
+        }
+        button.close img{height: 15px;}
+        .reveiw p {  font-size: 16px;}
+    }   
+   
+    @media(max-width:575px){
+        .new-exchange a{
+            padding: 8px 40px;
+        }
+        .advisore-message-scr .invoicebilling .table-wrpper{
+            margin-top: 0;
+        }
+        .close-modal-icon .modal-footer{
+            flex-direction: column;
+        }
+        .close-modal-icon .modal-footer button{
+            max-width: 100%;
+            width: 100%;
+            height: 40px;
+        }
+        .message-listing .nav-tabs{    flex-direction: row;}
+        .close-modal-icon .flex-row-wrapper p:first-child{
+            text-align: left;
+            width: 65%;
+        }
+
+        .prvtemesge-arc-s .message-listing .message-listing-wrapper{ margin-top: 15px;}
+        .message-listing .nav-tabs li a{font-size: 18px;}
+        .prvtemesge-arc-s .message-listing .nav-tabs li {
+            margin: 0 10px;
+        }
+    }

@@ -1,0 +1,171 @@
+.eye-pass{position: relative;}
+.eye-pass i{position: absolute; right: 15px; top: 20px; font-size: 25px; opacity:0.4;}
+.sign-up {padding:40px 0 0px 0; background: #fafafa;}
+.sign-up .demand-wrapper .h3-heading {font-size: 35px; color: #373636; margin-bottom: 0; line-height: 48px;}
+.sign-up .demand-wrapper a{    font-size: 20px; font-weight: 500; position: relative; }
+.sign-up .demand-wrapper a:before{position: absolute; content: ''; height: 3px; background:#33e2d1; width: 100%; bottom: -15px;}
+.sign-up-wrapper {margin: 45px auto 45px auto;}
+.login-heading p{      line-height: inherit; margin-bottom: 0; font-size: 18px;}
+.login-heading h3{    font-size: 34px; line-height: 40px; margin-bottom: 0;}
+.login-heading{      margin: -63px -45px 0 -45px !important;  height: 110px;}
+.switchoff{margin: 40px 0;  font-size: 20px;  text-align: center;     color: #373636; }
+.sign-up-wrapper .form-group input{ font-size: 18px; color: #373636; border: 2px solid #f0f0f0;  height: 70px;}
+.sign-btn button{max-width: 230px;      padding: 11px 85px;  font-size: 24px;}
+.sign-btn a {        line-height: 24px; color: #007de4 !important; margin-top: 40px;}
+.sign-up-wrapper{    max-width: 700px;    padding:63px 40px 45px 40px;     border-radius: 15px;     overflow: hidden;}
+.already-signup h4{color: #373636; font-size: 24px;}
+.login-wrapper .already-signup h4 {margin: 20px 0 0px 0;}
+.divided-section{display: flex; margin:-30px -40px 0 -40px;}
+.divided-section .login-heading{width: 100%; margin: 0px 0px 0 0px !important;}
+.divided-section .login-heading.white .rquest-demo-block{background: #fff;}
+.sign-up-wrapper .form-group input::placeholder{
+    color: #373636;
+    opacity: 0.5;
+    
+}
+.sign-up-wrapper .form-group{
+    margin: 20px 0;
+}
+.sign-btn{
+    margin-top: 20px;
+    display: inline-block;
+}
+.login-btn-wrapper .right{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.sign-up-wrapper .form-group{flex-direction: column; 
+    align-items: flex-start;
+}
+
+@media (max-width:1600px){
+    .eye-pass i {
+        top: 9px;
+    }
+    .add-space {
+        margin-top: 106px;
+    }
+    .login-heading{
+        height: 95px;
+    }
+    .login-heading h3{
+        font-size: 22px;
+        line-height: 24px;
+    }
+    .login-heading p{
+        font-size: 16px;
+    }
+    .switchoff{
+        margin: 20px 0;
+        font-size: 16px;
+    }
+    .sign-btn a{
+        margin-top: 20px;
+        font-size: 16px;
+        margin-top: 10px;
+    }
+    .sign-up-wrapper{
+        margin: 15px auto 15px auto;
+        padding: 50px 40px 30px 40px;
+    }
+    .sign-up .demand-wrapper .h3-heading{
+        font-size: 20px;
+        line-height: 36px;
+    }
+    .sign-up {padding:30px 0 0px 0;
+    }
+    .sign-up .demand-wrapper a{
+        line-height: 28px;
+    }
+    .sign-up-wrapper{
+        max-width: 500px;
+    }
+    .sign-up-wrapper .form-group input{
+        height: 40px;
+        font-size: 16px;
+    }
+    .sign-btn{
+        margin-top: 0;}
+        .sign-btn button{
+            max-width: 180px;
+            font-size: 18px;
+            display: flex;
+    justify-content: center;
+        }
+}
+@media(max-width:1199px){
+    .switchoff{font-size: 18px;}
+    .sign-up-wrapper .form-group input{font-size: 16px;}
+    .sign-up .demand-wrapper .h3-heading {
+        font-size: 24px !important;
+    }
+}
+@media(max-width:767px){
+    .add-space{
+        margin-top: 86px;
+    }
+    .sign-up .demand-wrapper .h3-heading {
+        font-size: 20px !important;
+    }
+    .sign-up .demand-wrapper .h3-heading {
+        font-size: 28px !important;
+    }
+    .sign-up .demand-wrapper a {
+        font-size: 20px !important;
+        line-height: 24px;
+    }
+    .sign-up .demand-wrapper a:before{
+        bottom: -5px;
+    }
+    .login-heading p{
+        font-size: 16px;
+    }
+    .login-heading h3{
+        line-height: 24px;
+        font-size: 24px;
+    }
+    .switchoff{
+        font-size: 16px;
+        margin: 20px 0;
+    }
+    .sign-btn{    margin-top: 0;}
+
+    .sign-btn button{    padding: 8px 50px !important;}
+    .sign-btn a{  font-size: 16px;  margin-top: 10px;}
+    .sign-up {
+        padding: 20px 0 0 0 !important;
+    }
+    .sign-up-wrapper .form-group input{
+        height: 55px;
+        font-size: 16px;
+    }
+}   
+@media(max-width:575px){
+    .divided-section{
+        flex-direction: column;
+    }
+    .add-space{
+        margin-top:81px;
+    }
+    .sign-up .demand-wrapper .h3-heading {
+        font-size: 24px !important;
+    }
+    .sign-up .demand-wrapper a{
+        font-size: 18px !important;
+    }
+    .login-heading{
+        height: auto;
+    }
+    .login-heading .rquest-demo-block{
+        padding:45px 0 10px 0;
+    }
+    .sign-up-wrapper .form-group input{
+        height: 50px !important;
+    }
+    .eye-pass i{
+        top: 15px;
+        font-size: 20px;
+    }
+}

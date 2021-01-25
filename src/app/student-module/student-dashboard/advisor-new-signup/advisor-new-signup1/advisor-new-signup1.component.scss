@@ -1,0 +1,245 @@
+/* steps message */
+
+#msform { width:100%; margin: 25px 0; text-align: center; position: relative; }
+#msform fieldset {
+	background: #fff;
+	border: 0 none;
+	border-radius: 15px;
+	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.1);
+	padding: 40px 30px;
+	box-sizing: border-box;
+	width: 100%;
+	margin: 0 0;
+	
+	/*stacking fieldsets above each other*/
+	position: relative;
+}
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+	display: none;
+}
+
+/*buttons*/
+#msform .same-field{border: 0 none;border-radius: 1px;cursor: pointer; box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.3); padding: 10px 25px;margin: 10px 5px;border-radius: 5px;font-size: 20px;font-family: 'Source Sans Pro', sans-serif;}
+#msform .action-button{width: 250px;background: #33e2d1;font-weight: bold;color: white;}
+#msform  .Save-Draft{background: #f5f5f5;font-weight: 500;color: #7f7f7f;	}
+#msform .cancel{background:transparent; color: #007de4; font-size: 20px;  box-shadow:none;}
+
+/*progressbar*/
+#progressbar {
+	margin-bottom: 30px;
+	overflow: hidden;
+	/*CSS counters to number the steps*/
+	counter-reset: step;
+}
+#progressbar li {
+	list-style-type: none;
+	text-transform: capitalize;
+	font-size: 9px;
+	width: 24.33%;
+	float: left;
+	position: relative;
+	font-size: 20px;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 400;
+
+}
+#progressbar li:before {
+	content: counter(step);
+	counter-increment: step;
+  width: 0px;
+  height: 0;
+  line-height: 0;
+  padding: 45px;
+	display: block;
+	font-size: 24px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 600;
+	color: #b3b2b2;
+	background: white;
+  border-radius: 50%;
+  margin: 0 auto 5px auto;
+  display: flex;
+  justify-content: center;
+
+}
+/*progressbar connectors*/
+#progressbar li:after {
+	content: '';
+	width: 100%;
+	height: 10px;
+	background: white;
+	position: absolute;
+	left: -50%;
+	top:42px;
+	z-index: -1; /*put it behind the numbers*/
+}
+#progressbar li:first-child:after {
+	/*connector not needed before the first step*/
+	content: none; 
+}
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before,  #progressbar li.active:after{
+	background: #33e2d1;
+	color: white;
+}
+#msform .public-slect{ max-width: inherit;}
+#msform .listing-box-title{background: #f5f5f5; border: 2px solid #eeeeee; padding: 30px 35px; border-radius: 12px; margin-top: 20px;}
+.listing-box-title .quicktip{display: flex; justify-content: space-between;     margin-bottom: 10px;}
+.listing-box-title .quicktip p{font-size: 18px; line-height: 24px; font-weight: 600; margin-bottom: 0; color: #373636;}
+.listing-box-title .greenRedlisting ul{display: flex; margin: 10px 0; }
+.listing-box-title .greenRedlisting ul li{width: 38%; text-align: left; color: #b3b2b2; font-size: 18px; 	font-family: 'Source Sans Pro', sans-serif;}
+.listing-box-title .greenRedlisting ul li img{margin-right: 15px;}
+#msform .fild-box {margin: 40px 0; position: relative;}
+#msform .fild-box .group label:first-child{margin-top: 0;}
+#msform .fild-box .group label{font-size: 20px; font-family: 'Source Sans Pro', sans-serif; color: #373636; font-weight: 600; display: flex; justify-content: flex-start;  margin-top: 20px;   margin-bottom: 20px;}
+#msform .fild-box .group input,textarea{color:#b3b2b2; font-size: 18px;	font-family: 'Source Sans Pro', sans-serif;  padding: 20px; border-radius: 8px; border: 1px solid #ededed; width: 100%; display: block;}
+#msform .fild-box .group .charter-limit{display: block; text-align: right; margin-top: 10px; color: #d4d4d4;font-size: 18px;	font-family: 'Source Sans Pro', sans-serif;}
+#msform .fild-box .group .charter-limit i{font-style: normal; color: #ff4747;}
+#msform .plans .transparent{color: #007de4; box-shadow: none; font-weight: 500;background: transparent; padding: 0;}
+.fild-box .miniblock{color:#7f7f7f ;font-size: 14px; padding: 8px 12px; background: #f5f5f5; border:1px solid #efefef; border-radius: 5px; z-index: 99; position: absolute; right: 30px;top:65px;}
+.fild-box input{position: relative;}
+.fild-box .miniblock:before{background:url(/assets/images/close.png); content: ' ';  height: 20px; width: 20px; position: absolute; top: -8px; right: -8px; background-repeat: no-repeat;}
+.previous-ab{ width: 250px;background: #eafcfa !important;font-weight: 500 !important; color: #7f7f7f !important;}
+.mt-30{margin-top: 30px !important;}
+.tags-fields .fields{display: flex; margin: 25px 0;  align-items: center;}
+.tags-fields .fields span{width: 20%; color: #373636; font-size: 20px;  text-align: right; padding-right: 80px;}
+.tags-fields .fields .public-slect{width: 80%;}
+.tags-fields .fields .public-slect select{width: 100%; box-shadow: none;     border: 1px solid #ededed;}
+.fild-box #accordion .card-header{background:#f5f5f5;  font-size: 24px; text-align: left;}
+.fild-box .question-accord .accordion .card-header:after{font-size: 32px;}
+.fild-box .question-accord .accordion .card-body{    background: transparent; border: none;}
+.fild-box .w-80{width: 80%;}
+.fild-box .student-portal-link{border-bottom:none; justify-content: flex-start; padding: 0px 0;}
+.fild-box .student-portal-link .area{width: 100%; padding-left: 0;     text-align: left;}
+.fild-box .student-portal-link .area .subject span{background: #f5f5f5; }
+.fild-box .student-portal-link .area .subject span a{margin-left: 8px; }
+.fild-box textarea{resize: none;}
+.submitting-buttons {display: flex;justify-content: flex-end;}
+
+#msform fieldset {position: relative !important;}
+
+
+
+
+
+.padd-50 {
+	padding: 50px;
+	
+
+	.listing-box-title .greenRedlisting ul li {
+    width: 40%;
+}
+}
+
+.question-accord .accordion .card-header {
+    border: 1px solid #ededed;
+    margin: 14px 0;
+    border-radius: 8px;
+    background: #fff;
+    color: #373636;
+    font-size: 20px;
+    line-height: 35px;
+	font-family: 'Source Sans Pro', sans-serif;
+	padding: .75rem 1.25rem;
+	
+}
+.dropdownColor{
+	background-color: buttonface;
+}
+
+.miniblock:before {content:none !important;}
+.cross_btn {
+	background: url(/assets/images/close.png);
+    content: " ";
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    top: -58px;
+    right:-58px;
+	background-repeat: no-repeat;
+	z-index: 99;
+    cursor: pointer;
+}
+.tagList {
+	display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+.fild-box .miniblock {
+    right: -50px;
+    top: -50px;
+}
+.tagList div {
+    position: relative;
+    width: 7%;
+}
+
+
+.dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+  }
+
+
+  .dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f6f6f6;
+	min-width: 230px;
+	overflow: auto;
+	border: 1px solid #ddd;
+	z-index: 1;
+  }
+
+  .notClass i{
+	  color:#d4d4d4;
+  }
+
+  .character{
+	color:#d4d4d4;
+  }
+  .custom-selects{    max-width: 335px;}
+  .custom-selects select{    background-size: 4%;}
+  .primary h3{  color: #5a5858; line-height: 24px; font-weight: 500; margin-bottom:0 ;}
+  .message-exchng {
+    margin-top: 0px;
+}
+
+
+// stepper 1
+.stepper-heading h3{font-size: 22px; font-family: "Source Sans Pro", sans-serif; color: #373636; font-weight: 600; display: inline-block;    margin-bottom: 0;  border-bottom: 2px solid #33e2d1;}
+.para-grph0lines{text-align: left; margin: 25px 0;}
+.para-grph0lines p{margin-bottom: 0; font-size: 20px;  font-weight: 500; color: #373636;}
+.new-form-icon label{font-size: 20px; color: #373636; margin-bottom: 0; font-family: "Source Sans Pro", sans-serif; text-align: right; width: 100%;}
+.new-form-icon input{width: 100%; position: relative; font-size: 20px; color: #bdbdbd; border: 2px solid #f0f0f0; border-radius: 4px; font-family: "Source Sans Pro", sans-serif; padding: 13px 15px;   font-weight: 400; }
+.new-form-icon .row{align-items: center;}
+//  .withcheck input{position: relative; background:#fafafa url(/assets/images/tickbox.png) 97% / 5% no-repeat ;}
+ .linkid{ border-radius: 4px; display: flex; padding: 12px 15px; align-items: center; position: absolute; top: 0; right: 22px;}
+.new-form-icon .linkid-wrapperinput p{margin-bottom: 0;}
+.new-form-icon .linkid-wrapperinput img{margin-right:15px;}
+
+
+@media(max-width:1600px){
+	.stepper-heading h3{
+		font-size: 20px;
+	}
+	.para-grph0lines{
+		margin: 15px 0;
+	}
+	.para-grph0lines p{
+		font-size: 16px;
+	}
+	.new-form-icon label{font-size: 16px;}
+	.new-form-icon input{font-size: 16px;}
+	#msform .same-field{font-size: 16px;}
+	.action-button {width: 155px !important;     font-size: 16px !important;}
+	
+}
+
+@media(max-width:767px){
+	.new-form-icon label{text-align: left;}
+}

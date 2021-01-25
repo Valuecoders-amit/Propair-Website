@@ -1,0 +1,111 @@
+
+
+.brief-bhead p{color: #33e2d1; font-size: 20px;     font-weight: 500;}
+.brief-bhead .custom-selects select{height: 40px;}
+.brief-bhead .custom-selects {max-width: 130px; }
+.brief-bhead .custom-selects select{background: url(../../../../../assets/images/cus-sl-arrow.png) 93% / 10% no-repeat #fff;}
+.editableontent-W{padding: 15px 40px; border-radius: 12px;background: #fff; word-break: break-all; }
+.editableontent-W p{width: 100%; word-break:break-all; margin-bottom: 0; text-align: justify;}
+.editableontent-W a { display: flex; justify-content: flex-end; }
+.background-spec-cl{ margin-top: 30px; background: #fff; padding: 40px 40px; border-radius: 12px;}
+
+.editableontent-W p img {
+    margin-right: 10px;
+    margin-bottom: 3px;
+    height: 20px;
+    cursor: pointer; position: relative;
+}
+.new{
+    text-align: center;
+}
+ .meesage-checklist .modal-dialog{max-width: 600px;}
+ .meesage-checklist .modal-body p{font-size: 20px; color: #7f7f7f; line-height: 48px;     margin: 15px 0;}
+ .message-listing-wrapper .basic-membership .table-wrpper .table td span.elipsis{    width: 300px;}
+ .message-listing-wrapper .basic-membership .table-wrpper .table td p.elipsis{width: 300px;}
+ .close-modal-icon .modal-header {padding: 22px 35px;}
+ .modal-header h5{
+    font-size: 30px;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 600;
+}
+.margin-tp-spcl{       position: relative; margin-top: 30px;}
+.mess-re-ex textarea{
+    min-height: 250px;
+}
+
+.tip {
+    opacity: 50%;
+}
+// more btn 
+
+// .editableontent-W.margin-tp-spcl p{
+//     display: -webkit-box;
+//     -webkit-line-clamp: 3;
+//     -webkit-box-orient: vertical;
+//     overflow: hidden;
+//     text-align: justify;
+//     position: relative;
+// }
+
+// .stanMore{
+//  text-overflow: ellipsis;
+//   -webkit-box-orient: vertical;
+// }
+
+.morebtn{    right: 50px; top: 69%;     background: #fff;   position: absolute;  padding-left: 5px;}
+
+// more btn 
+
+.rightalignedpencil{position: relative;}
+.rightalignedpencil .pencil-icon{    top: 18px;     right: 20px; position:absolute;}
+
+.rightalignedpencil textarea{    border: none; resize: none; }
+
+
+
+
+@media(max-width:1600px){
+    .margin-tp-spcl{ margin-top: 15px; }
+    .editableontent-W p img {height: 15px;}
+    .editableontent-W p {font-size: 12px;}
+    .editableontent-W{    padding: 15px 30px;}
+    .background-spec-cl{padding: 15px 30px 30px; margin-top: 20px;}
+    .modal-header h5{ font-size: 24px;}
+    .invoicebilling .table-wrpper table {
+        width: 100%;
+    }
+    .brief-bhead .custom-selects select {
+        font-size: 14px;
+        height: 40px;
+    }
+    .brief-bhead p{
+        font-size: 14px;
+    }
+    .message-listing-wrapper .basic-membership .table-wrpper .table td span.elipsis{ width: 300px; }
+    .message-listing-wrapper .basic-membership .table-wrpper .table td p.elipsis{ width: 300px; }
+}
+
+@media(max-width:1350px){
+    .brief-bhead .custom-selects select{
+        height: 34px;
+        font-size: 12px;
+    }
+}
+
+@media(max-width:767px){
+    .brief-bhead p{
+        font-size: 16px;
+    }
+    .editableontent-W p{
+        padding-right: 0;
+        text-align: center;
+    }
+}
+@media(max-width:575px){
+    .basd-profile{
+        margin-bottom: 15px;
+    }
+    .morebtn{
+        right: 0;
+    }
+}

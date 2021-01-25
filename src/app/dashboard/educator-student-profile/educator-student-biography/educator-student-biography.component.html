@@ -1,0 +1,80 @@
+<div id="B_b" class="tab-pane fade in active show">
+
+  <div class="editableontent-W">
+    <p *ngIf="!biography">No Data</p>
+    <p *ngIf="!more && biography">{{biography ? (biography | more) : 'No Data'}} <a href="javascript:void(0)" *ngIf="biography.length > 450" (click)="more=true;"> More</a></p>
+    <p *ngIf="more && biography">{{biography }} <a href="javascript:void(0)" *ngIf="biography.length > 450" (click)="more=false;"> Less</a></p>
+      <p *ngIf="!biography">No Data</p>
+      <!-- <a href="javascript:void(0)" (click)="editBio(temp)"><img src="../../../../assets/images/editpen.png" alt="img"></a> -->
+  </div>
+  <div class="message-listing-wrapper background-spec-cl">
+        <div class="basd-profile brief-bhead">
+          <p>My Message Exchanges</p>
+          <div class="custom-selects">
+            <select name="" id="" style="cursor: pointer;" (change)="filterInbox($event.target.value)">
+              <option value="public">Public</option>
+              <option value="private">Private</option>
+              
+          </select>
+          </div>
+      </div>
+      <div class="advisore-message-scr">
+        <div class="invoicebilling basic-membership ">
+            <div class="table-wrpper" *ngIf="inboxData?.length">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Date Accepted</th>
+                    <th scope="col">Advisor</th>
+                    <th scope="col">Subject</th>
+                    <th scope="col">Views</th>
+                    <th scope="col">Up-votes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr (click)="showDetail(inbox._id)" *ngFor="let inbox of inboxData; let i=index">                                                                     
+                    <td>{{inbox.createdAt | date: 'dd  MMM  y'}}</td>
+                    <td>{{inbox.firstName}}</td>
+                    <td><p class="elipsis" >{{inbox.title}}</p>                  
+                      <span class="elipsis">{{inbox.details}}</span>
+                    </td>
+                    <td>{{inbox.views}}</td>
+                    <td>{{inbox.upvotes}}</td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+            </div>
+            <div class="table-wrpper" *ngIf="!inboxData?.length">
+              <p class="text-center">No data found</p>
+            </div>
+        </div>
+    </div>
+  </div>
+  
+   
+</div>
+
+<!-- Modal Starts -->
+<ng-template #temp>
+  <div class="close-modal-icon meesage-checklist" >
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Biography</h5>
+        <button type="button" class="close" (click)="modalRef2.hide()" aria-label="Close">
+          <span aria-hidden="true"><img src="../../../../assets/images/close-icon.png" alt=""></span>
+        </button>
+      </div>
+        <div class="modal-body">
+            <div class="mess-re-ex">
+                  <textarea cols="30" [(ngModel)]="biography"></textarea>
+
+            </div>
+        </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button"  class="green" data-dismiss="modal" (click)="biographyData()">Update</button>
+      </div>
+    </div>
+  </div>
+</ng-template>
+<!-- Modal Ends -->

@@ -1,0 +1,179 @@
+.add-qualif-wrapper {
+  padding: 0 40px;
+}
+.tab-pane a.add-qualif {
+  color: #2688e6;
+  font-size: 16px;
+  padding: 7px 20px;
+  display: inline-block;
+  border: 1px solid #efefef;
+  border-radius: 12px;
+  box-shadow: 0px 0 9px rgba(0, 0, 0, 0.1);
+}
+.tab-pane {
+  padding: 20px 0px;
+}
+.invoicebilling {
+  margin-top: 20px;
+}
+.invoicebilling .table-wrpper {
+  border-radius: 0;
+  border: none;
+}
+
+
+.invoicebilling .table-wrpper table {
+  width: 100%;
+}
+.invoicebilling.diffrent-tbl table thead th {
+padding: 15px 40px;
+font-size: 18px;
+color: #373636;
+font-family: 'Source Sans Pro', sans-serif;
+}
+.basic-membership .table-wrpper table tbody {
+  height: 25px;
+  overflow-y: auto;
+}
+.diffrent-tbl.invoicebilling table tbody tr {
+  background: #fafafa;
+}
+.diffrent-tbl.invoicebilling table tbody tr td {
+  padding: 15px 40px;
+  font-size: 16px;
+  color: #7f7f7f;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 600;
+}
+
+
+
+
+//Modal-css
+.advisor-modal #career-path .modal-header {
+  padding: 22px 35px;
+}
+
+.advisor-modal .modal-header {
+  /* background: #e4e4e4; */
+  padding: 40px;
+  align-items: center;
+}
+.advisor-modal .modal-body {
+  padding: 40px 40px;
+}
+.advisor-modal #career-path .modal-body .form-group {
+  width: 100%;
+  align-items: center;
+  display: flex;
+  position: relative;
+  margin-bottom: 30px;
+}
+.advisor-modal #career-path .modal-body label {
+  font-size: 20px;
+  color: #373636;
+  font-family: 'Source Sans Pro', sans-serif;
+  width: 14%;
+  padding-right: 15px;
+  text-align: right;
+}
+.advisor-modal #career-path .modal-body input {
+  font-size: 20px;
+  color: #373636;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-family: 'Source Sans Pro', sans-serif;
+  width: 86%;
+  box-shadow: 1px 1px 9px 4px rgba(0,0,0,0.1);
+}
+.advisor-modal #career-path .modal-body select {
+  font-size: 20px;
+  color: #373636;
+  border: none;
+  padding: 10px 20px;
+  -webkit-appearance: none;
+  border-radius: 6px;
+  font-family: 'Source Sans Pro', sans-serif;
+  width: 79%;
+  box-shadow: 1px 1px 9px 4px rgba(0,0,0,0.1);
+  background: url(/assets/images/drpd.png) 97% / 5% no-repeat;
+}
+
+
+.advisor-modal #career-path .btns {
+  margin: 0 auto;
+}
+.advisor-modal #career-path .btns .trans {
+  color: #2688e6;
+  font-size: 18px;
+  background: transparent;
+}
+.advisor-modal #career-path .btns a {
+  font-size: 20px;
+  border-radius: 9px;
+  margin: 0 auto;
+  text-align: center;
+  background: #33e2d1;
+  color: #fff;
+  font-family: 'Source Sans Pro', sans-serif;
+  height: 50px;
+  max-width: 300px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+.advisor-modal #career-path .modal-body .in-chkbox label p {
+  line-height: 24px;
+  margin: 0 28px;
+  text-align: left;
+}
+.advisor-modal #career-path .modal-body .in-chkbox {
+  width: 100%;
+  margin-left: 20%;
+  margin-top: 20px;
+}
+.advisor-modal #career-path .modal-body .in-chkbox label {
+  width: 100%;
+}
+
+.requests-wrper .wrp .content-req{padding: 30px 30px;}
+
+.diffrent-tbl.invoicebilling table tbody tr td:last-child{width: 200px;}
+
+::ng-deep ngx-select-dropdown{width: 100% !important;}
+::ng-deep .ngx-dropdown-container button{   width: 68%;    box-shadow: 1px 1px 9px 1px rgba(0, 0, 0, 0.1);  border: 1px solid #f0f0f0 !important; border-radius: 6px !important;  padding: 9px 20px !important;font-size: 20px !important;color: #373636 !important;font-family: 'Source Sans Pro', sans-serif !important;}
+::ng-deep .ngx-dropdown-container button .nsdicon-angle-down::before{       opacity: 0.2; top: 10px !important;}
+.advisor-modal #career-path .modal-body input::placeholder{ color: #d4d4d4;}
+::ng-deep .ngx-dropdown-container button span{color: #d4d4d4;}
+.advisor-modal #career-path .modal-body input::placeholder{
+color: #d4d4d4;
+}
+
+.reqrd{
+position: absolute;
+top:50px;
+left: 25%;
+color: red;
+}
+
+.advisor-modal #career-path .modal-body .form-group .reqrd{
+position: absolute;
+top:50px;
+left: 15%;
+color: red;
+}

@@ -1,0 +1,50 @@
+<div id="Inbox" class="tab-pane fade in active">
+    <div class="main">
+      <div class="basd-profile">
+        <p>This is where your live student Message are kept</p>
+        <div class="custom-selects" >
+            <select name="" id="" style="cursor: pointer;" (change)="filterInbox($event.target.value)">
+              <option value="all">All</option>
+              <option value="read">Read</option>
+              <option value="unread">Unread</option>
+
+            </select>
+        </div>
+    </div>
+      <div class="invoicebilling basic-membership " *ngIf="inboxData?.length">
+        <div class="table-wrpper">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Action</th>
+                <th scope="col">Student</th>
+                <th scope="col">Subject</th>
+                <th scope="col">Date Accepted</th>
+                <th scope="col">Expires</th>
+                <th scope="col">KPs</th>
+              
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor='let inbox of inboxData' >                                                                                                                   
+                <td (click)="navigate(inbox._id)">{{inbox?.advisorStatus | titlecase}}</td>
+                <td (click)="navigate(inbox._id)">{{inbox?.student?.firstName}} {{inbox?.student?.lastName}}</td>
+                <td (click)="navigate(inbox._id)"><p class="elipsis">{{inbox?.title}}</p>                  
+                  <span  [ngClass]="{'notClass': inbox?.isRead == false , 'elipsis': inbox?.isRead == true}">{{inbox?.details}}</span>
+                </td>
+                <td>{{inbox?.acceptedDate | date: 'dd  MMM  y'}}</td>
+                <td>{{inbox?.expiresIn | counter}}</td>
+                <td>{{inbox?.karmaPoint ? inbox?.karmaPoint : '-'}}</td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="invoicebilling basic-membership " *ngIf="!inboxData?.length">
+        <div class="table-wrpper">
+          <p class="new">Your Inbox is empty!</p>
+        </div>
+      </div>
+  </div>
+    </div>

@@ -1,0 +1,350 @@
+.background-spec-cl{ margin-top: 30px;     background: #fff;  padding: 40px 40px; border-radius: 12px;}
+.inbox-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+  }
+  .inbox-wrapper .tab-content{padding: 0;}
+  .inbox-wrapper .nav-tabs{border-bottom:none;}
+  .inbox-wrapper .nav-tabs li:first-child{margin-left: 0;}
+  .inbox-wrapper .nav-tabs li{margin: 0 60px;}
+  .inbox-wrapper .nav-tabs li a{ font-size: 20px; color:#373636; line-height: 100px; font-family: 'Source Sans Pro', sans-serif;}
+  .inbox-wrapper .nav-tabs li a.active{font-weight: 600; }
+  .new-exchange{display: flex; align-self: center;}
+  .send-now a{color:#007de4;background: transparent; box-shadow: none;}
+  .frtopm{margin-top: 20px !important;}
+  .requests-wrper{ width: 100%;  border: 1px solid #e3e2e2; border-radius: 12px; margin-top: 35px; border-radius: 12px;}
+  .requests-wrper .wrp.profile {
+    height: 170px;
+}
+.requests-wrper .wrp {
+    height: 235px;
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid #f2f2f2;
+}
+.profile {
+    display: flex;
+    align-items: center;
+}
+.requests-wrper .wrp .kps-bonus {
+    max-width: 15%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 30px 0;
+}
+.requests-wrper .wrp .kps-bonus img {
+    border: 5px solid #e4e4e4;
+    border-radius: 50%;
+    height: 90px;
+    width: 90px;
+}
+.requests-wrper .wrp .content-req {
+    max-width: 65%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    padding: 30px 30px;
+    border-bottom: none;
+}
+.student-portal-link {
+    display: flex;
+    padding: 25px 0;
+    border-bottom: 2px solid #f2f2f2;
+}
+.content-req .area {
+    width: 100%;
+    padding-left: 0px;
+}
+.student-portal-link .area h3 {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.requests-wrper .wrp.profile .content-req .area h3 {
+    font-size: 20px;
+    color: #7f7f7f;
+    line-height: 48px;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+.requests-wrper .wrp.profile .content-req .area h4 {
+    font-size: 20px;
+    color: #5b5858;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 0;
+}
+.student-portal-link .area .location {
+    display: flex;
+    align-items: center;
+}
+.requests-wrper .wrp.profile .content-req .area .location .singleline {
+    line-height: 40px;
+}
+.requests-wrper .wrp.profile .content-req .area .location span {
+    color: #7f7f7f;
+    font-weight: 500;
+    font-size: 18px;
+}
+.requests-wrper .wrp.profile .social_links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.requests-wrper .wrp .refer-wpr {
+    max-width: 20%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+    padding: 30px 40px;
+}
+.requests-wrper .wrp.profile .social_links a {
+    border: none;
+}
+.refer-wpr a:first-child {
+    margin-top: 0;
+}
+.refer-wpr a {
+    max-width: 145px;
+    width: 100%;
+    display: inline-block;
+    color: #7f7f7f;
+    font-size: 18px;
+    border: 1px solid #c4c4c4;
+    border-radius: 6px;
+    padding: 6px 0;
+    text-align: center;
+    margin: 7px 0;
+}
+.for-more-lisiting a{font-size: 20px; color: #2688e6; margin-top: 20px; display: block;}
+
+
+
+
+.upload-btn-wrapper {
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
+  }
+  .upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    }
+
+
+
+
+//Modal-css
+.advisor-modal #career-path .modal-header {
+    padding: 22px 35px;
+  }
+  
+  .advisor-modal .modal-header {
+    /* background: #e4e4e4; */
+    padding: 40px;
+    align-items: center;
+  }
+  .advisor-modal .modal-body {
+    padding: 40px 40px;
+  }
+  .advisor-modal #career-path .modal-body .form-group {
+    margin-bottom: 30px;
+    position: relative;
+  }
+  .advisor-modal #career-path .modal-body label {
+    font-size: 20px;
+    color: #373636;
+    font-family: 'Source Sans Pro', sans-serif;
+    width: 40%;
+    padding-right: 15px;
+    text-align: right;
+  }
+  .advisor-modal #career-path .modal-body input {
+    font-size: 20px;
+    color: #373636;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-family: 'Source Sans Pro', sans-serif;
+    width: 60%;
+  }
+  .advisor-modal #career-path .modal-body select {
+    font-size: 20px;
+    color: #d4d4d4;
+    border: none;
+    padding: 10px 20px;
+    -webkit-appearance: none;
+    border-radius: 6px;
+    font-family: 'Source Sans Pro', sans-serif;
+    width: 60%;
+    background: url(../../../../assets/images/drpd.png) 97% / 5% no-repeat;
+  }
+  .advisor-modal #career-path .modal-body select:invalid{color: #d4d4d4;}
+ 
+  .advisor-modal #career-path .btns {
+    margin: 0 auto;
+  }
+  .advisor-modal #career-path .btns .trans {
+    color: #2688e6;
+    font-size: 18px;
+    background: transparent;
+  }
+  .advisor-modal #career-path .btns a {
+    font-size: 20px;
+    border-radius: 9px;
+    margin: 0 auto;
+    text-align: center;
+    background: #33e2d1;
+    color: #fff;
+    font-family: 'Source Sans Pro', sans-serif;
+    height: 50px;
+    max-width: 300px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+ .wrp.profil .social_links a img{height: 28px !important;}
+ .new-exchange a{margin-right:0; display: inline-block;}
+
+ .send-now a:hover{    border: 1px solid #efefef;}
+
+ .advisor-modal #career-path .modal-body input::placeholder{
+  color: #d4d4d4;
+}
+
+
+::ng-deep ngx-select-dropdown.ng-valid span{
+  color:#373636 !important;
+}
+::ng-deep .ngx-dropdown-container button span{color:#d4d4d4; }
+
+.advisor-modal #career-path .modal-body .form-group .reqrd{
+  position: absolute;
+  top:50px;
+  left: 40%;
+  color: red;
+}
+.upload-btn-wrapper button{background: #33e2d1; color: #fff; margin-right: 15px; }
+.upld-wrp-bt .reqrd{    top: 35px !important;
+  left: 3% !important; }
+
+  ::ng-deep .ngx-dropdown-container button span{color:#d4d4d4; }
+
+select.ng-valid{color: #373636 !important;} 
+
+
+@media(max-width:1600px){
+  .background-spec-cl{  margin-top: 15px;  padding: 15px 30px 30px;}
+  .frtopm{margin-top: 0 !important;}
+  .requests-wrper .wrp.profile .content-req .area h3 {font-size: 16px !important;line-height: 32px;  }
+  .requests-wrper .wrp.profile .content-req .area .location .singleline {
+    line-height: 24px;
+    font-size: 16px;
+  }
+  .for-more-lisiting a{font-size: 16px;}
+  .send-now a{font-size: 16px;}
+  .requests-wrper .wrp.profile .content-req .area h4 {font-size: 16px;}
+  .advisor-modal #career-path .modal-body label {
+    font-size: 18px;}
+    .advisor-modal #career-path .modal-body input {
+      font-size: 18px;}
+      .advisor-modal #career-path .btns a {
+        font-size: 18px;}
+ 
+}
+
+@media(max-width:1199px){
+  .requests-wrper .wrp.profile .content-req .area h4 {font-size: 16px;}
+  .requests-wrper .wrp.profile { height: 150px;}
+}
+@media(max-width:767px){
+  .requests-wrper .wrp.profile{
+    flex-direction: column;
+    position: relative;
+    height: auto;
+  }
+  .requests-wrper .wrp .kps-bonus{
+    max-width: 100% !important;
+    padding: 15px 0;
+  }
+  .requests-wrper .wrp .content-req{
+    max-width: 100% !important;
+    padding:0px 15px 15px 15px;
+  }
+  .content-req .area{
+    text-align: center;
+  }
+  .student-portal-link .area .location{
+    margin-top: 5px;
+    justify-content: center;
+  }
+  .requests-wrper .wrp.profile .content-req .area h3{font-size: 16px !important;     line-height: 32px;}
+  .requests-wrper .wrp.profile .content-req .area h4{font-size: 16px;}
+  .requests-wrper .wrp.profile .content-req .area .location span{font-size: 16px;}
+  .requests-wrper .wrp.profile .content-req .area .location p{font-size: 16px;}
+  .requests-wrper .wrp .refer-wpr{
+    position: absolute;
+    right: 0;
+    padding: 0;
+  }
+  .requests-wrper .wrp.profile .social_links img {
+    height: 22px}
+    .for-more-lisiting a{
+      font-size: 16px;
+  }
+  .advisor-modal #career-path .modal-body label {
+    font-size: 16px;}
+    .advisor-modal #career-path .modal-body input {
+      font-size: 16px;}
+      
+      .meesage-checklist .modal-body p {
+        font-size: 16px;}
+        .advisor-modal #career-path .modal-body .form-group{
+          flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 15px;
+        }
+        .advisor-modal #career-path .modal-body .form-group label{
+          text-align: left;
+          width: 100%;
+        }
+        .advisor-modal .modal-body{
+          padding: 15px 25px !important;
+      }
+      .advisor-modal #career-path .btns .trans {
+        font-size: 16px;
+      }
+      .advisor-modal #career-path .modal-body input {
+        width: 100%;
+      }
+      .advisor-modal #career-path .modal-body select {
+        width: 100%;
+      }
+      .advisor-modal #career-path .btns a {
+        height: 40px;
+    }
+    .background-spec-cl{
+      padding: 15px 15px !important;
+  }
+}
+
+@media(max-width:575px){
+  .inbox-wrapper.justify-content-end{
+    justify-content: center !important;
+  }
+}

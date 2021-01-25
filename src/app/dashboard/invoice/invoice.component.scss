@@ -1,0 +1,38 @@
+
+/* Invoice template */
+.invoive-header .head{display: flex; justify-content: space-between; align-items: center; padding: 40px 0;}
+.invoive-header .head h1{font-size: 45px;  color: #373636;  }
+.officeadd .address{display: flex; justify-content: space-between;}
+.officeadd .address p{font-family: 'Source Sans Pro', sans-serif;color: #373636;font-size: 16px;line-height: 24px;}
+.billto{padding: 40px 0;}
+.billto h2{font-size: 18px; font-family: 'Source Sans Pro', sans-serif; font-weight: 600;}
+.billto hr{margin: 7px 0;}
+.tablewrapper .memberitalic p{font-size: 16px; font-family: 'Source Sans Pro', sans-serif;}
+.tablewrapper .wrapper{margin-top: 15px;}
+.tablewrapper .table thead th{font-family: 'Source Sans Pro', sans-serif;font-size: 18px; text-align: right; border-bottom: none; border-top:5px solid #60c6c1;}
+.tablewrapper .table thead{background: #ecf7f7; border:1px solid #ecf7f7;}
+.tablewrapper .table tbody{border: 1px solid #e3e2e2; border-top: none;}
+.tablewrapper .table tbody tr td{border-right: 1px solid #dee2e6;font-family: 'Source Sans Pro', sans-serif;font-size: 16px; }
+.tablewrapper .table tbody tr:nth-child(1) td{border-top: none;}
+.tablewrapper .table thead th:nth-child(1){text-align: left;}
+.tablewrapper .table tbody tr td{text-align: right;}
+.tablewrapper .table tbody tr td:nth-child(1){text-align: left;}
+.payment .instruction h2{text-transform: uppercase; font-family: 'Source Sans Pro', sans-serif; font-weight: 700; font-size: 24px; margin-bottom: 25px;}
+.payment .instruction .bankdetails p{font-family: 'Source Sans Pro', sans-serif; font-size: 16px; font-weight: 500;}
+.payment .instruction{display: flex; justify-content: space-between;     margin-top: 10px;}
+.payment .instruction .bankdetails{max-width: 240px; width: 100%; text-align: center; }
+.payment .instruction .bankdetails p span{width: 35%; display: inline-block; line-height: 30px;}
+.payment .instruction .bankdetails p span:first-child{text-align: right; margin-right: 15px;}
+.payment .instruction .subtotal table tbody td{text-transform: uppercase;}
+.payment .instruction .subtotal table tbody tr:nth-child(1) td{border-top: none;}
+.payment .instruction .bankdetails p span:last-child{text-align: left;}
+.payment .instruction .subtotal table tbody td{padding: 15px 15px; text-align: right; font-family: 'Source Sans Pro', sans-serif;font-size: 16px; font-weight: 500;}
+.payment .instruction .subtotal table tbody tr td:nth-child(1) {border-right: 15px solid transparent;}
+.payment .instruction .subtotal table tbody tr.total-balance{border-top: 5px solid #60c6c1;}
+.payment .instruction .subtotal table tbody tr.total-balance{background: #ecf7f7;}
+.payment .instruction .subtotal table tbody tr.total-balance td{font-weight: 700;}
+.payment .instruction .subtotal table tbody tr:nth-child(1) td {padding-top:0 ;}
+.websitelink{margin: 100px 0;}
+.websitelink p{font-family: 'Source Sans Pro', sans-serif; font-size: 16px; font-weight: 500; margin: 15px 0;}
+.websitelink ul{display: flex;     justify-content: center;}
+.websitelink ul li a{color:#bdbdbd; font-size: 16px; font-family: 'Source Sans Pro', sans-serif; margin: 0 30px;}

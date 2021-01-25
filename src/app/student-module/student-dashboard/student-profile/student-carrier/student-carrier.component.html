@@ -1,0 +1,53 @@
+<div id="carer-path" class="tab-pane fade in  request-refteb" >
+  <!-- <div class="col-auto ml-auto">
+    <a href="javascript:void(0)" (click)="editCareer(temp)" class="pencil-icon" ><img style="height: 15px;" src="../../../../assets/images/editpen.png" alt="img"/></a>
+  </div> -->
+
+        <div class="editableontent-W margin-tp-spcl rightalignedpencil">
+          <div class="row align-items-center mb-1">
+            <div class="col-auto">
+              <p class="tip">
+                <img src="assets/images/quicktip.png" alt="" /> This information is to
+                help our Advisors understand you better but other students cannot see
+                this.<br/>
+              </p>
+            </div>
+            <div class="col-auto ml-auto">
+              <a href="javascript:void(0)" (click)="editCareer(temp)" class="pencil-icon" ><img style="height: 15px;" src="../../../../assets/images/editpen.png" alt="img"/></a>
+            </div>
+          </div>
+          
+          <p *ngIf="!biography && noData ">Please fill your carreer goals</p>
+            <!-- <p *ngIf="!more && biography">{{biography ? (biography | more) : 'No Data'}}   
+              <a class="morebtn"  href="javascript:void(0)" *ngIf="biography.length > 450" (click)="more = true">More</a >
+            </p>
+            <p *ngIf="more && biography">{{biography }}</p> -->
+            <p *ngIf="!more && biography">{{biography.length ? (biography | more) : 'No Data'}} <a href="javascript:void(0)" *ngIf="biography.length > 450" (click)="more=true;">More</a></p>
+            <p *ngIf="more && biography">{{biography.length ? biography : 'No Data' }} <a href="javascript:void(0)"  *ngIf="biography.length > 450" (click)="more=false">Less</a></p>
+            
+        </div>
+</div>
+
+  <!-- Modal Starts -->
+  <ng-template #temp>
+    <div class="close-modal-icon meesage-checklist" >
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit Career Goal</h5>
+          <button type="button" class="close" (click)="modalRef2.hide()" aria-label="Close">
+            <span aria-hidden="true"><img src="../../../../assets/images/close-icon.png" alt=""></span>
+          </button>
+        </div>
+          <div class="modal-body">
+              <div class="mess-re-ex">
+                    <textarea cols="30" [(ngModel)]="biography"></textarea>
+
+              </div>
+          </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button"  class="green" data-dismiss="modal" (click)="careerData()">Update</button>
+        </div>
+      </div>
+    </div>
+</ng-template>
+<!-- Modal Ends -->

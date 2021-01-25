@@ -1,0 +1,90 @@
+<section>
+  <div class="student-r-wrapper">
+    <div class="row">
+      <div class="col-md-12">
+        <!-- <div class="library_function">
+                <h3> <a  class="backarrow"><img src="assets/images/backarr.png" alt="img" routerLink="/dashboard/studentDirectory"></a>Student Directory</h3>
+              </div> -->
+        <h1>Student's Profile</h1>
+      </div>
+      <div class="col-md-12">
+        <div class="mp-mem-detal">
+          <div class="img-wrpr">
+            <img *ngIf="studentDetails?.image && noData" [src]="studentDetails?.image" alt="img">
+            <img *ngIf="!studentDetails?.image && noData" src="assets/images/useoer.png" alt="img">
+          </div>
+          <div class="dtsls w-100">
+            <span *ngIf="studentDetails && noData"
+              ><p class="hed">{{ studentDetails?.firstName ? studentDetails?.firstName : 'N/A'}}</p></span
+            >
+            <span *ngIf="studentDetails && noData"
+              ><p>Year {{ studentDetails?.year }}</p>
+              <p><img src="assets/images/watch.png" alt="" />
+                Member for {{ studentDetails?.joinedDate | joined }}</p></span
+            >
+            <span *ngIf="studentDetails && noData">
+              <p>{{ studentDetails?.messagesCount ? studentDetails?.messagesCount : '0'}} Message Exchanges</p>
+              <p>
+                <img
+                src="assets/images/location-small.png"
+                alt=""
+              />
+                {{ studentDetails?.location ? studentDetails?.location : 'No location' }}</p></span
+            >
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-12 col-xl-9">
+        <div class="timmy-tabb">
+          <div class="top-list-bt">
+            <ul class="nav nav-tabs">
+              <li>
+                <a
+                  data-toggle="tab"
+                  (click)="bio()"
+                  [ngClass]="{
+                    active: currentResource == 'advisor-student-biography'
+                  }"
+                  >Brief Biography</a
+                >
+              </li>
+              <li>
+                <a
+                  data-toggle="tab"
+                  (click)="career()"
+                  [ngClass]="{
+                    active: currentResource == 'advisor-student-career'
+                  }"
+                  >Career Goals</a
+                >
+              </li>
+              <li>
+                <a
+                  data-toggle="tab"
+                  (click)="achievements()"
+                  [ngClass]="{
+                    active: currentResource == 'educator-student-achievements'
+                  }"
+                  >Achievements & Interests</a
+                >
+              </li>
+              <li>
+                <a
+                  data-toggle="tab"
+                  (click)="watch()"
+                  [ngClass]="{
+                    active: currentResource == 'advisor-student-watched'
+                  }"
+                  >My Watched Tags</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="tab-content remv-prop">
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

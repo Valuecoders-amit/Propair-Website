@@ -1,0 +1,64 @@
+.mystatuswrapper {
+    padding: 50px 35px;
+}
+.message-listing .nav-tabs li a.active {
+    border-bottom: 2px solid #33e2d1;
+}
+
+.message-listing .nav-tabs li {
+    margin: 0 30px;
+}
+
+
+
+@media(max-width:1600px){
+    .mystatuswrapper {
+        padding: 30px 15px;
+    }
+    .heading-wrapper h3{
+        margin-bottom: 0;
+        font-size: 24px;
+      }
+      .message-listing .nav-tabs li a {
+        font-size: 20px;
+    }
+      .message-listing .nav-tabs{
+          padding: 30px 0;
+      }
+      .message-listing .nav-tabs li {
+        margin: 0 30px 0 0;
+    }
+    .message-listing .nav-tabs li a{    line-height: 24px;}
+      
+}
+@media(max-width:1199px){
+    .message-listing .nav-tabs{
+        padding: 30px 0 15px 0;
+    }
+}
+@media(max-width:991px){
+    .message-listing .nav-tabs li{
+        margin: 0 20px;
+    }
+    .message-listing .nav-tabs li a {
+        font-size: 20px;
+    }
+    .message-listing .nav-tabs{
+        padding: 30px 0 15px 0;
+        margin: 0 0;
+    }
+}
+
+@media(max-width:767px){
+    .mystatuswrapper {
+        padding: 30px 0px;
+    }
+    .message-listing .nav-tabs{ padding: 0 0;}
+    .message-listing .nav-tabs li{margin: 0 0px;}
+    .message-listing .nav-tabs{margin: 15px 0 15px 0; display: flex; flex-direction: column; align-items: center; border: 1px solid #ececec;}
+    .message-listing .nav-tabs li a{font-size: 18px;     margin: 0 0px; display: block; padding: 10px 0;     border-bottom: 1px solid #ececec;}
+    .message-listing .nav-tabs li:last-child a{border-bottom: none;}
+    .message-listing .nav-tabs li{width: 100%;text-align: center;}
+    .message-listing .nav-tabs li a.active{background:#33e2d1; color: #fff;}
+}
+

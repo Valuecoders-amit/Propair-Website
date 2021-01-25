@@ -1,0 +1,75 @@
+<app-header></app-header>
+
+<div class="add-space"></div>
+<section class="sign-up login-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                    <div class="demand-wrapper bg-none">
+                        <div class="heading-wrapper text-center">
+                                <h3 class="h3-heading">Advisor</h3>
+                                <!-- <a>Not a Advisor ?</a> -->
+                    </div>
+                    </div>
+                    <div class="sign-up-wrapper">
+                       <div class="divided-section">
+                                <div class="login-heading">
+                                    <div class="rquest-demo-block w-100 text-center" style="cursor: pointer;" routerLink="/become-advisor">
+                                        <p>New here?</p>
+                                        <h3>Apply</h3>
+                                    </div>
+                                </div>
+                                <div class="login-heading white">
+                                    <div class="rquest-demo-block w-100 text-center">
+                                        <p>Have an account?</p>
+                                        <h3>Login</h3>
+                                    </div>
+                                </div>
+                       </div>
+                            <form [formGroup]="loginForm" class="errormsg" (ngSubmit)="login()">
+                                <!-- <p class="switchoff">Switch to Email/Password Login</p> -->
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="exampleInputEmail"  placeholder="Your email address"
+                                    formControlName="email">
+
+                                    <div *ngIf="(loginForm.get('email').invalid) && (loginForm.get('email').touched)">
+                                        <div *ngIf="loginForm.get('email').errors.required"><font color="red">Email is required</font></div>
+                                    </div>
+
+                                </div>
+                                <div class="form-group eye-pass">
+                                    <input type="password" class="form-control" id="exampleInputEmail1"  placeholder="Your password"
+                                    formControlName="password" [type]="this.fields.password ? 'text' : 'password'">
+                                    <i  [class]="
+                                    this.fields.password
+                                      ? 'fa fa-eye'
+                                      : 'fa fa-eye-slash'
+                                  " (click)="showPassword('password')"></i>
+                                  <div *ngIf="(loginForm.get('password').invalid) && (loginForm.get('password').touched)">
+                                    <div *ngIf="loginForm.get('password').errors.required"><font color="red">Enter Password</font></div>
+                                    <div *ngIf="loginForm.get('password').errors.pattern"><font color="red">Password should contains Minimum 8 characters including 1 Special character, 1 Numeric character, 1 Small and 1 Capital Characters.</font></div>
+                                </div>
+                                </div>
+                                <div class="w-100 sign-btn text-center login-btn-wrapper">
+                                      <div class="right">
+                                        <button type="submit">Login</button>
+                                        <a routerLink='/forget-password'>Forgotten your password?</a>
+                                      </div>
+                                </div>
+                            </form>
+                    </div>
+                  <div class="already-signup text-center">
+                        <!-- <h4>Been give a Code by your teacher?</h4> -->
+                        <!-- <p><a routerLink="/student/studentSignup">Log in for the first time</a></p> -->
+                  </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<ngx-spinner 
+bdColor="rgba(255,255,255,0.10)"
+[fullScreen]= "false">
+<img style=" width: 100px; height: 100px;"  src="assets/images/loadingg.gif" />
+  
+  </ngx-spinner>

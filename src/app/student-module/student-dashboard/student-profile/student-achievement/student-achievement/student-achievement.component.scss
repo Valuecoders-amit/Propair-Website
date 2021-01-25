@@ -1,0 +1,124 @@
+.editableontent-W {
+    padding: 20px 40px 40px;
+    border-radius: 12px;
+    background: #fff;
+}
+.editableontent-W p {
+    width: 100%;
+    padding-right: 50px;
+    margin-bottom: 0;
+}
+.editableontent-W p img {
+    margin-right: 10px;
+    cursor: pointer; position: relative; ;
+}
+
+.background-spec-cl {
+    margin-top: 30px;
+    background: #fff;
+    padding: 20px 40px 40px;
+    border-radius: 12px;
+}
+.background-spec-cl p img{
+    height: 20px;
+    margin-right: 10px;
+    margin-bottom: 3px;
+    cursor: pointer;
+}
+.background-spec-cl p{
+    margin-bottom: 20px;
+}
+.new-sub-tab .timmy-tabb {
+    margin-top: 0;
+}
+.top-list-bt {
+    margin-bottom: -1px;
+}
+.new-sub-tab .timmy-tabb .nav-tabs {
+    margin-bottom: 0;
+}
+.new-sub-tab .nav-tabs li a.active {
+    border: 1px solid #e3e2e2;
+    border-bottom: 1px solid #fff;
+    color: #373636;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+.timmy-tabb .nav-tabs li a.active {
+    font-weight: 700;
+}
+.student-r-wrapper .tab-content.remv-prop {
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
+}
+.new-sub-tab .nav-tabs li a.active {
+    border: 1px solid #efefef;
+    border-bottom: 1px solid #fff;
+    color: #373636;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.new-sub-tab .tab-content {
+    border: 1px solid #efefef;
+    border-radius: 12px;
+    padding: 0;
+    
+}
+.tip{
+    opacity: 50%;
+}
+
+@media(max-width:1600px){
+    .modal-dialog { max-width: 500px !important; }
+    .background-spec-cl {
+        padding: 15px 30px 30px;
+        margin-top: 15px;
+    }
+    .background-spec-cl p {
+        font-size: 12px;
+    }
+    .background-spec-cl p img{
+        height: 15px;
+    }
+    .new-sub-tab .nav-tabs li a{
+      font-size: 18px;
+      padding: 15px 30px 30px;
+    }
+    .timmy-tabb .nav-tabs li a{
+        font-size: 14px;
+        padding: 5px 20px;
+    }
+   
+  }
+  @media(max-width:1350px){
+    .invoicebilling .table-wrpper table{
+        width: 100%;
+    } 
+  }
+  @media(max-width:991px){
+    .new-sub-tab .nav-tabs li a{
+        font-size: 18px;
+        padding: 13px 22px;
+      }
+  }
+  @media(max-width:767px){
+    .new-sub-tab .nav-tabs li a{
+        font-size: 16px;
+        padding: 10px 14px;
+        margin: 0 0;
+      }
+    
+  }
+  @media(max-width:575px){
+    .new-sub-tab .nav-tabs li a.active{
+        border: none;
+        border-bottom: 1px solid #e3e2e2;
+    }
+    .new-sub-tab .nav-tabs li a{
+      width: 100%;
+      text-align: center;
+  }
+  
+  }

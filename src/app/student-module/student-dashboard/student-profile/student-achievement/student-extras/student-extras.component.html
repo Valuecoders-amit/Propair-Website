@@ -1,0 +1,74 @@
+<div id="Extracurricular" class="tab-pane fade ">
+    <div class="w-100 add-qualif-wrapper">
+      <a href="javascript:void(0)" class="add-qualif" (click)="addActivity(temp)">+ Add New Extracurricular</a>
+  </div>
+  <div class="invoicebilling basic-membership diffrent-tbl">
+        <div class="table-wrpper" *ngFor="let active of activityData; let i = index;">
+          <table >
+              <thead>
+                <th>{{active._id}}</th>
+                <th></th>
+                <th></th>
+                <th></th>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let data of active.records">
+                      <td class="banjo-g">{{data.name}}</td>
+                      <td><a href="javascript:void(0)" (click)="editActivity(active._id, data , temp)"><img src="assets/images/editpen.png" alt="img"></a></td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+     
+  </div>
+  </div>
+
+  <ng-template #temp>
+    <div class="advisor-modal">
+      <div class="close-modal-icon meesage-checklist"> 
+        <div  id="career-path" >
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Extracurricular Activities</h5>
+                <button type="button" class="close" (click)="modalRef2.hide()" aria-label="Close">
+                  <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+                </button>
+              </div>
+              <div class="modal-body">
+                  <form [formGroup]="addPosition" >
+                       <div class="form-group">
+                        <label for="">Type</label>
+                        <select  id="" formControlName="type">
+                          <option value="" disabled selected >Select</option>
+                          <option [value]="vendor" *ngFor="let vendor of vendorList">{{vendor}}</option>
+                        </select>
+                        <!-- <input list="browsers7" name="browser" id="browser" formControlName="type" autoComplete="off" placeholder="Select">
+                        <datalist id="browsers7">
+                         <option  [value]="vendor">
+                       </datalist> -->
+                        <span *ngIf="addPosition.controls['type'].hasError('required') && submitForm" class="reqrd" >Required</span>
+                    </div> 
+                    <div class="form-group">
+                      <label for="">{{addPosition.value.type == 'Music' ? 'Instrument' : 'Name'}}</label>
+                      <input type="text" 
+                      formControlName="name"
+                      placeholder="Subject">
+                      <span *ngIf="addPosition.controls['name'].hasError('required') && submitForm" class="reqrd">Required</span>
+                  </div>
+                 
+                    
+                  <div class="btns">
+                    <a href="javascript:void(0)" *ngIf="editInfo" class="trans" (click)="removeActivity()">Remove Extracurricular Activity</a>
+                    <a href="javascript:void(0)" *ngIf="!editInfo"(click)="onAddActivity()" ><img src="assets/images/addicon.svg" alt="">&nbsp;&nbsp;&nbsp;Add Extracurricular Activity</a>
+                    <a href="javascript:void(0)" *ngIf="editInfo" (click)="onEditActivity()" >Save</a>
+                   </div>  
+                  </form>
+                 
+              </div>
+                  
+            </div>
+          
+        </div>
+      </div>
+  </div>
+  </ng-template>

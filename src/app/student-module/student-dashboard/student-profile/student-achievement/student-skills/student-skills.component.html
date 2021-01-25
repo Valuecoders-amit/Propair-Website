@@ -1,0 +1,115 @@
+<div id="Skills" class="tab-pane fade ">
+    <div class="w-100 add-qualif-wrapper">
+      <a href="javascript:void(0);" class="add-qualif" data-toggle="modal" data-target="#ad_new_skil" (click)="addSkill(temp)" >+ Add New Skill</a>
+  </div>
+  <div class="invoicebilling basic-membership diffrent-tbl">
+        <div class="table-wrpper" *ngFor="let skill of skillsData">
+          <table >
+              <thead>
+                <th>{{skill?._id}}</th>
+                <th></th>
+                <th></th>
+                <th></th>
+              </thead>
+              <tbody >
+                  <tr>
+                      <td>Strengths</td>
+                      <td class="banjo-g">
+                        <ng-container *ngFor="let data of skill.records">
+                          <span *ngIf="data.strength">{{data.name }} <a href="javascript:void(0)" (click)="removeSkill(data)"><img src="assets/images/close-small-lt.svg" alt="img"></a></span> 
+                        </ng-container>
+                      </td>
+                    
+                  </tr>
+                  <tr>
+                    <td>Areas I'd like to improve</td>
+                    <td class="banjo-g">
+                      <ng-container *ngFor="let data of skill.records">
+                      <span *ngIf="data.improvement">{{data.name}} <a href="javascript:void(0)" (click)="removeSkill(data)"><img src="assets/images/close-small-lt.svg" alt="img"></a></span>
+                    </ng-container>
+                    </td>
+                    
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+      
+  </div>
+  </div>
+
+
+  <!-- Modal Start -->
+  <ng-template #temp>
+    <div class="advisor-modal">
+      <div class="close-modal-icon meesage-checklist"> 
+        <div  id="career-path" >
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Skills</h5>
+                <button type="button" class="close" (click)="modalRef2.hide()" aria-label="Close">
+                  <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+                </button>
+              </div>
+              <div class="modal-body">
+                  <form [formGroup]="addPosition" >
+                      
+                     
+                        <!-- New Implementation -->
+                        <div class="form-group">
+                            <label for="">Type</label>
+                            <select  id="" formControlName="type">
+                              <option value="" disabled selected>Select</option>
+                              <option [value]="vendor" *ngFor="let vendor of vendorList">{{vendor}}</option>
+                            </select>
+                          <!-- <input list="browsers8" name="browser" id="browser" formControlName="type" autoComplete="off" placeholder="Select">
+                          <datalist id="browsers8">
+                           <option  [value]="vendor">
+                         </datalist> -->
+                          <span *ngIf="addPosition.controls['type'].hasError('required') && submitForm" class="reqrd">Required</span>
+                          </div>
+                          <!-- ends -->
+                 
+                  
+                                  <div class="radiobts">
+                                    <div class="radio-box">
+                                    <div class="spc">
+                                    <p>
+                                    <span>Strength</span>
+                                    <input type="radio" id="test10"  formControlName="area" value="strength" >
+                                    <label for="test10"></label>
+                                    </p>
+                                    <p>
+                                    <span>Area I'd like to Improve</span>
+                                    <input type="radio" id="test12"  formControlName="area" value="improvement">
+                                    <label for="test12"></label>
+                                    </p>
+                                    
+                                  </div>
+                                    </div>
+                                    </div>  
+
+                    <div class="form-group">
+                      <label for="">Name</label>
+                      <input type="text" 
+                      formControlName="name"
+                      placeholder="Please Enter">
+                      <span *ngIf="addPosition.controls['name'].hasError('required') && submitForm" class="reqrd">Required</span>
+                      
+                  </div>
+                 
+                    
+                  <div class="btns">
+                    <a href="javascript:void(0)" *ngIf="editInfo" class="trans" (click)="removeActivity()">Remove Soft Skill</a>
+                    <a href="javascript:void(0)" *ngIf="!editInfo"(click)="onAddSkill()" ><img src="assets/images/addicon.png" alt=""> Add Soft Skill</a>
+                    <a href="javascript:void(0)" *ngIf="editInfo" (click)="onEditSkill()" ><img src="assets/images/addicon.png" alt="">Edit Soft Skill</a>
+                   </div>  
+                  </form>
+                 
+              </div>
+                  
+            </div>
+          
+        </div>
+      </div>
+  </div>
+  </ng-template>

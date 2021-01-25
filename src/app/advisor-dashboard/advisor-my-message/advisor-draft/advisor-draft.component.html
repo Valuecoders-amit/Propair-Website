@@ -1,0 +1,295 @@
+<div id="Drafts" class="tab-pane fade">
+    <div class="main">
+      <div class="inbox-wrapper">
+          <!-- <div> -->
+            <!-- <ul class="nav nav-tabs">
+              <li><a data-toggle="tab" href="#LiveMessageExchanges" class="active">Live Message Exchanges  </a></li>
+              <li><a data-toggle="tab" href="#ProPairSupport">ProPair Support(1)</a></li>
+              <li><a data-toggle="tab" href="#LiveExchangeBookings">Live Exchange Bookings</a></li>
+              </ul> -->
+          <!-- </div> -->
+          <!-- <div class="new-exchange"> -->
+            <div class="row align-items-center">
+              <div class="col-auto">
+                <p>
+                  This is where your draft student Message Exchanges are kept
+                </p>
+              </div>
+              <div class="col-auto ml-auto">
+                <div class="send-now" *ngIf="draftData?.length">
+                  <a (click)="deletePopup()" style="cursor: pointer;" class="border_bule-btn" >Delete</a>
+                </div> 
+              </div>
+            </div>
+        <!-- </div> -->
+      </div>
+      <div class="linking-wrapper">
+          <div class="tab-content">
+            <div id="LiveMessageExchanges" class="tab-pane fade in active">
+              <div class="invoicebilling basic-membership " *ngIf="draftData?.length">
+                <div class="table-wrpper">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th id="checkth">
+                          <div class="iline">
+                            <div class="form-group">
+                                <input type="checkbox" id="html3" (change)="selectAll()" [(ngModel)]="selectedAll">
+                                <label for="html3"></label>
+                              </div>
+                          </div>
+                          Action
+                        </th>
+                        <!-- <th scope="col">Action</th> -->
+                        <th scope="col">Advisor</th>
+                        <th scope="col">Subject</th>
+                        <th scope="col">Received</th>
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let draftBox of draftData">
+                        <td id="checktd">
+                          <div class="iline">
+                            <div class="form-group">
+                                <input type="checkbox" [id]="draftBox._id" (change)="studentsChecked()"
+                                [(ngModel)]="draftBox.value">
+                                <label for="draftBox._id"></label>
+                              </div>
+                          </div>
+                          {{draftBox?.status | titlecase}}
+                        </td>
+                        <!-- <td (click)="navigate(draftBox?.questionId?._id)">{{draftBox?.status}}</td>                                                                                                                       -->
+                        <td (click)="navigate(draftBox?.questionId?._id)">
+                          <div *ngIf="draftBox?.ownerId?.screenName">
+                            {{draftBox?.ownerId?.screenName ? draftBox?.ownerId?.screenName : 'N/A'}}
+                          </div>
+                          <div *ngIf="!draftBox?.ownerId?.screenName">
+                            {{draftBox?.ownerId?.firstName ? draftBox?.ownerId?.firstName : 'N/A'}}
+                          </div>
+                        </td>
+                        <td  >
+                          <p class="elipsis" (click)="navigate(draftBox?.questionId?._id)">{{draftBox?.questionId?.title}}</p>
+                          <span class="elipsis" (click)="navigate(draftBox?.questionId?._id)">{{draftBox?.reply}}</span>                 
+                        </td>
+                        <td (click)="navigate(draftBox?.questionId?._id)">{{draftBox.createdAt | date: 'mediumDate'}}</td>
+
+                      </tr>
+                    
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="invoicebilling basic-membership " *ngIf="!draftData?.length">
+                <div class="table-wrpper">
+                  <p class="new">Your Draft is empty!</p>
+                </div>
+              </div>
+            </div>
+            <div id="ProPairSupport" class="tab-pane fade">
+              <div class="invoicebilling basic-membership ">
+                <div class="table-wrpper">
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col"></th>
+                        <th scope="col">...</th>
+                        <th scope="col">From</th>
+                        <th scope="col">Subject</th>
+                        <th scope="col">Received</th>
+                        <th scope="col">...</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <div class="iline">
+                            <div class="form-group">
+                                <input type="checkbox" id="html3">
+                                <label for="html3"></label>
+                              </div>
+                          </div>
+                        </td>                                                                                                                      
+                        <td>...</td>
+                        <td >Dan Bloggs</td>
+                        <td><p>I would like to know what you think the best, Lorem lipsum as it is sometimes known, is dummy text.</p>                  
+                          <span>They call me Mad Wolf and my career isn't going</span>
+                        </td>
+                        <td>Thu 30 oct 2019</td>
+                        <td>...</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="iline">
+                            <div class="form-group">
+                                <input type="checkbox" id="html4">
+                                <label for="html4"></label>
+                              </div>
+                          </div>
+                        </td>                                                                                                                      
+                        <td>...</td>
+                        <td >Dan Bloggs</td>
+                        <td><p>I would like to know what you think the best, Lorem lipsum as it is sometimes known, is dummy text.</p>                
+                          <span>They call me Mad Wolf and my career isn't going</span>
+                        </td>
+                        <td>Thu 30 oct 2019</td>
+                        <td>...</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="iline">
+                            <div class="form-group">
+                                <input type="checkbox" id="html5">
+                                <label for="html5"></label>
+                              </div>
+                          </div>
+                        </td>                                                                                                                      
+                        <td>...</td>
+                        <td >Dan Bloggs</td>
+                        <td><p>I would like to know what you think the best, Lorem lipsum as it is sometimes known, is dummy text.</p>                    
+                          <span>They call me Mad Wolf and my career isn't going</span>
+                        </td>
+                        <td>Thu 30 oct 2019</td>
+                        <td>...</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="iline">
+                            <div class="form-group">
+                                <input type="checkbox" id="html6">
+                                <label for="html6"></label>
+                              </div>
+                          </div>
+                        </td>                                                                                                                      
+                        <td>...</td>
+                        <td >Dan Bloggs</td>
+                        <td><p>I would like to know what you think the best, Lorem lipsum as it is sometimes known, is dummy text.</p>                    
+                          <span>They call me Mad Wolf and my career isn't going</span>
+                        </td>
+                        <td>Thu 30 oct 2019</td>
+                        <td>...</td>
+                      </tr>
+                    
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div id="LiveExchangeBookings" class="tab-pane fade">
+              <div class="invoicebilling basic-membership ">
+                <div class="table-wrpper">
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col"></th>
+                        <th scope="col">...</th>
+                        <th scope="col">From</th>
+                        <th scope="col">Subject</th>
+                        <th scope="col">Received</th>
+                        <th scope="col">...</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <div class="iline">
+                            <div class="form-group">
+                                <input type="checkbox" id="html3">
+                                <label for="html3"></label>
+                              </div>
+                          </div>
+                        </td>                                                                                                                      
+                        <td>...</td>
+                        <td >Dan Bloggs</td>
+                        <td><p>I would like to know what you think the best, Lorem lipsum as it is sometimes known, is dummy text.</p>                  
+                          <span>They call me Mad Wolf and my career isn't going</span>
+                        </td>
+                        <td>Thu 30 oct 2019</td>
+                        <td>...</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="iline">
+                            <div class="form-group">
+                                <input type="checkbox" id="html4">
+                                <label for="html4"></label>
+                              </div>
+                          </div>
+                        </td>                                                                                                                      
+                        <td>...</td>
+                        <td >Dan Bloggs</td>
+                        <td><p>I would like to know what you think the best, Lorem lipsum as it is sometimes known, is dummy text.</p>                
+                          <span>They call me Mad Wolf and my career isn't going</span>
+                        </td>
+                        <td>Thu 30 oct 2019</td>
+                        <td>...</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="iline">
+                            <div class="form-group">
+                                <input type="checkbox" id="html5">
+                                <label for="html5"></label>
+                              </div>
+                          </div>
+                        </td>                                                                                                                      
+                        <td>...</td>
+                        <td >Dan Bloggs</td>
+                        <td><p>I would like to know what you think the best, Lorem lipsum as it is sometimes known, is dummy text.</p>                    
+                          <span>They call me Mad Wolf and my career isn't going</span>
+                        </td>
+                        <td>Thu 30 oct 2019</td>
+                        <td>...</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="iline">
+                            <div class="form-group">
+                                <input type="checkbox" id="html6">
+                                <label for="html6"></label>
+                              </div>
+                          </div>
+                        </td>                                                                                                                      
+                        <td>...</td>
+                        <td >Dan Bloggs</td>
+                        <td><p>I would like to know what you think the best, Lorem lipsum as it is sometimes known, is dummy text.</p>                    
+                          <span>They call me Mad Wolf and my career isn't going</span>
+                        </td>
+                        <td>Thu 30 oct 2019</td>
+                        <td>...</td>
+                      </tr>
+                    
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+  </div>
+  </div>
+
+
+
+  <div class="close-modal-icon meesage-checklist">
+    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header align-items-center">
+            <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to delete?</h5>
+                      
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+                </button>
+          </div>
+          <div class="modal-footer">
+            <div class="sendPopup">
+              <button type="button" class="green" (click)="delete()">Yes</button>
+              <button type="button" data-dismiss="modal">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,537 @@
+<div id="group" class="tab-pane fade active">
+  <!-- New group Analytics -->
+  <div class="advisore-message-scr studnt-dir-educator">
+    <div class="row">
+      <div class="col-12">
+        <div class="heading-wrapper">
+          <h3>Group Analytics</h3>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xl-10 col-lg-12">
+        <div class="group_analystic">
+          <!-- ab-rl tabbing -->
+          <div class="dasshbord-content-wrapper eductor-dasbrd">
+            <div class="newadding-padding">
+              <div class="ab-rl">
+                <div class="edit-classes">
+                  <h3 style="width: auto">Student Metrics</h3>
+                  <div class="since-joiningsection add-cohrtnew">
+                    <div class="listing">
+                      <ul>
+                        <li [ngClass]="{ active_tab: studentType['all student'] }" (click)="cohortSection('all student')">All students</li>
+                        <li [ngClass]="{ active_tab: studentType['custom'] }" (click)="cohortSection( 'custom' , temp2)">Custom</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-content">
+                <div id="Total" class="tab-pane fade in active">
+                  <div class="live-request">
+                    <!-- Total -->
+                    <div class="number w-100" *ngIf="forTotal">
+                      <div class="text-left">
+                        <p>{{ studentTotal?.messageCount | number}}</p>
+                        <span>Message Exchange</span>
+                      </div>
+                      <div class="text-left">
+                        <p>{{ studentTotal?.views | number}}</p>
+                        <span>Student Views</span>
+                      </div>
+                      <div class="text-left">
+                        <p>{{ studentTotal?.upvote | number }}</p>
+                        <span>Student Up-votes</span>
+                      </div>
+                    </div>
+
+                    <!-- Average -->
+                    <div class="number w-100" *ngIf="!forTotal">
+                      <div class="text-left">
+                        <p>{{ studentAverage?.messagesAvg | number}}</p>
+                        <span>Message Exchange</span>
+                      </div>
+                      <div class="text-left">
+                        <p>{{ studentAverage?.avgViews | number}}</p>
+                        <span>Views / Student</span>
+                      </div>
+                      <div class="text-left">
+                        <p>{{ studentAverage?.avgUpvote | number}}</p>
+                        <span>Up-votes / Student</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="new-drpbar">
+              <div class="since-joingdrp">
+                <ul>
+                  <li class="dropdown">
+                    <a
+                      href="javascript:void(0)"
+                      data-toggle="dropdown"
+                      class="dropdown-toggle"
+                    >
+                      {{ selectedVal }}<b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <div class="lastdys">
+                          <!-- <span>{{ selectedVal }}</span> -->
+                          <p>{{ selectedVal }}</p>
+                          <p>
+                            {{ selectedDat | date: "d MMM y" + " - " }}
+                            {{ todayDate | date: "d MMM y" }}
+                          </p>
+                        </div>
+                      </li>
+                      <hr />
+                      <li
+                        class="eqspace"
+                        [ngClass]="{ active_tab: joining['Since Joining'] }"
+                        (click)="joiningTabs('Since Joining', 1)"
+                      >
+                        <span>Since Joining</span>
+                      </li>
+                      <li
+                        class="eqspace"
+                        [ngClass]="{ active_tab: joining['Last 12 Months'] }"
+                        (click)="joiningTabs('Last 12 Months', 1)"
+                      >
+                        <span>last 12 Months</span>
+                      </li>
+                      <li
+                        class="eqspace"
+                        [ngClass]="{ active_tab: joining['Ytd'] }"
+                        (click)="joiningTabs('Ytd', 1)"
+                      >
+                        <span>Ytd</span>
+                      </li>
+                      <li
+                        class="eqspace"
+                        [ngClass]="{ active_tab: joining['Last 90 Days'] }"
+                        (click)="joiningTabs('Last 90 Days', 1)"
+                      >
+                        <span>Last 90 Days</span>
+                      </li>
+                      <li
+                        class="eqspace"
+                        [ngClass]="{ active_tab: joining['Last Month'] }"
+                        (click)="joiningTabs('Last Month', 1)"
+                      >
+                        <span>Last Month</span>
+                      </li>
+                      <li
+                        class="eqspace"
+                        [ngClass]="{ active_tab: joining['Today'] }"
+                        (click)="joiningTabs('Today', 1)"
+                      >
+                        <span>Today</span>
+                      </li>
+                      <hr />
+                      <li>
+                        <div class="lastdys">
+                          <a
+                            href="javascript:void(0);"
+                            (click)="joiningTabs('Custom', 1, temp)"
+                            ><p>Custom...</p></a
+                          >
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="thredots">
+                <a href="javascript:void(0);" (click)="openTabbing(temp3)">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="dasshbord-content-wrapper eductor-dasbrd gropu-an-chart"
+            style="height: auto"
+          >
+            <div class="">
+              <div class="edit-classes">
+                  <div class="newadding-padding">
+                    <!-- <h3 style="width: auto">Graph of Message Exchanges</h3> -->
+                    <h3 *ngIf="filterVal == 'exchange'">Graph of Message Exchanges</h3>
+                    <h3 *ngIf="filterVal == 'view'">Graph of Student Views</h3>
+                    <h3 *ngIf="filterVal == 'upVote'">Graph of Student Up-votes</h3>
+                    <div class="chart-wrapper">
+                      <figure class="highcharts-figure">
+                        <div id="container"></div>
+                      </figure>
+                    </div>
+                  </div>
+              </div>
+              <div class="newadding-padding bdr">
+                  <div class="new-drpbar ">
+                    <div class="since-joingdrp">
+                      <ul>
+                        <li class="dropdown">
+                          <a
+                            href="javascript:void(0)"
+                            data-toggle="dropdown"
+                            class="dropdown-toggle"
+                          >
+                            {{ selectedVal2 }}<b class="caret"></b>
+                          </a>
+                          <ul class="dropdown-menu">
+                            <li>
+                              <div class="lastdys">
+                                <!-- <span>{{ selectedVal2 }}</span> -->
+                                <p>{{ selectedVal2 }}</p>
+                                <p>
+                                  {{ selectedDat2 | date: "d MMM y" + " - " }}
+                                  {{ todayDate2 | date: "d MMM y" }}
+                                </p>
+                              </div>
+                            </li>
+                            <hr />
+                            <li
+                              class="eqspace"
+                              [ngClass]="{ active_tab: joining2['Since Joining'] }"
+                              (click)="joiningTabs('Since Joining', 2)"
+                            >
+                              <span>Since Joining</span>
+                            </li>
+                            <li
+                              class="eqspace"
+                              [ngClass]="{ active_tab: joining2['Last 12 Months'] }"
+                              (click)="joiningTabs('Last 12 Months', 2)"
+                            >
+                              <span>Last 12 Months</span>
+                            </li>
+                            <li
+                              class="eqspace"
+                              [ngClass]="{ active_tab: joining2['Ytd'] }"
+                              (click)="joiningTabs('Ytd', 2)"
+                            >
+                              <span>Ytd</span>
+                            </li>
+                            <li
+                              class="eqspace"
+                              [ngClass]="{ active_tab: joining2['last 90 Days'] }"
+                              (click)="joiningTabs('Last 90 Days', 2)"
+                            >
+                              <span>Last 90 Days</span>
+                            </li>
+                            <li
+                              class="eqspace"
+                              [ngClass]="{ active_tab: joining2['last Month'] }"
+                              (click)="joiningTabs('Last Month', 2)"
+                            >
+                              <span>Last Month</span>
+                            </li>
+                            <li
+                              class="eqspace"
+                              [ngClass]="{ active_tab: joining2['Today'] }"
+                              (click)="joiningTabs('Today', 2)"
+                            >
+                              <span>Today</span>
+                            </li>
+                            <hr />
+                            <li>
+                              <div class="lastdys">
+                                <a
+                                  href="javascript:void(0);"
+                                  (click)="joiningTabs('Custom', 2, temp)"
+                                  ><p>Custom...</p></a
+                                >
+                              </div>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="thredots">
+                    <a href="javascript:void(0);" (click)="threeDots(temp4)">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </a>
+                  </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <ng-template #temp>
+    <div class="advisor-modal">
+      <div class="close-modal-icon meesage-checklist">
+        <div id="career-path">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Select Date</h5>
+              <button
+                type="button"
+                class="close"
+                (click)="modalRef2.hide()"
+                aria-label="Close"
+              >
+                <span aria-hidden="true"
+                  ><img src="assets/images/close-icon.png" alt=""
+                /></span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form [formGroup]="addDate">
+                <div class="form-group">
+                  <label for="">Start Date</label>
+                  <my-date-picker
+                    name="startdate"
+                    [options]="myDatePickerOptions"
+                    formControlName="startDate"
+                    (dateChanged)="onDateChanged($event)"
+                  ></my-date-picker>
+                </div>
+                <div class="form-group">
+                  <label for="">End Date</label>
+                  <my-date-picker
+                    name="enddate"
+                    [options]="myDatePickerOptions2"
+                    formControlName="endDate"
+                  ></my-date-picker>
+                </div>
+                <div class="btns">
+                  <a (click)="onApply()"> Apply</a>
+                  <a (click)="modalRef2.hide()"> Cancel</a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+  <!-- Modal Ends -->
+
+  <ng-template #temp2>
+    <div class="advisor-modal">
+      <div class="close-modal-icon meesage-checklist slectchort">
+        <div id="career-path">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Select Cohort</h5>
+              <button
+                type="button"
+                class="close"
+                (click)="modalRef3.hide()"
+                aria-label="Close"
+              >
+                <span aria-hidden="true"
+                  ><img src="assets/images/close-icon.png" alt=""
+                /></span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form [formGroup]="addCohort">
+                <div class="form-group">
+                  <label for="">Year</label>
+                  <ng-multiselect-dropdown
+                    formControlName="year"
+                    placeholder="Select year"
+                    [data]="yearOptions"
+                    [settings]="dropdownSettings"
+                    class="mgslect"
+                  >
+                  </ng-multiselect-dropdown>
+                </div>
+                <div class="form-group">
+                  <label for="">Form</label>
+                  <ng-multiselect-dropdown
+                    formControlName="form"
+                    placeholder="Select form"
+                    [data]="formOptions"
+                    [settings]="dropdownSettings"
+                    class="mgslect"
+                  >
+                  </ng-multiselect-dropdown>
+                </div>
+                <div class="btns">
+                  <a (click)="applyCohort()"> Apply</a>
+                  <a (click)="modalRef3.hide()"> Cancel</a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+  <!-- Tabbing Modal -->
+  <ng-template #temp3>
+    <div class="advisor-modal">
+      <div class="close-modal-icon meesage-checklist">
+        <div class="modal-content">
+          <form [formGroup]="variable">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                <span>{{
+                  dataGraph ? "Graph Data" : "Student metrices data"
+                }}</span>
+              </h5>
+              <button type="button" class="close" (click)="modalTab.hide()">
+                <span aria-hidden="true"
+                  ><img src="assets/images/close-icon.png" alt=""
+                /></span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="group_analystic">
+                <div class="ab-rl">
+                  <ul class="nav nav-tabs">
+                    <li>
+                      <a
+                        data-toggle="tab"
+                        href="#variable"
+                        (click)="dataGraph = true"
+                        class="active"
+                        >VARIABLE</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        data-toggle="tab"
+                        href="#datatype"
+                        (click)="dataGraph = false"
+                        >DATA TYPE</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div class="tab-content">
+                  <div id="variable" class="tab-pane fade in active show">
+                    <ng-multiselect-dropdown
+                      formControlName="type"
+                      [data]="variableOptions"
+                      [settings]="dropdownSettings2"
+                      class="mgslect"
+                      disabled="true"
+                    >
+                    </ng-multiselect-dropdown>
+                  </div>
+                  <div id="datatype" class="tab-pane fade in">
+                    <div class="radio-box">
+                      <form>
+                        <p>
+                          <input
+                            type="radio"
+                            id="test10"
+                            name="radio-group"
+                            [checked]="forTotal"
+                            value="total"
+                            [(ngModel)]="checkVal"
+                          />
+                          <label for="test10">Total</label>
+                        </p>
+                        <p>
+                          <input
+                            type="radio"
+                            id="test11"
+                            name="radio-group"
+                            [checked]="!forTotal"
+                            value="average"
+                            [(ngModel)]="checkVal"
+                          />
+                          <label for="test11">Average</label>
+                        </p>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="green" (click)="applyTabbing()">
+                Apply
+              </button>
+              <button type="button" (click)="modalTab.hide()">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+  <!-- Modal -->
+</div>
+
+<!-- Tabbing Modal -->
+<ng-template #temp4>
+  <div class="advisor-modal graphfilter">
+    <div class="close-modal-icon meesage-checklist">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">
+            <span>Graph Data</span>
+          </h5>
+          <button type="button" class="close" (click)="modalTab4.hide()">
+            <span aria-hidden="true"
+              ><img src="assets/images/close-icon.png" alt=""
+            /></span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="group_analystic">
+            <div class="ab-rl">
+              <ul class="nav nav-tabs">
+                <li>
+                  <a
+                    data-toggle="tab"
+                    href="#variable"
+                    (click)="dataGraph = true"
+                    class="active"
+                    >VARIABLE</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="tab-content">
+              <div id="variable" class="tab-pane fade in active show">
+                <div class="filter-f-grph-GA">
+                  <span style="color: #373636 !important">Graph Filter</span>
+                  <div class="custom-selects">
+                    <select
+                      name=""
+                      id=""
+                      (change)="filterVal = $event.target.value"
+                      [(ngModel)]="filterVal"
+                    >
+                      <option value="exchange">Message Exchange</option>
+                      <option value="view">Student Views</option>
+                      <option value="upVote">Student Up-votes</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="green" (click)="applyGraphFilter()">
+            Apply
+          </button>
+          <button type="button" (click)="modalTab4.hide()">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<!-- Modal -->

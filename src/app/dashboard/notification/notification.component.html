@@ -1,0 +1,96 @@
+<div class="settingbord">
+<div id="setting" class="tab-pane fade">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-10">
+        <div class="heading-wrapper">
+          <h3>Settings</h3>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-9">
+        <div class=" group_analystic">
+          <!-- ab-rl tabbing -->
+          <div class="ab-rl">
+            <ul class="nav nav-tabs">
+              <li>
+                <a
+                  data-toggle="tab"
+                  routerLink="/dashboard/settings"
+                  
+                  >General</a
+                >
+              </li>
+              <li>
+                <!-- <a data-toggle="tab" href="#Notifications">Notifications</a> -->
+                <a
+                  data-toggle="tab"
+                  class="active"
+                  routerLink="/dashboard/settings/notifications"
+                  >Notifications</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div id="Notifications" class="tab-pane fade in ">
+            <div class="row">
+              <div class="col-12">
+                <div class="school-wrapper">
+                  <p class="tag-line-radio">
+                    When you have a student credit request,When would you like
+                    to let you know?
+                  </p>
+                  <div class="radio-box">
+                    <form #notificationForm="ngForm">
+                      <p>
+                        <input
+                          type="radio"
+                          id="test10"
+                          name="abc"
+                          (change)="checkNotification($event)"
+                          [checked]="currentNotificationSetting === 'immediate'"
+                          value="immediate"
+                        />
+                        <label for="test10">Let me know Immediately</label>
+                      </p>
+                      <p>
+                        <input
+                          type="radio"
+                          id="test12"
+                          name="abc"
+                          (change)="checkNotification($event)"
+                          [checked]="currentNotificationSetting === 'eod'"
+                          value="eod"
+                        />
+                        <label for="test12"
+                          >Let me know at the end of the day</label
+                        >
+                      </p>
+                      <p>
+                        <input
+                          type="radio"
+                          id="test13"
+                          name="abc"
+                          (change)="checkNotification($event)"
+                          [checked]="currentNotificationSetting === 'off'"
+                          value="off"
+                        />
+                        <label for="test13">Turn notifications off</label>
+                      </p>
+                    </form>
+                  </div>
+                  <div style="cursor: pointer;" class="sbmt-btn">
+                    <a (click)="updateNotifications()">Save</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

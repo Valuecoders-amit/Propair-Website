@@ -1,0 +1,151 @@
+.genderfield select{
+  
+  border: 1px solid #f0f0f0;
+  background: #fafafa;
+
+	width: 100%;
+    display: flex;
+    border-radius: 6px;
+	padding: 16px 20px;
+	-webkit-appearance: none;
+	font-size: 20px;
+    font-family: "Source Sans Pro", sans-serif;
+    color: #AAAAAA;
+}
+.edit .input-group:after{ height: 63px!important; top: -5px!important }
+::ng-deep int-phone-prefix .input-group .flagInput .dropdown .dropbtn span{ display: none; }
+::ng-deep int-phone-prefix .input-group .flagInput .dropdown .dropbtn{ width: 50px; background:#fafafa }
+::ng-deep int-phone-prefix .input-group input { position: relative; right: 50px; }
+.genderfield select option:not(:first-child) { color: #373636 }
+.school-wrapper .school-name .name .btn{
+    background-color: #33e2d1;
+    color: white;
+}
+
+.school-wrapper { padding: 40px 40px; border-radius: 12px;}
+.school-wrapper .field .edit{    padding: 5px 20px;}
+
+
+
+.close-modal-icon .modal-header {padding: 22px 40px;}
+.close-modal-icon .modal-header .modal-title{font-size: 30px; font-family: 'Source Sans Pro', sans-serif; font-weight: 600; }
+.close-modal-icon .modal-footer button{height: 50px;}
+
+
+.curent-msg-inbox.prpr-sup-fr-studnet .modal-dialog {max-width: 590px;}
+.curent-msg-inbox .modal-body{ padding: 38px 38px;}
+.curent-msg-inbox .modal-body textarea{margin: 25px 0 0 0; border: 1px solid #ecebeb; font-size: 20px; color: #7f7f7f;  padding: 20px 18px; border-radius: 12px; resize: none;}
+.curent-msg-inbox .modal-body input{border: 1px solid #e2e3e3; padding: 28px 18px; font-size: 20px; color: #d4d4d4; border-radius: 8px;}
+.curent-msg-inbox .propairImage{width: 100%; max-width: 100%;margin-bottom: 15px;     text-align: center;}
+.curent-msg-inbox .propairImage img{height: 100px;}
+.curent-msg-inbox .inline-footer{justify-content: center;}
+.curent-msg-inbox .inline-footer button{max-width: 47%; margin: 0 7px;}
+.curent-msg-inbox .inline-footer .cncle{ border: none; color: #007de4;background: transparent;box-shadow: none;}
+.curent-msg-inbox.prpr-sup-fr-studnet .modal-header {padding: 22px 40px;}
+.curent-msg-inbox.prpr-sup-fr-studnet .modal-header .modal-title{font-size: 30px; font-family: 'Source Sans Pro', sans-serif; font-weight: 600; }
+.close-modal-icon .modal-footer{padding: 0;}
+
+
+//logo css
+.upldprofilepic{padding: 50px; text-align: center;}
+.upldprofilepic .imgwer{display: flex; justify-content: center; width: 100%; flex-wrap: wrap;}
+
+.upldprofilepic img{width:115px; height: 110px; margin:7px 7px; border-radius: 50%;}
+.upldprofilepic .btn{
+	color: #fff;
+    background: #33e2d1;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 42px;
+    margin-top: 30px;
+    border-color: #fff;
+}
+.upldprofilepic img:hover{
+		-moz-box-shadow: 0 0 10px rgb(116, 135, 241);
+		-webkit-box-shadow: 0 0 10px  rgb(116, 135, 241);
+		box-shadow: 0 0 10px rgb(116, 135, 241);
+	  
+}
+.school-wrapper .field label{
+    justify-content: flex-start;
+}
+@media(max-width:1600px){
+    .edit .input-group:after{top: -10px!important }
+    .curent-msg-inbox .modal-body input{ padding: 10px 18px; font-size: 18px; }
+    .col-md-3{
+        flex: 0 0 13%;
+        max-width: 13%;
+    }
+    .genderfield select{
+        padding:8px 20px;
+    }
+    .school-wrapper{
+        padding: 30px 30px 15px;
+        border-radius: 12px;
+    }
+    .school-wrapper .school-name .name{
+        margin-left: 120px;
+    }
+    .school-wrapper .school-name .name h3 {
+        font-size: 16px;
+        margin-bottom: 0;
+    }
+    .school-wrapper .school-name .name h4{
+        font-size: 12px;
+        margin: 5px 0;
+    }
+    .school-wrapper .school-name .name img {
+        height: 12px;
+        margin-right: 5px;
+    }
+    .school-wrapper .school-name .name p {
+        font-size: 12px;
+        margin-bottom: 8px;
+    }
+    .school-wrapper .school-name .name .btn{
+        font-size: 12px;
+        background-color: #33e2d1;
+        color: white;
+    }
+    .school-wrapper .school-name img{
+        height: 105px;
+        margin-right: 40px;
+    }
+    .school-wrapper .field label{
+        font-size: 14px;
+    }
+    .school-wrapper .field .edit input {
+        font-size: 14px;
+    }
+    .school-wrapper .field .edit input{
+        font-size: 14px!important;
+    }
+    .genderfield select{font-size: 14px;}
+}
+@media(max-width:767px){
+    .school-wrapper .school-name .name h3 {
+        font-size: 20px;
+    }
+    .school-wrapper .school-name .name h4{
+        font-size: 16px;
+    }
+    .school-wrapper{
+        padding: 15px 15px;
+    }
+
+        .school-wrapper .school-name img{
+            height: 75px;
+        }
+
+        .field {
+            margin-top: 0px !important;
+        }
+        .col-md-3 {
+            flex: 0 0 50%!important;
+            max-width: 50%!important;
+        }
+}

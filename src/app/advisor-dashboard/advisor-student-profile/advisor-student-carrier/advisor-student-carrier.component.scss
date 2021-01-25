@@ -1,0 +1,42 @@
+
+.editableontent-W {
+    padding:30px 40px;
+    border-radius: 12px;
+    background: #fff;
+}
+.editableontent-W p {
+    width: 100%;
+    padding-right: 50px;
+    margin-bottom: 0;
+    text-align: justify;
+}
+.editableontent-W p img {
+    height: 17px;
+    margin-right: 10px;
+    cursor: pointer; position: relative; ;
+}
+.margin-tp-spcl{    margin-top: 30px;}
+
+.meesage-checklist .modal-dialog{max-width: 600px;}
+ .meesage-checklist .modal-body p{font-size: 20px; color: #7f7f7f; line-height: 48px;     margin: 15px 0;}
+ .meesage-checklist .modal-header{    padding: 22px 35px;}
+ .meesage-checklist .modal-header h5 { font-size: 30px;font-family: 'Source Sans Pro', sans-serif; font-weight: 600;}
+
+ .mess-re-ex textarea{
+    min-height: 250px;
+}
+
+// .editableontent-W p{
+//     display: -webkit-box;
+//     -webkit-line-clamp: 3;
+//     -webkit-box-orient: vertical;
+//     overflow: hidden;
+//     text-align: justify;
+//     position: relative;
+// }
+
+.morebtn{    right: 50px; top: 69%;     background: #fff;   position: absolute; box-shadow: 1px 1px 10px 2px rgba(255, 255, 255, 0.6); padding-left: 5px;}
+ @media(max-width:1600px){
+     .editableontent-W { padding: 15px 30px; margin-top:15px; }
+     .editableontent-W p { font-size: 14px; }
+ }

@@ -1,0 +1,83 @@
+<div id="KarmaPoints" class="tab-pane fade">
+    <div class="row">
+        <div class="col-md-9">
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="karma-text">
+                      <p>Karma Points exist to help our Advisors track their impact and contribution in helping students unlock their potential and ProPair fufill its mission. 
+                        <br>
+                        <br/>
+                        Here is the breakdown of how Karma Points are calculated. If you have any questions or comments then please do get in touch as we are constantly striving to improve it.</p>
+                  </div>
+              </div>
+          </div>
+          <div class="main">
+            <div class="basd-profile perfomance-stats">
+              <p class="permnce-text">Karma Points Breakdown</p>
+            </div>
+            <div class="invoicebilling basic-membership karmatable">
+              <div class="table-wrpper">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Achievement</th>
+                      <th scope="col">Karma Points (KPs)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>                                                                                                                   
+                        <td class="underline">First Reply</td>
+                    </tr>
+                    <tr class="grey">
+                        <td>First reply within 24 hours</td>
+                        <td>{{karmaPoints?.replying?.within24Hour}}</td>
+                    </tr> 
+                    <tr class="grey">
+                      <td>Average Message Exchange reply time <=24 hours</td>
+                      <td>{{karmaPoints?.replying?.averageReply}}</td>
+                    </tr> 
+                    <tr>                                                                                                                   
+                      <td class="underline">Bonus system</td>
+                    </tr>
+                    <tr class="grey">
+                      <td>Yet to be accepted message exchange</td>
+                      <td>{{karmaPoints?.bonusClearing?.toBeAccepted}} per day not accepted</td>
+                  </tr> 
+                  <tr class="grey">
+                    <td>Previously accepted but lapsed message exchange</td>
+                    <td>{{karmaPoints?.bonusClearing?.lapsed}} per day not accepted</td>
+                  </tr> 
+                  <tr>                                                                                                                   
+                    <td class="underline">Engagement & impact</td>
+                  </tr>
+                  <tr class="grey">
+                    <td>Your exchange is upvoted</td>
+                    <td>{{karmaPoints?.engagement?.upvoted}}</td>
+                </tr> 
+                <tr class="grey">
+                  <td>Your exchange is favourited</td>
+                  <td>{{karmaPoints?.engagement?.favourited}}</td>
+                </tr> 
+                <tr>                                                                                                                   
+                  <td class="underline">Community</td>
+                </tr>
+                <tr class="grey">
+                  <td>Message Exchange receives review >=4 stars</td>
+                  <td>{{karmaPoints?.engagement?.greaterThan4Star}}</td>
+                </tr> 
+                <tr class="grey">
+                  <td>Refer request that gets answered</td>
+                  <td>{{karmaPoints?.community?.answered}}</td>
+                </tr> 
+                <tr class="grey">
+                  <td>Refer a friend who gets approved as an Advisor</td>
+                  <td>{{karmaPoints?.community?.approvedAsAdvisor}}</td>
+                </tr> 
+                  </tbody>
+                </table>
+              </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,126 @@
+<div class="logo-wrapper">
+  <div class="shrink-db-none">
+    <img style="cursor: pointer;" src="assets/images/logo.svg" alt="img" routerLink="/advisor-dashboard/stats"/>
+  </div>
+  <div class="logo-shrink">
+    <img style="cursor: pointer;" src="assets/images/logo-shrink.svg" alt="img" routerLink="/advisor-dashboard/stats"/>
+  </div>
+  <a class="toggle-btn1">
+    <img  src="assets/images/collapse.svg" id="collapse" alt="img" class="collapse-left" (click)="submit()" />
+    <img
+      src="assets/images/collapseright.svg"
+      alt="img"
+      id="collapse"
+      class="collapse-right"
+      (click)="submit()"
+    />
+  </a>
+</div>
+<!-- <div class="logout-btn right">
+    <a (click)="logOut()">Logout</a>
+  </div> -->
+<div class="menus">
+  <ul class="nav nav-tabs">
+    <li>
+      <a
+        data-toggle="tab"
+        class="active"
+        [ngClass]="{ active: currentResource == 'stats' }"
+        routerLink="/advisor-dashboard/stats"
+        ><img src="assets/images/dashboard.svg" alt="img" />
+        <p>Dashboard</p>
+      </a>
+    </li>
+
+    <li>
+      <a
+        data-toggle="tab"
+        [ngClass]="{ active: currentResource == 'student-requests' }"
+        routerLink="/advisor-dashboard/student-requests"
+        ><img src="assets/images/studentrequest.svg" alt="img" />
+        <p>Student Requests</p>
+      </a>
+    </li>
+
+    <li>
+      <a
+        data-toggle="tab"
+        [ngClass]="{ active: currentResource == 'advisor-my-message' }"
+        routerLink="/advisor-dashboard/advisor-my-message/advisor-inbox"
+        ><img src="assets/images/my-message.svg" alt="img" />
+        <p>My Messages</p>
+      </a>
+    </li>
+
+    <li>
+      <a
+        data-toggle="tab"
+        [ngClass]="{ active: currentResource == 'advisor-profile' }"
+        routerLink="/advisor-dashboard/advisor-profile/advisor-biography"
+        ><img src="assets/images/profile.svg" alt="img" />
+        <p>My Profile</p>
+      </a>
+    </li>
+    <li>
+      <a
+        data-toggle="tab"
+        [ngClass]="{ active: currentResource == 'advisor-stats' }"
+        routerLink="/advisor-dashboard/advisor-stats/stats-overview"
+        ><img src="assets/images/stats.svg" alt="img" />
+        <p>My Stats</p>
+      </a>
+    </li>
+    
+    <li>
+      <a
+        data-toggle="tab"
+        [ngClass]="{ active: currentResource == 'advisor-setting' }"
+        routerLink="/advisor-dashboard/advisor-setting/general-setting"
+        ><img src="assets/images/setting.svg" alt="img" />
+        <p>Settings</p>
+      </a>
+    </li>
+    <li>
+      <a
+        data-toggle="tab"
+        [ngClass]="{ active: currentResource == 'advisor-helpCenter' }"
+        routerLink="/advisor-dashboard/advisor-helpCenter"
+        ><img src="assets/images/helpcenter.svg" alt="img" />
+        <p>Help Centre</p>
+      </a>
+    </li>
+
+  </ul>
+</div>
+
+<ng-template #logoutPopup>
+  <div class="riotAccount">
+    <div class="modal-body">
+      <div class="tournament_create_inner row">
+        <div class="col-sm-12 text-center">
+          <p>Do you want to logout?</p>
+        </div>
+        <div class="col-sm-12">
+          <div class="row">
+            <div class="col-sm-12 text-center">
+              <button
+                type="submit"
+                class="btn btn-info box-shdow submit mr-3"
+                (click)="logout(1)"
+              >
+                Yes
+              </button>
+              <button
+                type="submit"
+                class="btn btn-danger box-shdow submit"
+                (click)="logout(0)"
+              >
+                No
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

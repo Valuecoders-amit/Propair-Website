@@ -1,0 +1,526 @@
+<!-- setting -->
+<div class="settingbord">
+  <div id="setting" class="tab-pane fade">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-10">
+            <div class="heading-wrapper">
+              <h3>Settings</h3>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10">
+            <div class="group_analystic">
+              <!-- ab-rl tabbing -->
+              <div class="ab-rl">
+                <ul class="nav nav-tabs">
+                  <li>
+                    <a
+                      data-toggle="tab"
+                      routerLink="/dashboard/settings"
+                      class="active"
+                      >General</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      data-toggle="tab"
+                      routerLink="/dashboard/settings/notifications"
+                      >Notifications</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="analystic-dashboard">
+                <div class="tab-content">
+                  <div id="General" class="tab-pane fade in active">
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="school-wrapper">
+                          <div class="w-100 school-name">
+                            <img *ngIf="imageSrc" [src]="imageSrc" alt="" />
+                            <div class="name">
+                              <h3>Kingswood High School</h3>
+                              <h4>
+                                <img
+                                  src="assets/images/location-big.png"
+                                  alt="img"
+                                />
+                                Liverpool, United Kingdom
+                              </h4>
+                              <p>
+                                Member since
+                                {{ currentUser.createdAt | date: "short" }}
+                              </p>
+                            </div>
+                          </div>
+                          <form [formGroup]="profileForm">
+                            <div class="field">
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <label for="" class="tag">First&nbsp;Name</label>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="edit">
+                                    <input
+                                      [readonly]="!fields['firstName']"
+                                      formControlName="firstName"
+                                      placeholder="Enter First Name"
+                                      id="firstName"
+                                      type="text"
+                                    />
+                                    <a
+                                      *ngIf="!fields['firstName']"
+                                      (click)="edit('firstName')"
+                                      >Edit</a
+                                    >
+                                    <a
+                                      *ngIf="fields['firstName']"
+                                      (click)="updateCurrentData('firstName')"
+                                      >Save</a
+                                    >
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <label for="" class="tag">Last&nbsp; Name</label>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="edit">
+                                    <input
+                                      formControlName="lastName"
+                                      type="text"
+                                      placeholder="Enter Last Name"
+                                      [readonly]="!fields['lastName']"
+                                    />
+                                    <a
+                                      *ngIf="!fields['lastName']"
+                                      (click)="edit('lastName')"
+                                      >Edit</a
+                                    >
+                                    <a
+                                      *ngIf="fields['lastName']"
+                                      (click)="updateCurrentData('lastName')"
+                                      >Save</a
+                                    >
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <label for="" class="tag">Email</label>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="edit">
+                                    <input
+                                      [readonly]="!fields['email']"
+                                      formControlName="email"
+                                      type="text"
+                                      placeholder="Enter email"
+                                    />
+                                    <a
+                                      *ngIf="!fields['email']"
+                                      (click)="edit('email')"
+                                      >Edit</a
+                                    >
+                                    <a
+                                      *ngIf="fields['email']"
+                                      (click)="updateCurrentData('email')"
+                                      >Save</a
+                                    >
+                                  </div>
+                                  <div
+                                    *ngIf="
+                                      profileForm.controls['email'].errors &&
+                                      !profileForm.controls['email'].pristine
+                                    "
+                                    class="error-msg"
+                                  >
+                                    <div
+                                      class="text-danger"
+                                      [hidden]="
+                                        !profileForm.controls['email'].errors
+                                          .required
+                                      "
+                                    >
+                                      Email is required.
+                                    </div>
+                                    <div
+                                      class="text-danger"
+                                      [hidden]="
+                                        !profileForm.controls['email'].errors
+                                          ?.pattern
+                                      "
+                                    >
+                                      Email is invalid
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- Contact Number -->
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <label for="" class="tag">Contact Number</label>
+                                </div>
+    
+                                <div *ngIf="!fields['contact']" class="col-md-6">
+                                  <div class="edit">
+                                    <div class="col-sm-4">
+                                      <input
+                                        disabled
+                                        type="text"
+                                        value="{{ currentUser.countryCode }}"
+                                        placeholder="Enter Contact"
+                                      />
+                                    </div>
+    
+                                    <!-- <input readonly type="text" value="{{currentUser.countryCode}}{{currentUser.contact}} "> -->
+                                    <input
+                                      disabled
+                                      type="text"
+                                      value="{{ currentUser.contact }}"
+                                    />
+                                    <a
+                                      *ngIf="!fields['contact']"
+                                      (click)="edit('contact')"
+                                      >Edit</a
+                                    >
+                                  </div>
+                                </div>
+                                <div *ngIf="fields['contact']" class="col-md-6">
+                                  <div class="edit contact-number">
+                                    <span>
+                                      <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="18"
+                                        height="18"
+                                        viewBox="0 0 18 18"
+                                      >
+                                        <path d="M5 8l4 4 4-4z" />
+                                      </svg>
+                                    </span>
+                                    <int-phone-prefix
+                                      style="
+                                        background: transparent;
+                                        border: 0px !important;
+                                        padding: 0px !important;
+                                        margin: 0px !important;
+                                      "
+                                      [maxLength]="5"
+                                      class="edit"
+                                      (ngModelChange)="countryChanged($event)"
+                                      [locale]="'en'"
+                                      name="countryCode"
+                                      formControlName="countryCode"
+                                    >
+                                    </int-phone-prefix>
+    
+                                    <input
+                                      [readonly]="!fields['contact']"
+                                      type="number"
+                                      placeholder="Enter contact number"
+                                      formControlName="contact"
+                                    />
+    
+                                    <a
+                                      *ngIf="fields['contact']"
+                                      (click)="updateCurrentData('contact')"
+                                      >Save</a
+                                    >
+                                  </div>
+    
+                                  <span
+                                    class="text-danger"
+                                    *ngIf="f.contact.dirty && f.contact.errors"
+                                  >
+                                    contact must be valid and at least 7 digits
+                                  </span>
+                                </div>
+                              </div>
+                              <!-- Contact Ends -->
+    
+                              <!--Upload School  -->
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <label for="" class="tag">School Logo</label>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="edit">
+                                    <input
+                                      readonly="true"
+                                      id="credits"
+                                      type="text"
+                                    />
+                                    <a (click)="open(mymodal)">Update Icon</a>
+                                  </div>
+                                </div>
+                              </div>
+    
+                              <!-- Change Password -->
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <label for="" class="tag">Password</label>
+                                </div>
+    
+                                <div class="col-md-6">
+                                  <div class="edit">
+                                    <input type="password" readonly />
+                                    <a data-toggle="modal" data-target="#message-inbox">Change</a>
+                                  </div>
+                                </div>
+                              </div>
+    
+                              <!-- Password ends here -->
+    
+                              <!-- <div class="row">
+                                <div class="col-md-6">
+                                  <label for="" class="tag">Student credits request functionality</label>
+                                </div>
+                                <div class="col-md-6">
+                                  <div>
+                                    <li class="tg-list-item">
+                                      <input class="tgl tgl-ios" id="cb2" (click)="toggle($event)" type="checkbox"
+                                        [checked]="checked" />
+                                      <label class="tgl-btn" for="cb2"></label>
+                                    </li>
+                                  </div>
+                                </div>
+                              </div> -->
+                              <!--New Implementation  -->
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <label for="" class="tag"
+                                    >Student credits request functionality</label
+                                  >
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="edit">
+                                    <input
+                                      readonly="true"
+                                      id="credits"
+                                      type="text"
+                                    />
+                                    <a *ngIf="!checked" (click)="toggle($event)"
+                                      >On</a
+                                    >
+                                    <a *ngIf="checked" (click)="toggle($event)"
+                                      >Off</a
+                                    >
+                                  </div>
+                                </div>
+                              </div>
+    
+                              <div *ngIf="checked" class="row">
+                                <div class="col-md-6">
+                                  <label for="" class="tag"
+                                    >Credits Request Limit</label
+                                  >
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="edit">
+                                    <input
+                                      placeholder="Enter Credit Limit"
+                                      [readonly]="!fields['crLimit']"
+                                      formControlName="crLimit"
+                                      type="number"
+                                    />
+                                    <a
+                                      *ngIf="!fields['crLimit']"
+                                      (click)="edit('crLimit')"
+                                      >Edit</a
+                                    >
+                                    <a
+                                      *ngIf="fields['crLimit']"
+                                      (click)="updateCurrentData('crLimit')"
+                                      >Save</a
+                                    >
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!-- Upload School Logo -->
+<ng-template #mymodal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">
+      Upload School Logo
+    </h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click'); resetImage()"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body upload-sch-l">
+    <div class="upld-btn">
+      <img
+        *ngIf="!imageChangedEvent"
+        alt="png"
+        src="../../../assets/images/manuall-add.png"
+      />
+      <label *ngIf="!imageChangedEvent" class="uploadLogo" for="img"
+        >Click to upload new image</label
+      >
+    </div>
+
+    <input
+      name="uploadfile"
+      id="img"
+      style="display: none;"
+      (change)="fileChangeEvent($event)"
+      type="file"
+      enctype="multipart/form-data"
+      accept="image/x-png"
+    />
+
+    <image-cropper
+      [imageChangedEvent]="imageChangedEvent"
+      [maintainAspectRatio]="true"
+      [resizeToWidth]="128"
+      format="png"
+      (imageCropped)="imageCropped($event)"
+      (imageLoaded)="imageLoaded()"
+      (cropperReady)="cropperReady()"
+      (loadImageFailed)="loadImageFailed()"
+      autoCrop="true"
+      outputType="file"
+      #cropper
+    >
+    </image-cropper>
+    <br />
+    <button
+      *ngIf="imageChangedEvent"
+      class="uploadSave"
+      (click)="imageUpload(); modal.dismiss('Cross click')"
+    >
+      Update
+    </button>
+    <hr />
+    <button
+      *ngIf="imageChangedEvent"
+      class="uploadSave"
+      (click)="newImageSelect()"
+    >
+      Select other image
+    </button>
+    <!-- <a (click)="imageUpload()">Update</a> -->
+  </div>
+</ng-template>
+
+
+<!-- password Updation -->
+<div class="close-modal-icon curent-msg-inbox prpr-sup-fr-studnet">
+  <div
+    class="modal fade"
+    id="message-inbox"
+  >
+  <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" >
+            Change Your Password
+          </h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true"
+              ><img src="assets/images/close-icon.png" alt=""
+            /></span>
+          </button>
+        </div>
+        <form [formGroup]="updatePassword">
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="">New Password</label>
+              <input
+                type="password"
+                formControlName="password"
+                placeholder="New Password"
+                class="form-control"
+              />
+              <div class="text-danger col"
+              *ngIf="updatePassword.controls['password'].hasError('required') && updatePass">
+             Required!!
+            </div>
+              <div class="text-danger col"
+              *ngIf="updatePassword.controls['password'].hasError('minlength') && updatePass">
+              Must be at least 8 characters!
+            </div>
+
+            <div class="text-danger col"
+              *ngIf="updatePassword.controls['password'].hasError('hasNumber') && updatePass">
+              Must contain atleast 1 number!
+            </div>
+            </div>
+            <div class="form-group">
+              <label for="">Confirm Password</label>
+              <input
+                type="password"
+                formControlName="confirmPassword"
+                placeholder="Confirm Password"
+                class="form-control"
+              />
+              <div class="text-danger col"
+              *ngIf="updatePassword.controls['confirmPassword'].hasError('required') && updatePass">
+             Required!!
+            </div>
+              <div class="text-danger col" *ngIf="updatePassword.controls['confirmPassword'].hasError('NoPassswordMatch') && updatePass"> Passwords do not match</div>
+            </div>
+
+            <div class="modal-footer inline-footer">
+              <button
+                [hidden]="true"
+                id="openSuccesModal"
+                data-toggle="modal"
+                data-target="#message-inbox"
+              >
+                success
+              </button>
+              <button
+                type="button"
+                class="green"
+                (click)="updateAdvisorPassword()"
+              >
+                Change
+              </button>
+              <button
+                type="button"
+                class="cncle"
+                class="border_bule-btn"
+                data-dismiss="modal"
+                (click)="cancel()"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      </div>
+  
+  </div>
+</div>
+<!-- Modal -->
+

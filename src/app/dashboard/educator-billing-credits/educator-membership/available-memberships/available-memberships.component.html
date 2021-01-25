@@ -1,0 +1,468 @@
+<div id="expiredbill" class="tab-pane expirebl fade in">
+  <div class="table-wrapper">
+        <table class="table">
+          <thead>
+              <tr>
+                <th><i style="font-size: 15px !important;">Price (incl. VAT)</i></th>
+                <th>Basic</th>
+                <th>Plus</th>
+                <th>Premium</th>
+              </tr>
+          </thead>
+          <tbody>
+            <!-- *ngIf="showMembership" -->
+            <tr class="proceedbtns" *ngIf="showMembership">
+              <td></td>
+              <td class="btns"><button (click)="membershipCardList('1')">Proceed</button></td>
+              <td class="btns"><button (click)="membershipCardList('2')">Proceed</button></td>
+              <td class="btns"><button (click)="membershipCardList('3')">Proceed</button></td>
+              <button [hidden]=true  id="openDoneModal" data-toggle="modal" data-target="#newPaynow">Done</button>
+              <!-- <button [hidden]=true  id="openDeclineeModal" data-toggle="modal" data-target="#declineModal">Done</button> -->
+              <button [hidden]=true  id="openDeclineeModal" data-toggle="modal" data-target="#newPaymentModal">Done</button>
+            </tr>
+              <tr>
+                <td>Annual Membership Fee</td>
+                <td>£{{basePrizeBasic | number}}</td>
+                <td>£{{basePrizePlus | number}}</td>
+                <td>£{{basePrizePremium | number}}</td>
+              </tr>
+              <tr>
+                <td>- up to {{selectedStudent | number}} students</td>
+                <td><i><span *ngIf="studentCost">£</span>{{studentCost ? (studentCost | number) : 'free'}}</i></td>
+                <td><i><span *ngIf="studentCost">£</span>{{studentCost ? (studentCost | number) : 'free'}}</i></td>
+                <td><i><span *ngIf="studentCost">£</span>{{studentCost ? (studentCost | number) : 'free'}}</i></td>
+              </tr>
+              <tr>
+                <td class="position-relative">
+                  <div class="quicktip-wrp" >
+                    - {{selectedCredit}} credits per student
+                    <img src="assets/images/quicktip.png" alt="" (mouseenter) ="quickStudentShow=true"  (mouseleave) ="quickStudentShow=false">
+                  </div>
+                    <div class="quick-tip-box tol-tip" *ngIf="quickStudentShow">
+                      <h3>Tool tip</h3>
+                      <p>-All memberships include 2 free credits per student.</p>
+                   </div>
+                  <!-- <div *ngIf="!selectedCredit">
+                    - 2 credits per student
+                  </div> -->
+                </td>
+                <td><i><span *ngIf="creditPerStudentBasic">£</span>{{creditPerStudentBasic ? (creditPerStudentBasic | number) : 'free' }}</i></td>
+                <td><i><span *ngIf="creditPerStudentPlus">£</span>{{creditPerStudentPlus ? (creditPerStudentPlus | number) : 'free'}}</i></td>
+                <td><i><span *ngIf="creditPerStudentPremium">£</span>{{creditPerStudentPremium ? (creditPerStudentPremium | number) : 'free'}}</i></td>
+              </tr>
+              <tr style="background: #fafafa;">
+                <td><b>Subtotal</b></td>
+                <td><b>£{{totalBasicPrize | number}}</b></td>
+                <td><b>£{{totalPlusPrize | number}}</b></td>
+                <td><b>£{{totalPremiumPrize | number}}</b></td> 
+              </tr>
+              <tr>
+                <td>VAT</td>
+                <td>£{{vatBasic | number}}</td>
+                <td>£{{vatPlus | number}}</td>
+                <td>£{{VatPremium | number}}</td> 
+              </tr>
+              <tr style="background: #fafafa;">
+                <td><b>Total Annual Membership Fee</b></td>
+                <td><b>£{{finalBaseValue | number}}</b></td>
+                <td><b>£{{finalPlusValue | number}}</b></td>
+                <td><b>£{{finalPremiumValue | number}}</b></td> 
+              </tr>
+              <tr class="grey">
+                  <td>PACKAGE INCLUDES:</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+              </tr>
+              <tr class="grey">
+                <td>
+                  <div class="quicktip-wrp">
+                    Teacher Dashboard: No of Classes
+                  <img src="assets/images/quicktip.png" alt="" (mouseenter) ="quickShow=true"  (mouseleave) ="quickShow=false">
+                </div>
+                    <div class="quick-tip-box tol-tip" *ngIf="quickShow">
+                      <h3>Tool tip</h3>
+                          <p>-'Classes' allow teachers to create groups of students according to their teaching needs e.g "Careers in Physics" to better organize and monitor their students on the platform.</p>
+                      </div>
+                </td>
+                <td>{{classesAllowedBasic}}</td>
+                <td>{{classesAllowedPlus}}</td>
+                <td>{{classesAllowedPremium}}</td>
+              </tr>
+              <tr class="grey">
+                  <td class="position-relative">
+                      <div class="quicktip-wrp">
+                        Teacher Dashboard: Analytics
+                        <img src="assets/images/quicktip.png" alt="" (mouseenter) ="quickShowAnalytics=true"  (mouseleave) ="quickShowAnalytics=false">
+                      </div>
+                        <div class="quick-tip-box tol-tip" *ngIf="quickShowAnalytics">
+                          <h3>Tool tip</h3>
+                          <p>-'Analytics' allow teacher to better understand the interactions of there students on the platform at an aggregate level.</p>
+                       </div> 
+                   
+                  </td>
+                
+                  <td>
+                    <div *ngIf="dashboardAllowedBasic == true">
+                    <img src="assets/images/greentick.svg" alt="img">
+                  </div>
+                  <div *ngIf="dashboardAllowedBasic == false">
+                    <img src="assets/images/redcross.svg" alt="img">
+                  </div>
+                </td>
+                  <td>
+                    <div *ngIf="dashboardAllowedPlus == true">
+                      <img src="assets/images/greentick.svg" alt="img">
+                    </div>
+                    <div *ngIf="dashboardAllowedPlus == false">
+                      <img src="assets/images/redcross.svg" alt="img">
+                    </div>
+                  </td>
+
+                  <td>
+                    <div *ngIf="dashboardAllowedPremium == true">
+                      <img src="assets/images/greentick.svg" alt="img">
+
+                    </div>
+                    <div *ngIf="dashboardAllowedPremium == false">
+                      <img src="assets/images/redcross.svg" alt="img">
+
+                    </div>
+                  </td>
+              </tr>
+              <tr class="grey">
+                <td>
+                  <div class="quicktip-wrp">
+                      Private Messages
+                    <img src="assets/images/quicktip.png" alt="" (mouseenter) ="quickShowPrivate=true"  (mouseleave) ="quickShowPrivate=false">
+                  </div>
+                  <div class="quick-tip-box tol-tip" *ngIf="quickShowPrivate">
+                    <h3>Tool tip</h3>
+                    <p>-Private messages are not shared in the Library and can only be seen by the student, advisor & teacher.</p>
+                 </div>
+                </td>
+
+                <td>
+                  <div *ngIf="privateMessageBasic == true" >
+                    <img src="assets/images/greentick.svg" alt="img">
+                  </div>
+                  <div *ngIf="privateMessageBasic == false">
+                    <img src="assets/images/redcross.svg" alt="img">
+                  </div>
+                </td>
+
+                <td>
+                  <div *ngIf="privateMessagePlus == true">
+                    <img src="assets/images/greentick.svg" alt="img">
+
+                  </div>
+                  <div *ngIf="privateMessagePlus == false">
+                    <img src="assets/images/redcross.svg" alt="img">
+
+                  </div>
+                </td>
+
+                <td>
+                  <div *ngIf="privateMessagePremium == true">
+                    <img src="assets/images/greentick.svg" alt="img">
+
+                  </div>
+                  <div *ngIf="privateMessagePremium == false">
+                    <img src="assets/images/redcross.svg" alt="img">
+
+                  </div>
+                </td>
+            </tr>
+          </tbody>
+      </table>
+  </div>
+</div>
+            <!-- <div class="col-md-4">
+              <div class="selector-custom-bar">
+                  <div class="bar-wrapper">
+                        <h3>Number of <br/>
+                          Students</h3>
+                          <p>{{value}}</p>
+                          <div class="custom-slider">
+                              <ng5-slider [(value)]="student" [(highValue)]="highValue"[options]="options" (valueChange)="studentCountChange($event)"></ng5-slider>
+                          </div>
+                  </div>
+                  <div class="bar-wrapper">
+                    <h3>Included Message 
+                      <br/>
+                      Exchanges</h3>
+                      <p>{{value1}}</p>
+                      <div class="custom-slider">
+                          <ng5-slider [(value)]="credit" [(highValue)]="highValue"[options]="options2" (valueChange)="studentCountChange($event)"></ng5-slider>
+                      </div>
+                  </div>
+              </div>
+          </div>  -->
+
+
+                     
+<!-- PAY NOW MODAL FORM STARTS HERE-->
+
+<div class="close-modal-icon addcard"> 
+  <div class="modal fade" id="newPaynow" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add New Card</h5>
+          <button type="button" #newPaynow class="close" data-dismiss="modal" aria-label="Close" (click)="crossButton()">
+            <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+          </button>
+        </div>
+        
+        <div class="modal-body">
+              <form id="payment-form" [formGroup]="addCardForm" (ngSubmit)="addCardSubmit()">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Name on Card</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name" formControlName="name">
+                </div>
+                <div class="form-group card-amer">
+                  <label for="exampleInputEmail1">Card Number</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="124*********256" formControlName="number" (keyup)="enter()" >
+                  <div *ngIf="visa">
+                    <img src="assets/images/visa_small.png" alt="">
+                    
+                  </div>
+                  <div *ngIf="masterCard">
+                    <img src="assets/images/master_card.png" alt="">
+                    
+                  </div>
+                  <div *ngIf="americanExpress">
+                    <img src="assets/images/americanExpress.jpg" alt="">
+                    
+                  </div>
+                  <div *ngIf="discover">
+                    <img src="assets/images/discover-2.png" alt="">
+                    
+                  </div>
+                  <div *ngIf="dinerClub">
+                    <img src="assets/images/Diners-Club.png" alt="">
+                    
+                  </div>
+                  <div *ngIf="dcb">
+                    <img src="assets/images/jcb.png" alt="">
+                    
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Expiry Date</label>
+                  <div class=" d-flex MY-filed">
+                      <div class="new-exchange w-50">
+                        <div class="public-slect " >
+                          <select name="" id="" formControlName="expMonth" >
+                              <option value="">Month</option>
+                              <option *ngFor="let month of monthArray" value="{{month.value}}">{{month.month}}</option>
+
+                          </select>
+                        </div>
+                    </div>
+                    <div class="new-exchange w-50">
+                      <div class="public-slect ">
+                        <select name="" id="" formControlName="expYear">
+                            <option value="">Year</option>
+                            <option *ngFor="let year of yearArray" value="{{year}}">{{year}}</option>
+                            
+                        </select>
+                      </div>
+                  </div>
+                 </div>
+              </div>
+              <div class="form-group card-amer cvv">
+                <label for="exampleInputEmail1">CVV</label>
+                <input type="password" class="form-control" formControlName="cvc" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                <img src="assets/images/cvv.png" alt="">
+              </div>
+              <div class="modal-footer flex-column">
+              <button  type="submit"class="green w-100" >Pay</button>
+              <button [hidden]=true  id="closeDoneModal" data-dismiss="modal" data-target="#newPaynow">close</button>
+              <!-- <button *ngIf="payThroughCard === true" type="button"class="green w-100" (click)="cardDetails(customerSavedCards[0])" >Pay</button> -->
+              </div>
+              </form>
+        </div>
+        <!-- <div class="modal-footer flex-column">
+          
+           <div class="w-100 text-center mt-30">
+            <p>Your card will not be charged now,</p>
+            <p>although it will be set as the default for future charges.</p>
+           </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+        <!-- ENDS HERE -->
+
+
+        <ng-template #logoutPopup>
+          <div class="riotAccount">
+              <div class="modal-body">
+                  <div class="tournament_create_inner bg-white row" style="border-radius: 10px; padding: 20px;">
+                      <div class="col-sm-12 text-center">
+                          <p>Do you want to initiate payment?</p>
+                      </div>
+                      <div class="col-sm-12">
+                          <div class="row">
+                              <div class="col-sm-12 text-center">
+                                  <button type="submit" class="btn btn-info box-shdow submit mr-3 Yes" (click)="membershipMakePayment(1)">Yes</button>
+                                  <button type="submit" class="btn btn-danger box-shdow submit cancel" (click)="membershipMakePayment(0)">No</button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+        
+          </div>
+        </ng-template>
+
+
+        <div class="close-modal-icon"> 
+          <div  class="modal fade" id="declineModal" tabindex="-1" role="dialog" aria-labelledby="declineModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="declineModalLabel">Do you want to initiate payment?</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+                  </button>
+                </div>
+        
+                <div class="modal-footer">
+                  <button type="button"  class="green" (click)="membershipMakePayment(1)">Yes</button>
+                  <button type="button" (click)="membershipMakePayment(0)" >Cancel</button>
+                  <!-- <button [hidden]=true  id="closeDeclineeModal" data-dismiss="modal" data-target="#declineModal">close</button> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="close-modal-icon"> 
+          <div  class="modal fade" id="newPaymentModal" tabindex="-1" role="dialog" aria-labelledby="declineModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="declineModalLabel">Do you want to Initiate Payment?</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closePopup()">
+                    <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+                  </button>
+                </div>
+        
+                <div class="modal-body">
+                  <div>
+                    <p>Select card</p>
+                    <select name="" id="" class="handCursor" (change)="filterYear($event.target.value)">
+                      <option value="all" selected>Select cards</option>
+                      <option *ngFor="let card of cardArray" [value]="card.id">************{{card.last4}}</option>
+                    </select>
+                  </div>
+                  <div class="close-modal-icon addcard" *ngIf="cardType"> 
+                      <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Card Detail</h5>
+                            <!-- <button type="button" #newPaynow class="close" data-dismiss="modal" aria-label="Close" (click)="crossButton()">
+                              <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+                            </button> -->
+                          </div>
+                          
+                          <div class="modal-body">
+                                <form id="payment-form" [formGroup]="addCardForm" (ngSubmit)="membershipMakePayment(1)">
+                                  <div class="form-group">
+                                    <label for="exampleInputEmail1">Name on Card</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name" formControlName="name" [readonly]="true">
+                                  </div>
+                                  <div class="form-group card-amer">
+                                    <label for="exampleInputEmail1">Card Number</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="124*********256" formControlName="number" (keyup)="enter()" [readonly]="true">
+                                    <div *ngIf="cardListing?.brand == 'Visa'">
+                                      <img src="assets/images/visa_small.png" alt="">
+                                      
+                                    </div>
+                                    <div *ngIf="cardListing?.brand == 'MasterCard'">
+                                      <img src="assets/images/master_card.png" alt="">
+                                      
+                                    </div>
+                                    <div *ngIf="cardListing?.brand == 'American Express'">
+                                      <img src="assets/images/americanExpress.jpg" alt="">
+                                      
+                                    </div>
+                                    <div *ngIf="cardListing?.brand == 'Discover'">
+                                      <img src="assets/images/discover-2.png" alt="">
+                                      
+                                    </div>
+                                    <div *ngIf="cardListing?.brand == 'Diners Club'">
+                                      <img src="assets/images/Diners-Club.png" alt="">
+                                      
+                                    </div>
+                                    <div *ngIf="cardListing?.brand == 'JCB'">
+                                      <img src="assets/images/jcb.png" alt="">
+                                      
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="exampleInputEmail1">Expiry Date</label>
+                                    <div class=" d-flex MY-filed">
+                                      <div class="new-exchange w-50">
+                                        <input  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name" formControlName="expMonth" [readonly]="true">
+                                          <!-- <div class="public-slect " > -->
+                                            <!-- <select name="" id="" formControlName="expMonth" >
+                                                <option value="">Month</option>
+                                                <option *ngFor="let month of monthArray" value="{{month.value}}">{{month.month}}</option>    
+                                            </select> -->
+                                          <!-- </div> -->
+                                      </div>
+                                      <div class="new-exchange w-50">
+                                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name" formControlName="expYear" [readonly]="true">
+                                        <!-- <div class="public-slect "> -->
+                                          <!-- <select name="" id="" formControlName="expYear">
+                                              <option value="">Year</option>
+                                              <option *ngFor="let year of yearArray" value="{{year}}">{{year}}</option>
+                                              
+                                          </select> -->
+                                        <!-- </div> -->
+                                    </div>
+                                   </div>
+                                </div>
+                                <div class="form-group card-amer cvv">
+                                  <label for="exampleInputEmail1">CVV</label>
+                                  <input type="password" class="form-control" formControlName="cvc" id="exampleInputEmail1" aria-describedby="emailHelp" [readonly]="true">
+                                  <img src="assets/images/cvv.png" alt="">
+                                  <!-- <input type="checkbox" id='html34'>
+                                  <label for="html34"></label> -->
+                                </div>
+                                <div class="modal-footer flex-column">
+                                <button  type="submit"class="green w-100" >Pay</button>
+                                <button [hidden]=true  id="closeDoneModal" data-dismiss="modal" data-target="#newPaynow">close</button>
+                                <!-- <button *ngIf="payThroughCard === true" type="button"class="green w-100" (click)="cardDetails(customerSavedCards[0])" >Pay</button> -->
+                                </div>
+                                </form>
+                          </div>
+                          <!-- <div class="modal-footer flex-column">
+                            
+                             <div class="w-100 text-center mt-30">
+                              <p>Your card will not be charged now,</p>
+                              <p>although it will be set as the default for future charges.</p>
+                             </div>
+                          </div> -->
+                        </div>
+                      </div>
+                  </div>
+                </div>
+        
+                <div class="modal-footer">
+                  <!-- <button *ngIf="showCard && cardType" type="button"  class="green" (click)="membershipMakePayment(1)">Pay</button> -->
+                  <!-- <button *ngIf="showCard" type="button" (click)="membershipMakePayment(0)" >Cancel</button> -->
+                  <button [hidden]=true  id="closeDeclineeModal" data-dismiss="modal" data-target="#newPaymentModal">close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        

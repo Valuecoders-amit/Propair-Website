@@ -1,0 +1,209 @@
+        <div class="student-dirctory">
+          <div class="heading-wrapper ">
+            <h3>{{studentDetail?.firstName}} {{studentDetail?.lastName}}</h3>
+          </div>
+          <div class="timmy-tabb">
+            <div class="">
+              <ul class="nav nav-tabs">
+                <li><a data-toggle="tab" href="#Overview" class="active">Overview</a></li>
+                <li><a data-toggle="tab" href="#Career">Career Goals </a></li>
+                <li><a data-toggle="tab" href="#Achivements">Achievements & Interests</a></li>
+              </ul>
+            </div>
+            <div class="tab-content">
+              <div id="Overview" class="tab-pane fade in active">
+                <div class="d-flex detail-box">
+                  <div>
+                    <img src="assets/images/avtar3.png" alt="img">
+                  </div>
+                  <div class="class-year">
+                    <div class="w-100 d-flex">
+                      <p>Year {{studentDetail?.year}}</p><i>|</i>
+                      <p>Class {{studentDetail?.class}}</p>
+                    </div>
+                    <div class=" location">
+                      <div>
+                        <p>{{studentDetail?.messageExchange}} Message Exchanges </p>
+                        <p> {{studentDetail?.credits}} Credits </p>
+                      </div>
+                      <div>
+                        <p>12h Avg Response Time </p>
+                        <p>{{studentDetail?.country}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="watch-tag primary">
+                  <h3>Watch Tags</h3>
+                  <div class="location-tag">
+                    <p>Location</p>
+                    <p>Student Filters</p>
+                  </div>
+                </div>
+                <div class="message-exchng primary " >
+                  <div class="d-flex justify-content-between">
+                    <h3>Message Exchanges</h3>
+                    <div class="public-slect">
+                      <select name="" id="" (change)="filterMessage($event.target.value)">
+                        <option value="Public">Public</option>
+                        <option value="Private">Private</option>
+                        <option value="Favourite">Favourite</option>
+
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="basic-membership ">
+                  <div style="margin-top: 15px;   margin-bottom: 15px; border-radius: 20px;  border: 2px solid #e3e2e2;" *ngIf="!messageExchanges.length">
+                      <table class="table " >
+                          <thead>
+                              <tr>
+                                <th scope="col" style="border-top:none"></th>
+                            
+                              </tr>
+                            </thead>
+                          <tbody>
+                            <tr>
+                              <td class="text-center">No Records Found</td>
+                            </tr>
+    
+                          </tbody>
+                        </table>
+                      
+                  </div>
+                  <div class="table-wrpper"  *ngIf="messageExchanges.length" >
+                
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th >Date Accepted</th>
+                          <th > Advisor</th>
+                          <th >Title</th>
+                          <th >Views</th>
+                        </tr>
+                      </thead>
+                      <tbody >
+                        <!-- <tr  *ngIf="!messageExchanges.length">
+                          <td colspan="4">No Record Found</td>
+                        </tr> -->
+                        <tr  *ngFor="let messageExchange of messageExchanges">
+                          <td>07 May 13 </td>
+                          <td>{{messageExchange?.advisorId.firstName}} {{messageExchange?.advisorId.lastName}}</td>
+                          <td>{{messageExchange?.questionTitle}}</td>
+                          <td>{{messageExchange?.views}}</td>
+                        </tr>
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="graph-messg-ex primary ">
+                  <h3>Analytics (Premium)</h3>
+                  <h4>Message Exchanges</h4>
+                  <div class="w-100">
+                      <figure class="highcharts-figure">
+                          <div id="container"></div>
+                      </figure>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="public-slect handCursor">
+                      <select  name="" id="" (change)="class($event)">
+                        <option value="">Select</option>
+                        <option value="1">1 week</option>
+                        <option value="2">2 week</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-1">
+                    <div class="messe-or-wrapper">
+                      <p>or</p>
+                    </div>
+                  </div>
+                  <div class="col-md-7">
+                      <form class="form-inline datePickerStudent greypickerdate">
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          <div class="form-group">
+                            <div class="input-group">
+                              <input
+                                class="form-control"
+                                [placeholder]="model === '' ? 'From' : model"
+                                id="rcorners2"
+                                name="dp"
+                                [(ngModel)]="model"
+                                ngbDatepicker
+                                #d="ngbDatepicker"
+                                
+                              />
+                              <div class="input-group-append">
+                                <button
+                                  class="btn  calendar"
+                                  (click)="d.toggle()"
+                                  type="button"
+                                >
+                                  <fa-icon
+                                    style="font-size: 42px"
+                                    [icon]="faCalendarAlt"
+                                  ></fa-icon>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group ml-2">
+                            <div class="input-group">
+                              <input
+                                class="form-control"
+                                [placeholder]="model === '' ? 'To' : model1"
+                                id="rcorners2"
+                                name="dp1"
+                                [(ngModel)]="model1"
+                                ngbDatepicker
+                                #d1="ngbDatepicker"
+                                
+                              />
+                              <div class="input-group-append" >
+                                <button 
+                                  class="btn  calendar"
+                                  (click)="d1.toggle()"
+                                   type="button"
+                                >
+                                  <fa-icon
+                                    style="font-size: 42px"
+                                    [icon]="faCalendarAlt"
+                                  ></fa-icon>
+                                </button>
+                              </div>
+                              <!-- <div class="input-group-append" *ngIf="callOne === 1">
+                                <button  
+                                  class="btn  calendar"
+                                  (click)="Go()"
+                                  type="button"
+                                >
+                                  <fa-icon
+                                    style="font-size: 42px"
+                                    [icon]="faCalendarAlt"
+                                  ></fa-icon>
+                                </button>
+                              </div> -->
+                            </div>
+                          </div>
+                        </form>
+                  </div>
+                </div>
+              </div>
+              <div id="Career" class="tab-pane fade">
+                <div class="carrer">
+                  <p>{{goals || 'N/A'}}</p>
+                </div>
+              </div>
+              <div id="Achivements" class="tab-pane fade" *ngFor=" let achivement of achivements">
+                <p>Euducation: <span *ngFor="let education of achivement.education">{{education}}</span>&nbsp;</p><br>
+                <p>Soft Skills: <span *ngFor="let softSkills of achivement.softSkills">{{softSkills}}</span>&nbsp;</p><br>
+                <p>Work Experience: <span *ngFor="let workExperiance of achivement.workExperiance">{{workExperiance}}</span>&nbsp;</p>
+
+              </div>
+            </div>
+
+          </div>
+        </div>

@@ -1,0 +1,36 @@
+<div id="message" class="tab-pane fade">
+    <div class="container-fluid ">
+<div class="advisore-message-scr">
+    <div class="row">
+      <div class="col-12">
+          <div class="heading-wrapper">
+              <h3>My Message</h3>
+          </div>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-md-12">
+          <div class="message-listing">
+            <ul class="nav nav-tabs">
+              <li><a data-toggle="tab"  class="active" routerLink="/advisor-dashboard/advisor-my-message/advisor-inbox"
+                [ngClass]="{'active': currentResource == 'advisor-inbox'}">Inbox <span *ngIf="inboxCount >0">({{inboxCount}})</span></a></li>
+              <li><a data-toggle="tab"  routerLink="/advisor-dashboard/advisor-my-message/advisor-draft"
+                [ngClass]="{'active': currentResource == 'advisor-draft'}">Drafts</a></li>
+              <li><a data-toggle="tab" href="#Archive" routerLink="/advisor-dashboard/advisor-my-message/advisor-archive"
+                [ngClass]="{'active': currentResource == 'advisor-archive'}">Archive</a></li>
+                <li><a data-toggle="tab" routerLink="/advisor-dashboard/advisor-my-message/advisor-support"
+                  [ngClass]="{'active': currentResource == 'advisor-support'}">Propair Support <span *ngIf="propairCount > 0">({{propairCount}})</span></a></li>
+            </ul>
+          </div>
+      </div>
+      <div class="col-md-12 col-lg-10 col-xl-10">
+          <div class="message-listing-wrapper">
+              <div class="tab-content">
+                <router-outlet></router-outlet>
+              </div>
+          </div>
+      </div>
+  </div>
+  </div>
+</div>
+</div>

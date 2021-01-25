@@ -1,0 +1,37 @@
+
+
+
+<div id="education" class="tab-pane fade in">
+  <div class="background-spec-cl">
+    <div class="inbox-wrapper justify-content-end">
+      <!-- <div class="new-exchange">
+        <div class="send-now">
+          <a href="javascript:void(0)" class="border_bule-btn" (click)="addEducation(temp)">New Education</a>
+        </div>
+      </div> -->
+      
+    </div>
+    <div class="requests-wrper frtopm">
+      <div class="wrp profile" *ngFor="let edu of eduListing ">
+              <div class="kps-bonus">
+                  <img *ngIf="!edu.image" src="assets/images/university.png" alt="img">
+                  <img *ngIf="edu.image" [src]="edu.image" alt="img">
+              </div>
+          <div class="content-req student-portal-link">
+                <div class="area">
+                  <h3>{{edu?.subject}}</h3> 
+                  <h4>
+                    {{edu?.university}}
+                  </h4>
+                  <div class="location">
+                      <span class="singleline">Class of {{edu?.year}}</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="for-more-lisiting" *ngIf="moreData > 0 && !checkData">
+    <a href="javascript:void(0)" (click)="moreCareer()">{{moreData}} more educations</a>
+</div>
+  </div>
+</div>

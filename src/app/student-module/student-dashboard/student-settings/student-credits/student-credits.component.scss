@@ -1,0 +1,364 @@
+.newcards-setting{margin-bottom: 15px;}
+.newcards-setting .dasshbord-content-wrapper{margin: 0 ; background: #fff;     padding: 50px 40px;}
+.newcards-setting .dasshbord-content-wrapper .number div p{font-size: 25px;}
+/* .newcards-setting .group_analystic .analystic-dashboard .live-request{margin-top: 0;} */
+.newcards-setting .dasshbord-content-wrapper .number{    margin-top: 0px !important;}
+.newcards-setting  .dasshbord-content-wrapper span{    color: #7f7f7f!important;     font-size: 20px;}
+.newcards-setting  .dasshbord-content-wrapper .text-center span:first-child{margin-right: 30px;}
+
+
+
+.dasshbord-content-wrapper{ padding: 50px;; border-radius:12px ;height: 270px;     margin-top: 70px; margin-bottom: 70px; }
+.dasshbord-content-wrapper h3{font-size: 24px; color: #33e2d1; line-height: 36px;  font-family: 'Source Sans Pro', sans-serif;  font-weight: 600;}
+.dasshbord-content-wrapper span{color: #bdbdbd !important; line-height: 40px;}
+.dasshbord-content-wrapper .live-request{margin-top: 25px;}
+.dasshbord-content-wrapper .to-list {display: flex; flex-direction: column;     font-size: 20px; margin-top: 20px;}
+
+
+
+.by-credits-wrapper{margin-top: 35px; display: flex; justify-content: center;}
+.by-credits-wrapper a{height: 60px; display: flex; align-items: center;  margin: 0 7px;  justify-content: center; background: #33e2d1; border-radius: 8px; color: #fff; font-size: 20px; font-family: 'Source Sans Pro', sans-serif; width: 40%;}
+.by-credits-wrapper a.rc{background: #eafcfa; color: #7f7f7f;}
+
+
+
+.message-listing-wrapper .main{ padding: 20px 35px  40px 35px; background: #fff; border-radius:20px; -webkit-border-radius:20px; -moz-border-radius:20px; -ms-border-radius:20px; -o-border-radius:20px; }
+.message-listing-wrapper .tab-content{padding: 0;}
+
+
+.message-listing-wrapper .basic-membership .table-wrpper .table td{ color: #373636;}
+.message-listing-wrapper .basic-membership .table-wrpper .table td span{color:#b3b2b2;}
+.message-listing-wrapper .basic-membership .table-wrpper .table td{ cursor: pointer;}
+.message-listing-wrapper .linking-wrapper{margin-top: 10px;}
+
+.message-listing-wrapper .table th { padding: 17px 38px !important;}
+.message-listing-wrapper .table td {padding: 17px 38px;vertical-align: middle;}
+
+.background-spec-cl{ margin-top: 15px;     background: #fff;  padding: 20px 40px; border-radius: 12px;}
+
+
+.basd-profile {display: flex; justify-content: space-between; align-items: center;}
+.basd-profile p{	font-family: 'Source Sans Pro', sans-serif; font-weight:400; color: #7f7f7f; font-size: 16px;}
+.basd-profile a{color: #007de4;}
+
+.brief-bhead p{color: #33e2d1; font-size: 20px;     font-weight: 500;}
+.brief-bhead .custom-selects select{height: 40px;}
+.brief-bhead .custom-selects {max-width: 130px; }
+.brief-bhead .custom-selects select{background: url(/assets/images/cus-sl-arrow.png) 93% / 10% no-repeat #fff;}
+
+.brief-bhead.setting-stu p{font-weight: 600; font-size: 24px;}
+
+.invoicebilling .table-wrpper{ background: #fff; border: 2px solid #f2f2f2; border-radius: 25px; }
+.invoicebilling .table-wrpper table{width:100%;}
+
+.new{
+	text-align: center
+}
+ 
+.basic-membership .classes.pd-50 {
+	padding-right: 50px;
+  }
+  
+  .basic-membership .classes div p {
+	font-size: 14px;
+	line-height: 40px;
+  }
+  
+  .basic-membership .addstudent {
+	display: flex;
+	justify-content: space-between !important;
+	margin-top: 40px !important;
+  }
+  
+  .basic-membership .addstudent a {
+	box-shadow: -3px -2px 11px rgba(0, 0, 0, 0.1);
+	margin: 0 15px;
+	font-size: 14px;
+	color: #fff;
+	text-align: center;
+	background: #33e2d1;
+	padding: 23px 0;
+	border-radius: 6px;
+	display: block;
+	max-width: 310px;
+	width: 100%;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	-ms-border-radius: 6px;
+	-o-border-radius: 6px;
+  }
+  
+  .basic-membership .addstudent a:hover {
+	color: #fff;
+	cursor: pointer;
+  }
+  
+  .basic-membership .studdent-table {
+	padding: 58px 0 30px 0;
+  }
+  
+  .basic-membership .studdent-table h5 {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 16px;
+  }
+  
+  .basic-membership .studdent-table span {
+	display: flex;
+	;
+  }
+  
+  .basic-membership .studdent-table span p {
+	font-size: 16px;
+	padding-right: 20px;
+	margin-bottom: 0;
+	color: #373636
+  }
+  
+  .basic-membership .studdent-table span Select {
+	font-size: 16px;
+	color: #707070;
+	background-color: white !important;
+	border: 1px solid #b6b6b6;
+  }
+  
+  .basic-membership .studdent-table a {
+	color: #007de4;
+	text-align: right;
+	font-size: 16px;
+	display: block;
+  }
+  
+  .basic-membership .table-wrpper {
+	border: 1px solid #efefef;
+	border-radius: 12px;
+	overflow-x: auto;
+	background: #fff;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	-ms-border-radius: 12px;
+	-o-border-radius: 12px;
+  }
+  
+  .basic-membership .table-wrpper .table td,
+  .table th {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 16px;
+	border-top: none;
+  }
+  
+  .basic-membership .table-wrpper .table th {
+	color: #000;
+	padding: 16px;
+	font-weight: 600;
+  }
+  
+  .basic-membership .table-wrpper .table td {
+	font-size: 14px;
+  }
+  
+  .basic-membership .table-wrpper .table-striped tbody tr:nth-of-type(odd) {
+	background-color: #fafafa;
+  }
+  
+  .basic-membership .table-wrpper table tbody {
+	height: 25px;
+	overflow-y: auto;
+  }
+  
+ .student-settng #addnewcard .modal-header{padding: 22px 40px;}
+ .student-settng #addnewcard .modal-header .modal-title {
+    font-size: 30px;
+    color: #373636;
+	font-family: 'Source Sans Pro', sans-serif;}
+	.addcard.student-settng .modal-body {
+		padding: 40px 40px;
+	}
+	.addcard label {
+		font-size: 20px;
+		margin-bottom: 15px;
+		color: #373636;
+	}
+
+.addcard.student-settng .public-slect select {
+    color: #373636 !important;
+    padding: 15px 20px;
+    box-shadow: none;
+}
+.addcard.student-settng .public-slect::after {
+   
+    top: 42%;
+    right: 20px;
+}
+.addcard .new-exchange{
+	margin: 0;
+}
+.addcard.student-settng .modal-footer{padding: 0;}
+.addcard.student-settng .modal-footer button{margin:0}
+
+.addcard.student-settng .totl-c{margin-top: 30px; font-size: 25px; text-align: center;  font-weight: 700 ; color: #373636;}
+.addcard.student-settng .totl-c span{margin-left:15px}
+
+
+.close-modal-icon .modal-header{background: #e4e4e4;     padding: 20px;}
+.close-modal-icon .modal-header .close{color:#000;}
+.close-modal-icon .flex-row-wrapper{display: flex;}
+.close-modal-icon .flex-row-wrapper p{color: #7f7f7f;  font-size: 20px; font-weight: 500; margin: 15px 0;}
+.close-modal-icon .flex-row-wrapper p:first-child{padding-right: 20px;  width: 35%; text-align: right;}
+.close-modal-icon .modal-footer{border-top:none;}
+.close-modal-icon .modal-footer button{ width:50%; margin: 0 15px; text-align: center; border-radius:8px ; font-family: 'Source Sans Pro', sans-serif;    border: none; font-size: 20px; height: 50px; color:#7f7f7f; background: #e4e4e4; -webkit-border-radius:8px ; -moz-border-radius:8px ; -ms-border-radius:8px ; -o-border-radius:8px ; }
+.close-modal-icon .modal-footer button.green{ color:#fff;  background: #33e2d1;}
+.close-modal-icon .modal-content{ border: none; }
+
+.new{
+	max-width: 550px;
+}
+
+.addcard.student-settng .modal-dialog {max-width: 550px;}
+.addcard.student-settng .modal-header{    padding: 22px 40px;}
+.addcard.student-settng .modal-header .modal-title{font-size: 30px; font-weight: 600; color: #373636; font-family: 'Source Sans Pro', sans-serif;	}
+.addcard.student-settng .modal-body{padding: 40px 40px;}
+.addcard.student-settng .modal-footer{padding: 0;}
+.addcard.student-settng .new-exchange {	 margin: 0 0px;}
+.addcard.student-settng .new-exchange .public-slect::after{   opacity: 0.8;}
+ .addcard.student-settng .public-slect select{color: #373636 !important;  padding: 15px 20px; }
+ .addcard.student-settng  input{color: #373636 !important; height: 60px; padding: 15px 20px !important;  }
+ .addcard.student-settng .card-amer img { height: 43px; right: 7px;top: 55px;} 
+ .addcard.student-settng .MY-filed .new-exchange{margin: 0 15px;}
+ .addcard.student-settng .modal-footer button.green{    height: 60px;}
+ .credit-detl{display: flex;}
+   .credit-detl span{color: #7f7f7f; font-size: 20px; font-family: 'Source Sans Pro', sans-serif; margin: 15px 0;}
+   .credit-detl span:first-child{width:30%;     text-align: right; padding-right: 30px;} 
+   #requestcredit .modal-footer{margin: 0 -15px ;}
+   #requestcredit .modal-footer .green{height: 50px;}
+   #requestcredit .modal-footer button{box-shadow: 0px 0px 13px 0 rgba(0,0,0,0.1);}
+   .addcard.student-settng .modal-footer button {width:40%;     margin: 0 0px;}
+
+   .scroolData{
+	   overflow-y: auto;
+   }
+
+   @media(max-width:1600px){
+	.basic-membership .table-wrpper .table td{
+		font-size: 12px;
+	}
+	.basic-membership .table-wrpper .table th{
+		font-size: 14px;
+	}
+	.background-spec-cl { padding: 15px 30px; }
+	.newcards-setting .dasshbord-content-wrapper{
+		padding: 15px 30px;
+	}
+	.dasshbord-content-wrapper{
+		height: 200px;
+	}
+	.dasshbord-content-wrapper h3{
+		font-size: 20px;
+	}
+	.newcards-setting .dasshbord-content-wrapper .number div p{
+		margin-bottom: 0;
+		font-size: 20px;
+	}
+	.brief-bhead.setting-stu p{font-size: 20px;}
+	.addcard.student-settng .modal-header .modal-title{
+		font-size: 24px;
+	}
+	.by-credits-wrapper{
+		margin-top: 20px;}
+	.by-credits-wrapper a{height: 50px; font-size: 16px;}
+	.newcards-setting  .dasshbord-content-wrapper span{  font-size: 18px;}
+	.addcard.student-settng .modal-body{
+		padding: 30px 30px;
+	}
+	.student-settng #addnewcard .modal-header .modal-title {
+		font-size: 24px;}
+		.addcard label{    font-size: 18px;}
+   }
+
+   
+.uicke .modal-header{    padding: 22px 25px !important;}
+.addcard.student-settng.uicke .modal-footer button{    width: 46%; margin: 0 0px;}
+.addcard.student-settng.uicke .modal-footer button.green{height: 50px;}
+   @media(max-width:1199px){
+	.newcards-setting .dasshbord-content-wrapper{
+		padding: 20px 20px;
+		margin-bottom: 15px;
+	}
+	.background-spec-cl{margin-top: 0;}
+	.newcards-setting  .dasshbord-content-wrapper .text-center span:first-child{margin-right: 20px;}
+	
+   }
+   @media(max-width:991px){
+		.dasshbord-content-wrapper{
+			height: auto;
+		}
+   }
+
+   @media(max-width:767px){
+	.by-credits-wrapper{
+		margin-top: 30px;
+	}
+	.newcards-setting .dasshbord-content-wrapper span{
+		font-size: 16px;
+	}
+	.addcard.student-settng .modal-header{    padding: 22px 20px;}
+	.addcard.student-settng .modal-body{
+		padding: 15px 15px;
+	}
+	.scroolData{    overflow-y: inherit;
+		overflow: inherit;}
+	.addcard.student-settng .modal-footer button.green{
+		height: 50px;
+	}
+	.student-settng #addnewcard .modal-header{    padding: 22px 20px;}
+	.student-settng #addnewcard .modal-header .modal-title {
+		font-size: 20px;}
+		.addcard label{    font-size: 18px;}
+		.close-modal-icon .modal-footer button{font-size: 16px;}
+   }
+   @media(max-width:575px){
+		.live-request .number{flex-direction: column;}
+		.live-request .number div {
+			text-align: center!important;
+		}
+		.dasshbord-content-wrapper h3{
+			text-align: center;
+		}
+		.by-credits-wrapper{ 
+			flex-direction: column;
+		   margin-top: 15px;}
+		   .by-credits-wrapper a{  width: 100%;  margin: 5px 0px;height: 45px;    font-size: 16px; }
+		   .message-listing-wrapper.background-spec-cl .basd-profile{    align-items: flex-start; margin-bottom: 15px;}
+		   .addcard.student-settng.uicke .modal-footer{
+			flex-direction: column;
+		   }
+		   .addcard.student-settng.uicke .modal-footer button{
+				max-width: 100%;
+		   }
+		   .uicke .modal-header h5{
+				text-align: left;
+		   }
+		   .credit-detl span{
+			text-align: left;
+			margin: 0 0;
+			font-size: 17px;
+		   }
+		   .credit-detl span:first-child{
+			width: 100%;
+			text-align: left;
+		   }
+		   .credit-detl{
+			flex-direction: column;
+			margin: 5px 0;
+		   }
+		   .addcard.student-settng .totl-c{    margin-top: 15px;     font-size: 19px;}
+		   .addcard.student-settng.uicke .modal-footer button{width: 100%;     margin: 0px 0px;}
+   }
+
+   .new{
+	   text-align: center;
+   }
+
+.uicke .modal-dialog-centered{    margin: 0 0;}
+.uicke .modal-dialog-centered::before {
+  height: 100% !important;
+}

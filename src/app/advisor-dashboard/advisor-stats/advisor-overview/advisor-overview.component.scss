@@ -1,0 +1,320 @@
+.sincejoing {
+    display: flex;
+    justify-content: flex-start;
+    margin: 10px 0 20px 0;
+}
+
+.sincejoing a {
+    margin: 0 17px;
+}
+
+.socailimpact {
+    padding:0 0;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    background: #fff;
+    height: auto;
+    border-radius: 12px;
+}
+.invoicebilling .table-wrpper table{
+  width: 977px;
+}
+
+.new-drpbar{
+	border-top: 1px solid #f3f3f3;
+	padding: 20px 40px 20px 40px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+  }
+  .thredots a{display: flex;     
+    justify-content: flex-end;
+    padding: 20px 0px; }
+.thredots a span{background: #d9d9d9; height: 8px; width: 8px; border-radius: 50%; margin: 0 2px;}
+
+  .since-joingdrp .dropdown-toggle{color: #7f7f7f;}
+.since-joingdrp ul{margin-bottom: 0;}
+.since-joingdrp .lastdys span{color: #7f7f7f; text-transform: uppercase;}
+.since-joingdrp .lastdys p{margin-bottom: 0;}
+.since-joingdrp ul.dropdown-menu{width:200px;}
+.since-joingdrp ul.dropdown-menu li{padding-left: 10px; padding-right: 10px;}
+.since-joingdrp ul.dropdown-menu li.eqspace{display: flex; justify-content: space-between;}
+.since-joingdrp ul.dropdown-menu li.eqspace span{ position: relative;  display: block; width:100%;}
+.since-joingdrp ul.dropdown-menu li.eqspace span:hover {color:#007de4!important;}
+.since-joingdrp ul.dropdown-menu li.eqspace.active_tab{background-color:transparent !important;}
+.since-joingdrp ul.dropdown-menu li.eqspace.active_tab{position: relative;}
+.since-joingdrp ul.dropdown-menu li.eqspace.active_tab:after{content: ' \f00c '; font-family: "FontAwesome"; color: #007de4; width: 20px; height: 20px; position: absolute; right: 11px; top: 1px; }
+.since-joingdrp ul.dropdown-menu li.eqspace.active_tab span{color:#007de4!important;}
+
+.newadding-padding{
+    padding: 30px 40px 10px 40px;
+}
+.socailimpact h3 {
+    font-size: 24px;
+    color: #33e2d1;
+    line-height: 36px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 500;
+}
+
+.socailimpact .live-request .number {
+    justify-content: space-between;
+    margin-top: 0;
+}
+.socailimpact .live-request .number div {
+    // line-height: 40px;
+    width: auto;
+}
+.socailimpact .live-request .number div p {
+    font-size: 42px;
+    font-weight: 600;
+}
+.socailimpact .live-request .number div span {
+    color: #7f7f7f;
+}
+
+.message-exchange-wrpper {
+    padding: 30px 40px;
+    background: #fff;
+    margin-bottom: 30px;
+    border-radius: 12px;
+}
+
+.message-exchange-wrpper .edit-classes h3 {
+    font-size: 24px;
+    color: #33e2d1;
+    line-height: 36px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.filter-f-grph-GA {
+    display: flex;
+    margin-top: 35px;
+    align-items: center;
+}
+
+.filter-f-grph-GA span {
+    font-size: 20px;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #373636 !important;
+}
+
+.filter-f-grph-GA .custom-selects {
+    margin: 0 20px;
+}
+
+.message-listing-wrapper .main {
+    padding: 40px 35px 40px 35px;
+}
+.message-listing-wrapper .main {
+    padding: 20px 35px 40px 35px;
+    background: #fff;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    
+}
+
+ .basd-profile {
+    margin-bottom: 25px;
+}
+
+.basd-profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.permnce-text {
+    font-size: 20px !important;
+    font-weight: 400 !important;
+    color: #33e2d1 !important;
+}
+
+.perfomance-stats .custom-selects {
+    max-width: 140px;
+}
+
+.perfomance-stats .custom-selects select {
+    background: url(../../../../assets/images/cus-sl-arrow.png) 93% / 10% no-repeat #fff;
+}
+
+.invoicebilling .table-wrpper {
+    background: #fff;
+    border: 2px solid #f2f2f2;
+    border-radius: 25px;
+}
+
+
+
+  .meesage-checklist .modal-header{padding: 22px 35px !important;}
+  .meesage-checklist label{
+    font-size: 20px;
+    color: #373636;
+    font-family: 'Source Sans Pro', sans-serif;
+    margin-bottom: 0;
+
+  }
+  ::ng-deep .selectiongroup{
+      height: 50px;
+    font-size: 20px;
+    color: #d4d4d4;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+  ::ng-deep .selectiongroup{height: 50px;}
+  ::ng-deep .selectiongroup input{height: 100% !important; font-size: 20px; color: #373636;}
+  .meesage-checklist .btns{display: flex; margin: 0 -7px;}
+  .meesage-checklist .btns a{
+    font-size: 20px;
+    border-radius: 9px;
+    margin: 0 auto;
+    text-align: center;
+    background: #33e2d1;
+    color: #fff;
+    font-family: 'Source Sans Pro', sans-serif;
+    height: 50px;
+    max-width: 300px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:0 7px;
+  }
+
+
+//Tabbing_Modal
+
+.advisor-modal .meesage-checklist {
+    max-width: 500px;
+}
+.advisor-modal .meesage-checklist .modal-footer{
+  display: flex;
+}
+.advisor-modal .meesage-checklist .modal-footer button{
+  width: 43%;
+  background: #fff;
+}
+.advisor-modal .meesage-checklist  .group_analystic{
+  margin-top:0;
+}
+.advisor-modal .meesage-checklist  .group_analystic .nav-tabs{
+  margin-top: 0;
+}
+.advisor-modal .meesage-checklist  .group_analystic .tab-content{
+  padding: 0 0px;
+}
+.advisor-modal .meesage-checklist .group_analystic .tab-content #variable{
+  margin-top: 15px;
+}
+.close-modal-icon .modal-footer button.green {
+  color: #fff;
+  background: #33e2d1 !important;
+}
+.graphfilter .filter-f-grph-GA{
+  margin-top: 20px;
+}
+.graphfilter #variable{
+  margin-top: 0 !important;
+}
+.graphfilter .ab-rl .nav-tabs li a{
+  line-height: 24px;
+}
+ .heading-wrapper h3{margin-bottom: 0;}
+
+.message-exchange-wrpper .chart-wrapper{box-shadow: none; padding: 0 50px;}
+.invoicebilling.basic-membership .table-wrpper{    border: none;}
+.invoicebilling.basic-membership .table-wrpper .table thead th{    border: none;}
+.main .new-drpbar{border-top:none;     padding: 0 25px;}
+
+::ng-deep .mydp{border: none !important;}
+::ng-deep .mydp .header{position:absolute;     margin-top: 7px;}
+::ng-deep .mydp .header td{background: #fff;}
+::ng-deep .mydp .selectorarrow {background: #fff !important;     padding: 40px 0 !important;  }
+::ng-deep .mydp .weekdaytitle { background-color: #fff !important;        font-size: 15px !important; font-weight: 600 !important;}
+::ng-deep .mydp .currmonth{background: #fff !important;}
+::ng-deep .mydp .disabled{background: transparent !important;}
+::ng-deep .mydp .headerlabelbtn {font-size: 17px;}
+::ng-deep .mydp .btnclearenabled:hover, .mydp .btndecreaseenabled:hover, .mydp .btnincreaseenabled:hover, .mydp .btnpickerenabled:hover, .mydp .headertodaybtnenabled:hover{background-color: transparent;}
+.since-joingdrp .dropdown-toggle:after { vertical-align: 0.17em; }
+.invoicebilling {     border-bottom: 1px solid #efefef; }
+@media(max-width:1600px){
+  .since-joingdrp .dropdown-toggle { font-size: 14px; }
+  
+  .thredots a span{
+    height: 5px;
+    width: 5px;
+  }
+  .col-md-9{
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+  .live-request{
+    margin-top: 0px;
+  }
+  .socailimpact .live-request .number div p {
+    font-size: 26px;
+    margin-bottom: 0;
+  }
+  .newadding-padding[_ngcontent-qhn-c5] {
+    padding: 30px 30px 10px 30px;
+  }
+  .socailimpact h3{
+    font-size: 20px;
+  }
+  .message-exchange-wrpper{    padding: 30px 30px;}
+  .message-exchange-wrpper .edit-classes h3 {font-size: 20px;}
+  .chart-wrapper{margin-top: 0;}
+  .thredots a{padding: 30px 0 0 0;}
+  .message-listing-wrapper .main{    padding: 30px 30px;}
+  .message-listing-wrapper .main {
+    padding: 30px 30px;
+  }
+  .ab-rl .nav-tabs li a {
+    font-size: 18px;
+  }
+  .filter-f-grph-GA span {
+    font-size: 16px;
+  }
+  .close-modal-icon .modal-footer button{
+    font-size: 18px;
+  }
+  .invoicebilling .table-wrpper table {
+    width: 100%;
+  }
+}
+
+@media(max-width:1350px){
+  
+  .invoicebilling .table-wrpper table {
+    width: 100%;
+  }
+}
+
+@media(max-width:767px){
+  .message-exchange-wrpper{
+    padding: 15px 15px;
+  }
+  .main {
+    padding: 15px 15px !important;
+}
+.meesage-checklist .modal-header{
+  padding: 15px 20px !important;
+}
+.advisor-modal .meesage-checklist .modal-footer button {
+  width: 40%;
+}
+.advisor-modal .meesage-checklist .modal-footer{
+ justify-content: center;
+}
+.close-modal-icon .modal-footer button{
+  margin: 0 7px;
+}
+}
+
+@media(max-width:575px){
+  .socailimpact .live-request .number{    flex-direction: column;}
+}

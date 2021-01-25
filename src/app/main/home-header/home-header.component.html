@@ -1,0 +1,142 @@
+   <!--  ########### Header ########### -->
+   <!-- <header class="header">
+    <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="navbar-brand" routerLink="/"><img src="assets/images/logo.svg" alt="img"></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" onclick="openNav()">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item ">
+                        <a class="nav-link" routerLink="/about-us" >About us <span class="sr-only">(current)</span></a>
+                        </li>
+                      
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Get involved
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" routerLink="/become-advisor" >Become an Advisor</a>
+                                <a class="dropdown-item" routerLink="/become-partner">Become a partner employer</a>
+                                <a class="dropdown-item" routerLink="/become-partnerSchool">Become a partner school</a>
+                            </div>    
+                             
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Login
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" routerLink="/student/studentLogin">Student</a>
+                                <a class="dropdown-item" routerLink="/login">Educator</a>
+                                <a class="dropdown-item" routerLink="/advisor/advisor-login">Advisor</a>
+                            </div>  
+                         
+                        </li>
+                    </ul>
+                    </div>
+            </nav>   
+    </div>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" >&times;</a>
+        <ul class="navbar-nav">
+            <li class="nav-item ">
+            <a class="nav-link" href="aboutus.html" target="_self">About us <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#howits">How it works</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Get involved
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a href="BecomeAnAadvisor.html" target="_self">Become an Advisor</a>
+                    <a href="Becomepartner.html" target="_self">Become a partner employer</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link login gradint-btn" href="#" >Login</a>
+            </li>
+        </ul>
+    </div>
+</header> -->
+
+<header class="header">
+    <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="navbar-brand" routerLink=""><img src="assets/images/logo.svg" alt="img"></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" (click)="openNav()">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item ">
+                        <a class="nav-link" routerLink="/about-us">About us <span class="sr-only">(current)</span></a>
+                        </li>
+                        <!-- <li class="nav-item">
+                        <a class="nav-link visithows" href="index.html#howits">How it works</a>
+                        </li> -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Get involved
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a routerLink="/become-partnerSchool">Become a partner school</a>
+                                <a routerLink="/become-advisor">Volunteer as an Advisor</a>
+                                <a routerLink="/become-partner">Become a partner employer</a>
+                             </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle login " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Login
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a routerLink="/student/studentLogin" >Student</a>
+                                <a routerLink="/login" >Educator</a>
+                                <a routerLink="/advisor/advisor-login" >Advisor</a>
+                             </div>
+                        </li>
+                    </ul>
+                    </div>
+            </nav>   
+    </div>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+        <ul class="navbar-nav">
+            <li class="nav-item ">
+            <a class="nav-link" routerLink="/about-us">About us <span class="sr-only">(current)</span></a>
+            </li>
+            <!-- <li class="nav-item">
+            <a class="nav-link" href="#howits">How it works</a>
+            </li> -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Get involved
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a routerLink="/become-partnerSchool">Become a partner school</a>
+                    <a routerLink="/become-advisor">Volunteer as an Advisor</a>
+                    <a routerLink="/become-partner">Become a partner employer</a>
+                </div>
+                 
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle login gradint-btn " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Login
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a routerLink="/student/studentLogin" >Student</a>
+                    <a routerLink="/login" >Educator</a>
+                    <a routerLink="/advisor/advisor-login" >Advisor</a>
+                 </div>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<div class="add-space">
+    
+</div>
+    <!--  ########### Header Close ########### -->

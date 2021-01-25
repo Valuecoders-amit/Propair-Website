@@ -1,0 +1,79 @@
+<div class="tab-content remv-prop">
+    <div id="Membership" class="tab-pane fade in request-refteb new-sub-tab active show" style=" background: #fafafa; ">
+        <div class="row">
+            <div class="col-md-12 col-lg-9 ">
+                <div class="background-spec-cl ">
+                  <div class="basd-profile">
+                    <div class="live-W-tabbing">
+                      <ul class="nav nav-tabs">
+                        <li><a data-toggle="tab"
+                          [ngClass]="{'active show': currentResource == 'current-plan'}" 
+                           routerLink='/dashboard/educator-billing-credits/membership/current-plan' (click)="currentPlan()">Current Plan</a></li>
+                        <li><a data-toggle="tab"
+                          [ngClass]="{'active show': currentResource == 'available-membership'}"
+                           routerLink='/dashboard/educator-billing-credits/membership/available-membership' class="" (click)="availableMembership()">Available Memberships</a>
+                        </li>
+                        <li *ngIf="!showMembership">
+                          <a data-toggle="tab" 
+                          [ngClass]="{'active show': currentResource == 'change-plan'}"
+                          routerLink='/dashboard/educator-billing-credits/membership/change-plan' class="" (click)="changePlan()">Change Plan</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <!-- <div class="custom-selects">
+                        <select name="" id="">
+                            <option value="">All</option>
+                        </select>
+                    </div> -->
+                  </div>
+                      <div class="tab-content ">
+                  <router-outlet></router-outlet>
+                  </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-xl-3 " *ngIf="current">
+              <div class="quick-tip-de-wrpper" >
+                  <h3><img src="assets/images/quicktip.spng" alt="">  Quick Tip...</h3>
+                  <p>- All memberships include 2 free credits per student.
+                    <br>
+                    <br>
+                    -After your 30 day trial period your total membership fee is non-refundable.
+                    <br>
+                    <br>
+                    - You can change or cancel your membership plan in the <a href="#">Change Plan</a> tab,where you can also add more students and/or credits to your existing plan too
+
+                  </p>
+              </div>
+            </div>
+              <div class="col-md-12 col-lg-3" *ngIf="available">
+              <div class="selector-custom-bar" >
+                <div class="bar-wrapper">
+                      <h3>Number of Students</h3>
+                        <p>{{value}}</p>
+                        <div class="custom-slider">
+                            <ng5-slider [(value)]="student" [(highValue)]="highValue"[options]="options" (valueChange)="studentCountChange($event)"></ng5-slider>
+                        </div>
+                </div>
+                <div class="bar-wrapper">
+                  <h3>Included Credits </h3>
+                    <p>{{value1}}</p>
+                    <div class="custom-slider">
+                        <ng5-slider [(value)]="credit" [(highValue)]="highValue"[options]="options2" (valueChange)="studentCountChange($event)"></ng5-slider>
+                    </div>
+                </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-xl-3 " *ngIf="change">
+            <div class="quick-tip-de-wrpper" >
+                <h3><img src="assets/images/quicktip.spng" alt="">  Quick Tip...</h3>
+                <p>- All memberships include 2 free credits per student.
+                  <br>
+                  <br>
+                  - If you wish to discuss a custom package please do get in touch with us <a href="#">here</a> to discuss this .Thanks
+
+                </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

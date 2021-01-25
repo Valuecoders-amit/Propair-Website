@@ -1,0 +1,77 @@
+<div id="Education_t" class="tab-pane fade in active show">
+    <div class="invoicebilling basic-membership diffrent-tbl">
+      <!-- A level Subjects -->
+      <div class="table-wrpper">
+        <table>
+          <thead>
+            <th>A-level Subjects</th>
+            <th>AS / A</th>
+            <th>Predicted</th>
+            <th>Result</th>
+            <th></th>
+          </thead>
+          <ng-container *ngFor=" let education of educationData; let i = index; ">
+          <tbody *ngIf="education._id == 'A level'">
+              <tr *ngFor = "let ed of education.records[0].subject;">
+                <td>{{ed.subject}}</td>
+                <td>{{ed.level}}</td>
+                <td>{{ed.predicted}}</td>
+                <td>{{ed.result}}</td>
+                <td></td>
+              </tr>
+          </tbody>
+        </ng-container>
+        </table>
+      </div>
+      <!-- A level Ends -->
+  
+      <!-- IB Subjects -->
+      <div class="table-wrpper">
+        <table>
+          <thead>
+            <th>IB Subjects</th>
+            <th>SL/HL</th>
+            <th>Predicted</th>
+            <th>Result</th>
+            <th></th>
+          </thead>
+          <ng-container *ngFor=" let education of educationData; let i = index; ">
+          <tbody *ngIf="education._id == 'IB'">
+            <tr *ngFor = "let ed of education.records[0].subject;">
+              <td>{{ed.subject}}</td>
+              <td>{{ed.level}}</td>
+              <td>{{ed.predicted}}</td>
+              <td>{{ed.result}}</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </ng-container>
+        </table>
+      </div>
+      <!-- IB Ends -->
+      <!-- GCSE Start -->
+      <div class="table-wrpper">
+        <table>
+          <thead>
+            <th>GCSE Subjects</th>
+            <th>Type</th>
+            <th>Result</th>
+            <th></th>
+            <th> </th>
+          </thead>
+          <ng-container *ngFor=" let education of educationData; let i = index; ">
+          <tbody *ngIf="education._id == 'GCSE'">
+            <tr *ngFor = "let ed of education.records[0].subject;">
+              <td>{{ed.subject}}</td>
+              <td>{{ed.level}}</td>
+              <td>{{ed.result}}</td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </ng-container>
+        </table>
+      </div>
+      <!-- GCSE Ends -->
+  
+   

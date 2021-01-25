@@ -1,0 +1,129 @@
+
+                    <div id="B&b" class="tab-pane fade in active show"  style="background: #fafafa;">
+
+                      <div class="editableontent-W rightalignedpencil">
+                        <p *ngIf="!biography && noData">Please fill in your brief biography</p>
+                          <!-- <p *ngIf="!more && biography">{{biography.length ? (biography | more) : 'No Data'}} 
+                            <a class="morebtn" href="javascript:void(0)"  *ngIf="biography.length > 450" (click)="more = true">More</a>
+                          </p>
+                          <p *ngIf="more && biography">{{biography.length ? biography : 'No Data' }}</p> -->
+                          <p *ngIf="!more && biography && noData">{{biography.length ? (biography | more) : 'No Data'}} <a href="javascript:void(0)" *ngIf="biography.length > 450" (click)="more=true;">More</a></p>
+                          <p *ngIf="more && biography && noData">{{biography.length ? biography : 'No Data' }} <a href="javascript:void(0)"  *ngIf="biography.length > 450" (click)="more=false">Less</a></p>
+                          <a href="javascript:void(0)" (click)="editBio(temp)" class="pencil-icon"><img src="../../../../assets/images/editpen.png" alt="img"></a>
+                      </div>
+                      <div class="message-listing-wrapper background-spec-cl">
+                            <div class="basd-profile brief-bhead">
+                              <p>My Message Exchanges</p>
+                              <div class="custom-selects" >
+                                  <select name="" id="" style="cursor: pointer;" (change)="filterInbox($event.target.value)">
+                                      <!-- <option value="all">All</option> -->
+                                      <option value="public">Public</option>
+                                      <option value="private">Private</option>
+                                      
+                                  </select>
+                              </div>
+                          </div>
+                          <div class="advisore-message-scr" *ngIf="inboxData?.length && noData">
+                            <div class="invoicebilling basic-membership ">
+                                <div class="table-wrpper">
+                                  <table class="table">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col">Date Accepted</th>
+                                        <th scope="col">Student</th>
+                                        <th scope="col">Subject</th>
+                                        <th scope="col">Views</th>
+                                        <th scope="col">Up-votes</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr (click)="showDetail(inbox._id)" *ngFor="let inbox of inboxData; let i=index">                                                                                                                   
+                                        <td>{{inbox.createdAt | date: 'dd  MMM  y'}}</td>
+                                        <td>{{inbox.firstName}}</td>
+                                        <td><p class="elipsis">{{inbox.title}}</p>                  
+                                          <span class="elipsis">{{inbox.details}}</span>
+                                        </td>
+                                        <td>{{ inbox?.views }}</td>
+                                        <td>{{ inbox?.upvotes }}</td>
+                                      </tr>
+                                      <!-- <tr>                                                                                                                   
+                                        <td>Wed 30 Oct 2019</td>
+                                        <td>BHS</td>
+                                        <td><p>Should I do a degree in data science? the Msgzsfgzhzdgi.</p>                  
+                                          <span  class="elipsis">They call me Mad Wolf and my career isn't going, Mdgsggdggdgdf.</span>
+                                        </td>
+                                        <td>2</td>
+                                        <td>2</td>
+                                      </tr>                
+                                      <tr>                                                                                                                   
+                                        <td>Wed 30 Oct 2019</td>
+                                        <td>Mad</td>
+                                        <td><p>Should I do a degree in data science? the Msgzsfgzhzdgi.</p>                  
+                                          <span  class="elipsis">They call me Mad Wolf and my career isn't going, Mdgsggdggdgdf.</span>
+                                        </td>
+                                        <td>2</td>
+                                        <td>2</td>
+                                      </tr>          
+                                      <tr>                                                                                                                   
+                                        <td>Wed 30 Oct 2019</td>
+                                        <td>Wendy</td>
+                                        <td><p>Should I do a degree in data science? the Msgzsfgzhzdgi.</p>                  
+                                          <span  class="elipsis">They call me Mad Wolf and my career isn't going, Mdgsggdggdgdf.</span>
+                                        </td>
+                                        <td>2</td>
+                                        <td>2</td>
+                                      </tr>                                                                             -->
+                                    </tbody>
+                                  </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="advisore-message-scr" *ngIf="!inboxData?.length && noData">
+                          <div class="invoicebilling basic-membership ">
+                              <div class="table-wrpper">
+                                <p class="new">No data found</p>
+                              </div>
+                          </div>
+                      </div>
+                      </div>  
+                    </div>
+
+
+
+
+<!-- Modal Starts -->
+<ng-template #temp>
+        <div class="close-modal-icon meesage-checklist" >
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Edit Biography</h5>
+              <button type="button" class="close" (click)="modalRef2.hide()" aria-label="Close">
+                <span aria-hidden="true"><img src="../../../../assets/images/close-icon.png" alt=""></span>
+              </button>
+            </div>
+              <div class="modal-body">
+                  <div class="mess-re-ex">
+                        <textarea cols="30" [(ngModel)]="biography"></textarea>
+
+                  </div>
+              </div>
+            <div class="modal-footer justify-content-center">
+              <button type="button"  class="green" data-dismiss="modal" (click)="biographyData()">Update</button>
+            </div>
+          </div>
+        </div>
+</ng-template>
+<!-- Modal Ends -->
+
+
+<!-- <ng-template #temp>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Modal</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    This is a modal.
+  </div>
+</ng-template> -->

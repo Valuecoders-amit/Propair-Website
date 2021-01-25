@@ -1,0 +1,65 @@
+<div class="messagextence">
+    <div class="row">
+      <div class="col-md-12 col-lg-9 col-xl-9">
+          <div class="heading-wrapper">
+              <h3>New Message Exchange Booking</h3>
+          </div>
+          <div class="quick-tip-de-wrpper mobile-tbds">
+            <h3> <img src="assets/images/quicktip.png" alt="img"> Quick Tip...</h3>
+              <p>-&nbsp;&nbsp;As our Advisors are busy people it's important to use paragraphs so your message is easy on the eyes and not one big block of text!<br/>
+                
+                -&nbsp;&nbsp;Also, bullet points are helpful (use dashes) when listing multiple questions or points.<br/>
+                
+                -&nbsp;&nbsp;Manners really do go a long way, so don't forget your p's and q's!</p>
+          </div>
+          <div class="w-100">
+              <!-- steps wrapper -->
+                  <!-- multistep form -->
+                  <form id="msform">
+                    <!-- progressbar -->
+                    <ul id="progressbar">
+                      <li class="active">Title</li>
+                      <li [ngClass]="{'active':studentService.tagTab }">Tags</li>
+                      <li [ngClass]="{'active':studentService.QuestionTab }">Your Questions</li>
+                      <li [ngClass]="{'active':studentService.ReviewTab }">Review</li>
+                    </ul>
+                    <!-- fieldsets -->
+                    <fieldset>
+                      
+                     <router-outlet></router-outlet>
+                            <!-- <input type="button" name="Cancel" class="cancel same-field" value="Cancel" />
+                            <input type="button" name="Save Draft" class="Save-Draft same-field" value="Save Draft" />
+                            <input type="button" name="next" class="next action-button same-field" value="Next" /> -->
+                           
+                    </fieldset>
+                       <!-- fieldsets close-->
+
+                <!-- 3 -->
+
+          <!-- 4 -->
+
+                          <!-- steps wrapper close -->
+                        </form>
+                    
+          </div>
+      </div>
+      <div class="col-md-12 col-lg-3 col-xl-3">
+          <div class="quick-tip-de-wrpper tabids">
+            <h3> <img src="assets/images/quicktip.png" alt="img"> Quick Tip...</h3>
+              <p>- As our Advisors are busy people it's important to use paragraphs so your message is easy on the eyes and not one big block of text<br/>
+                <br>
+                - Also, bullet points are helpful (use dashes) when listing multiple questions or points<br/>
+                <br>
+                - Manners really do go a long way, so don't forget your p's and q's</p>
+          </div>
+      </div>
+   </div>
+  </div>
+
+
+  <ngx-spinner 
+  bdColor="rgba(255,255,255,0.10)"
+  [fullScreen]= "false">
+  <img style=" width: 100px; height: 100px;"  src="assets/images/loadingg.gif" />
+    
+    </ngx-spinner>

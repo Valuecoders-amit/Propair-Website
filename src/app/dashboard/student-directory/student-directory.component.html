@@ -1,0 +1,410 @@
+
+<div id="message" class="tab-pane fade active">
+  <div class="container-fluid">
+    <div class="advisore-message-scr studnt-dir-educator">
+      <div class="row">
+        <div class="col-12">
+            <div class="heading-wrapper">
+                <h3>Student Directory</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-9 col-lg-12">
+            <div class="dasshbord-content-wrapper eductor-dasbrd">
+              <div class="edit-classes">
+                <h3>{{userData?.membership?.membershipName | titlecase}} Membership</h3>
+                <div class="btns">
+                    <a (click)="addStudentss()">Add New Students</a>
+                    <a (click)="Class()">Add / Edit Classes</a>
+                </div>
+              </div>
+              <div class="live-request">
+                <div class="number  w-100">
+                  <div class="text-left">
+                    <p>{{data?.classesAllowed | number}}</p>
+                    <span>Number of Classes</span>
+                </div> 
+                <div class="text-left">
+                  <p>{{data?.totalStudent | number}}</p>
+                  <span>Number of Students</span>
+                </div> 
+                <div class="text-left">
+                  <p>{{data?.totalClasses | number}}</p>
+                  <span>Classes Used</span>
+                </div> 
+                <div class="text-left">
+                  <p>{{data?.registerStudent | number}}</p>
+                  <span>Student Registered</span>
+                </div> 
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-9 col-lg-12">
+            <div class="message-listing-wrapper">
+              <div class="main">
+                <div class="basd-profile">
+                  <p>{{studentCount | number}} Students in Total</p>
+                  <div class="multibtns">
+                    <div class="blue-btn">
+                      <a *ngIf="studentsData?.length" (click)="showCancePopup()">Delete</a>
+                    </div>
+
+                    <div class="blue-btn only-spc">
+                      <a *ngIf="studentsData?.length" (click)="inviteStudent()">Invite</a>
+                    </div>
+                    <div class="custom-selects">
+                      <select name="" id="" class="handCursor" (change)="filterYear($event.target.value)">
+                        <option value="all" selected>All Years</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                      </select>
+                    </div>
+                    <div class="custom-selects">
+                      <select  class="handCursor" name="" id="" (change)="filterForms($event.target.value)">
+                        <option  value="all" selected>All Forms</option>
+                        <option [value]="formList" *ngFor="let formList of formListdata">{{formList}}</option>
+                      </select>
+                    </div>
+
+                    <div class="custom-selects">
+                      <select  class="handCursor" name="" id="" (change)="filterStatus($event.target.value)">
+                        <option  value="all" selected>All Statuses</option>
+                        <option value="Invite Now">Invite Now</option>
+                        <option value="Invited">Invited</option>
+                        <option value="Registered">Registered</option>
+                      </select>
+                    </div>
+                  </div>
+              </div>
+              <div class="invoicebilling basic-membership ">
+                <div class="table-wrpper" *ngIf="studentsData?.length">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th id="checkth">
+                          <div class="iline">
+                            <div class="form-group">
+                                <input type="checkbox"[(ngModel)]="selectedAll" (change)="selectAll()">
+                                <label for="html3"></label>
+                              </div>
+                          </div>
+                          <span>First Name</span>
+                        </th>
+                        <!-- <th scope="col">First Name</th> -->
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Year</th>
+                        <th scope="col">Form</th>
+                        <th scope="col">Credits</th>      
+                        <th scope="col">Multiple Classes</th>
+                        <th scope="col">Status</th>
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr style="cursor: pointer;"*ngFor="let student of studentsData" [ngClass]="{'notClass': student.isFreezed}">
+                        <td id="checktd">
+                          <div class="iline">
+                            <div class="form-group">
+                                <input [(ngModel)]="student.value" type="checkbox" [name]="student._id" (change)="studentChecked()">
+                                <label for="html34"></label>
+                              </div>
+                          </div>
+                          <span>{{student?.firstName}}</span>
+                        </td>
+                        <!-- <td (click)="navigate(student._id)">{{student?.firstName}}</td> -->
+                        <td (click)="navigate(student._id)">{{student?.lastName}}</td>
+                        <td (click)="navigate(student._id)">{{student?.email}}</td>
+                        <td>{{student?.year}}</td>
+                        <td>{{student?.form ? student?.form : 'N/A'}}</td>
+                        <td>{{student?.wallet?.credit}}</td>
+                        <td class="add-clses" >
+                          <div class="add-subject" *ngIf="student.class.length > 1">
+                            <span *ngFor="let class of student.class ; let i = index">{{class?.class}}
+                              <span class="move" *ngIf="i < student.class.length-1">,</span>
+                            </span>
+                          </div>
+                          <div class="add-subject" *ngIf="student.class.length == 1">
+                            <span *ngFor="let class of student.class ; let i = index">{{class?.class}}
+                              <!-- <span *ngIf="i < student.class.length-1">,</span> -->
+                            </span>
+                          </div>
+                            <span *ngIf="student.class.length < 1">
+                                N/A
+                            </span>
+                         <div>
+                            <a href="#" data-toggle="modal" data-target="#addcls" (click)="studentClassEdit(student._id)"><img src="assets/images/editpen.png" alt="img"></a>
+                        </div>
+                      </td>
+                        <td >{{student?.status}} <span class="temp"><br>
+                          <span *ngIf="student?.status =='Registered'">
+                            ({{student?.statusTime | date: 'EEE d MMM y'}})
+                          </span>
+                          <span *ngIf="student?.status=='Invite Now' || student?.status=='Invited' ">
+                            ({{student?.invitedTime | date: 'EEE d MMM y'}})
+                          </span>
+                        </span>
+                      </td>
+
+                      </tr>        
+                    </tbody>
+                  </table>
+                </div>
+                <div class="table-wrpper" *ngIf="!studentsData?.length">
+                  <p class="text-center">Student Directory Empty</p>
+                </div>
+              </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    </div>
+  </div>    
+</div>
+
+
+<div class="down-import-stu">
+    <ng-template #addStudents>
+        <div class="riotAccount">
+            <div class="modal-body">
+                <div class="tournament_create_inner">
+                    <div class="text-center position-relative">
+                        <h3>Add New Students</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closePopup()"><img aria-hidden="true" src="../../../assets/images/close-trans.png" alt=""></button> 
+                    </div>
+                    <div class="import-stu-wrapper">
+                        <div class="import-stu-box">
+                            <div class=" text-center import-button-box">
+                               <div>
+                                 <img src="../../../assets/images/download-icon.png" alt="png">
+                                <button for="file" type="submit" class=" box-shdow submit mr-3"  (click)="FileUpload.click()" >Import Students</button>
+                               </div>
+                               <div>
+                                  <button type="submit" class="btn btn-info box-shdow submit download"  (click)="download()">Download Import Template</button>
+                               </div>
+                               <div>
+                                   <img src="../../../assets/images/manuall-add.png" alt="png">
+                                  <button type="submit" class=" box-shdow submit mr-3" (click)="manuallyAdd()">Manually Add Student</button>
+                               </div>
+                                <div class="form-group fileUpload">
+                                  <input  type="file" id="file" #FileUpload (change)="handleFileInput($event.target.files)"  accept=".csv"/>
+                              </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+      
+        </div>
+      </ng-template>
+</div>
+
+
+
+<ng-template #manuallyAddStudent>
+  <div class="riotAccount manually-add-student">
+      <div class="modal-body">
+        <div class="tournament_create_inner row">
+          <div class="col-sm-12 text-center position-relative">
+            <h3>Manually Add Students</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="manuallAdd()"><img aria-hidden="true" src="../../../assets/images/close-trans.png" alt=""></button> 
+          </div>
+          <div class="col-sm-12">
+            <div class="row">
+              <div class="col-sm-12 text-center">
+                      <form [formGroup]="linkRiotAccountForm">
+                        <div class="">
+                          <div class="frm-grp">
+                             <div class="field">
+                                <label>First Name</label>
+                                <input type="text" class="form-control " formControlName="firstName"placeholder="Enter First Name" >
+                                
+                             </div>
+                             <div class="field">
+                              <label>Last Name</label>
+                              <input type="text" class="form-control" formControlName="lastName" placeholder="Enter Last Name">
+                             </div>
+                             <div class="field">
+                              <label>Email</label>
+                              <input type="text" class="form-control" formControlName="email" placeholder="Enter Email">
+                             </div>
+                             
+                             <div class="field">
+                              <label>Year</label>
+                              <select class="yearDropDown" name="" id=""  formControlName="year">
+                                  <!-- <option [value]="year" *ngFor='let year of yearList' >{{year}}</option> -->
+                                  <option value=null disabled selected>Please Select Year</option>
+                                  <option value="7">7</option>
+                                  <option value="8">8</option>
+                                  <option value="9">9</option>
+                                  <option value="10">10</option>
+                                  <option value="11">11</option>
+                                  <option value="12">12</option>
+                                  <option value="13">13</option>
+                                </select>
+                             </div>
+                             <div class="field">
+                              <label>Form</label>
+                              <input type="text" class="form-control" formControlName="form" placeholder="Enter Form">
+                             </div>
+                            <div class="ad-student">
+                              <button type="submit1" class=" btn btn-info box-shdow submit mr-3 add-s" (click)="student()"> Add Student</button>
+                              <button type="submit1" class=" box-shdow submit" (click)="manuallAdd()">Cancel</button>
+                              
+                            </div>
+                          </div>
+                      </div>
+                    </form>
+                          
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+  </div>
+</ng-template>
+
+
+<ng-template #addClass>
+  <div class="riotAccount create-directoy">
+      <div class="modal-body">
+        <div class="tournament_create_inner row">
+          <div class="col-sm-12 text-center position-relative">
+            <h3>Class Directory</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeClass()"><img aria-hidden="true" src="../../../assets/images/close-trans.png" alt=""></button> 
+          </div>
+          <div class="col-sm-12">
+            <div class="data">
+                <p>Classes Used {{classCount? classCount :'0'}} ({{remainingClass ? remainingClass :'0'}} remaining)</p>
+                <div class="clasname">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col" >#</th>
+                        <th scope="col" >Class Name</th>
+                        <th scope="col" ></th>
+                        <th scope="col" ></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let class of classes let i = index">
+                        <td scope="row">{{i+1}}</td>
+                        <td>
+                          <span class="spanWidth" *ngIf="!class.edit">{{class.class}}</span>
+                          <input style="width: 100%;height: 100%;" *ngIf="class.edit" [(ngModel)]="class.class" [id]="class._id">
+                        </td>
+                        <td><a  class="handCursor" (click)="deleteClass(class._id)">Delete</a></td>
+                        <td>
+                            <a class="handCursor" *ngIf="!class.edit" (click)="class.edit=true;editClass(class._id)">Change</a>
+                            <a class="handCursor" *ngIf="class.edit" (click)="updateClass(class)">Save</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                  <div class="clasname">
+                    <form [formGroup]="addClassForm" (ngSubmit)="AddClass()">
+                      <div class="enter-new-name">
+                            <input type="text" placeholder="Enter New Class Name  " formControlName="class" >
+                            <a class="handCursor" (click)="AddClass()">Add</a>
+                      </div>
+                    </form>
+                  </div>
+              </div>
+            </div>
+          </div>
+      </div>
+
+  </div>
+</ng-template>
+
+<ng-template #logoutPopup>
+    <div class="riotAccount advisor-modal">
+        <div class="modal-body .close-modal-icon">
+            <div class="tournament_create_inner bg-white row" style="border-radius: 10px; padding: 20px;">
+                <div class="col-sm-12 text-center">
+                    <p>Do you want to Delete Student Record?</p>
+                </div>
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-12 text-center">
+                              <div class="modal-footer">
+                                <button type="submit" class=" green" (click)="delete(1)">Yes</button>
+                                <button type="submit" class="" (click)="delete(0)">No</button>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</ng-template>
+
+
+
+ <!-- Modal -->
+ <div class="advisor-modal">
+  <div class="close-modal-icon meesage-checklist"> 
+    <div class="modal fade" id="addcls" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add or Edit Class</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form [formGroup]="classForm">
+                <div class="form-group">
+                  <label for="">Classes</label>
+                </div>
+                <div>
+
+                    <ng-multiselect-dropdown
+
+                    formControlName="classes"
+                    [placeholder]="'Add or edit class'"
+                    [data]="classes"
+                    [settings]="dropdownSettings"
+                    (onSelect)="onClassSelect($event)"
+                    (onDeSelect) = "onItemDeSelectSector($event)"
+                  >
+                  </ng-multiselect-dropdown>
+ 
+                </div>
+
+                <!-- <span *ngFor="let class of classes">{{class.class}}</span> -->
+            </form>
+        </div>
+          <div class="modal-footer">
+            <button [hidden]=true id="openSuccesModal" data-toggle="modal" data-target="#addcls">success</button>
+            <button type="button"  class="green"  (click)="sendClass()">Yes</button>
+            <button type="button" data-dismiss="modal" (click)="cancel()">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+
+
+<ngx-spinner 
+bdColor="rgba(255,255,255,0.10)"
+[fullScreen]= "false">
+<img style=" width: 100px; height: 100px;"  src="assets/images/loadingg.gif" />
+  
+  </ngx-spinner>

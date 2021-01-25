@@ -1,0 +1,49 @@
+<div id="Work_e" class="tab-pane fade ">
+    <div class="w-100 add-qualif-wrapper">
+        <!-- <a href="javascript:void(0)" class="add-qualif" (click)="addCareer(temp)">+ Add New Position</a> -->
+    </div>
+    <div class="work-wpw">
+        <div class="requests-wrper frtopm">
+            <div class="wrp profile grey" *ngFor="let career of careeListing; let i=index;">
+                <div class="kps-bonus"> 
+                   
+                    <img *ngIf="!career.image" src="assets/images/company.png" alt="img">
+                    <img *ngIf="career.image" [src]="career.image" alt="img">
+                </div>
+                <div class="content-req student-portal-link">
+                    <div class="area">
+                        <h3>{{career?.title}}</h3>
+                        <h4>
+                            {{career?.employer}}
+                        </h4>
+                        <div class="location">
+                            <span *ngIf="career?.isCurrentlyWorking == true">
+                                {{career?.startDate | date}}
+                                {{career?.isCurrentlyWorking ?'- Present' : ''}}
+                            </span>
+                            <span *ngIf="career?.isCurrentlyWorking == false">
+                                {{career?.startDate | date}} - {{career?.endDate | date}}
+                            </span>
+                            <i></i>
+                            <p>{{career?.startDate | joined : career?.endDate }}
+                            </p>
+                            <i></i>
+                            <p>{{career?.city}} , {{career?.country}}</p>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="social_links refer-wpr">
+                    <!-- <a href="javascript:void(0)" (click)="editCareer(career,temp)"><img src="assets/images/editpen.png" alt="img"></a> -->
+                    
+                </div>
+
+            </div>
+
+            <div class="for-more-lisiting" *ngIf="moreData > 0 && !checkData">
+                <a href="javascript:void(0);" (click)="moreCareer()">{{moreData}}
+                    more positions</a>
+            </div>
+        </div>
+

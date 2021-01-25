@@ -1,0 +1,490 @@
+<div id="Overview" class="tab-pane fade in active">
+  <div class="row">
+    <div class="col-md-9">
+      <div class="socailimpact padd-0">
+        <div class="newadding-padding">
+          <h3>Social Impact</h3>
+          <div class="live-request">
+            <div class="number w-100">
+              <div class="text-left">
+                <p>{{ impactData?.messageCount | number }}</p>
+                <span>Message Exchanges</span>
+              </div>
+              <div class="text-left">
+                <p>{{ impactData?.views | number }}</p>
+                <span>Student Views</span>
+              </div>
+              <div class="text-left">
+                <p>{{ impactData?.upvote | number }}</p>
+                <span>Student Up-votes</span>
+              </div>
+              <div class="text-left">
+                <p>{{ impactData?.kp | number }}</p>
+                <span>Karma Points</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="new-drpbar">
+          <div class="since-joingdrp">
+            <ul>
+              <li class="dropdown">
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                  {{ selectedVal }}<b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <div class="lastdys">
+                      <p>{{ selectedVal }}</p>
+                      <!-- <span> last {{no_of_days}} days</span> -->
+                      <p>
+                        {{ selectedDat | date: "d MMM y" + " - " }}
+                        {{ todayDate | date: "d MMM y" }}
+                      </p>
+                    </div>
+                  </li>
+                  <hr />
+                  <div style="cursor: pointer">
+                    <li
+                      class="eqspace"
+                      [ngClass]="{ active_tab: joining['Since Joining'] }"
+                      (click)="joiningTabs('Since Joining' , 1)"
+                    >
+                      <span>Since Joining</span>
+                    </li>
+                    <li
+                      class="eqspace"
+                      [ngClass]="{ active_tab: joining['Last 12 Months'] }"
+                      (click)="joiningTabs('Last 12 Months' , 1)"
+                    >
+                      <span>Last 12 Months</span>
+                    </li>
+                    <li
+                      class="eqspace"
+                      [ngClass]="{ active_tab: joining['Ytd'] }"
+                      (click)="joiningTabs('Ytd' , 1)"
+                    >
+                      <span>Ytd</span>
+                    </li>
+                    <li
+                      class="eqspace"
+                      [ngClass]="{ active_tab: joining['Last 90 Days'] }"
+                      (click)="joiningTabs('Last 90 Days' , 1)"
+                    >
+                      <span>Last 90 Days</span>
+                    </li>
+                    <li
+                      class="eqspace"
+                      [ngClass]="{ active_tab: joining['Last Month'] }"
+                      (click)="joiningTabs('Last Month' , 1)"
+                    >
+                      <span>Last Month</span>
+                    </li>
+                    <li
+                      class="eqspace"
+                      [ngClass]="{ active_tab: joining['Today'] }"
+                      (click)="joiningTabs('Today' , 1)"
+                    >
+                      <span>Today</span>
+                    </li>
+                    <hr />
+                    <li>
+                      <div class="lastdys">
+                        <a
+                          [ngClass]="{ active_tab: joining['Custom'] }"
+                          (click)="joiningTabs('Custom', 1 , temp)"
+                          ><p>Custom...</p></a
+                        >
+                      </div>
+                    </li>
+                  </div>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <!-- <div class="thredots">
+                    <a href="#" data-toggle="modal" data-target="#modal-tabbing" >
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </a>
+                </div> -->
+        </div>
+      </div>
+      <div class="message-exchange-wrpper">
+        <div class="edit-classes" style="margin-bottom: 30px">
+            <h3 *ngIf="filterVal == 'exchange'">Message Exchanges</h3>
+            <h3 *ngIf="filterVal == 'view'">Student Views</h3>
+            <h3 *ngIf="filterVal == 'upVote'">Student Up-votes</h3>
+        </div>
+        <div class="chart-wrapper">
+          <figure class="highcharts-figure">
+            <div id="container"></div>
+          </figure>
+        </div>
+        <div class="thredots">
+          <a href="javascript:void(0);" (click)="openTabbing(temp3)">
+            <span></span>
+            <span></span>
+            <span></span>
+          </a>
+        </div>
+      </div>
+      <div class="main">
+        <div class="basd-profile perfomance-stats">
+          <p class="permnce-text">Performance</p>
+          <div class="custom-selects">
+            <select
+              name=""
+              id=""
+              (change)="performanceFilter($event.target.value)"
+            >
+              <!-- <option value="2017">2017</option>
+              <option value="2018">2018</option>
+              <option value="2019">2019</option> -->
+              <option *ngFor="let value of yearArray" value="{{value}}">{{value}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="invoicebilling basic-membership">
+          <div class="table-wrpper" *ngIf="performance">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col">Best</th>
+                  <th scope="col">Average (Mean)</th>
+                  <th scope="col">Median</th>
+                  <th scope="col">Worst</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>First Response Time</td>
+                  <td>
+                    {{
+                      performance?.responceTimeMax
+                        ? (performance?.responceTimeMax | avgResTime)
+                        : "N/A"
+                    }}
+                  </td>
+                  <td>
+                    {{
+                      performance?.responceTimeAvg
+                        ? (performance?.responceTimeAvg | avgResTime)
+                        : "N/A"
+                    }}
+                  </td>
+                  <td>
+                    {{
+                      performance?.responceMedian
+                        ? (performance?.responceMedian | avgResTime)
+                        : "N/A"
+                    }}
+                  </td>
+                  <td>
+                    {{
+                      performance?.responceTimeMin
+                        ? (performance?.responceTimeMin | avgResTime)
+                        : "N/A"
+                    }}
+                  </td>
+                </tr>
+                <tr>
+                  <td>Monthly Message Exchanges</td>
+                  <td>
+                    {{
+                      performance?.maxAverageMessage
+                        ? performance?.maxAverageMessage
+                        : "N/A"
+                    }}
+                  </td>
+                  <td>
+                    {{
+                      performance?.AvgMessage ? performance?.AvgMessage : "N/A"
+                    }}
+                  </td>
+                  <td>
+                    {{
+                      performance?.messageMedianNum
+                        ? performance?.messageMedianNum
+                        : "N/A"
+                    }}
+                  </td>
+                  <td>
+                    {{
+                      performance?.minAverageMessage
+                        ? performance?.minAverageMessage
+                        : "N/A"
+                    }}
+                  </td>
+                </tr>
+                <tr>
+                  <td>Monthly Karma Points</td>
+                  <td>
+                    {{ performance?.karmaMax ? performance?.karmaMax : "N/A" }}
+                  </td>
+                  <td>{{ performance?.karmaAvg }}</td>
+                  <td>
+                    {{
+                      performance?.karmaMedian
+                        ? performance?.karmaMedian
+                        : "N/A"
+                    }}
+                  </td>
+                  <td>{{ performance?.karmaMin }}</td>
+                </tr>
+                <tr>
+                  <td>Message Exchange Views</td>
+                  <td>
+                    {{ performance?.viewMax ? performance?.viewMax : "N/A" }}
+                  </td>
+                  <td>
+                    {{ performance?.viewAvg ? performance?.viewAvg : "N/A" }}
+                  </td>
+                  <td>
+                    {{
+                      performance?.viewMedian ? performance?.viewMedian : "N/A"
+                    }}
+                  </td>
+                  <td>
+                    {{ performance?.viewMin ? performance?.viewMin : "N/A" }}
+                  </td>
+                </tr>
+                <tr>
+                  <td>Monthly Up-votes</td>
+                  <td>
+                    {{
+                      performance?.upvoteMax ? performance?.upvoteMax : "N/A"
+                    }}
+                  </td>
+                  <td>
+                    {{
+                      performance?.upvoteAvg ? performance?.upvoteAvg : "N/A"
+                    }}
+                  </td>
+                  <td>
+                    {{
+                      performance?.upvoteMedian
+                        ? performance?.upvoteMedian
+                        : "N/A"
+                    }}
+                  </td>
+                  <td>
+                    {{
+                      performance?.upvoteMin ? performance?.upvoteMin : "N/A"
+                    }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-wrpper" *ngIf="!performance">
+            <p class="text-center">No data found</p>
+          </div>
+        </div>
+        <div class="new-drpbar">
+          <div class="since-joingdrp">
+            <ul>
+              <li class="dropdown">
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                  {{ selectedVal2 }}<b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <div class="lastdys">
+                      <!-- <span>Last {{ no_of_days }} days</span> -->
+                      <p>{{ selectedVal2 }}</p>
+                      <p>
+                        {{ selectedDat | date: "d MMM y" + " - " }}
+                        {{ todayDate | date: "d MMM y" }}
+                      </p>
+                    </div>
+                  </li>
+                  <hr />
+                  <div style="cursor: pointer">
+                    <li
+                      class="eqspace"
+                      [ngClass]="{ active_tab: joining2['Since Joining'] }"
+                      (click)="joiningTabs('Since Joining' , 2)"
+                    >
+                      <span>Since Joining</span>
+                    </li>
+                    <li
+                      class="eqspace"
+                      [ngClass]="{ active_tab: joining2['Last 12 Months'] }"
+                      (click)="joiningTabs('Last 12 Months' , 2)"
+                    >
+                      <span>Last 12 Months</span>
+                    </li>
+                    <li
+                      class="eqspace"
+                      [ngClass]="{ active_tab: joining2['Ytd'] }"
+                      (click)="joiningTabs('Ytd' , 2)"
+                    >
+                      <span>Ytd</span>
+                    </li>
+                    <li
+                      class="eqspace"
+                      [ngClass]="{ active_tab: joining2['Last 90 Days'] }"
+                      (click)="joiningTabs('Last 90 Days' , 2)"
+                    >
+                      <span>Last 90 Days</span>
+                    </li>
+                    <li
+                      class="eqspace"
+                      [ngClass]="{ active_tab: joining2['Last Month'] }"
+                      (click)="joiningTabs('Last Month' , 2)"
+                    >
+                      <span>Last Month</span>
+                    </li>
+                    <li
+                      class="eqspace"
+                      [ngClass]="{ active_tab: joining2['Today'] }"
+                      (click)="joiningTabs('Today' , 2)"
+                    >
+                      <span>Today</span>
+                    </li>
+                    <hr />
+                    <li>
+                      <div class="lastdys">
+                        <a
+                          [ngClass]="{ active_tab: joining2['Custom'] }"
+                          (click)="joiningTabs('Custom', 2 ,temp)"
+                          ><p>Custom...</p></a
+                        >
+                      </div>
+                    </li>
+                  </div>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <!-- <div class="thredots">
+                    <a href="#" data-toggle="modal" data-target="#modal-tabbing" >
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </a>
+                </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<ng-template #temp>
+  <div class="advisor-modal">
+    <div class="close-modal-icon meesage-checklist">
+      <div id="career-path">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Select Date</h5>
+            <button
+              type="button"
+              class="close"
+              (click)="modalRef2.hide()"
+              aria-label="Close"
+            >
+              <span aria-hidden="true"
+                ><img src="assets/images/close-icon.png" alt=""
+              /></span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form [formGroup]="addDate">
+              <div class="form-group">
+                <label for="">Start Date</label>
+                <my-date-picker
+                  name="startdate"
+                  [options]="myDatePickerOptions"
+                  formControlName="startDate"
+                  (dateChanged)="onDateChanged($event)"
+                ></my-date-picker>
+              </div>
+              <div class="form-group">
+                <label for="">End Date</label>
+                <my-date-picker
+                  name="enddate"
+                  [options]="myDatePickerOptions2"
+                  formControlName="endDate"
+                ></my-date-picker>
+              </div>
+              <div class="btns">
+                <a (click)="onApply()"> Apply</a>
+                <a (click)="modalRef2.hide()"> Cancel</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<!-- Modal Ends -->
+
+<!-- Tabbing Modal -->
+<ng-template #temp3>
+  <div class="advisor-modal graphfilter">
+    <div class="close-modal-icon meesage-checklist">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">
+            <span>Graph Data</span>
+          </h5>
+          <button type="button" class="close" (click)="modalTab.hide()">
+            <span aria-hidden="true"
+              ><img src="assets/images/close-icon.png" alt=""
+            /></span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="group_analystic">
+            <div class="ab-rl">
+              <ul class="nav nav-tabs">
+                <li>
+                  <a
+                    data-toggle="tab"
+                    href="#variable"
+                    (click)="dataGraph = true"
+                    class="active"
+                    >VARIABLE</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="tab-content">
+              <div id="variable" class="tab-pane fade in active show">
+                <div class="filter-f-grph-GA">
+                  <span style="color: #373636 !important">Graph Filter</span>
+                  <div class="custom-selects">
+                    <select
+                      name=""
+                      id=""
+                      (change)="filterVal = $event.target.value"
+                      [(ngModel)]="filterVal"
+                    >
+                      <option value="exchange">Message Exchange</option>
+                      <option value="view">Student Views</option>
+                      <option value="upVote">Student Up-votes</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="green" (click)="graphDataFilter()">
+            Apply
+          </button>
+          <button type="button" (click)="modalTab.hide()">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<!-- Modal -->

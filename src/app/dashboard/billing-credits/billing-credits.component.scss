@@ -1,0 +1,59 @@
+.dasshbord-content-wrapper .live-request {
+    margin-top: -27px;
+}
+
+.riotAccount { font-size: 30px; max-width: 610px; }
+.riotAccount .modal-body{ padding: 0 !important; }
+.riotAccount .import-stu-wrapper .import-stu-box{background: #fff; padding: 40px 0;}
+.riotAccount  .tournament_create_inner h3{background:#e4e4e4; color: #373636; font-family: 'Source Sans Pro', sans-serif; text-align: left; font-size: 30px; line-height:100px; padding: 0 60px; margin-bottom:0;}
+.riotAccount .modal-dialog{max-width: 700px; text-align: center; }
+// .riotAccount .modal-body{background: #fff; padding: 50px; border-radius: 25px;}
+.riotAccount .modal-body img{max-width: 230px; text-align: center; }
+// .riotAccount .details{ text-align: left; margin-top: 70px; }
+.riotAccount .details label{font-size: 24px; margin: 15px 0;  color:#000; font-family: 'Conv_AvenirLTStd-Medium'; }
+.riotAccount .import-stu-wrapper .import-stu-box .import-button-box .submit{ font-size: 20px; text-transform: capitalize; background: transparent; border:none; max-width: 310px; width: 100%; padding: 13px 0; border-radius:8px; border: 2px solid #ecebeb; margin: 15px 0; font-family: 'Source Sans Pro', sans-serif; color: #7f7f7f; -webkit-border-radius:8px; -moz-border-radius:8px; -ms-border-radius:8px; -o-border-radius:8px; }
+.riotAccount .import-stu-wrapper .import-stu-box .import-button-box img{margin-right: 20px;}
+.fileUpload{ display: none; }
+.riotAccount .import-stu-wrapper .import-stu-box .import-button-box .download{margin-left:55px;     box-shadow: -3px -2px 11px rgba(0,0,0,0.1); background: #33e2d1; color: #fff; text-transform: capitalize; border: 2px solid #33e2d1;}
+.riotAccount .close{position: absolute; top: 30px; right: 40px;}
+
+
+::ng-deep {
+    .custom-slider .ng5-slider .ng5-slider-selection {
+        background: #33e2d1 !important;
+      }
+}
+::ng-deep {
+.ng5-slider .ng5-slider-pointer{
+    background: #33e2d1 !important;
+}
+.ng5-slider .ng5-slider-pointer:after{
+    background: #33e2d1  !important;
+}
+}
+.billing-al-select .public-slect select{    margin: 30px 0;    padding: 15px 0 15px 40px;}
+
+.close-modal-icon .modal-header{background: #e4e4e4;     padding: 20px;}
+.close-modal-icon .modal-header .close{color:#000;}
+.close-modal-icon .flex-row-wrapper{display: flex;}
+.close-modal-icon .flex-row-wrapper p{color: #7f7f7f;  font-size: 20px; font-weight: 500; margin: 15px 0;}
+.close-modal-icon .flex-row-wrapper p:first-child{padding-right: 20px;  width: 35%; text-align: right;}
+.close-modal-icon .modal-footer{border-top:none; flex-wrap: nowrap;}
+.close-modal-icon .modal-footer button{ width:50%; margin: 0 15px; text-align: center; border-radius:8px ; font-family: 'Source Sans Pro', sans-serif;    border: none; font-size: 20px; height: 50px; color:#7f7f7f; background: #e4e4e4; -webkit-border-radius:8px ; -moz-border-radius:8px ; -ms-border-radius:8px ; -o-border-radius:8px ; }
+.close-modal-icon .modal-footer button.green{ color:#fff;  background: #33e2d1;}
+.close-modal-icon .modal-content{ border: none; }
+.view-bill{display: flex; align-items: center; justify-content: space-between;}
+.view-bill .bill-pay label{font-size: 18px; margin-right: 10px;}
+.view-bill .bill-pay a{font-size: 18px; color: #33e2d1; box-shadow: 0 0px 7px 0px rgba(0, 0, 0, 0.1); background: #fff; padding: 10px 15px; border-radius: 5px; }
+.student-dir-wrapper .live-request .number div span {
+    color: #373636 !important;
+}
+.total-spend-wrapper .total-spend{    margin-bottom: 30px;}
+.selector-custom-bar .bar-wrapper:nth-child(2){margin-bottom: 0;}
+
+
+.temp{
+    font-size: 10px;
+}
+.ytd-slector{width: 250px;}
+.remove-left .live-request .number div span{    margin-left: 0px;}

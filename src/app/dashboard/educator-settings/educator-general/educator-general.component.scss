@@ -1,0 +1,560 @@
+.school-wrapper {
+	background: #fff;
+  padding: 77px 75px;
+  box-shadow: none;
+	border-radius: 12px;
+  }
+  
+  .school-wrapper .school-name img {
+	float: left;
+	height: 112px;
+  }
+
+  .genderfield select{
+    // background: #fafafa url(../../../../../assets/images/dropdown-angelsmall.png);
+    background: #fafafa;
+    border: 1px solid #f0f0f0;
+    width: 100%;
+      display: flex;
+      border-radius: 6px;
+    padding: 18px 20px;
+    -webkit-appearance: none;
+    font-size: 20px;
+      font-family: "Source Sans Pro", sans-serif;
+      color: #373636;
+  }
+
+  @media(max-width:1600px){
+    .genderfield select{font-size: 16px;}
+  }
+  
+  .school-wrapper .school-name .name {
+	margin-left: 145px;
+  }
+  
+  .school-wrapper .school-name .name h3 {
+	font-size: 30px;
+	font-family: 'Source Sans Pro', sans-serif;
+  }
+  
+  .school-wrapper .school-name .name h4 {
+	font-size: 24px;
+	font-family: 'Source Sans Pro', sans-serif;
+	margin: 15px 0;
+  }
+  
+  .school-wrapper .school-name .name p {
+	font-size: 18px;
+	color: #a7a7a7;
+	font-family: 'Source Sans Pro', sans-serif;
+  }
+  
+  .school-wrapper .school-name .name img {
+	height: 27px;
+	margin-right: 10px;
+  }
+  
+  .school-wrapper .field label {
+	color: #373636;
+	font-size: 20px;
+	line-height: 35px;
+	width: 100%;
+	text-align: right;
+	font-family: 'Source Sans Pro', sans-serif;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+  }
+  
+  .school-wrapper .field .edit {
+	background: #fafafa;
+	border: 1px solid #f0f0f0;
+	display: flex;
+	border-radius: 6px;
+	padding: 28px 20px;
+  }
+  
+  .school-wrapper .field .row {
+	margin: 15px 0;
+  }
+  
+  .school-wrapper .field .edit input {
+	width: 100%;
+	border: none;
+	background: transparent;
+	font-size: 20px;
+	font-family: 'Source Sans Pro', sans-serif;
+  }
+  
+  .school-wrapper .field .edit a {
+	margin-left: 15px;
+	color: #007de4;
+	font-size: 20px;
+	font-family: 'Source Sans Pro', sans-serif;
+	white-space: nowrap;
+  }
+  
+  /* setting  genral close*/
+  /* setting  notification*/
+  .tag-line-radio {
+	font-size: 20px;
+	line-height: 36px;
+	margin-bottom: 50px;
+  }
+  
+  .school-wrapper .radio-box form {
+	justify-content: space-between;
+  }
+  
+  .school-wrapper .sbmt-btn {
+	margin-top: 70px;
+  }
+  
+  .school-wrapper .sbmt-btn a {
+	font-size: 24px;
+	color: #fff;
+	background: #33e2d1;
+	max-width: 355px;
+	width: 100%;
+	display: block;
+	border-radius: 5px;
+	padding: 18px 0;
+	text-align: center;
+	box-shadow: none;
+  }
+
+
+
+  .school-wrapper {
+	background: #fff;
+	padding:38px 40px;
+	border-radius: 12px;
+  }
+  
+  .school-wrapper .school-name img {
+	float: left;
+	height: 112px;
+	margin-right: 30px;
+  }
+  
+  .school-wrapper .school-name .name {
+	margin-left: 145px;
+  }
+  
+  .school-wrapper .school-name .name h3 {
+	font-size: 30px;
+	font-family: 'Source Sans Pro', sans-serif;
+  }
+  
+  .school-wrapper .school-name .name h4 {
+	font-size: 24px;
+	font-family: 'Source Sans Pro', sans-serif;
+	margin: 15px 0;
+  }
+  
+  .school-wrapper .school-name .name p {
+	font-size: 18px;
+	color: #a7a7a7;
+	font-family: 'Source Sans Pro', sans-serif;
+  }
+  
+  .school-wrapper .school-name .name img {
+	height: 27px;
+	margin-right: 10px;
+  }
+  
+  .school-wrapper .field label {
+	color: #373636;
+	font-size: 16px;
+	line-height: 20px;
+	width: 100%;
+	text-align: left;
+	font-family: 'Source Sans Pro', sans-serif;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+  }
+  
+  .school-wrapper .field .edit {
+	background: #fafafa;
+	border: 1px solid #f0f0f0;
+	display: flex;
+	border-radius: 6px;
+	padding: 6px 20px;
+	position: relative;
+  }
+  
+  .school-wrapper .field .row {
+	margin: 15px 0;
+  }
+  
+  .school-wrapper .field .edit input {
+	width: 100%;
+	position: relative;
+	border: none;
+	background: transparent;
+	font-size: 14px;
+	font-family: 'Source Sans Pro', sans-serif;
+	color: #aaaaaa;
+  }
+  
+  .school-wrapper .field .edit a {
+	margin-left: 15px;
+	color: #007de4;
+	font-size: 14px;
+	font-family: 'Source Sans Pro', sans-serif;
+	white-space: nowrap;
+	cursor: pointer;
+  }
+
+
+  .school-wrapper .radio-box form {
+	justify-content: space-between;
+  }
+  
+  .school-wrapper .sbmt-btn {
+	margin-top: 70px;
+  }
+  
+  .school-wrapper .sbmt-btn a {
+	font-size: 24px;
+	color: #fff;
+	background: #33e2d1;
+	max-width: 355px;
+	width: 100%;
+	display: block;
+	border-radius: 5px;
+	padding: 18px 0;
+	text-align: center;
+	box-shadow: 0 0px 20px -2px rgba(0, 0, 0, 0.1);
+  }
+
+
+
+
+  
+.uploadLogo{
+  
+	box-shadow: -3px -2px 11px rgba(0, 0, 0, 0.1);
+	background: #33e2d1;
+	color: #fff;
+	text-transform: capitalize;
+	border: 11px solid #33e2d1;
+	border-radius: 6px;}
+
+
+	.uploadSave{
+		box-shadow: -3px -2px 11px rgba(0, 0, 0, 0.1);
+		background: #33e2d1;
+		color: #fff;
+		text-transform: capitalize;
+		border: 11px solid #33e2d1;
+		border-radius: 6px;
+	   
+		margin-left: 18rem;
+		width: 197px;
+	  }
+	  .uploadPassSave{
+		box-shadow: -3px -2px 11px rgba(0, 0, 0, 0.1);
+		background: #33e2d1;
+		color: #fff;
+		text-transform: capitalize;
+		border: 11px solid #33e2d1;
+		border-radius: 6px;
+		margin-left: 2%;
+		width: 197px;
+	  }
+	  .upload-sch-l .upld-btn{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.upload-sch-l .upld-btn img{
+	  margin-right: 10px;
+	}
+
+
+	ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tg-list-item {
+  margin: 0 2em;
+}
+
+.tgl {
+  display: none;
+
+  // add default box-sizing for this scope
+  &,
+  &:after,
+  &:before,
+  & *,
+  & *:after,
+  & *:before,
+  &+.tgl-btn {
+    box-sizing: border-box;
+
+    &::selection {
+      background: none;
+    }
+  }
+
+  +.tgl-btn {
+    outline: 0;
+    display: block;
+    width: 4em;
+    height: 2em;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+
+    &:after,
+    &:before {
+      position: relative;
+      display: block;
+      content: "";
+      width: 50%;
+      height: 100%;
+    }
+
+    &:after {
+      left: 0;
+    }
+
+    &:before {
+      display: none;
+    }
+  }
+
+  &:checked+.tgl-btn:after {
+    left: 50%;
+  }
+}
+
+// themes
+
+.tgl-ios {
+  +.tgl-btn {
+    // background:#ec9308;
+    border-radius: 2em;
+    padding: 2px;
+    transition: all 0.4s ease;
+    border: 1px solid #e8eae9;
+
+    &:after {
+      border-radius: 2em;
+      background: #fbfbfb;
+      transition: left 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+        padding 0.3s ease, margin 0.3s ease;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 4px 0 rgba(0, 0, 0, 0.08);
+    }
+
+    &:hover:after {
+      will-change: padding;
+    }
+
+    &:active {
+      box-shadow: inset 0 0 0 2em #e8eae9;
+
+      &:after {
+        padding-right: 0.8em;
+      }
+    }
+  }
+
+  &:checked+.tgl-btn {
+    background: #34e2d1;
+
+    &:active {
+      box-shadow: none;
+
+      &:after {
+        margin-left: -0.8em;
+      }
+    }
+  }
+}
+
+.tg-list-item {
+  margin: 22px 2em;
+}
+
+// .iti__flag {
+// //   background-image: url("../../../assets/images/flags.png");
+// //   background-image: url("../../../../../assets/images/flags.png");
+
+// }
+
+// @media (-webkit-min-device-pixel-ratio: 2),
+// (min-resolution: 192dpi) {
+//   .iti__flag {
+// 	// background-image: url("../../../assets/images/flags@2x.png");
+//     // background-image: url("../../../../../assets/images/flags@2x.png");
+	
+//   }
+// }
+
+// .int-phone-prefix {
+//   background: transparent;
+//   border: 0px !important;
+//   padding: 0px !important;
+//   margin: 0px !important;
+// }
+
+#modal-basic-title {
+  text-align: center;
+	width: 100%;
+}
+.school-wrapper .sbmt-btn a {
+    max-width: 220px;
+    border-radius: 9px;
+    padding: 12px 0;
+}
+.logo-ch-rt a{width: 100%; text-align: right;}
+.curent-msg-inbox .modal-body label{font-size: 20px; color: #7f7f7f;} 
+
+
+
+.close-modal-icon .modal-header {padding: 22px 40px;}
+.close-modal-icon .modal-header .modal-title{font-size: 30px; font-family: 'Source Sans Pro', sans-serif; font-weight: 600; }
+.close-modal-icon .modal-footer button{height: 50px;}
+
+
+
+.curent-msg-inbox.prpr-sup-fr-studnet .modal-dialog {max-width: 590px;}
+.curent-msg-inbox .modal-body{ padding: 38px 38px;}
+.curent-msg-inbox .modal-body textarea{margin: 25px 0 0 0; border: 1px solid #ecebeb; font-size: 20px; color: #7f7f7f;  padding: 20px 18px; border-radius: 12px; resize: none;}
+.curent-msg-inbox .modal-body input{border: 1px solid #e2e3e3; padding: 28px 18px; font-size: 20px;     color: #d4d4d4; border-radius: 8px;}
+.curent-msg-inbox .propairImage{width: 100%; max-width: 100%;margin-bottom: 15px;     text-align: center;}
+.curent-msg-inbox .propairImage img{height: 100px;}
+.curent-msg-inbox .inline-footer{justify-content: flex-end;}
+.curent-msg-inbox .inline-footer button{max-width: 47%; margin: 0 7px;}
+.curent-msg-inbox .inline-footer .cncle{ border: none; color: #007de4;background: transparent;box-shadow: none;}
+.curent-msg-inbox.prpr-sup-fr-studnet .modal-header {padding: 22px 40px;}
+.curent-msg-inbox.prpr-sup-fr-studnet .modal-header .modal-title{font-size: 30px; font-family: 'Source Sans Pro', sans-serif; font-weight: 600; }
+
+
+::ng-deep ngx-select-dropdown{width: 100% !important;}
+::ng-deep .ngx-dropdown-container button{   width: 68%;    box-shadow: none;  border: 1px solid #f0f0f0 !important; border-radius: 6px !important;  padding: 9px 20px !important;font-size: 20px !important;color: #373636 !important;font-family: 'Source Sans Pro', sans-serif !important;}
+::ng-deep .ngx-dropdown-container button .nsdicon-angle-down::before{       opacity: 0.2; top: 10px !important;}
+::ng-deep my-date-picker{    box-shadow: none;  border: 1px solid #f0f0f0 !important; border-radius: 6px !important;  padding: 9px 20px !important;font-size: 20px !important;color: #373636 !important;font-family: 'Source Sans Pro', sans-serif !important; width: 100%;}
+::ng-deep my-date-picker input{height: 100% !important; font-family: 'Source Sans Pro', sans-serif; font-size: 20px; width: 68%;}
+::ng-deep my-date-picker .selbtngroup{height: 100% !important;}
+::ng-deep .mydp{border: none !important;}
+
+.genderfield select{
+	// background: #fafafa url(../../../../../assets/images/dropdown-angelsmall.png);
+	background: #fafafa;
+	border: 1px solid #f0f0f0;
+	width: 100%;
+    display: flex;
+    border-radius: 6px;
+	padding: 6px 20px;
+	-webkit-appearance: none;
+	font-size: 20px;
+    font-family: "Source Sans Pro", sans-serif;
+    color: #373636;
+}
+
+.upldprofilepic{padding: 50px; text-align: center;}
+.upldprofilepic .imgwer{
+	display: flex; 
+	justify-content: center; 
+	width: 100%; 
+	flex-wrap: wrap;
+}
+
+.upldprofilepic img{
+	width:115px; 
+	height: 110px; 
+	margin:7px 7px; 
+	border-radius: 50%;
+}
+.upldprofilepic .btn{
+	color: #fff;
+    background: #33e2d1;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 42px;
+    margin-top: 30px;
+}
+.upldprofilepic img:hover{
+	
+		-moz-box-shadow: 0 0 10px rgb(116, 135, 241);
+		-webkit-box-shadow: 0 0 10px  rgb(116, 135, 241);
+		box-shadow: 0 0 10px rgb(116, 135, 241);
+	  
+}
+
+@media(max-width:1600px){
+  .curent-msg-inbox .modal-body input {
+    font-size: 18px;
+    padding: 20px 18px;
+  }
+    .school-wrapper{
+        padding: 30px 30px;
+    }
+    .school-wrapper .school-name .name h3 {
+        font-size: 20px;
+        margin-bottom: 0;
+    }
+    .school-wrapper .school-name .name h4{
+        font-size: 16px;
+        margin: 10px 0;
+    }
+    .school-wrapper .school-name .name img {
+        height: 22px;
+        margin-right: 5px;
+    }
+    .school-wrapper .school-name .name p {
+        font-size: 12px;
+    }
+    .school-wrapper .school-name img{
+        height: 105px;
+    }
+    .school-wrapper .field label{
+        font-size: 14px;
+    }
+    .school-wrapper .field .edit input {
+        font-size: 14px;
+    }
+    .genderfield select{font-size: 14px;}
+}
+@media(max-width:767px){
+    .school-wrapper .school-name .name h3 {
+        font-size: 20px;
+    }
+    .school-wrapper .school-name .name h4{
+        font-size: 16px;
+    }
+    .school-wrapper{
+        padding: 15px 15px;
+    }
+
+        .school-wrapper .school-name img{
+            height: 75px;
+        }
+		.school-wrapper .school-name .name{
+			margin-left: 0;
+		}
+
+	.school-wrapper .field label {
+		font-size: 16px;
+		line-height: 25px;
+		justify-content: flex-start;
+		text-align: left;
+  }
+  .school-wrapper .field .edit {
+    padding: 10px 20px;
+  }
+}

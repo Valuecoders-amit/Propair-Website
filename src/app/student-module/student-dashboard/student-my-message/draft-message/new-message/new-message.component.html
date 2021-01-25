@@ -1,0 +1,47 @@
+<div id="LiveExchangeBookings1" class="tab-pane fade" >
+    <div class="invoicebilling basic-membership " *ngIf="newExchangeData?.length">
+      <div class="table-wrpper">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Sending</th>
+              <th scope="col">Subject</th>
+              <th scope="col">Last saved</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let draftNew of newExchangeData; let i = index">
+              <td id="checktd">
+                <div class="iline">
+                  <div class="form-group">
+                    <input type="checkbox" [id]="draftNew._id" (change)="newMessageDraftChecked()"
+                      [(ngModel)]="draftNew.value">
+                    <label for="html3"></label>
+
+                  </div>
+                </div>
+                <span style="color: #373636" (click)="navigatToNewMessageExchange(draftNew._id)">{{i+1}}</span>
+              </td>
+              <!-- <td ></td> -->
+              <td (click)="navigatToNewMessageExchange(draftNew._id)">{{draftNew.student.firstName}}
+                {{draftNew.student.lastName}}</td>
+              <td (click)="navigatToNewMessageExchange(draftNew._id)">
+                <p>{{draftNew.title}}</p>
+                <span class="elipsis">{{draftNew.details}}</span>
+              </td>
+              <td (click)="navigatToNewMessageExchange()">
+                {{draftNew.createdAt |date : 'mediumDate'}}</td>
+
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="invoicebilling basic-membership " *ngIf="!newExchangeData?.length" >
+      <div class="table-wrpper">
+        <p class="new">Your New Exchange bookings is empty!</p>
+      </div>
+    </div>
+  </div>

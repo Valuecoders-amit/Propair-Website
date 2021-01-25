@@ -1,0 +1,374 @@
+<div class="customsht-screen">
+  <div class="stud-lib-chat-m">
+    <div class="row">
+  
+      <div class="col-md-12">
+        <div class="library_function">
+          <h3 *ngIf="!studentProfile" > <a  class="backarrow"><img src="assets/images/arrow.svg" alt="img" routerLink="/student-module/dashboard/student-my-message/inbox"></a><span style="cursor: pointer;" routerLink="/student-module/dashboard/student-my-message/inbox">Inbox</span></h3>
+          <h3 *ngIf="studentProfile" > <a  class="backarrow"><img src="assets/images/arrow.svg" alt="img" routerLink="/student-module/dashboard/student-profile/student-biography"></a>My Profile</h3>
+        </div>
+        <div class="library_actual">
+          <div class="row">
+              <div class="col-12">
+                  <div class="fav-like">
+                      <div class="live-heding">
+                          <h4>{{messageExchangeThread?.question?.title | titlecase}}</h4>
+                      </div>                                       
+                  </div>
+                  <div class="live-line">
+                    <div *ngIf="messageExchangeThread?.question?.type == 'public'">
+                    <ul>
+                      <li>Public Message Exchange started on {{messageExchangeThread?.question?.createdAt |date: 'd MMM y'}}</li>
+                      <li>Live</li>
+                      <li>viewed 256 times</li>
+                      <!-- <li *ngIf="messageExchangeThread?.question.isCompleted == true">completed on {{messageExchangeThread?.question?.createdAt |date: 'd MMM y'}}</li> -->
+                    </ul> 
+                  </div> 
+                  <div *ngIf="messageExchangeThread?.question?.type == 'private'">
+                    <ul>
+                      <li>Private Message Exchange started on {{messageExchangeThread?.question?.createdAt |date: 'd MMM y'}}</li>
+                      <li>Live</li>
+                      <li>viewed 256 times</li>
+                      <!-- <li *ngIf="messageExchangeThread?.question.isCompleted == true">completed on {{messageExchangeThread?.question?.createdAt |date: 'd MMM y'}}</li> -->
+                    </ul>
+                  </div>      
+                  </div>
+                 <div class="data-scince-subject">
+                    <div class="result-box" >
+                      <div class="result li" >
+                          <p *ngFor="let tag of messageExchangeThread?.question?.tags">{{tag | lowercase}}</p>
+                         
+                      </div>
+                      <!-- <div class="relevant">
+                        <span>Bonus <b>3 KPs</b></span>
+                      </div> -->
+                  </div>
+                 </div>
+                 <div class="chat-mail">
+                  <div class="user-chat w-100">
+                    <div class="profile">
+                        <img *ngIf="!messageExchangeThread?.question?.student?.image" src="assets/images/user-chat-profile.png" alt="img">
+                        <img *ngIf="messageExchangeThread?.question?.student?.image" [src]="messageExchangeThread?.question?.student?.image" alt="img">
+                        <p>Submitted  {{messageExchangeThread?.question?.createdAt |date: 'd MMM y'}} by <a  href="/student-module/dashboard/student-profile/student-biography" target="_blank"> {{messageExchangeThread?.question?.student.firstName}} {{messageExchangeThread?.question?.student.lastName}}</a> </p>
+                    </div>
+                    <div class="application">
+                        <!-- <h6>Hi there</h6> -->
+                        <p> {{messageExchangeThread?.question?.message | titlecase}}</p>
+
+                             <div class="flag-review" *ngIf="messageExchangeThread?.question?.isFlagged == true">
+                                  <p>Flagged</p>
+                             </div>
+                    </div>
+                </div>
+                <div class="user-chat w-100" *ngFor="let reply of messageExchangeThread?.replyThread">
+                  <div class="profile">
+                      <img *ngIf="!reply?.ownerId?.image" src="assets/images/user-chat-profile.png" alt="img">
+                      <img *ngIf="reply?.ownerId?.image" [src]="reply?.ownerId?.image" alt="img">
+                      
+                      <p>{{reply.duration}} <a (click)="navigate(reply,reply.ownerId._id)">{{reply?.ownerId.screenName ? reply?.ownerId.screenName : reply?.ownerId.firstName}} {{reply?.ownerId.screenName ? '' : reply?.ownerId.lastName}}</a> </p>
+                  </div>
+                  <div class="application">
+                      <!-- <h6>Hi there</h6> -->
+                      <p> {{reply?.reply}}</p>
+
+                           <!-- <div class="flag-review">
+                                <p> <img src="assets/images/quicktip.png" alt="img"> Flag for review</p>
+                           </div> -->
+                  </div>
+              </div>
+                <div class="replst" *ngIf="messageExchangeThread?.question?.isAssigned">
+                  <div class="row">
+                    <div class="col-xs-12 col-md-1">
+                        <div class="student-profile">
+                          <div class="profile-library">
+                              <img  *ngIf="!userInfo?.image" src="assets/images/user-chat-profile.png" alt="img">
+                              <img  *ngIf="userInfo?.image"  [src]="userInfo?.image" alt="img">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-11" >
+                      <div class="library_actual">
+                        <div class="row">
+                            <div class="col-12">
+                               <div class="chat-mail">
+                               
+                                  <div class="user-chat w-100 replycontet-wrapper">
+                                    <form [formGroup]="inboxForm">
+                                      <textarea class="application textArea" rows="6" (keyup)="keyUp()" maxlength="3201"
+                                      placeholder="Enter your Message here..." formControlName="reply"></textarea>
+                                    </form>
+                                  </div>
+                                  <div *ngIf="inboxForm.controls.reply.hasError('maxlength')">
+                                    <font color="red"> Please do not exceed 3200 characters </font>
+                                  </div>
+                               </div>
+                            </div>
+  
+                        </div>
+                   </div> 
+                   <span class="charter-limit"> <i><span *ngIf="availableMinLength < 12">{{availableMinLength}}</span>
+                    <span class = "character" *ngIf="availableMinLength >= 12" >{{availableMinLength}}</span></i> / 3,200 characters</span>
+                    </div>  
+                  </div>
+                  
+                </div>
+                <div class="submitting-buttons" id="msform" *ngIf="messageExchangeThread?.question?.isAssigned">
+                  <!-- <div class="relevant">
+                    <span data-toggle="modal" data-target="#thankyou">Bonus <b>3 KPs</b></span>
+                  </div> -->
+                  <input  type="button" name="Cancel" class="cancel same-field" value="Cancel" style="cursor: pointer;"   data-toggle="modal" data-target="#accept-rquest">
+                  <!-- <a  class="save "  style="cursor: pointer;" (click)="draft()">Save Draft</a> -->
+                  <input *ngIf="messageExchangeThread?.question?.status == 'reply'" type="button" name="previous" class="previous previous-ab  action-button same-field " value="Save Draft" style="cursor: pointer;"  (click)="draft()">
+                  <input  type="button" name="previous" class="previous previous-ab  action-button same-field" value="Thank Advisor & Close Message"  style="cursor: pointer; width: 305px" (click)="closePopup(closePopupModal)">
+                  <input  type="button" name="next" class="next action-button same-field" value="Send" style="cursor: pointer;" (click)="sendPopup()">
+                </div>
+                 </div>
+              </div>
+  
+          </div>
+     </div> 
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+  
+<div class="close-modal-icon meesage-checklist"> 
+  <div class="modal fade" id="send-private" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header align-items-center">
+          <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to Send?</h5>
+        </div>
+        <div class="modal-body">
+              <p class="color-blck">Quick Checklist:</p>
+              <p>Is the content clear?</p>
+             <p> Is the grammar and spelling good?</p>
+             <p> Have I asked & said eveythinhg I wanted to?</p>
+        </div>
+        <div class="modal-footer inline-footer">
+          <button type="button"  class="green" data-dismiss="modal" (click)="send(1)">Yes</button>
+          <button type="button" (click)="send(0)" >Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+        <!-- Modal -->
+        <ng-template #closePopupModal >
+          <div class="close-modal-icon meesage-checklist uicke"> 
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to close the Message?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true"><img src="assets/images/close-icon.png" alt="" (click)="cancelClosePopup()"></span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                      <p>Quick Checklist:</p>
+                       <p> Have I asked & said everything I wanted to?</p>
+                       <p> Have I said thank you to my volunteer Adviser?</p>
+                  </div>
+                  <div class="modal-footer inline-footer">
+                    <button type="button"  class="green"  (click)="close(1)" >Yes</button>
+                    <button type="button" (click)="close(0)">Cancel</button>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </ng-template>
+ 
+  <!-- Modal -->
+  
+  
+  <!--Modal -->
+  <div class="close-modal-icon masseage-sucess message-cancel"> 
+    <div class="modal fade" id=" " tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <img src="assets/images/okay.png" alt="img">
+              <h3>Success!</h3>
+              <p>You have successfully submitted your reply.</p>
+              <div class="btn-boxes">
+                  <a href="#"><span>OK</span>got it !</a>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal-- >
+  
+  
+  < !-- Modal -->
+  <ng-template #success>
+    <div class="close-modal-icon masseage-sucess uicke"> 
+        <div class="modal-dialog modal-dialog-centered" id="success" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true"><img src="assets/images/close-icon.png" alt="" (click)= "dashboard()"></span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <img src="assets/images/okay.png" alt="img">
+                <h3>Success!</h3>
+                <p>You have successfully closed your
+                  Message Exchange - We hope you found it useful.</p>
+                <div class="btn-boxes">
+                    <a  (click)= "Review()"> Write Review</a>
+                    <a  class="transparent" (click)= "dashboard()">Dashboard</a>
+                </div>
+            </div>
+            
+          </div>
+        </div>
+    </div>
+  </ng-template>
+
+  <!-- Modal -->
+  
+  
+  <!-- Modal reveiw-->
+  <div class="close-modal-icon reveiw"> 
+    <div class="modal fade" id="reveiw-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Review</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+            </button>
+          </div>
+          <div class="modal-body">
+             <div class="star-rating">
+                <p>Overall rating ({{averagevalue}})</p>
+                <ng-template #t let-fill="fill">
+                  <span class="star" [class.full]="fill === 100">
+                    <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+                  </span>
+                </ng-template>
+                
+                <ngb-rating [(rate)]="averagevalue" [starTemplate]="t" [readonly]="true" [max]="5"></ngb-rating>
+             </div>
+             <div class="comment">
+               <form  [formGroup]="ReviewForm">
+                <textarea formControlName="reviews" #reviewArea (keyup)="keyUpCharacter()" maxlength="1001">Please give your feedback here - it really helps 
+                  the wider community of students as well helping us
+                  make better matches, Plus you earn MPs for it!</textarea>
+                </form>
+             </div>
+             <div *ngIf="ReviewForm.controls.reviews.hasError('maxlength')">
+              <font color="red"> Please do not exceed 1000 characters </font>
+            </div>
+            <span class="charter-limit"> <i><span *ngIf=" availableReviewMinLength < 50">{{availableReviewMinLength}}</span>
+              <span class = "character" *ngIf="availableReviewMinLength >= 50" >{{availableReviewMinLength}}</span></i> / 1,000 characters</span>
+             <div class="star-rating">
+              <p>Helpfulness</p>
+              <ul class="helpfulness">
+                <li><i class="fa fa-star " aria-hidden="true" (click)="helpFul(1)" [ngClass]="{'green': helpFulValue  >= 1}"></i></li>
+                <li><i class="fa fa-star " aria-hidden="true" (click)="helpFul(2)" [ngClass]="{'green': helpFulValue  >= 2}"></i></li>
+                <li><i class="fa fa-star " aria-hidden="true" (click)="helpFul(3)" [ngClass]="{'green': helpFulValue  >= 3}"></i></li>
+                <li><i class="fa fa-star " aria-hidden="true" (click)="helpFul(4)" [ngClass]="{'green': helpFulValue  >= 4}"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true" (click)="helpFul(5)" [ngClass]="{'green': helpFulValue  >= 5}"></i></li>
+              </ul>
+            </div>
+            <div class="star-rating">
+              <p>Relevance</p>
+              <ul class="relevance">
+                <li><i class="fa fa-star " aria-hidden="true" (click)="relevance(1)" [ngClass]="{'green': relevanceValue  >= 1}"></i></li>
+                <li><i class="fa fa-star " aria-hidden="true" (click)="relevance(2)" [ngClass]="{'green': relevanceValue  >= 2}"></i></li>
+                <li><i class="fa fa-star " aria-hidden="true" (click)="relevance(3)" [ngClass]="{'green': relevanceValue  >= 3}"></i></li>
+                <li><i class="fa fa-star " aria-hidden="true" (click)="relevance(4)" [ngClass]="{'green': relevanceValue  >= 4}"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true" (click)="relevance(5)" [ngClass]="{'green': relevanceValue  >= 5}"></i></li>
+              </ul>
+           </div>
+           <div class="star-rating">
+            <p>Clarity</p>
+            <ul class="clarity">
+              <li><i class="fa fa-star " aria-hidden="true" (click)="clarity(1)" [ngClass]="{'green': clarityValue  >= 1}"></i></li>
+              <li><i class="fa fa-star " aria-hidden="true" (click)="clarity(2)" [ngClass]="{'green': clarityValue  >= 2 }"></i></li>
+              <li><i class="fa fa-star " aria-hidden="true" (click)="clarity(3)" [ngClass]="{'green': clarityValue  >= 3}"></i></li>
+              <li><i class="fa fa-star " aria-hidden="true" (click)="clarity(4)" [ngClass]="{'green': clarityValue  >= 4}"></i></li>
+              <li><i class="fa fa-star" aria-hidden="true" (click)="clarity(5)" [ngClass]="{'green': clarityValue  >= 5}"></i></li>
+            </ul>
+         </div>
+  
+          </div>
+          <div class="modal-footer inline-footer">
+            <button type="button"  class="green"  (click)="reviewSubmit(1)">Submit</button>
+            <button type="button" (click)="reviewSubmit(0)">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+  
+  
+  
+  <!-- Modal -->
+  <div class="close-modal-icon masseage-sucess advisor-mes message-cancel"> 
+    <div class="modal fade" id="ma-sucsess" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <img src="assets/images/okay.png" alt="img">
+              <h3>Sucess</h3>
+              <p>You have succesfully submitted your reply</p>
+              <div class="btn-boxes">
+                  <a data-dismiss="modal">OK, got it!</a> 
+              </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+
+
+
+   <!-- Modal -->
+ <div class="advisor-modal">
+  <div class="close-modal-icon meesage-checklist message-cancel"> 
+    <div class="modal fade" id="accept-rquest" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to Cancel?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <p>Make sure  you save a draft otherwise you will lose this data.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button"  class="green"  data-dismiss="modal" (click)="cancel()">Yes</button>
+            <button type="button" data-dismiss="modal">No</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->

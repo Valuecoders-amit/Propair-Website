@@ -1,0 +1,198 @@
+#Education_t {
+  position: relative;
+}
+#Education_t {
+  padding-bottom: 0;
+}
+.add-qualif-wrapper {
+  padding: 0 40px;
+}
+.tab-pane a.add-qualif {
+  color: #2688e6;
+  font-size: 16px;
+  padding: 7px 20px;
+  display: inline-block;
+  border: 1px solid #efefef;
+  border-radius: 12px;
+  box-shadow: 0px 0 9px rgba(0, 0, 0, 0.1);
+}
+.invoicebilling {
+  margin-top: 0px;
+  padding: 10px;;
+}
+.invoicebilling .table-wrpper {
+  border-radius: 0;
+  border: none;
+}
+.invoicebilling .table-wrpper table {
+  width: 100%;
+}
+.invoicebilling.diffrent-tbl table thead th {
+  padding: 15px 40px;
+  font-size: 18px;
+  color: #373636;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 500;
+}
+.basic-membership .table-wrpper table tbody {
+  height: 25px;
+  overflow-y: auto;
+}
+.diffrent-tbl.invoicebilling table tbody tr {
+  background: #fafafa;
+}
+.diffrent-tbl.invoicebilling table tbody tr td {
+  padding: 15px 50px;
+  font-size: 16px;
+  color: #7f7f7f;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 600;
+}
+.tab-pane {
+  padding: 20px 0px;
+}
+
+
+//Modal-css
+.advisor-modal #career-path .modal-header {
+  padding: 22px 35px;
+}
+
+.advisor-modal .modal-header {
+  /* background: #e4e4e4; */
+  padding: 40px;
+  align-items: center;
+}
+.advisor-modal .modal-body {
+  padding: 40px 40px;
+}
+.advisor-modal #career-path .modal-body .form-group {
+  position: relative;
+  margin-bottom: 30px;
+}
+.advisor-modal #career-path .modal-body label {
+  font-size: 20px;
+  color: #373636;
+  font-family: 'Source Sans Pro', sans-serif;
+  width: 20%;
+  padding-right: 15px;
+  text-align: right;
+}
+.advisor-modal #career-path .modal-body input {
+  font-size: 20px;
+  color: #373636;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-family: 'Source Sans Pro', sans-serif;
+  width: 79%;
+  box-shadow: 1px 1px 9px 4px rgba(0,0,0,0.1);
+}
+.advisor-modal #career-path .modal-body select {
+  font-size: 20px;
+  color: #d4d4d4;
+  border: none;
+  padding: 10px 20px;
+  -webkit-appearance: none;
+  border-radius: 6px;
+  font-family: 'Source Sans Pro', sans-serif;
+  width: 79%;
+  box-shadow: 1px 1px 9px 4px rgba(0,0,0,0.1);
+  background: url(/assets/images/drpd.png) 97% / 5% no-repeat;
+}
+
+
+.advisor-modal #career-path .btns {
+  margin: 0 auto;
+}
+.advisor-modal #career-path .btns .trans {
+  color: #2688e6;
+  font-size: 18px;
+  background: transparent;
+}
+.advisor-modal #career-path .btns a {
+  font-size: 20px;
+  border-radius: 9px;
+  margin: 0 auto;
+  text-align: center;
+  background: #33e2d1;
+  color: #fff;
+  font-family: 'Source Sans Pro', sans-serif;
+  height: 50px;
+  max-width: 300px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.wrp.profil .social_links a img{height: 28px !important;}
+
+.advisor-modal #career-path .modal-body label{
+font-size: 20px;
+color: #373636;
+font-family: "Source Sans Pro", sans-serif;
+width: 30%;
+padding-right: 15px;
+text-align: right;
+}
+.advisor-modal #career-path .modal-body input{
+font-size: 20px;
+color: #373636;
+border: none;
+padding: 10px 20px;
+border-radius: 6px;
+font-family: "Source Sans Pro", sans-serif;
+width: 70%;
+box-shadow: 1px 1px 9px 4px rgba(0, 0, 0, 0.1);
+}
+.advisor-modal #career-path .modal-body select{
+font-size: 20px;
+color: #d4d4d4;
+border: none;
+padding: 10px 20px;
+-webkit-appearance: none;
+border-radius: 6px;
+font-family: "Source Sans Pro", sans-serif;
+width: 70%;
+box-shadow: 1px 1px 9px 4px rgba(0, 0, 0, 0.1);
+}
+
+.advisor-modal #career-path .modal-body input::placeholder{
+color: #d4d4d4;
+}
+
+::ng-deep ngx-select-dropdown.ng-valid span{
+color:#373636 !important;
+}
+::ng-deep .ngx-dropdown-container button span{color:#d4d4d4; }
+
+select.ng-valid{color: #373636 !important;} 
+
+.advisor-modal #career-path .modal-body .form-group .reqrd{
+position: absolute;
+top:50px;
+left: 30%;
+color: red;
+}
+
+.diffrent-tbl .table-wrpper table thead th:nth-child(1){width: 280px;}
+.diffrent-tbl .table-wrpper table thead th:nth-child(2){width: 169px;}
+.diffrent-tbl .table-wrpper table thead th:nth-child(3){width: 214px;}
+.diffrent-tbl .table-wrpper table thead th:nth-child(4){width: 178px;}
+.diffrent-tbl .table-wrpper table thead th:nth-child(5){width: 144px;}
+.diffrent-tbl .table-wrpper table{width:100%;}
+.diffrent-tbl .table-wrpper{overflow-x:auto ;}
+
+@media(max-width:1600px){
+  .student-r-wrapper { padding: 35px 15px; }
+  .invoicebilling.diffrent-tbl table thead th { font-size: 16px; }
+  .invoicebilling.diffrent-tbl table tbody td { font-size: 14px; }
+}
+
+@media(max-width:1350px){
+  .invoicebilling .table-wrpper table{
+    width: 880px;
+  }
+}

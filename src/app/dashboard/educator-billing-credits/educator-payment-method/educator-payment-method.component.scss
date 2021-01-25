@@ -1,0 +1,43 @@
+#PaymentMethods .inbox-wrapper {
+    margin-top: 0px;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.new-exchange a{ box-shadow: none; margin-right: 0;  font-size: 14px;   padding: 7px 20px; color: #fff;}
+#PaymentMethods .main{box-shadow: none; margin-top: 30px; border-radius: 12px;}
+.invoicebilling .table-wrpper { padding: 15px 0; border: 1px solid #efefef; border-radius: 12px; }
+.invoicebilling .table-wrpper p { margin-bottom: 0; }
+.addcard input{ box-shadow: none; border: 1px solid #efefef; }
+.addcard select{ box-shadow: none; border: 1px solid #efefef; }
+.addcard label { font-size: 16px; margin-bottom: 5px; }
+.modal-footer { justify-content: center; }
+
+@media(max-width:1600px){
+    .w-100 {
+        width: 92%!important;
+    }
+    .addcard label { font-size: 16px; margin-bottom: 5px; }
+    .addcard input{ font-size: 14px; }
+    .addcard select{ font-size: 14px; padding: 6px 75px 6px 15px; }
+    .public-slect::after { top: 35%; right: 10px; }
+    .addcard .card-amer img { height: 25px; top: 36px; }
+    #PaymentMethods .main { padding: 15px 30px 30px;}
+    #PaymentMethods .archive-section p {
+        font-size: 14px;}
+    .invoicebilling .table-wrpper table{
+        width: 100%;
+    }
+}
+@media(max-width:1350px){
+    .invoicebilling .table-wrpper table{
+        width: 100%;
+    }
+}
+@media(max-width:767px){
+    #PaymentMethods .main { padding: 15px 15px;}
+    #PaymentMethods .main{margin-top: 15px;}
+    .invoicebilling {
+        margin-top: 15px;
+    }
+    #PaymentMethods .inbox-wrapper{margin-bottom:0 !important;}
+}

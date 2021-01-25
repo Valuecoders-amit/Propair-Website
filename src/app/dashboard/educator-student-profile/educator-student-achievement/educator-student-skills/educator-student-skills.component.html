@@ -1,0 +1,42 @@
+<div id="Skills" class="tab-pane fade ">
+  <div class="w-100 add-qualif-wrapper">
+    <!-- <a href="javascript:void(0);" class="add-qualif" data-toggle="modal" data-target="#ad_new_skil" (click)="addSkill(temp)" >+ Add New Skill</a> -->
+</div>
+<div class="invoicebilling basic-membership diffrent-tbl">
+      <div class="table-wrpper" *ngFor="let skill of skillsData">
+        <table >
+            <thead>
+              <th>{{skill?._id}}</th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </thead>
+            <tbody >
+                <tr>
+                    <td>Strengths</td>
+                    <td></td>
+                    <td></td>
+                    <td class="banjo-g text-right">
+                      <ng-container *ngFor="let data of skill.records">
+                        <span *ngIf="data.strength">{{data.name }} <a href="javascript:void(0)" ></a></span> 
+                      </ng-container>
+                    </td>
+                  
+                </tr>
+                <tr>
+                  <td>Areas I'd like to improve</td>
+                  <td></td>
+                  <td></td>
+                  <td class="banjo-g text-right">
+                    <ng-container *ngFor="let data of skill.records">
+                    <span *ngIf="data.improvement">{{data.name}} <a href="javascript:void(0)" ></a></span>
+                  </ng-container>
+                  </td>
+                  
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+</div>
+</div>

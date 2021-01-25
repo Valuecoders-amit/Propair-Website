@@ -1,0 +1,42 @@
+    <div id="liverbill" class="tab-pane fade in active show" *ngIf="!showMembership">
+        <div class="current-plans-content">
+          <p>Your school is on the <b>{{userData?.membershipName | uppercase}} MEMBERSHIP PLAN</b></p>
+          <p>Your annual membership started {{userData?.membershipStartingTime | date : 'd MMM  y'}} and finishes on {{userData?.membershipEndingTime | date : 'd MMM  y'}}</p>
+        </div>
+        <div class="totl-amount-pay-wrp">
+            <span class="five"><i>Price (incl. VAT)</i><p class="twonty">{{userData?.membershipName | uppercase}}</p></span>
+            <hr style=" margin-left: 45px; ">
+            <span class="eight"><p style="margin-bottom: 0;">Annual Membership Fee</p> <p style="margin-bottom: 0;">£{{userData?.annualMembershipFee | number}}</p></span>
+            <span class="eight" style="margin-top: 7px; margin-bottom: 7px;"><i >- up to {{userData?.studentsAllowed | number}} students</i> <i class="d-flex"><span *ngIf="userData?.studentCost">£</span>{{userData?.studentCost ? (userData?.studentCost | number) : 'free'}}</i></span>
+            <span class="eight" style="margin-top: 7px; margin-bottom: 7px;"><i style="margin-bottom: 0;">- {{userData?.creditIncluded | number}} credits per student</i> <p style="margin-bottom: 0;" class="d-flex"><span *ngIf="userData?.creditCost">£</span>{{userData?.creditCost ? (userData?.creditCost | number ) : 'free'}}</p></span>
+            <!-- <span class="eight" style="margin-top: 7px; margin-bottom: 7px;"><i>- Total student</i> <p>{{userData?.studentsAllowed}}</p></span>
+            <span class="eight" style="margin-top: 7px; margin-bottom: 7px;"><i>- Total credits</i> <p>{{userData?.totalCredit}}</p></span> -->
+            <span class="eight"><p><b>Subtotal</b></p> <p><b>£{{userData?.totalAmount | number }}</b> </p></span>
+            <span class="eight"><p>VAT (20%)</p> <p>£{{VAT | number}}</p></span>
+            <span class="eight"><p><b>Total Annual Membership Fee</b></p> <p><b>£{{subTotal ? (subTotal | number) :'N/A' }}</b> </p></span>
+        </div>
+    </div>    
+
+    <div id="liverbill" class="tab-pane fade in active show" *ngIf="showMembership">
+        <div class="current-plans-content">
+          <p>Your school is not currently signed up to a membership plan</p>
+          <p>Your last annual membership started {{userData?.membershipStartingTime | date : 'd MMM  y'}} and finishes on {{userData?.membershipEndingTime | date : 'd MMM  y'}}</p>
+        </div>
+        <div class="modal-footer curntplan">
+            <button  type="submit"class="green w-100" (click)="submit()">Start new membership</button>
+            <!-- <button *ngIf="payThroughCard === true" type="button"class="green w-100" (click)="cardDetails(customerSavedCards[0])" >Pay</button> -->
+            </div>
+        <!-- <div class="totl-amount-pay-wrp">
+            <span class="five"><i>Price (incl. VAT)</i><p class="twonty">{{userData?.membershipName | uppercase}}</p></span>
+            <hr>
+            <span class="eight"><p>Annual Membership Fee</p> <p>£{{userData?.annualMembershipFee}}</p></span>
+            <span class="eight" style="margin-top: 7px; margin-bottom: 7px;"><i>- up to 50 students</i> <i>Free</i></span>
+            <span class="eight" style="margin-top: 7px; margin-bottom: 7px;"><i>- {{userData?.creditIncluded}} credits per student</i> <p>£{{userData?.creditIncluded}}</p></span>
+            <span class="eight"><p><b>Total Annual Membership Fee</b></p> <p><b>£{{userData?.totalAmount}}</b> </p></span>
+        </div> -->
+    </div>  
+
+
+
+
+    

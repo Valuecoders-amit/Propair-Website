@@ -1,0 +1,106 @@
+.editableontent-W {
+    border-radius: 12px;
+    background: #fff;
+    display: flex;
+}
+.editableontent-W p {
+    width: 100%;
+    padding-right: 50px;
+    margin-bottom: 15px;
+    opacity: 70%;
+}
+.editableontent-W img {
+    margin-right: 10px;
+    opacity: 70%;
+}
+.background-spec-cl {
+    margin-top: 30px;
+    background: #fff;
+    padding: 40px 40px;
+    border-radius: 12px;
+}
+.details-tags {
+    display: flex;
+    flex-wrap: wrap;
+}
+.details-tags span {
+    font-size: 16px;
+    color: #bdbdbd;
+    border: 1px solid #f2f1f1;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    margin: 5px 7px;
+    padding: 0 12px;
+}
+.details-tags span img {
+    margin-left: 20px;
+}
+.student-detail {
+    margin: 30px 0;
+}
+.student-detail .row {
+    margin: 15px 0;
+}
+.student-detail label {
+    width: 100%;
+    height: 100%;
+    padding-right: 15px;
+    font-size: 20px;
+    color: #373636;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.student-detail input {
+    border: 1px solid #f0f0f0;
+    border-radius: 6px;
+    padding: 15px 20px;
+    font-size: 20px;
+    color: #373636;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.student-detail select {
+    border: 1px solid #f0f0f0;
+    border-radius: 6px;
+    padding: 15px 20px;
+    font-size: 20px;
+    color: #373636;
+    font-family: 'Source Sans Pro', sans-serif;
+    background: url(/assets/images/dropdown-icon.png) 97% / 3% no-repeat;
+
+    width: 100%;
+    -webkit-appearance: none;
+}
+
+
+//Quick-tip
+.quick-tip-box{box-shadow: 0px 0 9px rgba(0, 0, 0, 0.1); padding: 10px 15px; border-radius: 12px; background: #fff; max-width: 320px; width: 100%; display: block; position: absolute; left: 80px;}
+.quick-tip-box h3{font-size: 16px; font-family: 'Source Sans Pro', sans-serif; font-weight: 600}
+.quick-tip-box p{font-size: 14px; color: #7f7f7f; padding-right: 0;}
+.editableontent-W p img{ cursor: pointer; position: relative; ;}
+
+
+// ::ng-deep .ngx-dropdown-container button{    border: 1px solid #f0f0f0 !important; border-radius: 6px !important;  padding: 15px 20px !important;font-size: 20px !important;color: #373636 !important;font-family: 'Source Sans Pro', sans-serif !important;}
+// ::ng-deep .ngx-dropdown-container button .nsdicon-angle-down::before{       opacity: 0.2; top: 10px !important;}
+
+::ng-deep .multiselect-dropdown .dropdown-btn{background: url(/assets/images/dropdown-icon.png) 97% / 3% no-repeat; border: 1px solid #f0f0f0 !important ;border-radius: 6px !important;padding: 15px 20px !important;  font-size: 20px; color: #373636;font-family: 'Source Sans Pro', sans-serif;}
+::ng-deep .multiselect-dropdown .dropdown-btn .dropdown-down{border-top: none !important;}
+::ng-deep .multiselect-dropdown .dropdown-btn .dropdown-up{border-bottom: none !important;}
+
+
+::ng-deep .multiselect-dropdown .dropdown-btn{  color: #373636 !important;    border-radius: 8px !important;    padding: 12px 12px !important;   border: 1px solid #ededed !important;}
+::ng-deep .multiselect-dropdown .dropdown-btn .dropdown-down{border-top:none !important;}
+.fild-box .tags-fields .public-slect::after{opacity: 0.3;}
+
+// .tags-fields .fields span{width: auto !important;}
+::ng-deep .multiselect-dropdown .dropdown-btn .selected-item{width: auto !important; margin-top: 2px; margin-bottom: 2px;   font-size: 16px;        border-radius: 5px; color: #bdbdbd !important;  background: #f5f5f5 !important;  border: 1px solid #efefef !important;}
+::ng-deep .multiselect-dropdown .dropdown-btn .dropdown-up{border-bottom:none  !important;}
+::ng-deep .multiselect-dropdown .dropdown-btn .selected-item a{color: #bdbdbd !important; font-weight: 600;  font-size: 18px;}
+
+@media(max-width:1600px){
+    .background-spec-cl { margin-top: 15px; padding: 30px 30px; }
+    .editableontent-W p { font-size: 14px; }
+    .editableontent-W img { height: 15px; }
+    .details-tags span { font-size: 12px; height: 25px; border-radius: 5px; }
+}

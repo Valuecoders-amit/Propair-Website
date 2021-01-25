@@ -1,0 +1,127 @@
+<div class="message-exchng primary">
+  <div class="d-flex justify-content-between">
+    <h3>What is a good title for your message?</h3>
+    <div class="custom-selects bigsl">
+      <select name="" id="" (change)="type($event.target.value)" [(ngModel)]="selecetdValue" *ngIf="checkType">
+        <option value="public">Public Message Exchange (1 Credit)</option>
+      </select>
+
+      <select name="" id="" (change)="type($event.target.value)" [(ngModel)]="selecetdValue" *ngIf="!checkType">
+        <option value="public">Public Message Exchange (1 Credit)</option>
+        <option value="private">Private Message Exchange (2 Credits)</option>
+      </select>
+    </div>
+  </div>
+</div>
+<div class="listing-box-title">
+  <div class="quicktip">
+    <p>Your title helps our Advisors quickly understand what your message is about</p>
+    <div>
+      <!-- <img src="assets/images/quicktip.png" alt="img"> -->
+    </div>
+  </div>
+  <div class="greenRedlisting">
+    <ul>
+      <li>
+        <img src="assets/images/greentick.svg" alt="">
+        Keep it short and sweet.
+      </li>
+      <li>
+        <img src="assets/images/redcross.svg" alt="">
+        Do not exhaustively list everything you think is relevant.
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <img src="assets/images/greentick.svg" alt="">
+        Include only the key information
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="fild-box">
+  <div class="group">
+    <form [formGroup]="titleForm">
+      <label for="">Title*</label>
+      <input type="text" name="email" #text (keyup)="keyUp()" maxlength="201" formControlName="title"
+        placeholder="e.g. What’s the best way to get into data science? Y12 student who loves Maths!" />
+      <!-- <div *ngIf="(titleForm.get('title').invalid) && (titleForm.get('title').touched)">
+        <div *ngIf="titleForm.get('title').errors.required">
+          <font color="red">Please enter title</font>
+        </div>
+
+      </div> -->
+      <div *ngIf="titleForm.controls.title.hasError('maxlength')">
+        <font color="red"> Please do not exceed 200 characters </font>
+      </div>
+
+      <span class="charter-limit"> <i><span *ngIf=" availableMinLength < 20">{{availableMinLength}}</span>
+        <span class = "character" *ngIf="availableMinLength >= 20" >{{availableMinLength}}</span></i>  / 200 characters</span>
+    </form>
+  </div>
+</div>
+<div class="exchange-buttons">
+  <input type="button" name="Cancel" class="cancel same-field" value="Cancel" (click)="cancel()" />
+  <input type="button" name="Save Draft" class="Save-Draft same-field" value="Save Draft" (click)="draft()" />
+  <input type="button" name="next" class="next action-button same-field" value="Next" (click)="next()" />
+  <button [hidden]=true id="cancelModal" data-toggle="modal" data-target="#delet-request">cancel</button>
+</div>
+
+ <!-- Modal -->
+ <div class="advisor-modal remvspcs">
+  <div class="close-modal-icon meesage-checklist"> 
+    <div class="modal fade" id="delet-request" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to delete?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Make sure you save a draft otherwise you will lose this data</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button"  class="green" (click)="cancelSubmit()">Yes</button>
+            <button type="button" data-dismiss="modal" >Cancel</button>
+            <button [hidden]=true id="closeCancelModal" data-dismiss="modal" data-target="#delet-request">close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+
+
+ <!-- Success Modal -->
+ <ng-template #insufficientBalance>
+    <div class="close-modal-icon masseage-sucess advisor-mes newicb"> 
+       <div class="modal-dialog" role="document">
+         <div class="modal-content">
+           <div class="modal-header">
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true"><img src="assets/images/close-icon.png" alt="Success" (click)="close()"></span>
+             </button>
+           </div>
+           <div class="modal-body">
+               <img src="assets/images/insufficinet.png" alt="img">
+               <h3>INSUFFICIENT CREDITS BALANCE!</h3>
+               <p>0 Credits</p>
+                 <p>Please top up your Credit Balance and</p>
+                 <p>then try again</p>
+                  <p>Thanks</p>
+                  <div class="modal-footer">
+                   <button type="button"  class="green" (click)="navigateSettings()">Buy Credits</button>
+                   <button type="button" (click)="navigateSettings()" >Request Credits</button>
+                   <button [hidden]=true id="closeEmptyCreditBalanceModal" data-dismiss="modal" data-target="#insufficinet-balance">close</button>
+                 </div>
+           </div>
+           
+         </div>
+       </div>
+   </div>
+
+ </ng-template>
+<!-- Modal -->

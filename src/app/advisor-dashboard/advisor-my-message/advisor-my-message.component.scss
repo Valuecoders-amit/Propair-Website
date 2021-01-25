@@ -1,0 +1,60 @@
+#thankyou .modal-footer button{width:100%; max-width: 30%; } 
+#thankyou .visit-page a{background: #eafcfa url(/assets/images/visit-page.png) 95% / 4% no-repeat; padding: 20px; color: #7f7f7f;  font-weight: 500; font-size: 20px;     width: 100%;  display: block;     display: inline-block; margin: 10px 0;}
+.advisor-mes.masseage-sucess h3{margin: 10px 0;}
+.stud-lib-chat-m .library_actual .fav-like .live-heding h4{font-size: 36px; font-weight: 700;}
+.viewupsfav{margin-top: 30px;}
+.viewupsfav div{text-align: center; margin-top: 40px	;}
+.viewupsfav div p{font-size: 22px; font-weight: 600;}
+.viewupsfav div span{font-size: 18px; font-weight: 400;}
+.advisore-message-scr{padding: 50px 35px;}
+.advisore-message-scr .heading-wrapper h3{line-height: inherit; font-size:36px; }
+.advisore-message-scr .message-listing-wrapper .main{    padding:40px 40px;}
+.advisore-message-scr .basd-profile p{color: #5a5858;}
+.advisore-message-scr .invoicebilling .table-wrpper{    border: 2px solid #e3e2e2;     margin-top: 20px;}
+.advisore-message-scr .invoicebilling .table-wrpper .table thead th{font-size: 18px;}
+.advisore-message-scr .basic-membership .table-wrpper .table td{font-size: 16px;}
+.advisore-message-scr .sbmt-btns-archive a{font-size: 14px;}
+.chekadvisror #thankyou .visit-page a{background: #eafcfa ; display: flex; justify-content: space-between; align-items: center;}
+.chekadvisror #thankyou .visit-page a .cek .checkmark{    top: -8px; left: -15px;}
+.chekadvisror #thankyou .modal-footer button {width: 100%; max-width: 50%;}
+
+.advisore-message-scr .message-listing .nav-tabs{margin: 40px 0;}
+.advisore-message-scr .message-listing .nav-tabs li a {line-height: 24px;}  
+
+@media(max-width:1600px){
+    .advisore-message-scr{padding: 30px 15px;}
+    .advisore-message-scr .message-listing .nav-tabs{margin: 30px 0;}
+    .advisore-message-scr .heading-wrapper h3{font-size:24px; }
+    .advisore-message-scr .message-listing .nav-tabs li {
+        margin: 0 20px 0 0;
+    }
+
+    .message-listing .nav-tabs li a{font-size: 16px;}
+
+}
+@media(max-width:1199px){
+    .advisore-message-scr .message-listing .nav-tabs{margin: 30px 0 15px 0;}
+}
+
+@media(max-width:991px){
+    .advisore-message-scr .message-listing .nav-tabs li {
+        margin: 0 20px;
+    }
+    .advisore-message-scr .message-listing-wrapper .main {
+        padding: 30px 30px;
+    }
+    .message-listing .nav-tabs li a {
+        font-size: 22px;
+    }
+}
+@media(max-width:767px){
+    .advisore-message-scr .message-listing .nav-tabs li{margin: 0 0px;}
+    .message-listing  .nav-tabs{margin: 15px 0 15px 0; display: flex; flex-direction: column; align-items: center; border: 1px solid #ececec;}
+    .message-listing  .nav-tabs li a{font-size: 18px;     margin: 0 0px; display: block; padding: 10px 0;     border-bottom: 1px solid #ececec;}
+    .message-listing  .nav-tabs li:last-child a{border-bottom: none;}
+    .message-listing  .nav-tabs li{width: 100%;text-align: center;}
+    .message-listing  .nav-tabs li a.active{background:#33e2d1; color: #fff;}
+    .advisore-message-scr{padding: 30px 0px;}
+    .table-wrpper{margin: 0 0;}
+    .advisore-message-scr .message-listing .nav-tabs{margin: 15px 0 15px 0;}
+}

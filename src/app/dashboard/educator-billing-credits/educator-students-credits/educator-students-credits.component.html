@@ -1,0 +1,240 @@
+<div id="StudentsCredits" class="tab-pane fade in newed-stud ">
+    <div class="row">
+      <div class="col-md-5 col-lg-4">
+          <div class="dasshbord-content-wrapper">
+              <h3>Live Credits Requested</h3>
+              <div class="live-request">
+                <div class="number justify-content-between w-100">
+                  <div class="text-left">
+                    <p>{{count?.sum | number}}</p>
+                    <span>Total</span>
+                </div> 
+                <div class="text-left rt">
+                    <p>{{count?.studentCount | number}}</p>
+                    <span>Students</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+      </div>
+      </div>
+      <div class="new-educatorBandC">
+        <div class="message-listing-wrapper">
+          <div class="main">
+            <div class="basd-profile">
+              <div class="multibtns">
+                <div class="custom-selects mnr deflt-widr">
+                  <select name="" id="" class="handCursor" (change)="filterStudentStatus($event.target.value)">
+                      <option value="all">All Live Credits Requested</option>
+                      <option value="accept">All Accept Credits Requested</option>
+                      <option value="decline">All Decline Credits Requested</option>
+
+                  </select>
+                </div>
+                <div class="custom-selects mnr">
+                  <select name="" id="" class="handCursor" (change)="filterYear($event.target.value)">
+                      <option value="all">All Years</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                      <option value="11">11</option>
+                      <option value="12">12</option>
+                      <option value="13">13</option>
+                  </select>
+                </div>
+                <div class="custom-selects mnr">
+                  <select name="" id="" class="handCursor" (change)="filterForm($event.target.value)">
+                      <option value="all">All Form</option>
+                      <option [value]="formList" *ngFor="let formList of formListdata">{{formList}}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="aprv-dc-btns" *ngIf="status === 'live'">
+                  <a *ngIf="studentsData?.length" (click)="showApprovePopup(successOne)">Approve</a>
+                  <a *ngIf="studentsData?.length" (click)="showDeclinePopup(declineOne)" class="not">Decline</a>
+              </div>
+          </div>
+          <div class="invoicebilling basic-membership ">
+            <div class="table-wrpper" *ngIf="studentsData?.length">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th id="checkth">
+                      <div class="iline">
+                        <div class="form-group">
+                            <input type="checkbox" id="html3" (change)="selectAll()" [(ngModel)]="selectedAll">
+                            <label for="html3"></label>
+                          </div>
+                      </div>
+                      <span>Date</span>
+                    </th>
+                    <!-- <th scope="col">Date</th> -->
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Year</th>
+                    <th scope="col">Form</th>
+                    <th scope="col">Credit Balance</th>
+                    <th scope="col">Credit Requested</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody >
+                  <tr *ngFor="let credit of studentsData">
+                    <td id="checktd">
+                      <div class="iline">
+                        <div class="form-group">
+                            <input type="checkbox" id='html34' (change)="studentChecked()" [(ngModel)]="credit.value">
+                            <label for="html34"></label>
+                          </div>
+                      </div>
+                      <span>{{credit?.createdAt  |date: 'EEE d MMM y'}}</span>
+                    </td>
+                    <!-- <td>{{credit.createdAt  |date: 'EEE d MMM y'}}</td> -->
+                    <td>{{credit?.studentId?.firstName}}</td>
+                    <td>{{credit?.studentId?.lastName}}</td>
+                    <td>{{credit?.studentId?.year}}</td>
+                    <td>{{ credit?.form ||'N/A'}}</td>
+                    <td>{{credit?.creditBalance ? credit.creditBalance : 'N/A'}}</td>
+                    <td>{{credit?.amount}}</td>
+                    <td >
+                      <div *ngIf="credit.isApproved" >
+                        <img src="assets/images/greentick.svg" alt="">
+                      </div>
+                      <div *ngIf="credit.isDeclined" >
+                        <img src="assets/images/redcross.svg" alt="">
+                      </div>
+                    </td>
+                    <!-- <tds></td> -->
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="table-wrpper" *ngIf="!studentsData?.length">
+              <p class="text-center">No data found</p>
+            </div>
+          </div>
+        </div>
+        </div>
+    </div>
+  </div>
+
+  <ng-template #successOne>
+    <div class="close-modal-icon"> 
+      
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to approve?</h5>
+            <button type="button" class="close">
+              <span aria-hidden="true"><img src="assets/images/close-icon.png" alt="" (click)="closeSuccessOne()"></span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="flex-row-wrapper">
+              <p>NO. of Students</p>
+              <p>{{creditListCount?.studentCount}}</p>
+            </div>
+            <div class="flex-row-wrapper">
+              <p>Total Credits</p>
+              <p>{{creditListCount?.totalCredit}}</p>
+            </div>
+            <div class="flex-row-wrapper">
+              <p class="font-weight-bold">Total Cost</p>
+              <p class="font-weight-bold">&#163;{{creditListCount?.totalCreditCost}}</p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button"  class="green" (click)="approve(successTwo)">Yes</button>
+            <button type="button" (click)="closeSuccessOne()">Cancel</button>
+          </div>
+        
+    </div>
+  </ng-template>
+  
+
+
+  <ng-template #declineOne>
+    <div class="close-modal-icon"> 
+     
+          <div class="modal-header">
+            <h5 class="modal-title" id="declineModalLabel">Are you sure you want to decline?</h5>
+            <button type="button" class="close" >
+              <span aria-hidden="true"><img src="assets/images/close-icon.png" alt="" (click)="closeDeclineOne()"></span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="flex-row-wrapper">
+              <p>NO. of Students</p>
+              <p>{{creditListCount?.studentCount}}</p>
+            </div>
+            <div class="flex-row-wrapper">
+              <p>Total Credits</p>
+              <p>{{creditListCount?.totalCredit}}</p>
+            </div>
+            <div class="flex-row-wrapper">
+              <p class="font-weight-bold">Total Cost</p>
+              <p class="font-weight-bold">&#163;{{creditListCount?.totalCreditCost}}</p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button"  class="green" (click)="decline(declineTwo)">Yes</button>
+            <button type="button" (click)="closeDeclineOne()" >Cancel</button>
+          </div>
+
+    </div>
+  </ng-template>
+  
+
+
+  <!-- Success Modal -->
+<ng-template #successTwo>
+  <div class="close-modal-icon masseage-sucess advisor-mes uicke"> 
+      
+          <div class="modal-header">
+            <button type="button" class="close" >
+              <span aria-hidden="true"><img src="assets/images/close-icon.png" alt="Success" (click)="closeSuccessTwo()"></span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <img src="assets/images/okay.png" alt="img">
+              <h3>SUCCESS!</h3>
+              <p>You have succesfully approved</p>
+                <p>following order: </p>
+                <!-- <p>ORDER Number : {{creditListCount?.orderId}}</p> -->
+                <p># of Students : {{creditListCount?.studentCount}}</p>
+                <p>Total Credits : {{creditListCount?.totalCredit}}</p>
+                <p>Total Costs: &#163;{{creditListCount?.totalCreditCost}}</p>
+              <div class="btn-boxes">
+                  <a href="javascript:void(0)"  (click)="closeSuccessTwo()">OK, got it!</a> 
+              </div>
+          </div>
+        
+  </div>
+</ng-template>
+
+<!-- Modal -->
+
+
+
+  <!-- Success Modal -->
+  <ng-template #declineTwo>
+    <div class="close-modal-icon masseage-sucess advisor-mes uicke"> 
+        
+            <div class="modal-header">
+              <button type="button" class="close" >
+                <span aria-hidden="true"><img src="assets/images/close-icon.png" alt="Success" (click)="closeDeclineTwo()"></span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <img src="assets/images/okay.png" alt="img">
+                <h3>SUCCESS!</h3>
+                <p>You have succesfully decline the order(s)</p>
+                <div class="btn-boxes">
+                    <a href="javascript:void(0)"  (click)="closeDeclineTwo()">OK, got it!</a> 
+                </div>
+            </div>
+            
+    </div>
+  </ng-template>
+  
+  <!-- Modal -->

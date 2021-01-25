@@ -1,0 +1,105 @@
+  
+  .container-fluid {
+	padding-left: 100px;
+	padding-right: 100px;
+  }
+
+  .student-r-wrapper{padding:45px;}
+  .student-r-wrapper h1{font-weight: 600;   font-family: 'Montserrat', sans-serif;}
+  .student-r-wrapper .timmy-tabb{margin-top: 50px;}
+  .student-r-wrapper .tab-content{box-shadow: 0px 0 9px rgba(0, 0, 0, 0.1); padding: 40px 40px; border-radius: 12px; background: #fff;}
+  .student-r-wrapper{padding:50px 35px;}
+  .student-r-wrapper h1{font-weight: 600; font-size: 36px; margin-bottom: 0;  font-family: 'Montserrat', sans-serif;}
+  .student-r-wrapper .timmy-tabb{margin-top: 50px;}
+  .student-r-wrapper .tab-content{box-shadow: 0px 0 9px rgba(0, 0, 0, 0.1); padding: 40px 40px; border-radius: 12px; background: #fff;}
+
+  .student-r-wrapper .tab-content.remv-prop{border-radius:0;  padding:0;  box-shadow:none;}
+
+  .student-r-wrapper .ab-rl .nav-tabs li a{line-height:24px; font-size: 24px;     margin: 0 55px; color: #373636;}
+  .student-r-wrapper .group_analystic{margin-top: 0;}
+  .student-r-wrapper .ab-rl .nav-tabs{margin: 50px 0;}
+  .student-r-wrapper .ab-rl .nav-tabs li a:first-child{margin-left: 0;}
+  .student-r-wrapper .school-wrapper { padding: 38px 40px;}
+  .student-r-wrapper .field{margin-top: 90px;}
+  .student-r-wrapper .school-wrapper .field .edit{    padding: 18px 20px;}
+
+  .student-r-wrapper .tab-content.remv-prop{border-radius: 0;  padding: 0; box-shadow: none;}
+
+
+   
+  .timmy-tabb .nav-tabs {
+	border-bottom: none;
+	margin-bottom: 10px;
+  }
+  
+  .timmy-tabb .nav-tabs li a {
+	color: #373636;
+	font-size: 24px;
+	margin: 0 55px;
+	border-bottom: 2px solid transparent;
+  }
+  
+  .timmy-tabb .nav-tabs li a:first-child {
+	margin-left: 0;
+  }
+  
+  .timmy-tabb .nav-tabs li a.active {
+	
+	border-bottom: 2px solid #33e2d1;
+  }
+  
+  .timmy-tabb .tab-content #Overview img {
+	height: 135px;
+  }
+  
+  .timmy-tabb .tab-content #Overview .detail-box .class-year {
+	padding-top: 27px;
+	padding-left: 50px;
+	width: 60%;
+  }
+  
+  .timmy-tabb .tab-content #Overview .detail-box .class-year .d-flex p {
+	font-size: 18px;
+  }
+  
+  .timmy-tabb .tab-content #Overview .detail-box .class-year .d-flex i {
+	margin: 0 13px;
+  }
+  
+  .timmy-tabb .tab-content #Overview .detail-box .class-year .location {
+	display: flex;
+	justify-content: space-between;
+  }
+  
+  .timmy-tabb .tab-content #Overview .detail-box .class-year .location {
+	line-height: 35px;
+	font-size: 14px;
+	margin-top: 15px;
+  }
+
+  @media(max-width:1600px){
+    .student-r-wrapper{
+      padding: 35px 15px;
+    }
+    .student-r-wrapper h1{
+      font-size:20px;
+    }
+    .student-r-wrapper .timmy-tabb{
+      margin-top: 25px;
+    }
+    .timmy-tabb .nav-tabs {
+      margin-bottom: 0;
+    }
+    .timmy-tabb .nav-tabs li a {
+      font-size: 16px;
+      margin: 0 30px;
+    }
+  }
+
+  @media(max-width:767px){
+    .student-r-wrapper  .nav-tabs{margin: 15px 0 15px 0; display: flex; flex-direction: column; align-items: center; border: 1px solid #ececec;}
+    .student-r-wrapper  .nav-tabs li a{font-size: 18px;     margin: 0 0px; display: block; padding: 10px 0;     border-bottom: 1px solid #ececec;}
+    .student-r-wrapper  .nav-tabs li:last-child a{border-bottom: none;}
+    .student-r-wrapper  .nav-tabs li{width: 100%;text-align: center;}
+    .student-r-wrapper  .nav-tabs li a.active{background:#33e2d1; color: #fff;}
+  }

@@ -1,0 +1,41 @@
+
+.dasboard-wrapper .sidebar{ position: fixed; height: 100%; background: #fff;box-shadow: 0px 0 9px rgba(0,0,0,0.1); top: 0; left: 0; padding-left: 30px;}
+
+.dasboard-wrapper .sidebar .logo-wrapper img{height: 60px;}
+
+.dasboard-wrapper .sidebar .logo-wrapper { text-align: center; margin-top: 45px; }
+
+.dasboard-wrapper .fade:not(.show) { opacity: 1; }
+#body-bg{background: #fafafa;}
+
+// Sidebar
+.sidebar .menus{    margin-top: 170px;}
+.sidebar .menus ul {display: block; border-bottom:none;}
+.sidebar .menus ul li a{padding:4px 0;font-size: 20px; border-left: 15px solid transparent; line-height: 72px; color: #373636;   height: 80px;  display: flex; align-items: center; border-top-left-radius: 4px; border-bottom-left-radius: 4px;}
+.sidebar .menus ul li a.active{background:#eafcfa; border-left: 15px solid #33e2d1;}
+.sidebar .menus ul li img{margin-right: 35px;     margin-left: 21px;}
+
+.close-modal-icon .modal-header {padding: 22px 40px;}
+.close-modal-icon .modal-header .modal-title{font-size: 30px; font-family: 'Source Sans Pro', sans-serif; font-weight: 600; }
+.close-modal-icon .modal-footer button{height: 60px;}
+
+@media(max-width:767px){
+    .close-modal-icon .modal-header .modal-title{
+		font-size: 18px;
+	}
+	.close-modal-icon .modal-footer button{
+		height: 40px;
+	}
+}
+
+
+
+@media(max-width:1600px){
+    .close-modal-icon .modal-header .modal-title{
+		font-size: 24px;
+	}
+}
+
+
+
+

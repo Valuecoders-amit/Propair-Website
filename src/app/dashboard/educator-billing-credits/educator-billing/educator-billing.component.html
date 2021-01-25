@@ -1,0 +1,977 @@
+<div id="Billing" class="tab-pane fade in  request-refteb">
+    <div class="row">
+        <div class="col-md-12 col-lg-12 col-xl-9 ">
+          <!-- <div class="since-joiningsection">
+            <div class="listing">
+              <ul style="cursor: pointer;">
+                <li [ngClass]="{active_tab : joining['since']}" (click)="joiningTabs('since')">Since Joining</li>
+                <li [ngClass]="{active_tab : joining['1y']}" (click)="joiningTabs('1y')">1y</li>
+                <li [ngClass]="{active_tab : joining['ytd']}" (click)="joiningTabs('ytd')">YTD</li>
+                <li [ngClass]="{active_tab : joining['3m']}" (click)="joiningTabs('3m')">3m</li>
+                <li [ngClass]="{active_tab : joining['1m']}" (click)="joiningTabs('1m')">1m</li>
+                <li [ngClass]="{active_tab : joining['today']}" (click)="joiningTabs('today')">Today</li>
+                <li [ngClass]="{active_tab : joining['custom']}" (click)="joiningTabs('custom' , temp)">Custom</li>
+            </ul>
+            </div>
+            
+            <div>
+
+            </div>
+        </div> -->
+            <div class="total-spend-wrapper new-tsw">
+              <div class="dasshbord-content-wrapper eductor-dasbrd">
+                <div class="newadding-padding">
+                    <div class="ab-rl">
+                      <div class="edit-classes">
+                        <h3>Total Historical Spend</h3>
+                      </div>  
+                      <div class="w-100 money-number">
+                        <div class="money">
+                            <h3>£{{basicMembership | number}}</h3>
+                            <p>Annual Basic
+                              Membership</p>
+                        </div>
+                        <div class="sign">
+                            <img src="assets/images/add.png" alt="img">
+                        </div>
+                        <div class="money">
+                          <h3>£{{studentCredits | number}}</h3>
+                          <p>Student Credits</p>
+                      </div>
+                      <div class="sign equal">
+                        <img src="assets/images/equal.png" alt="img">
+                    </div>
+                    <div class="money">
+                      <h3>£{{totalSpend | number}}</h3>
+                      <p>Total Spend</p>
+                    </div>
+                    </div>
+                    </div>
+                </div>
+               
+                <div class="new-drpbar">
+                  <div class="since-joingdrp">
+                    <ul>
+                      <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                            {{selectedVal}}<b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li>
+                              <div class="lastdys">
+                                  <span>{{selectedVal}}</span>
+                                  <p>
+                                    {{ selectedDat | date: "d MMM y" + " - " }}
+                                    {{ todayDate | date: "d MMM y" }}
+                                  </p>
+                              </div>
+                          </li>
+                          <hr>
+                        <div style="cursor: pointer;">
+                          <li class="eqspace" [ngClass]="{active_tab : joining['Since Joining']}" (click)="joiningTabs('Since Joining')"><span>Since joining</span></li>
+                          <li class="eqspace" [ngClass]="{active_tab : joining['last 12 Months']}"     (click)="joiningTabs('last 12 Months')"><span>last 12 Months</span></li>
+                          <!-- <li class="eqspace" [ngClass]="{active_tab : joining['Ytd']}" (click)="joiningTabs('ytd')"><span>YTD</span></li> -->
+                          <li class="eqspace" [ngClass]="{active_tab : joining['last 90 Days']}"  (click)="joiningTabs('last 90 Days')"><span>last 90 Days</span></li>
+                          <li class="eqspace" [ngClass]="{active_tab : joining['last Month']}" (click)="joiningTabs('last Month')"><span>last Month</span></li>
+                          <li class="eqspace" [ngClass]="{active_tab : joining['Today']}" (click)="joiningTabs('Today')" ><span>Today</span></li>
+                          <!-- <li class="eqspace"><span>Custom</span></label></li> -->
+
+                          <hr>
+                          <li>
+                            <div class="lastdys">
+                                <a (click)="joiningTabs('custom' , temp)" ><p>Custom...</p></a>
+                            </div>
+                        </li>
+                      </div>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- <div class="thredots">
+                      <a href="#" data-toggle="modal" data-target="#modal-tabbing" >
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                      </a>
+                  </div> -->
+                </div>
+                
+                </div>
+            </div>
+            <div class="new-educatorBandC">
+              <div class="message-listing-wrapper">
+                <div class="main">
+                  <div class="basd-profile">
+                    <p></p>
+                    <div class="multibtns">
+                      <!-- <div class="custom-selects mnr">
+                        <select name="" id="" (change)="joiningDropdown($event.target.value)">
+                            <option value="Since">Since Joining</option>
+                            <option value="1y">1y</option>
+                            <option value="ytd">YTD</option>
+                            <option value="3m">3m</option>
+                            <option value="1m">1m</option>
+                            <option value="today">Today</option>
+                        </select>
+                      </div> -->
+                      <div class="bill-pay new">
+                        <label for="" class="new">Your Bill is £{{amountPay}}</label>
+                        <!-- *ngIf="payStatus" -->
+                       <a *ngIf="payStatus" (click)="membershipCardList()" style="cursor: pointer; border: none;" class="border_bule-btn" >Pay Now</a>
+                       <button [hidden]=true  id="openDoneModal" data-toggle="modal" data-target="#newPaynow">Done</button>
+                      <button [hidden]=true  id="openDeclineeModal" data-toggle="modal" data-target="#newPaymentModal">Done</button>
+
+                       
+                     </div>
+                      <div class="custom-selects ">
+
+                        <select name="" id="" (click)="status($event.target.value)">
+                            <option value="all">All</option>
+                            <option value="paid">Paid</option>
+                            <option value="Out Standing">Outstanding</option>
+                            <option value="membership">Membership</option>
+                            <option value="Credit Billing">Credits Billing</option>
+                        </select>
+                      </div>
+                    </div>
+                </div>
+                <div class="invoicebilling basic-membership">
+                  <div class="table-wrpper" *ngIf="listingData?.length">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <!-- <th>
+                            <div class="iline">
+                              <div class="form-group">
+                                  <input type="checkbox" id="html3">
+                                  <label for="html3"></label>
+                                </div>
+                            </div>
+                          </th> -->
+                          <th scope="col">Date</th>
+                          <th scope="col">Description</th>
+                          <th scope="col">Amount</th>
+                          <th scope="col">Status</th>
+                        </tr>
+                      </thead>
+                      <tbody *ngFor="let listing of listingData">
+                        <tr>
+                          <!-- <td>
+                            <div class="iline">
+                              <div class="form-group">
+                                  <input type="checkbox" id="html34">
+                                  <label for="html34"></label>
+                                </div>
+                            </div>
+                          </td> -->
+                          <td>{{listing.createdAt |date: 'EEE d MMM y'}}</td>                                                                                                                      
+                          <td >
+                            <!-- <a  (click)="monthlyExpanse(listing._id ,listing)" style="color:#007bff">{{listing.type}}</a> -->
+                            <a *ngIf="listing.type == 'membership Purchase' || listing.type == 'membership upgrade'" (click)="memebrshipPdf(listing?.walletId)" style="color:#007bff">{{listing.type}}</a>
+                            <a *ngIf="listing.type == 'student Credit'" (click)="creditPdf(listing?._id)" style="color:#007bff">{{listing.type}}</a>
+
+
+                          </td>
+                          <td>£{{listing.amount | number}}</td>
+                          <td>{{listing.status}}</td>
+                        </tr>
+                      
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="table-wrpper" *ngIf="!listingData?.length">
+                    <p class="text-center">No data found</p>
+                  </div>
+                </div>
+              </div>
+              </div>
+          </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<ng-template #temp>
+  <div class="advisor-modal">
+      <div class="close-modal-icon meesage-checklist">
+        <div  id="career-path">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Select Date</h5>
+                  <button type="button" class="close" (click)="modalRef2.hide()" aria-label="Close">
+                      <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                  <form [formGroup]="addDate">
+                      <div class="form-group">
+                          <label for="">Start Date</label>
+                          <my-date-picker name="startdate" [options]="myDatePickerOptions"
+                          formControlName="startDate" (dateChanged)="onDateChanged($event)"></my-date-picker>
+                      </div>
+                      <div class="form-group">
+                          <label for="">End Date</label>
+                          <my-date-picker name="enddate" [options]="myDatePickerOptions2"
+                          formControlName="endDate"></my-date-picker>
+                      </div>
+                      <div class="btns">
+                          <a (click)="onApply()">
+                              Apply</a>
+                          <a  (click)="modalRef2.hide()">
+                              Cancel</a>
+                      </div>
+                  </form>
+              </div>
+  
+          </div>
+  
+        </div>
+      </div>
+  </div>
+  </ng-template>
+  
+  <!-- Modal Ends -->
+
+
+<!--inoice credit request html-->
+
+  <div  id="MyDIv" class="hide" >
+    <section class="invoive-header">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-12">
+                      <div class="head">
+                              <img src="assets/images/logo.png" alt="">
+                              <h1>Invoice</h1>
+                      </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  <section class="officeadd">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="address">
+                      <div>
+                          <p>ProPair Community Interset Company</p>
+                          <p>Beech House</p>
+                          <p>School Lane</p>
+                          <p>Crewe</p>
+                          <p>CW3 0BA</p>
+                      </div>
+                      <div class="text-right">
+                          <p>6th Jan 2022</p>
+                          <p>Invoice number: 2654</p>
+                          <p>Payment due by 30th Mar 2025</p>
+                      </div>
+                  </div>  
+              </div>
+          </div>
+      </div>
+  </section>
+  <section class="officeadd billto">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-3">
+                  <div class="address">
+                      <div class="w-100"> 
+                          <h2>Bill To</h2>
+                          <hr>
+                          <p>Contact Name : {{invoiceData?.fullName}}</p>
+                          <p>School Name : {{invoiceData?.schoolName}} </p>
+                          <p>Phone : {{invoiceData?.contactNumber}}</p>
+                          <p>Email</p>
+                      </div>
+                  </div>  
+              </div>
+          </div>
+      </div>
+  </section>
+  <section class="tablewrapper">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="text-right memberitalic">
+                      <p><i>* all memberships include 2 free credits per student</i></p>
+                  </div>
+                  <div class="wrapper">
+                      <table class="table ">
+                          <thead>
+                            <tr>
+                              <th scope="col">DESCRIPTION</th>
+                              <th scope="col">QTY</th>
+                              <th scope="col">UNIT PRICE</th>
+                              <th scope="col">PRICE</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                             <td>Credit Billing</td>
+                              <td>{{invoiceData?.creditCount}}</td>
+                              <td>£{{invoiceData?.perCreditCost}}</td>
+                              <td>£{{invoiceData?.totalExpanse}}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  <section class="payment">
+      <div class="container">
+          <div class="row">
+                  <div class="col-md-12">
+                          <div class="instruction">
+                              <div class="bankdetails">
+                                  <h2>payment<br> instructions</h2>
+                                  <p><span>Bank Name:</span><span>Cashplus</span></p>
+                                  <p><span>Account No:</span><span>00149227</span></p>
+                                  <p><span>Sort Code:</span><span>08-71-99</span></p>
+                                  <p><span>Reference:</span><span>2654</span></p>
+                              </div>
+                              <div class="subtotal">
+                                  <table class="table">   
+                                      <tbody>
+                                        <tr>
+                                          <td>subtotal</td>
+                                          <td>£{{invoiceData?.totalExpanse}}</td>
+                                        </tr>
+                                        <tr>
+                                          <td>VAT</td>
+                                          <td>20%</td>
+                                        </tr>
+                                        <tr>
+                                          <td>total tax</td>
+                                          <td>£{{vat}}</td>
+                                        </tr>
+                                        <tr class="total-balance">
+                                            <td>balance due</td>
+                                            <td>£{{totalData}}</td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                              </div>
+                          </div>
+                  </div>
+          </div>
+      </div>
+  </section>
+  <section class="websitelink">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="text-center">
+                      <p>If you have any questions concerning this invoice please do not hesitate to get in touch.</p>
+                      <p>Thank you so much for your business and support in helping unlock the potential of young people in the UK.</p>
+                      <ul>
+                          <li><a href="#">Phone: +447969359342</a></li>
+                          <li><a href="#">Email: hello@propair.me</a></li>
+                          <li><a href="#">Website: www.propair.me</a></li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  </div>
+  <!--inoice html-->
+  <!--inoice upgrade membership html-->
+
+  <div  id="MyNewDIv" class="hide" >
+    <section class="invoive-header">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-12">
+                      <div class="head">
+                              <img src="assets/images/logo.png" alt="">
+                              <h1>Invoice</h1>
+                      </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  <section class="officeadd">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="address">
+                      <div>
+                          <p>ProPair Community Interset Company</p>
+                          <p>Beech House</p>
+                          <p>School Lane</p>
+                          <p>Crewe</p>
+                          <p>CW3 0BA</p>
+                      </div>
+                      <div class="text-right">
+                          <p>6th Jan 2022</p>
+                          <p>Invoice number: 2654</p>
+                          <p>Payment due by 30th Mar 2025</p>
+                      </div>
+                  </div>  
+              </div>
+          </div>
+      </div>
+  </section>
+  <section class="officeadd billto">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-3">
+                  <div class="address">
+                      <div class="w-100"> 
+                          <h2>Bill To</h2>
+                          <hr>
+                          <p>Contact Name : {{membershipInfoData?.firstName}} {{membershipInfoData?.lastName}}</p>
+                          <p>School Name : {{membershipInfoData?.schoolName}} </p>
+                          <p>Phone : </p>
+                          <p>Email : {{membershipInfoData?.email}}</p>
+                      </div>
+                  </div>  
+              </div>
+          </div>
+      </div>
+  </section>
+  <section class="tablewrapper">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="text-right memberitalic">
+                      <p><i>* all memberships include 2 free credits per student</i></p>
+                  </div>
+                  <div class="wrapper">
+                      <table class="table ">
+                          <thead>
+                            <tr>
+                              <th scope="col">DESCRIPTION</th>
+                              <th scope="col">QTY</th>
+                              <th scope="col">UNIT PRICE</th>
+                              <th scope="col">PRICE</th>
+                            </tr>
+                          </thead>
+                          <tbody >
+                            <tr>
+                             <td>Membership</td>
+                              <td>01</td>
+                              <td>£{{membershipInfoData?.annualMembershipFee}}</td>
+                              <td>£{{membershipInfoData?.annualMembershipFee}}</td>
+                            </tr>
+                            <tr>
+                             <td>up to 50 students (included for free)</td>
+                              <td>N/A</td>
+                              <td>N/A</td>
+                              <td>N/A</td>
+                            </tr>
+                            <tr>
+                             <td>{{membershipInfoData?.creditIncluded}} credits per student</td>
+                              <td>{{membershipInfoData?.totalCredit}}</td>
+                              <td>£{{membershipInfoData?.perCreditCost}}</td>
+                              <td>£{{membershipInfoData?.creditCost}}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  <section class="payment">
+      <div class="container">
+          <div class="row">
+                  <div class="col-md-12">
+                          <div class="instruction">
+                              <div class="bankdetails">
+                                  <h2>payment<br> instructions</h2>
+                                  <p><span>Bank Name:</span><span>Cashplus</span></p>
+                                  <p><span>Account No:</span><span>00149227</span></p>
+                                  <p><span>Sort Code:</span><span>08-71-99</span></p>
+                                  <p><span>Reference:</span><span>2654</span></p>
+                              </div>
+                              <div class="subtotal">
+                                  <table class="table">   
+                                      <tbody>
+                                        <tr>
+                                          <td>subtotal</td>
+                                          <td>£{{membershipInfoData?.totalAmount}}</td>
+                                        </tr>
+                                        <tr >
+                                          <td>DISCOUNT</td>
+                                          <td>£{{membershipInfoData?.discount}}</td>
+                                        </tr>
+                                        <tr >
+                                          <td>SUBTOTAL LESS DISCOUNT</td>
+                                          <td>£{{membershipInfoData?. totalFee}}</td>
+                                        </tr>
+                                        <tr>
+                                          <td>VAT</td>
+                                          <td>20%</td>
+                                        </tr>
+                                        <tr>
+                                          <td>total tax</td>
+                                          <td>£{{membershipVat}}</td>
+                                        </tr>
+                                        <tr class="total-balance">
+                                            <td>balance paid</td>
+                                            <td>£{{totalMembershipPrice}}</td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                              </div>
+                          </div>
+                  </div>
+          </div>
+      </div>
+  </section>
+  <section class="websitelink">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="text-center">
+                      <p>If you have any questions concerning this invoice please do not hesitate to get in touch.</p>
+                      <p>Thank you so much for your business and support in helping unlock the potential of young people in the UK.</p>
+                      <ul>
+                          <li><a href="#">Phone: +447969359342</a></li>
+                          <li><a href="#">Email: hello@propair.me</a></li>
+                          <li><a href="#">Website: www.propair.me</a></li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  </div>
+  <!--inoice html-->
+
+    <!--inoice purchase membership html-->
+
+    <div  id="MyMembershipDIv" class="hide" >
+      <section class="invoive-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                        <div class="head">
+                                <img src="assets/images/logo.png" alt="">
+                                <h1>Invoice</h1>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="officeadd">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="address">
+                        <div>
+                            <p>ProPair Community Interset Company</p>
+                            <p>Beech House</p>
+                            <p>School Lane</p>
+                            <p>Crewe</p>
+                            <p>CW3 0BA</p>
+                        </div>
+                        <div class="text-right">
+                            <p>6th Jan 2022</p>
+                            <p>Invoice number: 2654</p>
+                            <p>Payment due by 30th Mar 2025</p>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="officeadd billto">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="address">
+                        <div class="w-100"> 
+                            <h2>Bill To</h2>
+                            <hr>
+                            <p>Contact Name : {{membershipInfoData?.firstName}} {{membershipInfoData?.lastName}}</p>
+                            <p>School Name : {{membershipInfoData?.schoolName}} </p>
+                            <p>Phone : </p>
+                            <p>Email : {{membershipInfoData?.email}}</p>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="tablewrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="text-right memberitalic">
+                        <p><i>* all memberships include 2 free credits per student</i></p>
+                    </div>
+                    <div class="wrapper">
+                        <table class="table ">
+                            <thead>
+                              <tr>
+                                <th scope="col">DESCRIPTION</th>
+                                <th scope="col">QTY</th>
+                                <th scope="col">UNIT PRICE</th>
+                                <th scope="col">PRICE</th>
+                              </tr>
+                            </thead>
+                            <tbody >
+                              <tr>
+                               <td>Membership</td>
+                                <td>01</td>
+                                <td>£{{membershipInfoData?.annualMembershipFee}}</td>
+                                <td>£{{membershipInfoData?.annualMembershipFee}}</td>
+                              </tr>
+                              <tr>
+                               <td>up to 50 students (included for free)</td>
+                                <td>N/A</td>
+                                <td>N/A</td>
+                                <td>N/A</td>
+                              </tr>
+                              <tr>
+                               <td>{{membershipInfoData?.creditIncluded}} credits per student</td>
+                                <td>{{membershipInfoData?.totalCredit}}</td>
+                                <td>£{{membershipInfoData?.perCreditCost}}</td>
+                                <td>£{{membershipInfoData?.creditCost}}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="payment">
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-12">
+                            <div class="instruction">
+                                <div class="bankdetails">
+                                    <h2>payment<br> instructions</h2>
+                                    <p><span>Bank Name:</span><span>Cashplus</span></p>
+                                    <p><span>Account No:</span><span>00149227</span></p>
+                                    <p><span>Sort Code:</span><span>08-71-99</span></p>
+                                    <p><span>Reference:</span><span>2654</span></p>
+                                </div>
+                                <div class="subtotal">
+                                    <table class="table">   
+                                        <tbody>
+                                          <tr>
+                                            <td>subtotal</td>
+                                            <td>£{{membershipInfoData?.totalAmount}}</td>
+                                          </tr>
+                                          <tr >
+                                            <td>DISCOUNT</td>
+                                            <td>£0.00</td>
+                                          </tr>
+                                          <tr >
+                                            <td>SUBTOTAL LESS DISCOUNT</td>
+                                            <td>£{{membershipInfoData?. totalAmount}}</td>
+                                          </tr>
+                                          <tr>
+                                            <td>VAT</td>
+                                            <td>20%</td>
+                                          </tr>
+                                          <tr>
+                                            <td>total tax</td>
+                                            <td>£{{membershipVat}}</td>
+                                          </tr>
+                                          <tr class="total-balance">
+                                              <td>balance paid</td>
+                                              <td>£{{totalMembershipPrice}}</td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                </div>
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+    <section class="websitelink">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="text-center">
+                        <p>If you have any questions concerning this invoice please do not hesitate to get in touch.</p>
+                        <p>Thank you so much for your business and support in helping unlock the potential of young people in the UK.</p>
+                        <ul>
+                            <li><a href="#">Phone: +447969359342</a></li>
+                            <li><a href="#">Email: hello@propair.me</a></li>
+                            <li><a href="#">Website: www.propair.me</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  
+    </div>
+    <!--inoice html-->
+
+
+           
+<!-- PAY NOW MODAL FORM STARTS HERE-->
+
+<div class="close-modal-icon addcard"> 
+  <div class="modal fade" id="newPaynow" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add New Card</h5>
+          <button type="button" #newPaynow class="close" data-dismiss="modal" aria-label="Close" (click)="crossButton()">
+            <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+          </button>
+        </div>
+        
+        <div class="modal-body">
+              <form id="payment-form" [formGroup]="addCardForm" (ngSubmit)="addCardSubmit()">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Name on Card</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name" formControlName="name">
+                </div>
+                <div class="form-group card-amer">
+                  <label for="exampleInputEmail1">Card Number</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="124*********256" formControlName="number" (keyup)="enter()" >
+                  <div *ngIf="visa">
+                    <img src="assets/images/visa_small.png" alt="">
+                    
+                  </div>
+                  <div *ngIf="masterCard">
+                    <img src="assets/images/master_card.png" alt="">
+                    
+                  </div>
+                  <div *ngIf="americanExpress">
+                    <img src="assets/images/americanExpress.jpg" alt="">
+                    
+                  </div>
+                  <div *ngIf="discover">
+                    <img src="assets/images/discover-2.png" alt="">
+                    
+                  </div>
+                  <div *ngIf="dinerClub">
+                    <img src="assets/images/Diners-Club.png" alt="">
+                    
+                  </div>
+                  <div *ngIf="dcb">
+                    <img src="assets/images/jcb.png" alt="">
+                    
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Expiry Date</label>
+                  <div class=" d-flex MY-filed">
+                      <div class="new-exchange w-50">
+                        <div class="public-slect " >
+                          <select name="" id="" formControlName="expMonth" >
+                              <option value="">Month</option>
+                              <option *ngFor="let month of monthArray" value="{{month.value}}">{{month.month}}</option>
+
+                          </select>
+                        </div>
+                    </div>
+                    <div class="new-exchange w-50">
+                      <div class="public-slect ">
+                        <select name="" id="" formControlName="expYear">
+                            <option value="">Year</option>
+                            <option *ngFor="let year of yearArray" value="{{year}}">{{year}}</option>
+                            
+                        </select>
+                      </div>
+                  </div>
+                 </div>
+              </div>
+              <div class="form-group card-amer cvv">
+                <label for="exampleInputEmail1">CVV</label>
+                <input type="password" class="form-control" formControlName="cvc" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                <img src="assets/images/cvv.png" alt="">
+              </div>
+              <div class="modal-footer flex-column">
+              <button  type="submit"class="green w-100" >Pay</button>
+              <button [hidden]=true  id="closeDoneModal" data-dismiss="modal" data-target="#newPaynow">close</button>
+              <!-- <button *ngIf="payThroughCard === true" type="button"class="green w-100" (click)="cardDetails(customerSavedCards[0])" >Pay</button> -->
+              </div>
+              </form>
+        </div>
+        <!-- <div class="modal-footer flex-column">
+          
+           <div class="w-100 text-center mt-30">
+            <p>Your card will not be charged now,</p>
+            <p>although it will be set as the default for future charges.</p>
+           </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+        <!-- ENDS HERE -->
+
+
+        <ng-template #logoutPopup>
+          <div class="riotAccount">
+              <div class="modal-body">
+                  <div class="tournament_create_inner bg-white row" style="border-radius: 10px; padding: 20px;">
+                      <div class="col-sm-12 text-center">
+                          <p>Do you want to initiate payment?</p>
+                      </div>
+                      <div class="col-sm-12">
+                          <div class="row">
+                              <div class="col-sm-12 text-center">
+                                  <button type="submit" class="btn btn-info box-shdow submit mr-3 Yes" (click)="membershipMakePayment(1)">Yes</button>
+                                  <button type="submit" class="btn btn-danger box-shdow submit cancel" (click)="membershipMakePayment(0)">No</button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+        
+          </div>
+        </ng-template>
+
+
+        <div class="close-modal-icon"> 
+          <div  class="modal fade" id="declineModal" tabindex="-1" role="dialog" aria-labelledby="declineModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="declineModalLabel">Do you want to initiate payment?</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+                  </button>
+                </div>
+        
+                <div class="modal-footer">
+                  <button type="button"  class="green" (click)="membershipMakePayment(1)">Yes</button>
+                  <button type="button" (click)="membershipMakePayment(0)" >Cancel</button>
+                  <!-- <button [hidden]=true  id="closeDeclineeModal" data-dismiss="modal" data-target="#declineModal">close</button> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="close-modal-icon"> 
+          <div  class="modal fade" id="newPaymentModal" tabindex="-1" role="dialog" aria-labelledby="declineModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="declineModalLabel">Do you want to Initiate Payment?</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closePopup()">
+                    <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+                  </button>
+                </div>
+
+                <div class="modal-body">
+                  <div>
+                    <p>Select card</p>
+                    <select name="" id="" class="handCursor" (change)="filterYear($event.target.value)">
+                      <option value="all" selected>Select cards</option>
+                      <option *ngFor="let card of cardArray" [value]="card.id">************{{card.last4}}</option>
+                    </select>
+                  </div>
+                  <div class="close-modal-icon addcard" *ngIf="cardType"> 
+                      <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Card Detail</h5>
+                            <!-- <button type="button" #newPaynow class="close" data-dismiss="modal" aria-label="Close" (click)="crossButton()">
+                              <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+                            </button> -->
+                          </div>
+                          
+                          <div class="modal-body">
+                                <form id="payment-form" [formGroup]="addCardForm" (ngSubmit)="membershipMakePayment(1)">
+                                  <div class="form-group">
+                                    <label for="exampleInputEmail1">Name on Card</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name" formControlName="name" [readonly]="true">
+                                  </div>
+                                  <div class="form-group card-amer">
+                                    <label for="exampleInputEmail1">Card Number</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="124*********256" formControlName="number" (keyup)="enter()" [readonly]="true">
+                                    <div *ngIf="cardListing?.brand == 'Visa'">
+                                      <img src="assets/images/visa_small.png" alt="">
+                                      
+                                    </div>
+                                    <div *ngIf="cardListing?.brand == 'MasterCard'">
+                                      <img src="assets/images/master_card.png" alt="">
+                                      
+                                    </div>
+                                    <div *ngIf="cardListing?.brand == 'American Express'">
+                                      <img src="assets/images/americanExpress.jpg" alt="">
+                                      
+                                    </div>
+                                    <div *ngIf="cardListing?.brand == 'Discover'">
+                                      <img src="assets/images/discover-2.png" alt="">
+                                      
+                                    </div>
+                                    <div *ngIf="cardListing?.brand == 'Diners Club'">
+                                      <img src="assets/images/Diners-Club.png" alt="">
+                                      
+                                    </div>
+                                    <div *ngIf="cardListing?.brand == 'JCB'">
+                                      <img src="assets/images/jcb.png" alt="">
+                                      
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="exampleInputEmail1">Expiry Date</label>
+                                    <div class=" d-flex MY-filed">
+                                      <div class="new-exchange w-50">
+                                        <input  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name" formControlName="expMonth" [readonly]="true">
+                                          <!-- <div class="public-slect " > -->
+                                            <!-- <select name="" id="" formControlName="expMonth" >
+                                                <option value="">Month</option>
+                                                <option *ngFor="let month of monthArray" value="{{month.value}}">{{month.month}}</option>    
+                                            </select> -->
+                                          <!-- </div> -->
+                                      </div>
+                                      <div class="new-exchange w-50">
+                                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name" formControlName="expYear" [readonly]="true">
+                                        <!-- <div class="public-slect "> -->
+                                          <!-- <select name="" id="" formControlName="expYear">
+                                              <option value="">Year</option>
+                                              <option *ngFor="let year of yearArray" value="{{year}}">{{year}}</option>
+                                              
+                                          </select> -->
+                                        <!-- </div> -->
+                                    </div>
+                                   </div>
+                                </div>
+                                <div class="form-group card-amer cvv">
+                                  <label for="exampleInputEmail1">CVV</label>
+                                  <input type="password" class="form-control" formControlName="cvc" id="exampleInputEmail1" aria-describedby="emailHelp" [readonly]="true">
+                                  <img src="assets/images/cvv.png" alt="">
+                                  <!-- <input type="checkbox" id='html34'>
+                                  <label for="html34"></label> -->
+                                </div>
+                                <div class="modal-footer flex-column">
+                                <button  type="submit"class="green w-100" >Pay</button>
+                                <button [hidden]=true  id="closeDoneModal" data-dismiss="modal" data-target="#newPaynow">close</button>
+                                <!-- <button *ngIf="payThroughCard === true" type="button"class="green w-100" (click)="cardDetails(customerSavedCards[0])" >Pay</button> -->
+                                </div>
+                                </form>
+                          </div>
+                          <!-- <div class="modal-footer flex-column">
+                            
+                             <div class="w-100 text-center mt-30">
+                              <p>Your card will not be charged now,</p>
+                              <p>although it will be set as the default for future charges.</p>
+                             </div>
+                          </div> -->
+                        </div>
+                      </div>
+                  </div>
+                </div>
+        
+                <div class="modal-footer">
+                  <!-- <button *ngIf="showCard && cardType" type="button"  class="green" (click)="membershipMakePayment(1)">Pay</button> -->
+                  <!-- <button *ngIf="showCard" type="button" (click)="membershipMakePayment(0)" >Cancel</button> -->
+                  <button [hidden]=true  id="closeDeclineeModal" data-dismiss="modal" data-target="#newPaymentModal">close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>

@@ -1,0 +1,55 @@
+#i_friend .newcards-setting .dasshbord-content-wrapper .number div p{    font-size: 42px; font-weight: 600;}
+
+.newcards-setting{     margin-bottom: 30px;}
+.newcards-setting .dasshbord-content-wrapper{margin: 0 ; background: #fff;     padding: 20px 40px;}
+.newcards-setting .dasshbord-content-wrapper .number div p{font-size: 25px;}
+
+.newcards-setting .dasshbord-content-wrapper .number{    margin-top: 0px !important;}
+.newcards-setting  .dasshbord-content-wrapper span{    color: #7f7f7f!important;     font-size: 20px;}
+.newcards-setting  .dasshbord-content-wrapper .text-center span:first-child{margin-right: 30px;}
+
+
+.newcards-setting .dasshbord-content-wrapper .email-wrpper{ display: flex;  border: 1px solid #f0f0f0;   border-radius: 9px; overflow: hidden;}
+.newcards-setting .dasshbord-content-wrapper .email-wrpper input{border: none; width: 100%;     padding: 0 5px 0 20px; font-size: 16px; color: #7f7f7f; font-family: 'Source Sans Pro', sans-serif;}
+.newcards-setting .dasshbord-content-wrapper .email-wrpper button{border: none;  background: #33e2d1; padding: 15px 20px; }
+.dasshbord-content-wrapper {height:220px;}
+
+@media(max-width:1600px){
+    .newcards-setting .dasshbord-content-wrapper{
+        padding: 15px 30px;
+    }
+    .dasshbord-content-wrapper h3 {
+        font-size: 20px;
+    }
+    #i_friend .newcards-setting .dasshbord-content-wrapper .number div p{    font-size: 26px;}
+    .group_analystic .analystic-dashboard .live-request {
+        margin-top: 30px;
+    }
+    .setting-social-lk{
+        margin-top: 30px;
+    }
+    .setting-social-lk ul li img{
+        height: 35px;
+    }
+    .dasshbord-content-wrapper{
+        height: 170px;
+    }
+    .setting-social-lk ul{
+        justify-content: space-evenly;
+    }
+}
+
+@media(max-width:991px){
+.newcards-setting  .dasshbord-content-wrapper span{    color: #7f7f7f!important;     font-size: 18px;}
+}
+
+@media(max-width:767px){
+    .newcards-setting .dasshbord-content-wrapper{
+            margin-bottom: 15px;
+    }
+    .setting-social-lk ul{  margin-bottom:0;  justify-content: space-evenly;}
+    .dasshbord-content-wrapper{
+        height: auto;
+    }
+    .newcards-setting .dasshbord-content-wrapper span{font-size: 16px;}
+}

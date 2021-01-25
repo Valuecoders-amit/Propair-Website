@@ -1,0 +1,299 @@
+
+    <div class="message-exchng primary ">
+      <div class="d-flex justify-content-between">
+        <h3>Review your message</h3>
+        <div class="custom-selects bigsl">
+          <select name="" id="" (change)="type($event.target.value)" [(ngModel)]="selecetdValue" *ngIf="checkType">
+            <option value="public">Public Message Exchange (1 Credit)</option>
+          </select>
+    
+          <select name="" id="" (change)="type($event.target.value)" [(ngModel)]="selecetdValue" *ngIf="!checkType">
+            <option value="public">Public Message Exchange (1 Credit)</option>
+            <option value="private">Private Message Exchange (2 Credits)</option>
+          </select>
+        </div>
+      </div>
+  </div>
+  <div class="listing-box-title">
+    <div class="quicktip">
+        <p> <img style="height: 15px; margin-bottom: 4px; margin-right: 5px;" src="assets/images/quicktip.png" alt="img">You‘re almost there! Let’s give your message one more look</p>
+    </div>
+    <div class="greenRedlisting">
+          <ul>
+              <li>
+                <img src="assets/images/greentick.svg" alt="">
+                Check for typos, slang, and anything that isn’t clear
+              </li>
+          </ul>
+          <ul>
+            <li>
+              <img src="assets/images/greentick.svg" alt="">
+              Make sure you haven’t missed anything
+            </li>
+        </ul>
+    </div>
+</div>
+    <div class="fild-box">
+        <div class="group ">
+          <form [formGroup]="messageForm">
+          <label for="">Title</label>
+          <!-- <input type="text" name="email" *ngIf="titleValue" [placeholder]="titleValue" disabled> -->
+           <input type="text" name="email" formControlName="title"  placeholder="e.g. What’s the best way to get into data science? Y12 student who loves Maths!" maxlength="201"  (keyup)="keyTitleUp()">
+                   <div *ngIf="messageForm.controls.title.hasError('maxlength')"><font color="red"> Please do not exceed 200 characters </font></div>
+           <span class="charter-limit"> <i><span *ngIf=" availableMinTitleLength < 20">{{availableMinTitleLength}}</span>
+            <span class = "character" *ngIf="availableMinTitleLength >= 20" >{{availableMinTitleLength}}</span></i> / 200 characters</span>
+          <label for="" style="margin-top: 15px;">Message*</label>
+          <textarea name="" id="" rows="6" cols="30" class="w-100" formControlName="message" maxlength="3001" #box (keyup)="keyUp()"></textarea>
+          <!-- <div *ngIf="(messageForm.get('message').invalid) && (messageForm.get('message').touched)">
+            <div *ngIf="messageForm.get('message').errors.required"><font color="red">Please enter message</font></div>
+
+        </div> -->
+        <div *ngIf="messageForm.controls.message.hasError('maxlength')"><font color="red"> Please do not exceed 3000 characters </font></div>
+        <span class="charter-limit"> <i><span *ngIf="availableMinLength && availableMinLength < 200">{{availableMinLength}}</span>
+          <span class = "character" *ngIf="availableMinLength >= 200" >{{availableMinLength}}</span></i> / 3,000 characters</span>
+          <label for="">Tags</label>
+          <!-- <div class="student-portal-link">
+            <div class="area">
+              <div class="subject">
+                <span *ngFor="let questionTag of toArray ;let i=index;">{{questionTag}}<a (click)="delete(questionTag,i)"><img src="assets/images/close-small.png" alt=""></a></span>
+                
+              </div>
+            </div>
+          </div> -->
+
+          <div class="tag-pane-wrapper">
+            <div class="tagList-wrp">
+              <div *ngFor="let questionTag of toArray ;let i=index;">
+                  <span class="miniblock-s">{{questionTag}}<a (click)="deleteData(questionTag,i)"><img src="assets/images/close-small-lt.svg" alt="" style="opacity: 0.8;"></a></span> 
+                </div>
+            </div>
+              <div class=" enter-key">
+                <input type="text" name="email" [placeholder]="placeHolder"
+                formControlName="tags"  (keyup.enter)="enter()"/>
+              </div>
+            </div>
+            <div class="group mt-30">
+              <label for="">Mandatory Tags</label> 
+              <div class="tags-fields">
+                  <div class="fields">
+                      <span>Sectors*</span>
+                      <div class="public-slect">
+    
+                        <ng-multiselect-dropdown   
+                        formControlName="sector"
+                        [placeholder]="'custom placeholder'"
+                        [data]="sectorTags"
+                        [settings]="dropdownSettings"
+                        (onSelect)="onSectorSelect($event)"
+                        (onDeSelect) = "onItemDeSelectSector($event)"
+                      >
+                      
+                      </ng-multiselect-dropdown>
+    
+                      <!-- <select name="" class="dropdownColor" id="" formControlName="sector" >
+                        <option [value]="Tags._id" *ngFor="let sector of sectorTags"><input type="checkbox">{{sector.name}}</option>
+                    </select> -->
+                      <!-- <div *ngIf="(tagForm.get('sector').invalid) && (tagForm.get('sector').touched)">
+                        <div *ngIf="tagForm.get('sector').errors.required"><font color="red">Please select sector</font></div>
+    
+                    </div> -->
+                    </div>
+                  </div>
+                  <div class="fields">
+                    <span>Advice Areas*</span>
+                    <div class="public-slect">
+    
+                      <ng-multiselect-dropdown
+                      formControlName="adviceAreas"
+                      [placeholder]="'custom placeholder'"
+                      [data]="advice"
+                      [settings]="dropdownSettings"
+                      (onSelect)="onAdviseAresSelect($event)"
+                      (onDeSelect) = "onItemDeSelectAdviseArea($event)"
+                    >
+                    </ng-multiselect-dropdown>
+    
+    
+                      <!-- <select name="" class="dropdownColor" id="" formControlName="adviceAreas" >
+                        <option [value]="Tags._id" *ngFor="let Tags of advice"><input type="checkbox">{{Tags.name}}</option>
+                    </select> -->
+                    <!-- <div *ngIf="(tagForm.get('adviceAreas').invalid) && (tagForm.get('adviceAreas').touched)">
+                      <div *ngIf="tagForm.get('adviceAreas').errors.required"><font color="red">Please select advice area</font></div>
+    
+                  </div> -->
+                  </div>
+                </div>
+              </div> 
+            </div>
+        </form>
+        </div>
+    </div>
+    <div class="buttons-div">
+      <input type="button" name="Cancel"  style="cursor: pointer;" class="cancel same-field" value="Cancel" (click)="cancel()" />
+      <input type="button" name="Save Draft"   style="cursor: pointer;" class="Save-Draft same-field" value="Save Draft"  (click)="draft()"/>
+      <input type="button" name="previous"   style="cursor: pointer;" class="previous previous-ab  action-button same-field" value="Previous Step" (click)="privious()"/>
+      <input type="button" name="next" *ngIf='public'  style="cursor: pointer;" class="next action-button same-field" value="Submit (1 Credit)"   (click)="send(sendMessage)"/>
+      <button [hidden]=true id="openSuccesModal" data-toggle="modal" data-target="#m-sucsess">success</button>
+      <button [hidden]=true id="openType" data-toggle="modal" data-target="#send-private">done</button>
+      <button [hidden]=true id="cancelModal" data-toggle="modal" data-target="#delet-request">cancel</button>
+      <button [hidden]=true id="emptyCreditBalanceModal" data-toggle="modal" data-target="#insufficinet-balance">low balance</button>
+
+      <input type="button" name="next" *ngIf='private'   style="cursor: pointer;" class="next action-button same-field" value="Submit (2 Credits)"  (click)="send(sendMessage)"/>
+    </div>
+    
+<!-- Success Modal -->
+<ng-template #success>
+  <div class="close-modal-icon masseage-sucess advisor-mes uicke"> 
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true"><img src="assets/images/close-icon.png" alt="Success" (click)="navigateSuccess()"></span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <img src="assets/images/okay.png" alt="img">
+              <h3>SUCCESS!</h3>
+              <p>You have succesfully submitted your Message Exchange.</p>
+                <p>Sit tight whilst we find you a great match.</p>
+                <!-- <p>Your order number is : {{orderId}}</p> -->
+                 <p><b class="new">{{messageCost}} Credits</b> has been deducted from your balance</p>
+              <div class="btn-boxes">
+                  <a href="javascript:void(0)" data-dismiss="modal" (click)="navigateSuccess()">OK, got it!</a> 
+              </div>
+          </div>
+          
+        </div>
+      </div>
+  </div>
+</ng-template>
+
+<!-- Modal -->
+
+<ng-template #sendMessage>
+  <div class="close-modal-icon meesage-checklist qicklist uicke">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header align-items-center">
+            <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to send?</h5>
+            <!-- <span class="outbox-prv-btn">{{typevalue}}</span> -->
+                      
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true"><img src="assets/images/close-icon.png" alt="" (click)="closeSendMessagePop()"></span>
+              </button>
+          </div>
+          <div class="modal-body">
+            <div class="pubpri">
+              <p class="alingment" *ngIf='private'>Private Message Exchange (2 Credits)</p>
+              <p class="alingment" *ngIf='public'>Public Message Exchange (1 Credit)</p>
+  
+            </div>
+  
+            <p class="color-blck">Quick Checklist:</p>
+            <p>Is the content clear?</p>
+            <p> Is the grammar and spelling good?</p>
+            <p> Have I asked & said everything I wanted to?</p>
+          </div>
+          <div class="modal-footer">
+            <div class="sendPopup">
+              <button type="button" class="green" (click)="submit(success)">Yes</button>
+              <button type="button" (click)="closeSendMessagePop()">Cancel</button>
+              <button [hidden]=true id="closeTypeModal" data-dismiss="modal" data-target="#send-private">close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</ng-template>
+
+
+<!-- <div class="close-modal-icon meesage-checklist">
+  <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header align-items-center">
+          <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to Delete</h5>
+                    
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+           </button>
+
+          <div class="modal-body">              
+               <p>Make sure you save a draft otherwise you will lose this data</p>
+        </div>
+        <div class="modal-footer">
+          <div class="sendPopup"> 
+            <button type="button" class="green">Yes</button>
+            <button type="button" data-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+ <!-- Modal -->
+ <div class="advisor-modal remvspcs">
+  <div class="close-modal-icon meesage-checklist"> 
+    <div class="modal fade" id="delet-request" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to delete?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Make sure you save a draft otherwise you will lose this data</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button"  class="green" (click)="cancelSubmit()">Yes</button>
+            <button type="button" data-dismiss="modal" >Cancel</button>
+            <button [hidden]=true id="closeCancelModal" data-dismiss="modal" data-target="#delet-request">close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+
+    
+<!-- Success Modal -->
+<div class="close-modal-icon masseage-sucess advisor-mes"> 
+  <div class="modal fade" id="insufficinet-balance" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true"><img src="assets/images/close-icon.png" alt="Success"></span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <img src="assets/images/insufficinet.png" alt="img">
+            <h3>INSUFFICIENT CREDITS BALANCE!</h3>
+            <p>0 Credits</p>
+              <p>Please top up your Credit Balance and</p>
+              <p>then try again</p>
+               <p>Thanks</p>
+               <div class="modal-footer">
+                <button type="button"  class="green" (click)="navigateSettings()">Buy Credits</button>
+                <button type="button" (click)="navigateSettings()" >Request Credits</button>
+                <button [hidden]=true id="closeEmptyCreditBalanceModal" data-dismiss="modal" data-target="#insufficinet-balance">close</button>
+              </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+
+<ngx-spinner 
+bdColor="rgba(22,36,75,0.35)"
+>
+<img style=" width: 100px; height: 100px;"  src="assets/images/loadingg.gif" />
+  
+  </ngx-spinner>

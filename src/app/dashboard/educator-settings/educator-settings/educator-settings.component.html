@@ -1,0 +1,46 @@
+<div class="settingbord">
+    <div id="setting" class="tab-pane fade">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-10">
+              <div class="heading-wrapper">
+                <h3>Settings</h3>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xl-9">
+              <div class="group_analystic">
+                <!-- ab-rl tabbing -->
+                <div class="ab-rl">
+                  <ul class="nav nav-tabs">
+                    <li>
+                      <a
+                        data-toggle="tab"
+                        routerLink="/dashboard/educator-settings/educator-general"
+                        class="active"
+                        [ngClass]="{'active': currentResource == 'educator-general'}"
+                        >General</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        data-toggle="tab"
+                        [ngClass]="{'active': currentResource == 'educator-notification'}"
+                        routerLink="/dashboard/educator-settings/educator-notification"
+                        >Notifications</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div class="analystic-dashboard">
+                  <div class="tab-content">
+                    <router-outlet></router-outlet>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>

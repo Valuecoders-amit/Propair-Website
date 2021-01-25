@@ -1,0 +1,129 @@
+<div id="advice-a" class="tab-pane fade in">
+                                                          
+  
+  <div class="message-listing-wrapper background-spec-cl">
+    <div class="row">
+      <div class="col-auto">
+        <img src="assets/images/quicktip.png" alt="" class="tip-icon" (mouseenter) ="quickShow=true"  (mouseleave) ="quickShow=false" style="margin-right:10px;">
+      </div>
+      <div class="col-10 p-0">
+        <div class="row">
+          <div class="col-12 p-0">
+            <p class="tip">This Information is to help us and our Advisors understand you better but other students cannot see this.
+            <br/>
+            Please select all the topic areas from the dropdown menus below that are of interest to you.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="quick-tip-box" *ngIf="quickShow">
+    <h3>Watched Tags</h3>
+    <p>-This helps us best understand how you can best help our students so we can
+    match you with the relevant requests.
+    </p>
+    <br>
+    <p>-Also, the more up to date this section is the better! Thank you.</p>  
+  </div>
+      <div class="details-tags">
+          <span *ngFor="let car of career" >{{car.name}}<a href="javascript:void(0)" (click)="onRemoveItem(car,1)"><img src="assets/images/close-small-lt.svg" alt="img" style="height:10px;"></a></span>
+          <span *ngFor="let app of apprentice">{{app.name}} <a href="javascript:void(0)" (click)="onRemoveItem(app,2)"><img src="assets/images/close-small-lt.svg" alt="img" style="height:10px;"></a></span>
+          <span *ngFor="let wo of work"> {{wo.name}} <a href="javascript:void(0)" (click)="onRemoveItem(wo,3)"><img src="assets/images/close-small-lt.svg" alt="img" style="height:10px;"></a></span>
+          <span *ngFor="let start of startup">{{start.name}}<a href="javascript:void(0)" (click)="onRemoveItem(start,4)"><img src="assets/images/close-small-lt.svg" alt="img" style="height:10px;"></a></span>
+          <span *ngFor="let oth of other">{{oth.name}}<a href="javascript:void(0)" (click)="onRemoveItem(oth,5)"><img src="assets/images/close-small-lt.svg" alt="img" style="height:10px;"></a></span>
+
+         
+      </div>
+      <div class="student-detail new-advs-ar">
+          <div class="row">
+              <div class="col-md-6">
+                  <label for="Career">Career</label>
+              </div>  
+            
+              <div class="col-md-6">
+              <ng-multiselect-dropdown
+              [(ngModel)]="career"
+              placeholder="Please select career topic"
+              [data]="careerOptions"
+              [settings]="dropdownSettings"
+              (onSelect)="onSingleSelect($event , 1)"
+              (onDeSelect)="onRemoveItem($event , 1)"
+            >
+            <p>Select career</p>
+            </ng-multiselect-dropdown>
+
+            </div>
+          </div>
+       
+        <div class="row">
+          <div class="col-md-6">
+              <label for="college">University, college or apprenticehips</label>
+          </div>  
+          <div class="col-md-6">
+
+            <ng-multiselect-dropdown
+            [(ngModel)]="apprentice"
+            placeholder="Please select university, college or apprenticehips topic"
+            [data]="apprenticeOptions"
+            [settings]="dropdownSettings"
+            (onSelect)="onSingleSelect($event , 2)"
+            (onDeSelect)="onRemoveItem($event , 2)"
+          >
+          </ng-multiselect-dropdown>
+           
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+              <label for="Career">Work experience & volunteering</label>
+          </div>  
+          <div class="col-md-6">
+            <ng-multiselect-dropdown
+            [(ngModel)]="work"
+            placeholder="Please select work experience & volunteering topic"
+            [data]="workOptions"
+            [settings]="dropdownSettings"
+            (onSelect)="onSingleSelect($event , 3)"
+            (onDeSelect)="onRemoveItem($event , 3)"
+          >
+          </ng-multiselect-dropdown>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="col-md-6">
+              <label for="Career">Startups & business</label>
+          </div>  
+          <div class="col-md-6">
+            <ng-multiselect-dropdown
+            [(ngModel)]="startup"
+            placeholder="Please select startups & business topic"
+            [data]="startupOptions"
+            [settings]="dropdownSettings"
+            (onSelect)="onSingleSelect($event , 4)"
+            (onDeSelect)="onRemoveItem($event , 4)"
+          >
+          </ng-multiselect-dropdown>
+            
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+              <label for="Career">Other</label>
+          </div>  
+         
+          <div class="col-md-6">
+            <ng-multiselect-dropdown
+            [(ngModel)]="other"
+            placeholder="Please select other topic"
+            [data]="otherOptions"
+            [settings]="dropdownSettings"
+            (onSelect)="onSingleSelect($event , 5)"
+            (onDeSelect)="onRemoveItem($event , 5)"
+          >
+          </ng-multiselect-dropdown>
+        </div>
+        </div>
+      </div>
+  </div>
+  </div>

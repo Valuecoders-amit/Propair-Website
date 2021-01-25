@@ -1,0 +1,48 @@
+<!-- setting -->
+<div id="setting" class="tab-pane fade">
+    <div class="container-fluid">
+      <div class="student-r-wrapper">
+        <div class="row">
+          <div class="col-md-12">
+            <h1 data-toggle="modal" data-target="#thankyou">Settings</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xl-9">
+            <div class="group_analystic">
+              <div class="ab-rl">
+                <ul class="nav nav-tabs">
+                  <li>
+                    <a data-toggle="tab" 
+                    routerLink="/advisor-dashboard/advisor-setting/general-setting"
+                    [ngClass]="{'active': currentResource == 'general-setting'}" 
+                      >General</a>
+                  </li>
+                  <li>
+                    <a data-toggle="tab" 
+                    routerLink="/advisor-dashboard/advisor-setting/notification-setting"
+                    [ngClass]="{'active': currentResource == 'notification-setting'}">Notifications</a>
+                  </li>
+                  <li>
+                    <a data-toggle="tab"
+                     routerLink="/advisor-dashboard/advisor-setting/invite-setting"
+                    [ngClass]="{'active': currentResource == 'invite-setting'}">Invite Friends</a>
+                  </li>
+                </ul>
+              </div>
+  
+              
+              <div class="analystic-dashboard">
+                <div class="tab-content remv-prop">
+                    <router-outlet></router-outlet>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- setting close -->
+  
+  

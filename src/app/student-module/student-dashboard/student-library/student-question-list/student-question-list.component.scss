@@ -1,0 +1,419 @@
+.library_function {
+    padding: 50px 35px;
+}
+
+.filterTab {
+    position: relative;
+
+    i {
+        position : absolute;
+        top      : -10px;
+        right    : -8px;
+        font-size: 24px;
+        color    : #33e2d1;
+    }
+}
+.diffrent-tags{
+    display: flex; 
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.rest-srch a{
+    color: #007de4 !important;
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+.rstbx-sm{
+	padding-top: 0px !important;
+}
+
+.diffrent-tags span{
+    background: #f5f5f5;
+    border: 0px solid #eeeeee;
+    border-radius: 7px;
+    margin: 5px 0px;
+    padding: 2px 12px;
+    font-size: 16px;
+    color: #bdbdbd !important;
+    display: flex !important;
+    align-items: center;
+    font-weight: 300 !important; 
+    height: auto;
+    flex-wrap: wrap;
+}
+.message-exchange .content-box .result-box .result{
+    align-items: center;
+}
+.tot-num{
+    margin-right: 25px;
+}
+.diffrent-tags span .tgs{
+    background: #fff;
+    border: 0px solid #eeeeee;
+    height: 25px;
+    border-radius: 6px;
+    margin: 0 0px;
+    padding: 0px 10px;
+    height: 25px;
+    font-size: 16px;
+    color: #7f7f7f !important;
+    font-weight: 500 !important;
+    margin-left: 10px; 
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+.diffrent-tags span .tgs img{margin-left: 15px;}
+.diffrent-tags span{
+    margin-right: 15px;
+}
+.iline .form-group label{
+    max-width: 280px;
+}
+
+
+.student-portal-link .area p{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-align: justify;
+    
+}
+.student-portal-link .area{
+    position: relative;
+}
+.morelessbtn {
+    position: absolute;
+    bottom: 55px;
+    right: 0;
+   
+
+}
+.new{
+    margin-left:4px;
+}
+
+// less more css
+
+.morelessbtn{
+    background: #fff;
+}
+.morelessbtn a{
+    box-shadow: rgba(255, 255, 255, 1) -8px 0px 8px;
+}
+.student-portal-link.more{
+    height: auto;
+}
+.student-portal-link.more .expandabletext{
+    height: auto;
+}
+// less more css
+
+
+
+/*__  Accordion__*/
+.accodian-checkbox h5 {
+    font-family   : 'Source Sans Pro', sans-serif !important;
+    font-size     : 12px;
+    text-transform: uppercase;
+    color         : #000;
+    margin-bottom : -7px;
+    margin-top    : 20px;
+}
+
+.accodian-checkbox .accordion {
+    position     : relative;
+    margin: 10px 0px;
+}
+
+.accodian-checkbox [id*="open-accordion"],
+[id*="close-accordion"] {
+    height  : 40px;
+    display : block;
+    position: relative;
+}
+
+.accodian-checkbox [id*="close-accordion"] {
+    display: none;
+}
+
+.accodian-checkbox .accordion a {
+    font-family    : 'Source Sans Pro', sans-serif;
+    font-size      : 14px;
+    line-height    : 20px;
+    padding-left   : 0;
+    color          : #007de4;
+    text-decoration: underline;
+    position       : relative;
+    top            : -5px;
+}
+
+.accodian-checkbox [id*="open-accordion"]:after,
+[id*="close-accordion"]:after {
+    content    : "\f105 ";
+    font-family: 'FontAwesome';
+    position   : absolute;
+    left       : 0;
+    z-index    : 999;
+}
+
+.accodian-checkbox .target-fix {
+    display : block;
+    top     : 0;
+    left    : 0;
+    position: fixed;
+}
+
+.accodian-checkbox .accordion-content {
+    height            : 0;
+    position          : relative;
+    overflow          : hidden;
+    transition        : all 0.1s ease;
+    -webkit-transition: all 0.1s ease;
+    -moz-transition   : all 0.1s ease;
+}
+
+.accodian-checkbox .accordion span:target~.accordion-content {
+    display       : block;
+    height        : auto;
+    padding-bottom: 25px;
+    padding-top   : 10px;
+}
+
+.accodian-checkbox .accordion span:target~[id*="close-accordion"] {
+    display: block;
+}
+
+.accodian-checkbox .accordion span:target~[id*="open-accordion"] {
+    display: none;
+}
+
+.accodian-checkbox .accordion span:target~[id*="close-accordion"]:after {
+    content    : "\f107 ";
+    font-family: 'FontAwesome';
+}
+
+// .right:hover{
+//     cursor: pointer;
+// }
+
+.resetButton {
+    color: #007de4 !important;
+}
+
+/*_  Accordion close _*/
+
+.scroll{
+    height: 192px;
+    overflow-y: hidden;
+}
+
+.scroll2{
+    height: 50px;
+}
+.bg-clor{    background: #fafafa;}
+.iline {
+    margin: 8px 0;
+}
+::ng-deep .card{background: transparent;}
+::ng-deep .card input{width: 100%; padding: 8px 10px; border: 1px solid #aaaaaa6b; color:#383838; font-weight:300; opacity: 70%; border-radius: 8px; margin-bottom: 10px;}
+::ng-deep .card .new span{background: #fff; padding: 5px 10px; display: block;}
+
+
+.quick-tip-box{box-shadow: 0px 0 9px rgba(0, 0, 0, 0.1); padding: 10px 15px; border-radius: 12px; background: #fff; max-width: 500px; width: 100%; display: block; position: absolute; left: 80px;}
+.quick-tip-box h3{font-size: 16px; font-family: 'Source Sans Pro', sans-serif; font-weight: 600}
+.quick-tip-box p{font-size: 14px; color: #7f7f7f; padding-right: 0; margin-bottom: 0;}
+
+::ng-deep ul.pagination{ margin-top: 10px; margin-left: 280px; }
+::ng-deep ul.pagination .page-link{  border: 0px solid transparent;  padding: 18px 21px; font-weight: 600; color: #7f7f7f ;}
+::ng-deep ul.pagination .page-item.active .page-link{background-color :#eafcfa; border-color:#eafcfa; color: #7f7f7f ;}
+.location i{
+    margin: 0 7px;
+    background: #bdbdbd;
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+}
+.cantfind{
+    color: #bdbdbd !important;
+    margin-top: 40px;
+}
+
+.iline .form-group label:before{
+    margin-bottom: 3px;
+    height:10px;
+    width:10px;
+}
+.iline .form-group input:checked+label:after {
+    top: 1px;
+    left: 5px;
+    width: 5px;
+    height: 9px;
+}
+.tags-sm{ display: none; }
+.filter-btn { border: 1px solid #e3e2e2; color: #d3d3d3; }
+.filter-btn:focus { box-shadow: none; }
+
+// responsive
+@media(max-width:1600px) {
+    .rest-srch{
+        margin-bottom: 3px;
+    }
+    .accodian-checkbox .accordion a {
+        font-size: 12px;
+        position: relative;
+        top: -5px;
+    }
+    .diffrent-tags span{
+        font-size:12px;
+    }
+    .diffrent-tags span .tgs {
+        font-size: 12px;
+    }
+    .location i{
+        height:3px;
+        width:3px;
+    }
+    .cantfind{
+        font-size:12px;
+    }
+    .library_function h3 {
+        font-size: 24px !important;
+    }
+    .library_function {
+        padding: 30px 15px;
+    }
+    .serchbox{
+        margin-top: 15px;
+        margin-bottom: 0px;
+        padding: 7px 15px;
+    }
+    ::ng-deep .card input{
+        padding: 6px 15px!important;;
+    }
+    .serchbox img {
+        height: 18px;
+        width: 20px;
+    }
+    .tags h4{
+        margin: 15px 0;
+        line-height: 20px;
+        font-size: 16px;
+        opacity: 50%;
+        font-weight: 700;
+        padding-bottom: 5px;
+    }
+    .accodian-checkbox h5 {
+        font-size: 12px !important;}
+
+    .accordion .card-header .btn-link{
+        font-size: 16px !important;
+    }
+    .accodian-checkbox .accordion{
+        margin: 10px 0;
+      }
+      .school-selection {
+        display : flex;
+        flex-direction: column;
+    }
+    .message-exchange .content-box {
+        padding: 30px 15px !important;
+    }
+    .message-exchange .content-box h3 {
+        font-size: 24px;
+    }
+    .message-exchange .content-box .result-box .result span{
+        font-size: 16px;
+    }
+    .message-exchange .content-box .result-box .result{
+        width: 80%;
+    }
+    .student-portal-link .view b {
+        font-size: 18px;
+    }
+    .student-portal-link .view{
+        font-size: 16px;
+    }
+}
+
+@media(max-width:1350px) {
+    .library_function{
+       padding: 30px 15px;
+    }
+    .message-exchange .content-box {
+        padding: 30px 15px !important;
+    }
+    .message-exchange .content-box .result-box .custom-selects select{
+        height: 37px;
+    }
+}
+
+@media(max-width:767px){
+    .location i{ position: relative; top: 3px; }
+    .tags-lg {display:none;}
+    .tags-sm { display: block; }
+    .col-3 {
+        flex: 0 0 40%;
+        max-width: 40%;
+    }
+    ::ng-deep ul.pagination{ margin-left: 0; }
+    ::ng-deep ul.pagination .page-link { padding: 10px 10px; }
+    .message-exchange .content-box .result-box .custom-selects select {
+        height: 40px;
+    }
+    .student-portal-link{flex-direction: column;}
+    .student-portal-link .view{width: 100%; display: flex; justify-content: space-between;}
+    .student-portal-link .area{width: 100%; padding-left:0; text-align: center;}
+    .student-portal-link .area p{margin:10px 0; font-size: 16px;}
+    .student-portal-link .area .location{justify-content: center;}
+    .student-portal-link .area .location p{ font-size: 12px; }
+    .student-portal-link{height: auto;}
+    .tags{
+        height: 100%;
+        overflow-y: auto;
+    }
+    .message-exchange .content-box { padding: 30px 0!important; }
+    .serchbox { background: #fff!important; padding: 7px 20px 7px 5px; }
+    .accordion .card-header .btn-link { font-size: 15px!important; }
+    .student-portal-link .area p { height: 55px; }
+    .student-portal-link .area .location p { height: 15px; margin: 5px 0 }
+    .view p { margin-bottom: 10px; }
+    .tags-sm .tags .accordion .card-header .btn-link { font-size: 16px !important; }
+}
+
+@media(max-width:575px){
+    .message-exchange .content-box .result-box{
+        padding: 10px 0;
+    }
+    .message-exchange .content-box h3 {
+        font-size: 20px;
+        text-align: center;
+    }
+    .serch-tip{
+        margin-bottom: 15px;
+    }
+    .serchbox input{
+        width: 100%;
+        margin-right: 10px;
+        border: none;
+    }
+    .serchbox{
+        align-items: center;
+        border-radius: 6px;
+        border: 1px solid #efefef;
+    }
+    .message-exchange .content-box .result-box .result{
+        width: 100%;
+        justify-content: center;
+    }
+    .serchbox input{
+        padding: 6px 15px;
+    }
+    .student-portal-link .area .location{
+        align-items: center;
+    }
+   
+}

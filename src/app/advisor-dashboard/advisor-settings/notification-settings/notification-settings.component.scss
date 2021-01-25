@@ -1,0 +1,50 @@
+.school-wrapper { padding: 38px 40px;}
+.field{margin-top: 90px;}
+.school-wrapper .field .edit{    padding: 18px 20px;}
+
+@media(max-width:1600px){
+    .school-wrapper { padding: 30px 30px;}
+    .tag-line-radio {
+        font-size: 18px;
+    }
+    .radio-box [type="radio"]:checked+label, [type="radio"]:not(:checked)+label{
+        font-size: 16px;
+    }
+    .tag-line-radio{
+        margin-bottom: 0px;
+    }
+    .radio-box form p {
+        margin: 8px 0px;
+    }
+    .radio-box {
+        margin-top: 15px;
+    }
+    .school-wrapper .sbmt-btn {
+        margin-top: 15px;
+    }
+    .school-wrapper .sbmt-btn a{
+        max-width: 142px;
+        padding: 8px 0;
+        font-size: 18px;
+    }
+}
+@media(max-width:767px){
+    .radio-box [type="radio"]:checked+label, [type="radio"]:not(:checked)+label{
+        font-size: 16px;
+    }
+    .school-wrapper .sbmt-btn a{
+        max-width: 110px;
+        padding: 8px 0;
+        font-size: 16px;
+    }
+}
+@media(max-width:575px){
+    .tag-line-radio{
+        text-align: center;
+    }
+    .sbmt-btn{
+        display: flex;
+    justify-content: center;
+    }
+   
+}

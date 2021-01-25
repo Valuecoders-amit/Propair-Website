@@ -1,0 +1,182 @@
+<div id="PaymentMethods" class="tab-pane fade in " style="background: #fafafa;">
+    <div class="row">
+        <div class="col-md-12 col-lg-9">
+          <div class="main">
+            <div class="inbox-wrapper">
+                <div class="archive-section">
+                    <p>Existing Card</p>
+                </div>
+                <div class="new-exchange">
+                  <a  data-toggle="modal" data-target="#newPaynow" >Add New Card</a>
+              </div>
+            </div>
+            <div class="invoicebilling basic-membership ">
+              <div class="table-wrpper" *ngIf="cardListing?.length">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th scope="col">Card</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Card Number</th>
+                      <th scope="col">Expiry Date</th>
+                      <th>Delete</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let customer of cardListing">
+                        <td><input  name="selectedCard"  style="position: relative; height: 35px; width: 25px; left: 0px;"  type="radio" (click)="radioButton(customer)" [checked]="checked"><!-- working here -->
+                        <td>
+                          <div *ngIf="customer?.brand == 'Visa'">
+                            <img src="assets/images/visa.png" alt="">
+                          </div>
+                          <div *ngIf="customer?.brand == 'MasterCard'">
+                            <img src="assets/images/master_card_large.png" alt="">
+                          </div>
+                          <div *ngIf="customer?.brand == 'American Express'">
+                            <img src="assets/images/american_express_large.png" alt="">
+                          </div>
+                          <div *ngIf="customer?.brand == 'Discover'">
+                            <img src="assets/images/discover-2_large.png" alt="">
+                          </div>
+                          <div *ngIf="customer?.brand == 'Diners Club'">
+                            <img src="assets/images/Diners-Club_large.png" alt="">
+                          </div>
+                          <div *ngIf="customer?.brand == 'JCB'">
+                            <img src="assets/images/jcb_large.png" alt="">
+                          </div>
+                        </td>                                                                                                                      
+                        <td>{{customer.name}}</td>
+                        <td class="name">************{{customer.last4}}</td>
+                        <td>{{customer.exp_month}}/{{customer.exp_year}} </td>
+                      <td>
+                          <a (click)="membershipDeleteCard(customer)" ><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+
+                      </td>
+                      </tr>
+                  
+                  </tbody>
+                </table>
+               </div>
+               <div class="table-wrpper" *ngIf="!cardListing?.length">
+                <p class="text-center">No data found</p>
+               </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+<!-- PAY NOW MODAL FORM STARTS HERE-->
+
+  
+          <!-- ENDS HERE -->
+
+          
+<!-- PAY NOW MODAL FORM STARTS HERE-->
+<div class="close-modal-icon addcard"> 
+  <div class="modal fade" id="newPaynow" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add New Card</h5>
+          <button type="button" #newPaynow class="close" data-dismiss="modal" aria-label="Close" (click)="crossButton()">
+            <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+          </button>
+        </div>
+        
+        <div class="modal-body">
+              <form id="payment-form" [formGroup]="addCardForm" (ngSubmit)="addCardSubmit()">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Name on Card</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name" formControlName="name">
+                  <div *ngIf="(addCardForm.get('name').invalid) && (addCardForm.get('name').touched)">
+                    <div *ngIf="addCardForm.get('name').errors.required"><font color="red">Name is required</font></div>
+                  </div>
+                </div>
+                <div class="form-group card-amer">
+                  <label for="exampleInputEmail1">Card Number</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="124*********256" formControlName="number" (keyup)="enter()">
+                  <div *ngIf="(addCardForm.get('number').invalid) && (addCardForm.get('number').touched)">
+                    <div *ngIf="addCardForm.get('number').errors.required"><font color="red">Card Number is required</font></div>
+                  </div>
+                  <div *ngIf="visa">
+                    <img src="assets/images/visa_small.png" alt="">
+                    
+                  </div>
+                  <div *ngIf="masterCard">
+                    <img src="assets/images/master_card.png" alt="">
+                    
+                  </div>
+                  <div *ngIf="americanExpress">
+                    <img src="assets/images/americanExpress.jpg" alt="">
+                    
+                  </div>
+                  <div *ngIf="discover">
+                    <img src="assets/images/discover-2.png" alt="">
+                    
+                  </div>
+                  <div *ngIf="dinerClub">
+                    <img src="assets/images/Diners-Club.png" alt="">
+                    
+                  </div>
+                  <div *ngIf="dcb">
+                    <img src="assets/images/jcb.png" alt="">
+                    
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Expiry Date</label>
+                  <div class=" d-flex MY-filed">
+                      <div class="new-exchange w-50">
+                        <div class="public-slect ">
+                          <select name="" id="" formControlName="expMonth">
+                              <option value="">Month</option>
+                              <option *ngFor="let month of monthArray" value="{{month.value}}">{{month.month}}</option>
+                          </select>
+                          <div *ngIf="(addCardForm.get('expMonth').invalid) && (addCardForm.get('expMonth').touched)">
+                            <div *ngIf="addCardForm.get('expMonth').errors.required"><font color="red">Month is required</font></div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="new-exchange w-50">
+                      <div class="public-slect">
+                        <select name="" id="" formControlName="expYear">
+                            <option value="">Year</option>
+                            <option *ngFor="let year of yearArray" value="{{year}}">{{year}}</option>
+                        </select>
+                        <div *ngIf="(addCardForm.get('expYear').invalid) && (addCardForm.get('expYear').touched)">
+                          <div *ngIf="addCardForm.get('expYear').errors.required"><font color="red">Year is required</font></div>
+                        </div>
+                      </div>
+                  </div>
+                 </div>
+              </div>
+              <div class="form-group card-amer cvv">
+                <label for="exampleInputEmail1">CVV</label>
+                <input type="password" class="form-control" formControlName="cvc" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <img src="assets/images/cvv.png" alt="">
+                <div *ngIf="(addCardForm.get('cvc').invalid) && (addCardForm.get('cvc').touched)">
+                  <div *ngIf="addCardForm.get('cvc').errors.required"><font color="red">CVV is required</font></div>
+                </div>
+              </div>
+              <div class="modal-footer flex-column">
+              <button  type="submit"class="green w-100" >Add Card</button>
+              <button [hidden]=true  id="openDoneModal" data-dismiss="modal" data-target="#newPaynow">Done</button>
+              <!-- <button *ngIf="payThroughCard === true" type="button"class="green w-100" (click)="cardDetails(customerSavedCards[0])" >Pay</button> -->
+              </div>
+              </form>
+        </div>
+        <!-- <div class="modal-footer flex-column">
+          
+           <div class="w-100 text-center mt-30">
+            <p>Your card will not be charged now,</p>
+            <p>although it will be set as the default for future charges.</p>
+           </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+        <!-- ENDS HERE -->

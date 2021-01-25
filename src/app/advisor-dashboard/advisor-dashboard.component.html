@@ -1,0 +1,12 @@
+<app-header></app-header>
+<div class="dasboard-wrapper" id="body-bg" >
+  <div class="sidebar">
+    <app-sidebar></app-sidebar>
+  </div>
+  <div class="Dashboard-screen">
+    <div class="tab-content">
+      <router-outlet (activate)="onActivate($event)"></router-outlet>
+    </div>
+  </div>
+
+</div>

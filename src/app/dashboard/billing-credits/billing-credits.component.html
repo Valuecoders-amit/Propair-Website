@@ -1,0 +1,749 @@
+<div id="billing" class="tab-pane fade">
+    <div class="container-fluid">
+      <div class="row">
+         
+            <div class="col-md-12">
+              <div class="student-dirctory">
+                <div class="heading-wrapper ">
+                  <h3>Billing & Credits</h3>
+                 </div>
+                 <br>
+                 <div class="timmy-tabb forBillingTab">
+                    <div class="">
+
+                      <ul class="nav nav-tabs">                                          
+                        <li><a data-toggle="tab" href="#Overviewb" class="active">Overview</a></li>
+                        <li><a data-toggle="tab" href="#Billing">Billing </a></li>
+                        <li><a data-toggle="tab" href="#StudentsCredits">Students Credits</a></li>
+                        <li><a #paymentId data-toggle="tab" href="#PaymentMethods">Payment Methods</a></li>
+                      </ul>
+                    </div>
+                     <div class="tab-content">
+                          <div id="Overviewb" class="tab-pane fade in active">
+                                <div class="basicmembership">
+                                   <h3>Your School is on the <span>Basic Membership</span></h3>
+                                   <p>Your Propair <b>Basic Membership</b> Will be renewed on <b>25 May 2020</b><b> @	£ 495</b> per Year</p>
+
+                                   <div class="plans"*ngIf ="seePlans">
+                                      <a (click)="open()">See Available Plans</a>
+                                      <a class="green">Change Membership</a>
+                                      <a class="transparent">Cancel Membership</a>
+                                   </div>
+                                   
+                                   <div *ngIf="openTable">
+                                  <div class="row" >
+                                      <div class="col-md-8">
+                                        <div class="invoicebilling basic-membership ">
+                                          <div class="table-wrpper">
+                                            <table class="table table-striped">
+                                              <thead>
+                                                <tr>
+                                                  <th scope="col">Price inulsive of VAT</th>
+                                                  <th scope="col">Basic Membership</th>
+                                                  <th scope="col">Plus Membership</th>
+                                                  <th scope="col">Premium Membership</th>
+                                                </tr>
+                                              </thead>
+                                              <tbody>
+                                                <tr>
+                                                  <td>Annual Membership</td>                                                                                                                      
+                                                  <td>
+                                                    £{{dataMembership.annualMembership.basic}} <span class="temp">(£{{dataMembership.annualMembership.basicPerMonth}}/month) </span>
+                                                  </td>
+                                                  <td> £{{dataMembership.annualMembership.plus}}<span class="temp">(£{{dataMembership.annualMembership.plusPerMonth}}/month) </span> </td>
+                                                  <td> £{{dataMembership.annualMembership.premium}} <span class="temp">(£{{dataMembership.annualMembership.permiumPerMonth}}/month)</span></td>
+                                                </tr>
+                                                <tr>
+                                                  <td>Total no. of Students</td>                                                                                                                      
+                                                  <td>
+                                                    {{dataMembership.totalStudent.basic}} Students
+                                                  </td>
+                                                  <td>{{dataMembership.totalStudent.plus}} Students</td>
+                                                  <td>{{dataMembership.totalStudent.premium}} Students</td>
+                                                </tr>
+                                                <tr>
+                                                  <td>Incl. Message Exchange per Student</td>                                                                                                                      
+                                                  <td>
+                                                    {{dataMembership.messageExchangeCost.basic}}
+                                                  </td>
+                                                  <td>{{dataMembership.messageExchangeCost.plus}}</td>
+                                                  <td>{{dataMembership.messageExchangeCost.premium}}</td>
+                                                </tr>
+                                                <tr>
+                                                  <td>Price of addtional Message Exchange</td>                                                                                                                      
+                                                  <td>
+                                                    £{{dataMembership.priceOfAdditionalMessageExchange.basic}}
+
+                                                  </td>
+                                                  <td> £{{dataMembership.priceOfAdditionalMessageExchange.plus}}</td>
+                                                  <td> £{{dataMembership.priceOfAdditionalMessageExchange.premium}}</td>
+                                                </tr>
+                                                <tr>
+                                                  <td>Teacher Dashboard:No.of classes</td>                                                                                                                      
+                                                  <td>
+                                                    {{dataMembership.NumberOfClasses.basic}} Classes 
+                                                  </td>
+                                                  <td>{{dataMembership.NumberOfClasses.plus}} Classes</td>
+                                                  <td>{{dataMembership.NumberOfClasses.premium}} Classes</td>
+                                                </tr>
+                                                <tr>
+                                                  <td>Teacher Dashboard:analytics</td>                                                                                                                      
+                                                  <td>
+                                                    {{dataMembership.teacherDashboard.basic}}
+                                                  </td>
+                                                  <td>{{dataMembership.teacherDashboard.plus}}</td>
+                                                  <td>{{dataMembership.teacherDashboard.premium}}</td>
+                                                </tr>
+                                                <tr>
+                                                  <td>Private Message</td>                                                                                                                      
+                                                  <td>
+                                                    {{dataMembership.privateMessageExchange.basic}}
+                                                  </td>
+                                                  <td>{{dataMembership.privateMessageExchange.plus}}</td>
+                                                  <td>{{dataMembership.privateMessageExchange.premium}}</td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                           </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-md-4">
+                                          <div class="selector-custom-bar">
+                                              <div class="bar-wrapper">
+                                                    <h3>Number of <br/>
+                                                      Students</h3>
+                                                      <p>{{value}}</p>
+                                                      <div class="custom-slider">
+                                                          <ng5-slider [(value)]="student" [(highValue)]="highValue"[options]="options" (valueChange)="studentCountChange($event)"></ng5-slider>
+                                                      </div>
+                                              </div>
+                                              <div class="bar-wrapper">
+                                                <h3>Included Message 
+                                                  <br/>
+                                                  Exchanges</h3>
+                                                  <p>{{value1}}</p>
+                                                  <div class="custom-slider">
+                                                      <ng5-slider [(value)]="credit" [(highValue)]="highValue"[options]="options2" (valueChange)="studentCountChange($event)"></ng5-slider>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>  
+                                  </div>
+                                 <div class="plans">
+                                    <a class="green">Change Membership</a>
+                                    <a class="transparent">Cancel Membership</a>
+                                 </div>
+                                </div>
+                              </div>
+                          </div>
+                          <div id="Billing" class="tab-pane fade">
+                              <div class="total-spend-wrapper"> 
+                                  <div class="row">
+                                      <div class="col-lg-8 col-md-10">
+                                          <div class="total-spend">
+                                              <h4>Total Historical Spend</h4>
+                                              <div class="w-100 money-number">
+                                                  <div class="money">
+                                                      <h3>£495</h3>
+                                                      <p>Annual Basic<br>
+                                                        Membership</p>
+                                                  </div>
+                                                  <div class="sign">
+                                                      <img src="assets/images/add.png" alt="img">
+                                                  </div>
+                                                  <div class="money">
+                                                    <h3>£100</h3>
+                                                    <p>Student Credits</p>
+                                                </div>
+                                                <div class="sign">
+                                                  <img src="assets/images/equal.png" alt="img">
+                                              </div>
+                                              <div class="money">
+                                                <h3>£595</h3>
+                                                <p>Total Spend</p>
+                                               </div>
+                                              </div>
+                                             <div class="billing-al-select">
+                                                  <div class="row">
+                                                      <div class="col-md-4">
+                                                        <div class="public-slect">
+                                                          <select name="" id="">
+                                                              <option value="">Membership YTD</option>
+                                                              <option value="">Membership YTD</option>
+                                                          </select>
+                                                      </div>
+                                                      </div> 
+                                                      <div class="col-md-7">
+                                                          <div class="multi-slectdate-wrapper">
+                                                              <input type="text" placeholder="From">
+                                                              <img src="assets/images/datecalender.png" alt="img">
+                                                              <input type="text" placeholder="until">
+                                                              <img src="assets/images/datecalender.png" alt="img">
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                             </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div> 
+                              <hr>
+                            <div class="billing-al-select">
+                                <div class="view-bill">
+                                    <div class="ytd-slector">
+                                      <div class="public-slect">
+                                        <select name="" id="">
+                                            <option value="">All</option>
+                                            <option value="">Membership YTD</option>
+                                        </select>
+                                    </div>
+                                    </div> 
+                                    <div class="bill-pay">
+                                       <label for="">Your Bill is £ {{totalAmmount}}</label>
+                                     
+                                      <a *ngIf="totalAmmount>20" (click)="addNewCard('paynow')" >Pay Now</a>
+                                      
+                                    </div>
+                                </div>
+                           </div>
+
+                            <div class="invoicebilling basic-membership ">
+                              <div class="table-wrpper">
+                                <table class="table table-striped">
+                                  <thead>
+                                    <tr>
+                                      <th scope="col">Date</th>
+                                      <th scope="col">Description</th>
+                                      <th scope="col">Amount</th>
+                                      <th scope="col">Status</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td>11/06/2019</td>                                                                                                                      
+                                      <td>
+                                        <div class="genrate-inovice">
+                                          ProPair - Basic Membership Free (11/06/2019 to 26/06/2019)
+                                          <a href>Invoice</a>	
+                                        </div>
+                                      </td>
+                                      <td>&#163;495</td>
+                                      <td> PAID</td>
+                                    </tr>
+                                    <tr>
+                                      <td>11/06/2019</td>                                                                                                                      
+                                      <td>
+                                        <div class="genrate-inovice">
+                                          Students Credits		
+                                          <a href>Invoice</a>	
+                                        </div>
+                                      </td>
+                                      <td>&#163;49</td>
+                                      <td> OUTSTANDING</td>
+                                    </tr>
+                                    <tr>
+                                      <td>11/06/2019</td>                                                                                                                      
+                                      <td>
+                                        <div class="genrate-inovice">
+                                          Students Credits		
+                                          <a href>Invoice</a>	
+                                        </div>
+                                      </td>
+                                      <td>&#163;42</td>
+                                      <td> REFUNDED</td>
+                                    </tr>
+                                    <tr>
+                                      <td>11/06/2019</td>                                                                                                                      
+                                      <td>
+                                        <div class="genrate-inovice">
+                                          Students Credits		
+                                          <a href>Invoice</a>	
+                                        </div>
+                                      </td>
+                                      <td>&#163;42</td>
+                                      <td> PAID</td>
+                                    </tr>
+                                    <tr>
+                                      <td>11/06/2019</td>                                                                                                                      
+                                      <td>
+                                        <div class="genrate-inovice">
+                                          Students Credits		
+                                          <a href>Invoice</a>	
+                                        </div>
+                                      </td>
+                                      <td>&#163;42</td>
+                                      <td> REFUNDED</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                               </div>
+                            </div>
+                          </div>
+                          <div id="StudentsCredits" class="tab-pane fade student-dir-wrapper" >
+                            <div class="row">
+                              <div class="col-xl-3 col-lg-5">
+                                  <div class="dasshbord-content-wrapper remove-left">
+                                      <h3>Live Credits <br/>
+                                        Requested</h3>
+                                      <div class="live-request">
+                                        <div class="number justify-content-between w-100">
+                                          <div class="text-left">
+                                            <p>{{count?.sum}}</p>
+                                            <span>Total</span>
+                                        </div> 
+                                        <div class="text-right">
+                                            <p>{{count?.studentCount}}</p>
+                                            <span>Students</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                              </div>
+                            
+                              </div>
+                              <div class="billing-al-select">
+                                <div class="row">
+                                    <div class="col-xl-3 col-lg-4">
+                                      <div class="public-slect">
+                                        <select name="" id="">
+                                            <option value="">All Live Credits Requested</option>
+                                            <option value="">Membership YTD</option>
+                                        </select>
+                                    </div>
+                                    </div> 
+                                    <div class="col-xl-2 col-lg-4">
+                                      <div class="public-slect">
+                                        <select name="" id="">
+                                            <option value="">All Years</option>
+                                            <option value="">Membership YTD</option>
+                                        </select>
+                                    </div>
+                                    </div> 
+                                    <div class="col-xl-2 col-lg-4">
+                                      <div class="public-slect">
+                                        <select name="" id="">
+                                            <option value="">All Classes </option>
+                                            <option value="">Membership YTD</option>
+                                        </select>
+                                    </div>
+                                    </div> 
+                                    <div class="col-xl-5 col-lg-4 ">
+                                      <div class="book-ankor">
+                                        <a  (click)="showApprovePopup()">Approve</a>
+                                        <a class="transparent" (click)="showDeclinePopup()">Decline</a>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="basic-membership">
+                              <div class="table-wrpper">
+                                <table class="table table-striped">
+                                  <thead>
+                                    <tr>
+                                      <th scope="col"> 
+                                        <label class="cnt-box">
+                                          <input type="checkbox" (change)="selectAll()" [(ngModel)]="selectedAll">
+                                          <span class="checkmark"></span>
+                                        </label>
+                                      </th>
+                                      <th scope="col">Date</th>
+                                      <th scope="col">First Name</th>
+                                      <th scope="col">Last Name</th>
+                                      <th scope="col">Year</th>
+                                      <th scope="col">Class</th>
+                                      <th scope="col">Credits Balance</th>
+                                      <th scope="col">Credits Requested</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody *ngFor="let credit of studentsData">
+                                    <tr>
+                                      <td>
+                                        <label class="cnt-box">
+                                          <input type="checkbox" (change)="studentChecked()" [(ngModel)]="credit.value">
+                                          <span class="checkmark"></span>
+                                        </label>
+                                      </td>
+                                      <td>{{credit.createdAt}}</td>
+                                      <td>{{credit.studentId.firstName}}</td>
+                                      <td>{{credit.studentId.lastName}}</td>
+                                      <td>{{credit.studentId.year}}</td>
+                                      <td>{{ credit?.studentId.class ||'N/A'}}</td>
+                                      <td>3</td>
+                                      <td>{{credit.amount}}</td>
+                                    <!-- </tr>
+                                    <tr>
+                                      <td>
+                                        <label class="cnt-box">
+                                          <input type="checkbox">
+                                          <span class="checkmark"></span>
+                                        </label>
+                                      </td>
+                                      <td>11/6/2019</td>
+                                      <td>David</td>
+                                      <td>Timmy</td>
+                                      <td>1</td>
+                                      <td>2M</td>
+                                      <td>3</td>
+                                      <td>3</td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                        <label class="cnt-box">
+                                          <input type="checkbox">
+                                          <span class="checkmark"></span>
+                                        </label>
+                                      </td>
+                                      <td>11/6/2019</td>
+                                      <td>David</td>
+                                      <td>Timmy</td>
+                                      <td>1</td>
+                                      <td>2M</td>
+                                      <td>3</td>
+                                      <td>3</td>
+                                    </tr> -->
+                                  </tbody>
+                                </table>
+                               </div>
+                            </div>
+                          </div>
+                          <div id="PaymentMethods" class="tab-pane fade">
+                            <div class="main">
+                              <div class="inbox-wrapper">
+                                  <div class="archive-section">
+                                      <p>Total Bill £ {{totalAmmount}}</p>
+                                  </div>
+                                  <div class="new-exchange">
+                                    <a href="#" data-toggle="modal" data-target="#paynow" (click)="addNewCard('newcard')" >Add New Card</a>
+                                </div>
+                              </div>
+                              <div class="invoicebilling basic-membership ">
+                                <div class="table-wrpper">
+                                  <table class="table table-striped">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col"></th>
+                                        <th scope="col">Card</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Card Number</th>
+                                        <th scope="col">Expiry</th>
+                                        <th scope="col">Default Card</th>
+                                        <th>Delete</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr *ngFor="let customer of customerSavedCards">
+                                        <td><input (click)="payExisitingCard('paynow',customer)" name="selectedCard"  style="position: relative; height: 35px; width: 25px; left: 0px;"  type="radio" href="#" data-toggle="modal"  data-target="#paynow"><!-- working here -->
+                                        <td><img src="assets/images/visa.png" alt=""></td>                                                                                                                      
+                                        <td>{{customer.name}}</td>
+                                        <td class="name">************{{customer.last4}}</td>
+                                        <td>{{customer.exp_month}}/{{customer.exp_year}} </td>
+                                        <td><div class="sbmt-btns-archive">
+                                          <a  class="sbmt">DEFAULT</a>
+                                        </div>
+                                      </td>
+                                      <td>
+                                          <a (click)="deleteCard(customer)" ><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                      </td>
+                                      </tr>
+                                      <!-- <tr>
+                                        <td>
+                                         
+                                          <img src="assets/images/visa.png" alt="">
+                                        </td>                                                                                                                      
+                                        <td>David Smith</td>
+                                        <td class="name">1234********3211</td>
+                                        <td>12/2022
+                                        </td>
+                                        <td><div class="sbmt-btns-archive">
+                                          <a  class="setdeflt">Set as default</a>
+                                        </div></td>
+                                        <td>
+                                          <a ><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                         <img src="assets/images/americanExpress.jpg" alt="">
+                                        </td>                                                                                                                      
+                                        <td>David Smith</td>
+                                        <td class="name">1234********3211</td>
+                                        <td>12/2022
+                                        </td>
+                                        <td><div class="sbmt-btns-archive">
+                                          <a  class="setdeflt">Set as default</a>
+                                        </div></td>
+                                        <td>
+                                          <a ><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                       </td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                          <img src="assets/images/americanExpress.jpg" alt="">
+                                        </td>                                                                                                                      
+                                        <td>David Smith</td>
+                                        <td class="name">1234********3211</td>
+                                        <td>12/2022
+                                        </td>
+                                        <td><div class="sbmt-btns-archive">
+                                          <a  class="setdeflt">Set as default</a>
+                                        </div></td>
+                                        <td>
+                                          <a ><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                      
+                                        </td>
+                                      </tr> -->
+                                    
+                                    </tbody>
+                                  </table>
+                                 </div>
+                              </div>
+                          </div>
+                          </div>
+                     </div>
+
+                 </div>
+                </div>
+            </div>
+      </div>
+  </div>
+    </div>
+
+
+      <div class="close-modal-icon"> 
+        <div  class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to approve?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="flex-row-wrapper">
+                  <p>NO. of Students</p>
+                  <p>{{creditListCount?.studentCount}}</p>
+                </div>
+                <div class="flex-row-wrapper">
+                  <p>Total Credits</p>
+                  <p>{{creditListCount?.totalCredit}}</p>
+                </div>
+                <div class="flex-row-wrapper">
+                  <p class="font-weight-bold">Total Cost</p>
+                  <p class="font-weight-bold">&#163;{{creditListCount?.totalCreditCost}}</p>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button"  class="green" (click)="approve(1)">Yes</button>
+                <button type="button" (click)="approve(0)" >Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="close-modal-icon"> 
+        <div  class="modal fade" id="declineModal" tabindex="-1" role="dialog" aria-labelledby="declineModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="declineModalLabel">Are you sure you want to decline?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="flex-row-wrapper">
+                  <p>NO. of Students</p>
+                  <p>{{creditListCount?.studentCount}}</p>
+                </div>
+                <div class="flex-row-wrapper">
+                  <p>Total Credits</p>
+                  <p>{{creditListCount?.totalCredit}}</p>
+                </div>
+                <div class="flex-row-wrapper">
+                  <p class="font-weight-bold">Total Cost</p>
+                  <p class="font-weight-bold">&#163;{{creditListCount?.totalCreditCost}}</p>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button"  class="green" (click)="decline(1)">Yes</button>
+                <button type="button" (click)="decline(0)" >Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<!-- 
+  <ng-template #declinePopup>
+    <div class="riotAccount">
+        <div class="modal-body">
+            <div class="tournament_create_inner bg-white row" style="border-radius: 10px; padding: 20px;">
+                <div class="col-sm-12 text-center">
+                    <p>Do you want to Decline Student Credits?</p>
+                </div>
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-12 text-center">
+                            <button type="submit" class="btn btn-info box-shdow submit mr-3 Yes" (click)="decline(1)">Yes</button>
+                            <button type="submit" class="btn btn-danger box-shdow submit cancel" (click)="decline(0)">No</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template> -->
+
+<!-- <ng-template #approvePopup>
+  <div class="riotAccount">
+      <div class="modal-body">
+          <div class="tournament_create_inner bg-white row" style="border-radius: 10px; padding: 20px;">
+              <div class="col-sm-12 text-center">
+                  <p>Do you want to Approve Student Credits?</p>
+              </div>
+              <div class="col-sm-12">
+                  <div class="row">
+                      <div class="col-sm-12 text-center">
+                          <button type="submit" class="btn btn-info box-shdow submit mr-3 Yes" (click)="approve(1)">Yes</button>
+                          <button type="submit" class="btn btn-danger box-shdow submit cancel" (click)="approve(0)">No</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</ng-template> -->
+<!-- PAY NOW MODAL FORM STARTS HERE-->
+<div class="close-modal-icon addcard"> 
+  <div class="modal fade" id="paynow" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{changeLable  ? 'Add New Card' : ''}} </h5>
+          <button type="button" #paynow class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+          </button>
+        </div>
+        
+        <div class="modal-body">
+              <form id="payment-form" [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Name on Card</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name" formControlName="name">
+                </div>
+                <div class="form-group card-amer">
+                  <label for="exampleInputEmail1">Card Number</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="124*********256" formControlName="number">
+                  <img src="assets/images/americanExpress.jpg" alt="">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Expiry Date</label>
+                  <div class=" d-flex MY-filed">
+                      <div class="new-exchange w-50">
+                        <div class="public-slect " >
+                          <select name="" id="" formControlName="exp_month"  >
+                              <option value="">Month</option>
+                              <option *ngFor="let month of monthArray" value="{{month.value}}">{{month.month}}</option>
+
+                          </select>
+                        </div>
+                    </div>
+                    <div class="new-exchange w-50">
+                      <div class="public-slect ">
+                        <select name="" id="" formControlName="exp_year">
+                            <option value="">Year</option>
+                            <option *ngFor="let year of yearArray" value="{{year}}">{{year}}</option>
+                            
+                        </select>
+                      </div>
+                  </div>
+                 </div>
+              </div>
+              <div class="form-group card-amer cvv">
+                <label for="exampleInputEmail1">CVV</label>
+                <input type="password" class="form-control" formControlName="cvc" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                <img src="assets/images/cvv.png" alt="">
+              </div>
+              <div class="modal-footer flex-column">
+              <button *ngIf="payThroughCard === false" type="submit"class="green w-100" >{{changeLable  ? 'add new card' : 'pay now'}}</button>
+              <button *ngIf="payThroughCard === true" type="button"class="green w-100" (click)="cardDetails(customerSavedCards[0])" >Pay</button>
+              </div>
+              </form>
+        </div>
+        <!-- <div class="modal-footer flex-column">
+          
+           <div class="w-100 text-center mt-30">
+            <p>Your card will not be charged now,</p>
+            <p>although it will be set as the default for future charges.</p>
+           </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+        <!-- ENDS HERE -->
+
+<!-- Modal message-inbox studentpopup-->
+<div class="close-modal-icon addcard"> 
+  <div class="modal fade" id="addnewcard" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add New Card </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+          </button>
+        </div>
+        
+        <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Name on Card</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name">
+                </div>
+                <div class="form-group card-amer">
+                  <label for="exampleInputEmail1">Card Number</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="124*********256">
+                  <img src="assets/images/americanExpress.jpg" alt="">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Expiry Date</label>
+                  <div class=" d-flex MY-filed">
+                      <div class="new-exchange w-50">
+                        <div class="public-slect ">
+                          <select name="" id="">
+                              <option value="">Month</option>
+                          </select>
+                        </div>
+                    </div>
+                    <div class="new-exchange w-50">
+                      <div class="public-slect ">
+                        <select name="" id="">
+                            <option value="">Year</option>
+                        </select>
+                      </div>
+                  </div>
+                 </div>
+              </div>
+              <div class="form-group card-amer cvv">
+                <label for="exampleInputEmail1">CVV</label>
+                <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="...">
+                <img src="assets/images/cvv.png" alt="">
+              </div>
+              </form>
+        </div>
+        <div class="modal-footer flex-column">
+          <button type="button"class="green w-100" data-dismiss="modal">Add Card</button>
+           <div class="w-100 text-center mt-30">
+            <p>Your card will not be charged now,</p>
+            <p>although it will be set as the default for future charges.</p>
+           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->

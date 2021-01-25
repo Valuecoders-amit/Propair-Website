@@ -1,0 +1,24 @@
+//For Google Places
+::ng-deep .pac-container { z-index: 100000; }
+
+
+@media(max-width:1600px){
+	.stepper-heading h3{
+		font-size: 20px;
+	}
+	.para-grph0lines{
+		margin: 15px 0;
+	}
+	.para-grph0lines p{
+		font-size: 16px;
+	}
+	.new-form-icon label{font-size: 16px;}
+	.new-form-icon input{font-size: 16px;}
+	#msform .same-field{font-size: 16px;}
+	.action-button {width: 155px !important;     font-size: 16px !important;}
+    .cancel{font-size: 16px !important;}
+}
+
+@media(max-width:767px){
+	.new-form-icon label{text-align: left;}
+}

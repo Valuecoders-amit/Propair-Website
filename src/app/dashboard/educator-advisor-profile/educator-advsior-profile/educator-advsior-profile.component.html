@@ -1,0 +1,55 @@
+
+<section class=" ">
+    <div class=" ">
+    <div class="student-r-wrapper">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 data-toggle="modal" data-target="#thankyou">Advisor's Profile</h1>
+            </div>
+            <div class="col-md-12" *ngIf="showBio"> 
+                <div class="mp-mem-detal">
+                    <div class="img-wrpr">
+                        <img  *ngIf="!advisorDetails?.image" src="../../../../assets/images/useoer.png" alt="img">
+                        <img *ngIf="advisorDetails?.image" [src]="advisorDetails?.image" alt="img">
+  
+                    </div>
+                    <div class="dtsls w-100">
+                      <span><p class="hed">{{advisorDetails?.rating}}</p></span>
+                      <span><p>{{advisorDetails?.messagesCount}}  Message Exchanges</p> <p> <img src="../../../../assets/images/watch.png" alt=""> Member for {{advisorDetails?.joinedDate | joined}}</p></span>
+                      <span><p>{{advisorDetails?.kp}}  Karma Points</p> <p> <img src="../../../../assets/images/location-small.png" alt=""> {{advisorDetails?.location}}</p></span>
+                  </div>
+                </div>
+              </div>
+            <div class="col-md-12 col-lg-12 col-xl-9">
+                <div class="timmy-tabb">
+                    <div class="">
+                      <ul class="nav nav-tabs">
+                        <li><a data-toggle="tab"
+                            (click)="bio()"
+                             [ngClass]="{'active': currentResource == 'educator-advisor-biography'}">Brief Biography</a></li>
+                        <li><a data-toggle="tab"
+                            (click)="career()"
+                            [ngClass]="{'active': currentResource == 'educator-advisor-career'}" >Career Path</a></li>
+                        <li><a data-toggle="tab" 
+                            (click)="education()"
+                            [ngClass]="{'active': currentResource == 'educator-advisor-education'}">Education</a></li>
+                        <li><a data-toggle="tab" 
+                            (click)="advice()"
+                            [ngClass]="{'active': currentResource == 'educator-advisor-advice'}">My Advice Areas</a></li>
+                      </ul>
+                    </div>
+                    <div class="tab-content remv-prop">
+                        <router-outlet></router-outlet>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+
+            </div>
+        </div>
+          
+    </div> 
+
+   
+</div>
+</section>

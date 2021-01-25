@@ -1,0 +1,66 @@
+<!-- dashboard -->
+<div id="home" class="tab-pane fade in ">
+  <div class=" eductordeashbord">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="heading-wrapper">
+                    <h3>Welcome to your Dashboard, {{userData.firstName}}</h3>
+                    <!-- <p>King Edward V School </p> -->
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="live-request educaotr-lr">
+                    <a>
+                        <p>Message Exchanges</p>
+                        <div class="number">
+                            <div>
+                                <p>{{data?.messageCountLive | number}}</p>
+                                <span>Live</span>
+                            </div>
+                            <div class="right-end">
+                                <div class="text-left w-100">
+                                    <p>{{data?.messageCountCompleted | number}}</p>
+                                    <span>Completed</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a >
+                        <p>Credit Requested</p>
+                        <div class="number">
+                            <div>
+                                <p>{{data?.totalAmount | number}}</p>
+                                <span>Total</span>
+                            </div>
+                            <div class="right-end">
+                                <div class="text-left w-100">
+                                    <p>{{data?.studentCreditCount | number}}</p>
+                                    <span>Students</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a >
+                        <p>My Students</p>
+                        <div class="number">
+                            <div>
+                                <p>{{data?.registerStudent | number}}</p>
+                                <span>Registered</span>
+                            </div>
+                            <div class="right-end">
+                                <div class="text-left w-100">
+                                    <p>{{data?.pendingStudent | number}}</p>
+                                    <span>Pending</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>

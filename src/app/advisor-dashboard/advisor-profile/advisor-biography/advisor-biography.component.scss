@@ -1,0 +1,112 @@
+
+
+.brief-bhead p{color: #33e2d1; font-size: 20px;     font-weight: 500;}
+.brief-bhead .custom-selects select{height: 40px;}
+.brief-bhead .custom-selects {max-width: 130px; }
+.brief-bhead .custom-selects select{background: url(../../../../assets/images/cus-sl-arrow.png) 93% / 10% no-repeat #fff;}
+.editableontent-W{padding: 15px 30px; border-radius: 12px;background: #fff; display: flex; word-break: break-all;}
+.editableontent-W p{width: 100%; padding-right:20px; margin-bottom: 0; text-align: justify;}
+.editableontent-W a { display: flex; justify-content: flex-end;}
+.editableontent-W img { height: 20px; }
+.background-spec-cl{ margin-top: 30px;     background: #fff;  padding: 15px 30px; border-radius: 12px;}
+
+// .editableontent-W p{
+//     display: -webkit-box;
+//     -webkit-line-clamp: 3;
+//     -webkit-box-orient: vertical;
+//     overflow: hidden;
+//     text-align: justify;
+//     position: relative;
+// }
+
+.new{
+    text-align: center;
+}
+
+ /* modal css */
+ .advisor-modal .modal-header{background: #e4e4e4; padding: 40px;  align-items: center;}
+ .advisor-modal .modal-header h5{font-size: 30px; font-family: 'Source Sans Pro', sans-serif; font-weight: 600; }
+ .advisor-modal .meesage-checklist .modal-dialog{    max-width: 750px;}
+ .advisor-modal .modal-header .close{padding: 0; margin: 0;}
+ .advisor-modal  .modal-body{padding:40px 40px;}
+ .advisor-modal #accept-rquest .modal-body p {text-align: center; color: #373636;  font-weight: 300;    line-height: 30px;}
+ .advisor-modal #accept-rquest .modal-body p.light{color: #7f7f7f;}
+ .advisor-modal #accept-rquest .modal-body p a{color:#007de4;}
+ .advisor-modal .modal-footer{padding: 0px 40px 40px 40px; margin: 0 -15px;}
+ .advisor-modal .modal-footer button{background: #f5f5f5; box-shadow: 1px 1px 14px 1px rgba(0,0,0,0.2);}
+ .meesage-checklist .modal-dialog{max-width: 600px;}
+ .meesage-checklist .modal-body p{font-size: 20px; color: #7f7f7f; line-height: 48px;     margin: 15px 0;}
+ .elipsis{    width: 295px;}
+
+
+ .close-modal-icon .modal-header{    padding: 22px 35px;}
+.modal-header h5 {
+    font-size: 30px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+}
+
+.mess-re-ex textarea{min-height: 250px;}
+
+.morebtn{    right: 31px; top: 69%;     background: #fff;   position: absolute; box-shadow: 1px 1px 10px 2px rgba(255, 255, 255, 0.6); padding-left: 5px;}
+.rightalignedpencil{position: relative;}
+.rightalignedpencil .pencil-icon{    top: 18px;     right: 20px; position:absolute;}
+
+
+
+
+@media(max-width:1600px){
+    .invoicebilling .table-wrpper table{
+        width: 100%;
+    }
+    .rightalignedpencil .pencil-icon { top:15px;}
+    .editableontent-W{    padding: 15px 30px;}
+    .editableontent-W p{ font-size: 14px }
+    .background-spec-cl{ padding: 15px 30px;}
+    .basd-profile p{
+        font-size: 16px;
+    }
+    .custom-selects select {
+        height: 30px !important;
+        font-size: 14px !important;
+        border-radius: 5px !important;
+    }
+    .modal-header h5 {
+        font-size: 20px;
+     
+    }
+    .close-modal-icon .modal-footer button.green{
+        font-size: 18px;
+    }
+    .mess-re-ex textarea{
+        font-size: 14px;
+    }
+}
+
+@media(max-width:1350px){
+    .invoicebilling .table-wrpper table{
+        width: 100%;
+    }
+}
+
+@media(max-width:767px){
+    .background-spec-cl{      padding: 15px 15px !important;  margin-top: 15px;}
+    .brief-bhead p{    font-size: 18px;}
+    .invoicebilling {margin-top: 15px;}
+    .brief-bhead p{ font-size: 16px;}
+    .requests-wrper .wrp.profile .content-req .area h3{font-size: 16px !important;}
+    .modal-header h5 {
+        font-size: 20px;
+     
+    }
+    .close-modal-icon .modal-footer button.green{
+        font-size: 18px;
+    }
+}
+@media(max-width:575px){
+    .editableontent-W p{    padding-right: 0;}
+    .morebtn{
+        right: 0;
+    }
+  
+}

@@ -1,0 +1,26 @@
+// .notification-wrapper { display: flex; justify-content: flex-end;    margin-top: 82px;}
+
+// .notification-wrapper p{font-size: 16px; line-height: 40px; font-weight: 400;}
+
+// .notification-wrapper span{margin: 0 45px;     display: flex; align-items: center;}
+
+// .notification-wrapper span p{ background: #ff4949; font-size: 9px; color: #fff; border-radius: 50%; line-height: 40px; width: 17px; height: 17px; margin-left: -10px; border: 1px solid #fff; display: flex; align-items: center; justify-content: center; -webkit-border-radius: 50%; -moz-border-radius: 50%; -ms-border-radius: 50%; -o-border-radius: 50%; }
+.collapse-left {
+    margin-left: 2.5px!important;
+}
+.collapse-right {
+    margin-left: 0.5px!important;
+}
+
+@media(max-width: 1600px){
+    .sidebar .logo-wrapper {
+        margin-top: 17px!important;
+    }
+}
+
+
+@media(max-width:1199px){
+    #collapse {
+        margin-left: 0;
+    }
+}

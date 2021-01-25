@@ -1,0 +1,148 @@
+.editableontent-W {
+    padding: 15px 40px;
+    border-radius: 12px;
+    background: #fff;
+}
+.editableontent-W p {
+    width: 100%;
+    padding-right: 50px;
+    margin-bottom: 0;
+}
+// .editableontent-W p img {
+//     margin-right: 10px;
+// }
+.background-spec-cl {
+    margin-top: 30px;
+    background: #fff;
+    padding: 15px 40px;
+    border-radius: 12px;
+}
+.background-spec-cl img {
+    height: 20px;
+    margin-bottom: 3px;
+}
+.details-tags {
+    display: flex;
+    flex-wrap: wrap;
+}
+.tip{opacity:50%;}
+.details-tags span {
+    font-size: 16px;
+    color: #bdbdbd;
+    border: 1px solid #f2f1f1;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    margin: 5px 7px;
+    padding: 0 12px;
+    border-radius: 8px;
+}
+.details-tags span img {
+    margin-left: 20px;
+}
+.student-detail {
+    margin: 30px 0;
+}
+.student-detail .row {
+    margin: 15px 0;
+}
+.student-detail label {
+    width: 100%;
+    height: 100%;
+    padding-right: 15px;
+    font-size: 20px;
+    color: #373636;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.student-detail input {
+    border: 1px solid #f0f0f0;
+    border-radius: 6px;
+    padding: 15px 20px;
+    font-size: 20px;
+    color: #373636;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.student-detail select {
+    border: 1px solid #f0f0f0;
+    border-radius: 6px;
+    padding: 15px 20px;
+    font-size: 20px;
+    color: #373636;
+    font-family: 'Source Sans Pro', sans-serif;
+    background: url(../../../../../assets/images/dropdown-icon.png) 97% / 3% no-repeat;
+
+    width: 100%;
+    -webkit-appearance: none;
+}
+
+
+//Quick-tip
+.quick-tip-box{box-shadow: 0px 0 9px rgba(0, 0, 0, 0.1); padding: 10px 15px; border-radius: 12px; background: #fff; max-width: 320px; width: 100%; display: block; position: absolute; left: 80px;}
+.quick-tip-box h3{font-size: 16px; font-family: 'Source Sans Pro', sans-serif; font-weight: 600}
+.quick-tip-box p{font-size: 14px; color: #7f7f7f; padding-right: 0;}
+.editableontent-W p img{ cursor: pointer; position: relative; ;}
+
+.tip-icon{ opacity: 70%; }
+
+
+::ng-deep .multiselect-dropdown .dropdown-btn{ background: url(/assets/images/dropdown-icon.png) 97% / 3% no-repeat; border: 1px solid #f0f0f0 !important ;border-radius: 6px !important;padding: 15px 20px !important;  font-size: 20px; color: #373636;font-family: 'Source Sans Pro', sans-serif;}
+::ng-deep .multiselect-dropdown .dropdown-btn .dropdown-down{border-top: none !important;}
+::ng-deep .multiselect-dropdown .dropdown-btn .dropdown-up{border-bottom: none !important;}
+
+
+::ng-deep .multiselect-dropdown .dropdown-btn{ height: 40px; width:85% !important;  color: #AAAAAA !important;  font-size: 20px;    border-radius: 8px !important;    padding: 0px 12px !important;   border: 1px solid #ededed !important;}
+::ng-deep .multiselect-dropdown .dropdown-btn .dropdown-down{border-top:none !important;}
+.fild-box .tags-fields .public-slect::after{opacity: 0.3;}
+
+::ng-deep .multiselect-dropdown .dropdown-btn .selected-item{  width: auto !important; margin-top: 2px; margin-bottom: 2px;   font-size: 20px;        border-radius: 5px; color: #bdbdbd !important;  background: #f5f5f5 !important;  border: 1px solid #efefef !important;}
+::ng-deep .multiselect-dropdown .dropdown-btn .dropdown-up{border-bottom:none  !important;}
+::ng-deep .multiselect-dropdown .dropdown-btn .selected-item a{color: #bdbdbd !important; font-weight: 600;  font-size: 18px;}
+::ng-deep .multiselect-dropdown .dropdown-btn span{ position: relative; left: 40px; }
+::ng-deep .multiselect-dropdown .dropdown-btn span:first-child{ font-size: 12px; line-height: 20px; left:30px; }
+
+@media (max-width:1600px){
+    .tip {
+        font-size: 12px;
+        margin-bottom: 7px;
+    }
+    img.tip-icon{
+        height: 15px !important;
+        margin-bottom: 11px !important;
+    }
+    .background-spec-cl{
+        padding: 15px 30px;
+        margin-top: 15px;
+    }
+    .details-tags span{
+        font-size: 12px;
+        height: 25px;
+        border-radius: 6px;
+        margin: 0;
+        padding: 0px 10px;
+        margin-left: 10px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+    }
+    .student-detail label{
+        font-size: 16px;
+    }
+    ::ng-deep .multiselect-dropdown .dropdown-btn{
+        font-size: 16px;
+        height: 30px;
+    }
+}
+@media(max-width:767px){
+    .student-detail label {
+        font-size: 16px;
+        justify-content: flex-start;
+    }
+    .details-tags span {
+        font-size: 14px;
+    }
+    .editableontent-W p{
+        padding-right: 0;
+        text-align: center;
+    }
+}

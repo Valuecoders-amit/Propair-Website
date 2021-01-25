@@ -1,0 +1,192 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="notification-box" [ngClass]="{'shrink': shrink == true }">
+          <div class="notification-wrapper">
+            <div class="message-books">
+              <ul>
+                <li><img src="assets/images/message-library.svg"  style="cursor: pointer; height: 17px;" alt="img" routerLink="/advisor-dashboard/advisor-my-message/advisor-inbox"></li>
+                <li><img src="assets/images/stats.svg" style="cursor: pointer; margin-bottom: 1px; height: 21px;" alt="img" routerLink="/advisor-dashboard/advisor-stats/stats-overview"></li>
+              </ul>
+             </div>
+              <div class="bell-iconwrapper">
+                <div class="position-relative">
+                  <p class="username"><span style="cursor: pointer;" routerLink="/advisor-dashboard/student-requests/open-request">{{requestCount ? requestCount : 'No' }} Matches For You &nbsp;&nbsp; | &nbsp;&nbsp;</span>   </p>
+                </div>
+                <div class="logout-dropdown">
+                  <div class="dropdown">
+                    <div class="logout-click dropdown-toggle" id="dropdownLogoutButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <div class="position-relative" >
+                        <p class="username">{{userFirstName ? userFirstName :'N/A'}} {{userLastName ? userLastName : 'N/A'}}</p>
+                      </div>
+                      <button type="button" class="btn">
+                          <img src="../../../assets/images/dropdown-angelsmall.svg" alt="img">
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownLogoutButton" style="cursor: pointer;">
+                        <a class="dropdown-item" (click)="logOut()">Log out</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class=" bell-dropdown">
+                  <span style="cursor: pointer; margin-top:2px;" *ngIf="notificationData?.length" class="dropdown-toggle xyz" data-toggle="dropdown"><img src="assets/images/bell.svg" alt="img" class ="notificationModel" ><p *ngIf="notificationDataCount >= 1">{{notificationDataCount}}</p></span>
+                  <span  style="cursor: pointer;" *ngIf="!notificationData?.length" ><img style="top: 10px;" src="assets/images/bell.svg" alt="img" class ="notificationModel" ></span>
+                  <!-- <div class="dropdown-menu" style="cursor: pointer;" *ngIf="notificationDataCount" >
+                    <a class="dropdown-item" *ngFor="let notification of notificationData" (click)="status(notification.messageId)">{{notification?.message}}</a>
+                    <button *ngIf="notificationDataCount > 10" (click)="showMore()">Show more</button>
+                  </div> -->
+                  <div class="dropdown-menu" style="cursor: pointer;" *ngIf="listedNotificationArray?.length" >
+                    <div class="notifi-wrapperheight">
+                      <div *ngFor="let notification of listedNotificationArray ; let i = index">
+                        <a class="dropdown-item" [ngClass]="{'custom': notification?.isRead == false }"  (click)="status(notification?.messageId , notification?._id)">{{i+1}}.  &nbsp;&nbsp; {{notification?.message}} <span class="new">{{notification.createdAt | date: 'd MMM y'}}</span></a>
+                        <!-- <a class="new">{{notification.createdAt | date }}</a> -->
+                      </div>
+    
+                    </div>
+                    <div class="btnshowmre" *ngIf="notificationData?.length > 4">
+                      <input type="button" class="showmore"  (click)="showMore()" value="Show more" />
+                    </div>
+                  </div>
+                  <!-- <div >
+                  <div >
+                    <select name="" id="" (change)="status()">
+                      <option *ngFor="let notification of notificationData" value="">{{notification?.message}}</option>
+                  </select>
+                                
+                  </div>
+              </div> -->
+            </div>
+              </div>
+          </div>
+
+          <div class="mobilenavbar">
+            <nav class="navbar navbar-expand-lg navbar-light ">
+              <div class="text-left">
+                <div class="message-books">
+                  <ul>
+                    <li><img src="assets/images/message-library.svg"  style="cursor: pointer; height: 17px;" alt="img" routerLink="/advisor-dashboard/advisor-my-message/advisor-inbox"></li>
+                    <li><img src="assets/images/stats.svg" style="cursor: pointer; margin-bottom: 1px; height: 21px;" alt="img" routerLink="/advisor-dashboard/advisor-stats/stats-overview"></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="text-right">
+              <div class=" bell-dropdown">
+                <span style="cursor: pointer; margin-top:2px;" *ngIf="notificationData?.length" class="dropdown-toggle xyz" data-toggle="dropdown"><img src="assets/images/new-bell.svg" alt="img" class ="notificationModel" >
+                  <!-- <p *ngIf="notificationDataCount >= 1">{{notificationDataCount}}</p> -->
+                </span>
+                <span  style="cursor: pointer;" *ngIf="!notificationData?.length" ><img style="top: 10px;" src="assets/images/bell.svg" alt="img" class ="notificationModel" ></span>
+                <!-- <div class="dropdown-menu" style="cursor: pointer;" *ngIf="notificationDataCount" >
+                  <a class="dropdown-item" *ngFor="let notification of notificationData" (click)="status(notification.messageId)">{{notification?.message}}</a>
+                  <button *ngIf="notificationDataCount > 10" (click)="showMore()">Show more</button>
+                </div> -->
+                <div class="dropdown-menu" style="cursor: pointer;" *ngIf="listedNotificationArray?.length" >
+                  <div class="notifi-wrapperheight">
+                    <div *ngFor="let notification of listedNotificationArray ; let i = index">
+                      <a class="dropdown-item" [ngClass]="{'custom': notification?.isRead == false }"  (click)="status(notification?.messageId , notification?._id)">{{i+1}}:  &nbsp;&nbsp; {{notification?.message}} <span class="new">{{notification.createdAt | date: 'd MMM y'}}</span></a>
+                      <!-- <a class="new">{{notification.createdAt | date }}</a> -->
+                    </div>
+  
+                  </div>
+                  <div class="btnshowmre" *ngIf="notificationData?.length > 4">
+                    <input type="button" class="showmore"  (click)="showMore()" value="Show more" />
+                  </div>
+                </div>
+                <!-- <div >
+                <div >
+                  <select name="" id="" (change)="status()">
+                    <option *ngFor="let notification of notificationData" value="">{{notification?.message}}</option>
+                </select>
+                              
+                </div>
+            </div> -->
+          </div>
+              <!-- <a class="navbar-brand" href="#"> </a> -->
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            </div>
+              <div class="collapse navbar-collapse sidebar" id="navbarNav">
+                <div class="menus">
+                  <ul class="nav nav-tabs">
+                    <li>
+                      <a
+                        data-toggle="tab"
+                        class="active"
+                        [ngClass]="{ active: currentResource == 'stats' }"
+                        routerLink="/advisor-dashboard/stats"
+                        ><img src="assets/images/dashboard.png" alt="img" />
+                        <p>Dashboard</p>
+                      </a>
+                    </li>
+                
+                    <li>
+                      <a
+                        data-toggle="tab"
+                        [ngClass]="{ active: currentResource == 'student-requests' }"
+                        routerLink="/advisor-dashboard/student-requests"
+                        ><img src="assets/images/studentrequest.png" alt="img" />
+                        <p>Student Requests</p>
+                      </a>
+                    </li>
+                
+                    <li>
+                      <a
+                        data-toggle="tab"
+                        [ngClass]="{ active: currentResource == 'advisor-my-message' }"
+                        routerLink="/advisor-dashboard/advisor-my-message/advisor-inbox"
+                        ><img src="assets/images/my-message.png" alt="img" />
+                        <p>My Messages</p>
+                      </a>
+                    </li>
+                
+                    <li>
+                      <a
+                        data-toggle="tab"
+                        [ngClass]="{ active: currentResource == 'advisor-profile' }"
+                        routerLink="/advisor-dashboard/advisor-profile/advisor-biography"
+                        ><img src="assets/images/profile.png" alt="img" />
+                        <p>My Profile</p>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        data-toggle="tab"
+                        [ngClass]="{ active: currentResource == 'advisor-stats' }"
+                        routerLink="/advisor-dashboard/advisor-stats/stats-overview"
+                        ><img src="assets/images/mystats.png" alt="img" />
+                        <p>My Stats</p>
+                      </a>
+                    </li>
+                    
+                    <li>
+                      <a
+                        data-toggle="tab"
+                        [ngClass]="{ active: currentResource == 'advisor-setting' }"
+                        routerLink="/advisor-dashboard/advisor-setting/general-setting"
+                        ><img src="assets/images/setting.png" alt="img" />
+                        <p>Settings</p>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        data-toggle="tab"
+                        [ngClass]="{ active: currentResource == 'advisor-helpCenter' }"
+                        routerLink="/advisor-dashboard/advisor-helpCenter"
+                        ><img src="assets/images/helpcenter.png" alt="img" />
+                        <p>Help Centre</p>
+                      </a>
+                    </li>
+                    <li class="logout-mobile">
+                      <a href="javascript:void(0)" (click)="logOut()"><i class="fa fa-sign-out" aria-hidden="true"></i>
+                        <p>Log out</p>
+                      </a>
+                    </li>
+                    
+                  </ul>
+                </div>
+                    
+              </div>
+            </nav>
+          </div>
+        </div>
+    </div>
+  </div>

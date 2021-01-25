@@ -1,0 +1,499 @@
+<div id="Drafts" class="tab-pane fade">
+    <div class="main advisore-message-scr new-draft-sc">
+      <div class="basd-profile">
+        <div class="inbox-wrapper"> 
+          <ul class="nav nav-tabs">
+            <li><a data-toggle="tab" href="#LiveMessageExchanges1" class="active"
+                (click)="activeDraftTab('LiveMessageExchange')">Live Message Exchanges </a></li>
+            <!-- <li><a data-toggle="tab" href="#ProPairSupport1">ProPair Support(1)</a></li> -->
+            <li><a data-toggle="tab" href="#LiveExchangeBookings1"
+                (click)="activeDraftTab('newMessageExchange')">New Exchange Bookings</a></li>
+          </ul>
+        </div>
+        <div class="new-exchange">
+          <div class="send-now" *ngIf="newExchangeData?.length || draftData?.length ">
+            <a (click)="deletePopup()" style="cursor: pointer;" class="border_bule-btn">Delete</a>
+          </div>
+        </div>
+      </div>
+      <div class="linking-wrapper">
+        <div class="tab-content">
+          <div id="LiveMessageExchanges1" class="tab-pane fade in active">
+            <div class="advisore-message-scr" *ngIf="draftData?.length">
+              <div class="invoicebilling basic-membership ">
+                <div class="table-wrpper">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th id="checkth" class="rm-chk">
+                          <div class="iline">
+                            <div class="form-group">
+                              <input type="checkbox" id="html7" (change)="selectAll()"
+                                [(ngModel)]="selectedAll">
+                              <label for="html7"></label>
+                            </div>
+                          </div>
+                          Action
+                        </th>
+                        <!-- <th scope="col">Action</th> -->
+                        <th scope="col">Advisor</th>
+                        <th scope="col">Subject</th>
+                        <th scope="col">Received</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let draftBox of draftData"
+                        [ngClass]="{'notClass': draftBox.isRead == false}">
+                        <td id="checktd">
+                          <div class="iline">
+                            <div class="form-group">
+                              <input type="checkbox" [id]="draftBox._id" (change)="studentsChecked()"
+                                [(ngModel)]="draftBox.value">
+                              <label [for]="draftBox._id"></label>
+                            </div>
+                          </div>
+                          {{draftBox?.status | titlecase}}
+                        </td>
+                        <!-- <td (click)="showMesage(draftBox?.questionId?._id)">{{draftBox?.status}}</td> -->
+                        <td (click)="showMesage(draftBox?.questionId?._id)">{{draftBox.ownerId.firstName}} {{draftBox.ownerId.lastName}}</td>
+                        <td>
+                          <p class="elipsis" (click)="showMesage(draftBox?.questionId?._id)">{{draftBox?.questionId?.title}}</p>
+                          <span class="elipsis" (click)="showMesage(draftBox?.questionId?._id)">{{draftBox?.reply}}</span>
+                        </td>
+                        <td (click)="showMesage(draftBox?.questionId?._id)">{{draftBox.createdAt | date: 'mediumDate'}}</td>
+                       
+                      </tr>
+  
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="advisore-message-scr" *ngIf="!draftData?.length">
+              <div class="invoicebilling basic-membership ">
+                <div class="table-wrpper">
+                  <p class="new">No data found</p>
+                </div>
+              </div>
+            </div>
+           
+          </div>
+          <div id="ProPairSupport1" class="tab-pane fade">
+            <div class="invoicebilling basic-membership ">
+              <div class="table-wrpper">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col">-</th>
+                      <th scope="col">From</th>
+                      <th scope="col">Subject</th>
+                      <th scope="col">Received</th>
+                      <th scope="col">-</th>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="iline">
+                          <div class="form-group">
+                            <input type="checkbox" id="html3">
+                            <label for="html3"></label>
+                          </div>
+                        </div>
+                      </td>
+                      <td>-</td>
+                      <td>Dan Bloggs</td>
+                      <td>
+                        <p>I would like to know what you think the best, Lorem lipsum as it is sometimes
+                          known, is dummy text.</p>
+                        <span>They call me Mad Wolf and my career isn't going</span>
+                      </td>
+                      <td>Thu 30 oct 2019</td>
+                      <td>-</td>
+
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="iline">
+                          <div class="form-group">
+                            <input type="checkbox" id="html4">
+                            <label for="html4"></label>
+                          </div>
+                        </div>
+                      </td>
+                      <td>-</td>
+                      <td>Dan Bloggs</td>
+                      <td>
+                        <p>I would like to know what you think the best, Lorem lipsum as it is sometimes
+                          known, is dummy text.</p>
+                        <span>They call me Mad Wolf and my career isn't going</span>
+                      </td>
+                      <td>Thu 30 oct 2019</td>
+                      <td>-</td>
+
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="iline">
+                          <div class="form-group">
+                            <input type="checkbox" id="html5">
+                            <label for="html5"></label>
+                          </div>
+                        </div>
+                      </td>
+                      <td>-</td>
+                      <td>Dan Bloggs</td>
+                      <td>
+                        <p>I would like to know what you think the best, Lorem lipsum as it is sometimes
+                          known, is dummy text.</p>
+                        <span>They call me Mad Wolf and my career isn't going</span>
+                      </td>
+                      <td>Thu 30 oct 2019</td>
+                      <td>-</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="iline">
+                          <div class="form-group">
+                            <input type="checkbox" id="html6">
+                            <label for="html6"></label>
+                          </div>
+                        </div>
+                      </td>
+                      <td>-</td>
+                      <td>Dan Bloggs</td>
+                      <td>
+                        <p>I would like to know what you think the best, Lorem lipsum as it is sometimes
+                          known, is dummy text.</p>
+                        <span>They call me Mad Wolf and my career isn't going</span>
+                      </td>
+                      <td>Thu 30 oct 2019</td>
+                      <td>-</td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div id="LiveExchangeBookings1" class="tab-pane fade" >
+            <div class="invoicebilling basic-membership " *ngIf="newExchangeData?.length">
+              <div class="table-wrpper">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Sending</th>
+                      <th scope="col">Subject</th>
+                      <th scope="col">Last saved</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let draftNew of newExchangeData; let i = index">
+                      <td id="checktd">
+                        <div class="iline">
+                          <div class="form-group">
+                            <input type="checkbox" [id]="draftNew._id" (change)="newMessageDraftChecked()"
+                              [(ngModel)]="draftNew.value">
+                            <label for="html3"></label>
+
+                          </div>
+                        </div>
+                        <span style="color: #373636" (click)="navigatToNewMessageExchange(draftNew._id)">{{i+1}}</span>
+                      </td>
+                      <!-- <td ></td> -->
+                      <td (click)="navigatToNewMessageExchange(draftNew._id)">{{draftNew.student.firstName}}
+                        {{draftNew.student.lastName}}</td>
+                      <td (click)="navigatToNewMessageExchange(draftNew._id)">
+                        <p>{{draftNew.title}}</p>
+                        <span class="elipsis">{{draftNew.details}}</span>
+                      </td>
+                      <td (click)="navigatToNewMessageExchange()">
+                        {{draftNew.createdAt |date : 'mediumDate'}}</td>
+
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="invoicebilling basic-membership " *ngIf="!newExchangeData?.length" >
+              <div class="table-wrpper">
+                <p class="new">No data found</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="close-modal-icon meesage-checklist">
+    <div class="modal fade" id="send-private" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header align-items-center">
+            <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to Send</h5>
+            <span class="outbox-prv-btn">{{typevalue}}</span>
+            <!--           
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+            </button> -->
+          </div>
+          <div class="modal-body">
+            <p class="color-blck">Quick Checklist:</p>
+            <p>Is the content clear?</p>
+            <p> Is the grammar and spelling good?</p>
+            <p> Have I asked & said everything I wanted to?</p>
+          </div>
+          <div class="modal-footer">
+            <div class="sendPopup">
+              <button type="button" class="green" (click)="sendNow()">Yes</button>
+              <button type="button" data-dismiss="modal">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="close-modal-icon infousermodal">
+    <div class="modal fade" id="info" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Message Exchange Statistics</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="flex-row-wrapper info-img">
+              <p>
+                <img src="assets/images/info-user.png" alt="img">
+                <span>{{studentStatsData?.firstName}}</span></p>
+              <p><img src="assets/images/eye-close.png" alt="img" class="eye"></p>
+            </div>
+            <div class="flex-row-wrapper">
+              <p>Date Completed</p>
+              <p>{{statsData?.completedDate | date: 'dd  MMM  y'}}</p>
+            </div>
+            <div class="flex-row-wrapper">
+              <p>My Review</p>
+              <p>{{statsData?.ratings}} Starts</p>
+            </div>
+            <div class="flex-row-wrapper">
+              <p># of Messages w/in</p>
+              <p>4</p>
+            </div>
+            <hr>
+            <div class="flex-row-wrapper">
+              <p>Student Views</p>
+              <p>{{statsData?.views}}</p>
+            </div>
+            <div class="flex-row-wrapper">
+              <p>Up Votes</p>
+              <p>{{statsData?.upvotes}}</p>
+            </div>
+            <div class="flex-row-wrapper">
+              <p>Favourited</p>
+              <p>146</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="close-modal-icon meesage-checklist">
+    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header align-items-center">
+            <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to Delete</h5>
+                      
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+                </button>
+          </div>
+          <div class="modal-footer">
+            <div class="sendPopup">
+              <button type="button" class="green" (click)="delete()">Yes</button>
+              <button type="button" data-dismiss="modal">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <!-- Modal reveiw-->
+  <div class="close-modal-icon reveiw">
+    <div class="modal fade" id="reveiw-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Review</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="star-rating">
+              <p>Overall rating {{averagevalue}}</p>
+              <ul>
+                <li><i class="fa fa-star " aria-hidden="true" 
+                    [ngClass]="{'green': averagevalue  >= 1}"></i></li>
+                <li><i class="fa fa-star " aria-hidden="true" 
+                    [ngClass]="{'green': averagevalue  >= 2}"></i></li>
+                <li><i class="fa fa-star " aria-hidden="true" 
+                    [ngClass]="{'green': averagevalue >= 3}"></i></li>
+                <li><i class="fa fa-star " aria-hidden="true" 
+                    [ngClass]="{'green': averagevalue  >= 4}"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"
+                    [ngClass]="{'green': averagevalue  ==  5}"></i></li>
+              </ul>
+            </div>
+            <div class="comment">
+              <form [formGroup]="ReviewForm">
+                <textarea formControlName="reviews" #reviewArea (keyup)="0" maxlength="1000">Please give your feedback here - it really helps 
+                  the wider community of students as well helping us
+                  make better matches, Plus you earn MPs for it!</textarea>
+              </form>
+            </div>
+            <div *ngIf="ReviewForm.controls.reviews.hasError('maxlength')">
+              <font color="red"> Please do not exceed 1000 characters </font>
+            </div>
+            <span class="charter-limit">{{reviewArea.value?.length}}/1000Characters</span>
+            <div class="star-rating">
+              <p>Helpfulness</p>
+              <ul>
+                <li><i class="fa fa-star " aria-hidden="true" (click)="helpFul(1)"
+                    [ngClass]="{'green': helpFulValue  >= 1}"></i></li>
+                <li><i class="fa fa-star " aria-hidden="true" (click)="helpFul(2)"
+                    [ngClass]="{'green': helpFulValue  >= 2}"></i></li>
+                <li><i class="fa fa-star " aria-hidden="true" (click)="helpFul(3)"
+                    [ngClass]="{'green': helpFulValue  >= 3}"></i></li>
+                <li><i class="fa fa-star " aria-hidden="true" (click)="helpFul(4)"
+                    [ngClass]="{'green': helpFulValue  >= 4}"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true" (click)="helpFul(5)"
+                    [ngClass]="{'green': helpFulValue  >= 5}"></i></li>
+              </ul>
+            </div>
+            <div class="star-rating">
+              <p>Relevance</p>
+              <ul>
+                <li><i class="fa fa-star " aria-hidden="true" (click)="relevance(1)"
+                    [ngClass]="{'green': relevanceValue  >= 1}"></i></li>
+                <li><i class="fa fa-star " aria-hidden="true" (click)="relevance(2)"
+                    [ngClass]="{'green': relevanceValue  >= 2}"></i></li>
+                <li><i class="fa fa-star " aria-hidden="true" (click)="relevance(3)"
+                    [ngClass]="{'green': relevanceValue  >= 3}"></i></li>
+                <li><i class="fa fa-star " aria-hidden="true" (click)="relevance(4)"
+                    [ngClass]="{'green': relevanceValue  >= 4}"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true" (click)="relevance(5)"
+                    [ngClass]="{'green': relevanceValue  >= 5}"></i></li>
+              </ul>
+            </div>
+            <div class="star-rating">
+              <p>Clarity</p>
+              <ul>
+                <li><i class="fa fa-star " aria-hidden="true" (click)="clarity(1)"
+                    [ngClass]="{'green': clarityValue  >= 1}"></i></li>
+                <li><i class="fa fa-star " aria-hidden="true" (click)="clarity(2)"
+                    [ngClass]="{'green': clarityValue  >= 2}"></i></li>
+                <li><i class="fa fa-star " aria-hidden="true" (click)="clarity(3)"
+                    [ngClass]="{'green': clarityValue  >= 3}"></i></li>
+                <li><i class="fa fa-star " aria-hidden="true" (click)="clarity(4)"
+                    [ngClass]="{'green': clarityValue  >= 4}"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true" (click)="clarity(5)"
+                    [ngClass]="{'green': clarityValue  >= 5}"></i></li>
+              </ul>
+            </div>
+  
+          </div>
+          <div class="modal-footer inline-footer">
+            <button type="button" class="green" (click)="reviewSubmit(1)">Submit</button>
+            <button type="button" (click)="reviewSubmit(0)">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+  
+  
+  <!-- Modal message-inbox studentpopup-->
+  <div class="close-modal-icon  curent-msg-inbox">
+    <div class="modal fade" id="message-inbox" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">New Message to ProPair Support </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+            </button>
+          </div>
+          <form [formGroup]="propairForm">
+            <div class="modal-body">
+                <input type="text" formControlName="subject" placeholder="Subject" class="w-100">
+                <textarea formControlName="message" placeholder="Type message here...">  </textarea>
+              <div class="filebox">
+                <div class="propairImage" *ngIf = "imageUrl">
+                  <img [src]="imageUrl" class="img-fluid" (click)="imageClick(imageUrl)">
+                </div>
+                <div class="inputflie">
+                  <input type="file" id="upload" name="file" #fileInput class=""
+                    (change)="uploadFile($event.target.files)">
+                </div>
+                <!-- <button class="btn btn-link btn-md image">
+                  <input type="file" name="file" #fileInput class="" (change)="preview($event.target.files,$event)" >
+              </button> -->
+              </div>
+            </div>
+           
+          </form>
+          <div class="modal-footer inline-footer">
+            <button type="button" data-dismiss="modal" class="cncle"   (click)="cancel()">Cancel</button>
+            <button type="button" class="green" (click)="sendPropair()">Send</button>
+            <!-- <button type="button"class=" " data-dismiss="modal">Submit</button>
+            <button type="button" class="transparent">Save Draft</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+  
+  
+  
+  <div class="close-modal-icon meesage-checklist">
+    <div class="modal fade" id="deletePropair" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header align-items-center">
+            <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to Delete</h5>
+                      
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+            </button>
+          </div>  
+          <div class="modal-footer">
+            <div class="sendPopup">
+              <button type="button" class="green" (click)="deleteMessagePropairSupport()">Yes</button>
+              <button type="button" data-dismiss="modal">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> 

@@ -1,0 +1,46 @@
+<!-- setting -->
+<div id="setting" class="tab-pane fade">
+  <div class="container-fluid">
+    <div class="student-r-wrapper">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 data-toggle="modal" data-target="#thankyou">Settings</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-9">
+          <div class="group_analystic">
+            <!-- ab-rl tabbing -->
+            <div class="ab-rl">
+              <ul class="nav nav-tabs">
+                <li>
+                  <a
+                    data-toggle="tab"
+                    [ngClass]="{ active: currentResource == 'general' }"
+                    routerLink="/student-module/dashboard/student-settings/general"
+                    class="active"
+                    >General</a
+                  >
+                </li>
+                <li>
+                  <a
+                    data-toggle="tab"
+                    [ngClass]="{ active: currentResource == 'credits' }"
+                    routerLink="/student-module/dashboard/student-settings/credits"
+                    >Credits</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="analystic-dashboard">
+              <div class="tab-content remv-prop">
+                <router-outlet></router-outlet>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- setting close -->

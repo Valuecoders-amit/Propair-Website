@@ -1,0 +1,182 @@
+#thankyou .modal-footer button{width:100%; max-width: 30%; } 
+#thankyou .visit-page a{background: #eafcfa url(/assets/images/visit-page.png) 95% / 4% no-repeat; padding: 20px; color: #7f7f7f;  font-weight: 500; font-size: 20px;     width: 100%;  display: block;     display: inline-block; margin: 10px 0;}
+.advisor-mes.masseage-sucess h3{margin: 10px 0;}
+.stud-lib-chat-m .library_actual .fav-like .live-heding h4{font-size: 36px; font-weight: 700;}
+.viewupsfav{margin-top: 30px;}
+.viewupsfav div{text-align: center; margin-top: 40px	;}
+.viewupsfav div p{font-size: 22px; font-weight: 600;}
+.viewupsfav div span{font-size: 18px; font-weight: 400;}
+.advisore-message-scr{padding: 45px;}
+.advisore-message-scr .heading-wrapper h3{line-height: inherit; font-size:35px;     margin-bottom: 0; }
+.advisore-message-scr .message-listing-wrapper .main{    padding:40px 40px;}
+.advisore-message-scr .basd-profile p{color: #5a5858;}
+.advisore-message-scr .invoicebilling .table-wrpper{    border: 2px solid #e3e2e2;     margin-top: 20px;}
+.advisore-message-scr .invoicebilling .table-wrpper .table thead th{font-size: 18px;}
+.advisore-message-scr .basic-membership .table-wrpper .table td{font-size: 16px;}
+.advisore-message-scr .sbmt-btns-archive a{font-size: 14px;}
+.chekadvisror #thankyou .visit-page a{background: #eafcfa ; display: flex; justify-content: space-between; align-items: center;}
+.chekadvisror #thankyou .visit-page a .cek .checkmark{    top: -8px; left: -15px;}
+.chekadvisror #thankyou .modal-footer button {width: 100%; max-width: 50%;}
+.basd-profile {display: flex;justify-content: space-between;align-items: center;}
+.inbox-wrapper p{margin-bottom: 0; font-size: 16px; color: #7f7f7f; font-weight: 500;}
+.custom-selects {max-width: 200px;width: 100%;}
+.custom-selects select {
+    padding: 0 18px;
+    height: 45px;
+    width: 100%;
+    border: 1px solid #efefef;
+    border-radius: 12px;
+    -webkit-appearance: none;
+    background:#fff url(/assets/images/cus-sl-arrow.png) 93% / 6% no-repeat ;
+    color: #b3b2b2;
+    font-size: 16px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+}
+.advisore-message-scr .message-listing .nav-tabs li {
+    margin: 0 30px;
+}
+.new-exchange p {
+    text-align: left;
+    margin-bottom: 0;
+}
+.new-exchange{
+    align-self: flex-start;
+}
+.send-now a {
+    color: #007de4;
+    background: transparent;
+    box-shadow: none;
+    display: inline-block;
+    justify-content: flex-end;
+    padding: 8px 20px;
+    border-radius: 5px;
+}
+
+.sendPopup{
+	width:100%;
+	display:flex
+}
+
+h5.modal-title{font-size: 30px; font-weight: 600;  font-family: 'Source Sans Pro', sans-serif; }
+
+.close-modal-icon .modal-footer button{    height: 60px;}
+
+
+.elipsis{
+	display: block;
+  width: 300px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  }
+
+.new{
+    text-align: center
+}
+
+ .basic-membership .table-wrpper .table td p{    display: block;
+    width: 500px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;}
+    .new-exchange a:hover{    border: 1px solid #efefef;}
+
+.iline .form-group label:before {
+    height: 20px;
+    width: 20px;
+    margin-top: 4px; 
+}
+
+#checkth{ display: flex; }
+#checktd{ display: flex; }
+.send-now { text-align: right; }
+@media(max-width:1600px){
+    .border_bule-btn {
+        padding-top: 4px !important;
+        padding-bottom: 4px !important;
+        border: 1px solid #efefef;
+        font-size: 14px;
+    }
+    .inbox-wrapper p{
+        font-size: 14px;
+    }
+    .iline .form-group label:before{
+        margin-top: 2px;
+    }
+    .advisore-message-scr .message-listing-wrapper .main {
+        padding: 30px 30px;
+    }
+    .basic-membership .table-wrpper .table td p {
+        width: 300px;
+    }
+    h5.modal-title{font-size: 20px;}
+    .close-modal-icon .modal-footer button{    height: 40px;}
+    .invoicebilling .table-wrpper table{
+        width: 100%;
+    }
+    .elipsis{
+        width: 300px;
+    }
+    .iline .form-group input:checked+label:after{
+        top: 4px;
+        width: 5px;
+        height: 14px;
+    }
+}
+@media(max-width:1350px){
+    .invoicebilling .table-wrpper table thead th{
+        font-size: 16px;
+    }
+    .invoicebilling .table-wrpper table tbody td{
+        font-size: 12px;
+    }
+    .invoicebilling .table-wrpper table {
+        width: 100%;
+    }
+    .iline .form-group label:before {
+        height: 20px;
+        width: 20px;
+        margin-top: 1px;
+    }
+    .iline .form-group input:checked+label:after{
+        top: 2px;
+        width: 6px;
+        height: 14px;
+        left: 8px;
+    }
+    .iline .form-group input{
+        top: 2px;
+        left: 0;
+    }
+    .inbox-wrapper p{
+        font-size: 12px;
+    }
+    .border_bule-btn {
+        padding-top: 8px !important;
+        padding-bottom: 8px !important;
+        border: 1px solid #efefef;
+        font-size: 11px;
+    }
+}
+
+    @media(max-width:767px){
+        .basd-profile{
+            flex-direction: column;
+        }
+        .basd-profile p{
+            margin-bottom: 15px;
+        }
+        .invoicebilling .table-wrpper table {
+            width: 1320px;
+        }
+        .invoicebilling {
+            margin-top: 15px;
+        }
+        
+    }   
+    @media(max-width:575px){
+        .new-exchange a{
+            padding: 8px 40px;
+        }
+    }

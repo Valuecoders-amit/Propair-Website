@@ -1,0 +1,99 @@
+.editableontent-W {
+    border-radius: 12px;
+    background: #fff;
+    display: flex;
+}
+.editableontent-W p {
+    width: 100%;
+    padding-right: 50px;
+    margin-bottom: 0;
+    opacity: 70%;
+}
+.editableontent-W p img {
+    margin-right: 10px;
+    cursor: pointer; 
+    position: relative; 
+    height: 17px;
+}
+
+.background-spec-cl {
+    margin-top: 30px;
+    background: #fff;
+    padding: 40px 40px;
+    border-radius: 12px;
+}
+.new-sub-tab .timmy-tabb {
+    margin-top: 0;
+}
+.top-list-bt {
+    margin-bottom: -1px;
+}
+.new-sub-tab .timmy-tabb .nav-tabs {
+    margin-bottom: 0;
+}
+.new-sub-tab .nav-tabs li a.active {
+    border: 1px solid #e3e2e2;
+    border-bottom: 1px solid #fff;
+    color: #373636;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+.timmy-tabb .nav-tabs li a.active {
+    font-weight: 700;
+}
+.student-r-wrapper .tab-content.remv-prop {
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
+}
+.new-sub-tab .nav-tabs li a.active {
+    border: 1px solid #e3e2e2;
+    border-bottom: 1px solid #fff;
+    color: #373636;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.new-sub-tab .tab-content {
+    border: 1px solid #e3e2e2;
+    border-radius: 12px;
+    padding: 0;
+    
+}
+
+
+@media(max-width:1600px){
+    .new-sub-tab .nav-tabs li a{
+      font-size: 16px;
+      padding: 10px 20px;
+    }
+    .editableontent-W p { font-size: 14px; margin-bottom: 15px; }
+    .editableontent-W p img { margin-bottom: 4px; }
+    .background-spec-cl { margin-top: 15px; padding: 30px 30px; }
+  }
+  @media(max-width:991px){
+    .new-sub-tab .nav-tabs li a{
+        font-size: 18px;
+        padding: 13px 22px;
+      }
+  }
+  @media(max-width:767px){
+    .new-sub-tab .nav-tabs li a{
+        font-size: 16px;
+        padding: 10px 14px;
+        margin: 0 0;
+      }
+    
+  }
+  @media(max-width:575px){
+    .new-sub-tab .nav-tabs li a.active{
+        border: none;
+        border-bottom: 1px solid #e3e2e2;
+    }
+    .new-sub-tab .nav-tabs li a{
+      width: 100%;
+      text-align: center;
+  }
+  }
+
+ 

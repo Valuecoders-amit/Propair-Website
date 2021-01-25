@@ -1,0 +1,282 @@
+/* steps message */
+.messagextence{
+	padding: 50px 35px;
+}
+#msform { width:100%; margin: 25px 0; text-align: center; position: relative; }
+#msform fieldset {
+	background: #fff;
+	border: 0 none;
+	border-radius: 15px;
+	padding: 40px 30px;
+	box-sizing: border-box;
+	width: 100%;
+	margin: 0 0;
+	
+	/*stacking fieldsets above each other*/
+	position: relative;
+}
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+	display: none;
+}
+
+/*buttons*/
+#msform .same-field{border: 0 none;border-radius: 1px;cursor: pointer; box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.3); padding: 10px 25px;margin: 10px 15px;border-radius: 5px;font-size: 20px;font-family: 'Source Sans Pro', sans-serif;}
+#msform .action-button{width: 250px;background: #33e2d1;font-weight: bold;color: white;}
+#msform  .Save-Draft{background: #f5f5f5;font-weight: 500;color: #7f7f7f;	}
+#msform .cancel{background:transparent; color: #007de4; font-size: 20px;  box-shadow:none;}
+
+/*progressbar*/
+#progressbar {
+	margin-bottom: 30px;
+	overflow: hidden;
+	/*CSS counters to number the steps*/
+	counter-reset: step;
+}
+#progressbar li {
+	list-style-type: none;
+	text-transform: capitalize;
+	font-size: 9px;
+	width: 24.33%;
+	float: left;
+	position: relative;
+	font-size: 20px;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 400;
+	color: #373636;
+
+}
+#progressbar li:before {
+	content: counter(step);
+	counter-increment: step;
+  width: 0px;
+  height: 0;
+  line-height: 0;
+  padding: 30px;
+	display: block;
+	font-size: 24px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 600;
+	color: #b3b2b2;
+	background: white;
+  border-radius: 50%;
+  margin: 0 auto 5px auto;
+  display: flex;
+  justify-content: center;
+
+}
+/*progressbar connectors*/
+#progressbar li:after {
+	content: '';
+	width: 85%;
+	height: 10px;
+	background: white;
+	position: absolute;
+	left: -39%;
+	top:25px;
+	z-index: 9; /*put it behind the numbers*/
+}
+#progressbar li:first-child:after {
+	/*connector not needed before the first step*/
+	content: none; 
+}
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before,  #progressbar li.active:after{
+	background: #33e2d1;
+	color: white;
+	z-index: 9;
+}
+#msform .public-slect{ max-width: inherit;}
+#msform .listing-box-title{background: #f5f5f5; border: 2px solid #eeeeee; padding: 30px 35px; border-radius: 12px; margin-top: 20px;}
+.listing-box-title .quicktip{display: flex; justify-content: space-between;     margin-bottom: 10px;}
+.listing-box-title .quicktip p{font-size: 18px; line-height: 24px; font-weight: 600;}
+.listing-box-title .greenRedlisting ul{display: flex; margin: 10px 0; }
+.listing-box-title .greenRedlisting ul li{width: 38%; text-align: left; color: #b3b2b2; font-size: 18px; 	font-family: 'Source Sans Pro', sans-serif;}
+.listing-box-title .greenRedlisting ul li img{margin-right: 15px;}
+#msform .fild-box {margin: 40px 0; position: relative;}
+#msform .fild-box .group label:first-child{margin-top: 0;}
+#msform .fild-box .group label{font-size: 20px; font-family: 'Source Sans Pro', sans-serif; color: #373636; font-weight: 600; display: flex; justify-content: flex-start;  margin-top: 20px;   margin-bottom: 20px;}
+#msform .fild-box .group input,textarea{color:#b3b2b2; font-size: 18px;	font-family: 'Source Sans Pro', sans-serif;  padding: 20px; border-radius: 8px; border: 1px solid #ededed; width: 100%; display: block;}
+#msform .fild-box .group .charter-limit{display: block; text-align: right; margin-top: 10px; color: #d4d4d4;font-size: 18px;	font-family: 'Source Sans Pro', sans-serif;}
+#msform .fild-box .group .charter-limit i{font-style: normal; color: #ff4747;}
+#msform .plans .transparent{color: #007de4; box-shadow: none; font-weight: 500;background: transparent; padding: 0;}
+.fild-box .miniblock{color:#7f7f7f ;font-size: 14px; padding: 8px 12px; background: #f5f5f5; border:1px solid #efefef; border-radius: 5px; z-index: 99; position: absolute; right: 30px;top:65px;}
+.fild-box input{position: relative;}
+.fild-box .miniblock:before{background:url(/assets/images/close.png); content: ' ';  height: 20px; width: 20px; position: absolute; top: -8px; right: -8px; background-repeat: no-repeat;}
+.previous-ab{ width: 250px;background: #eafcfa !important;font-weight: 500 !important; color: #7f7f7f !important;}
+.mt-30{margin-top: 30px !important;}
+.tags-fields .fields{display: flex; margin: 25px 0;  align-items: center;}
+.tags-fields .fields span{width: 20%; color: #373636; font-size: 20px;  text-align: right; padding-right: 80px;}
+.tags-fields .fields .public-slect{width: 80%;}
+.tags-fields .fields .public-slect select{width: 100%; box-shadow: none;     border: 1px solid #ededed;}
+.fild-box #accordion .card-header{background:#f5f5f5;  font-size: 24px; text-align: left;}
+.fild-box .question-accord .accordion .card-header:after{font-size: 32px;}
+.fild-box .question-accord .accordion .card-body{    background: transparent; border: none;}
+.fild-box .w-80{width: 80%;}
+.fild-box .student-portal-link{border-bottom:none; justify-content: flex-start; padding: 0px 0;}
+.fild-box .student-portal-link .area{width: 100%; padding-left: 0;     text-align: left;}
+.fild-box .student-portal-link .area .subject span{background: #f5f5f5; }
+.fild-box .student-portal-link .area .subject span a{margin-left: 8px; }
+.fild-box textarea{resize: none;}
+.submitting-buttons {display: flex;justify-content: flex-end;}
+
+#msform fieldset {position: relative !important;}
+
+
+
+
+
+.padd-50 {
+	padding: 50px;
+	
+
+	.listing-box-title .greenRedlisting ul li {
+    width: 40%;
+}
+}
+
+.question-accord .accordion .card-header {
+    border: 1px solid #ededed;
+    margin: 14px 0;
+    border-radius: 8px;
+    background: #fff;
+    color: #373636;
+    font-size: 20px;
+    line-height: 35px;
+	font-family: 'Source Sans Pro', sans-serif;
+	padding: .75rem 1.25rem;
+	
+}
+.dropdownColor{
+	background-color: buttonface;
+}
+
+.miniblock:before {content:none !important;}
+.cross_btn {
+	background: url(/assets/images/close.png);
+    content: " ";
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    top: -58px;
+    right:-58px;
+	background-repeat: no-repeat;
+	z-index: 99;
+    cursor: pointer;
+}
+.tagList {
+	display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+.fild-box .miniblock {
+    right: -50px;
+    top: -50px;
+}
+.tagList div {
+    position: relative;
+	width: 7%;
+	margin: 0 15px;
+}
+
+
+.dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+  }
+
+
+  .dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f6f6f6;
+	min-width: 230px;
+	overflow: auto;
+	border: 1px solid #ddd;
+	z-index: 1;
+  }
+
+
+  .quick-tip-de-wrpper{padding: 25px 25px; background: #fff; border-radius:15px; margin-top: 53%;}
+  .quick-tip-de-wrpper p{font-size: 20px; color: #b3b2b2; font-weight:300 ; margin-bottom: 0; line-height: 26px;}
+  .quick-tip-de-wrpper h3{font-size: 20px; color: #373636; font-weight: 500;     font-family: 'Source Sans Pro', sans-serif;}
+  .quick-tip-de-wrpper h3 img{height: 16px; margin-bottom: 2px; opacity: 70%;}
+  .mobile-tbds{display: none !important;}
+  #msform .listing-box-title {border: 0;}
+
+  @media(max-width:1600px){
+	#progressbar{ margin-left: 170px; }
+	.messagextence{    padding: 30px 15px;}
+	.heading-wrapper h3{ font-size: 20px;}
+	#progressbar li:before{    font-size: 20px;     padding: 20px;}
+	#progressbar li{width: 17%; font-size: 12px;}
+	#msform fieldset{padding: 15px 30px 30px;}
+	.quick-tip-de-wrpper{margin-top: 61%;     padding: 15px 15px;}
+	.quick-tip-de-wrpper h3{font-size: 14px;}
+	.custom-selects.bigsl select{height: 30px;}
+	.quick-tip-de-wrpper h3 img{height: 14px; margin-bottom: 2px;}
+	.quick-tip-de-wrpper p{ line-height: 20px; font-size: 12px;}
+	#progressbar li:after{ 
+		top: 16px !important; 
+		width: 65% !important; 
+		left: -32% !important; 
+	}
+	.listing-box-title .quicktip p{font-size: 14px;}
+  }
+
+  @media(max-width:1350px){
+	.quick-tip-de-wrpper{margin-top: 69%;}
+	#progressbar li:after {
+		width: 63% !important;
+		left: -32% !important;
+	}
+  }
+  @media(max-width:1300px){
+	#progressbar li:after {
+		width: 59% !important;
+		left: -30% !important;
+	}
+  }
+  @media(max-width:1199px){
+	  .quick-tip-de-wrpper{
+		  display: block;
+	  }
+	  #progressbar li:after {
+		width: 74%!important;
+		left: -34%!important;
+	}
+  }
+  @media(max-width:991px){
+	.quick-tip-de-wrpper{
+		margin-top: 97%;
+	}
+	.tabids{
+		display: none;
+	}
+	.mobile-tbds{display: block !important; margin-top: 0;}
+  }
+  @media(max-width:767px){
+	#progressbar{ margin-left: 70px; }
+	#progressbar li:after{
+		width: 17% !important;
+    	left: -10% !important;
+	}
+	.messagextence{
+		padding: 30px 0;
+	}
+	.quick-tip-de-wrpper{
+		margin-top: 0;
+	}
+
+  }
+
+  @media(max-width:575px){
+	.heading-wrapper h3{line-height: 24px !important;}
+	#progressbar li:after {
+		width: 64%;
+		left: -22%;
+	}
+  }

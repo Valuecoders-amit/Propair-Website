@@ -1,0 +1,59 @@
+.notification-wrapper { display: flex; justify-content: flex-end;    margin-top: 82px;}
+
+.notification-wrapper p{font-size: 16px; line-height: 40px; font-weight: 400;}
+
+.notification-wrapper span{margin: 0 45px;     display: flex; align-items: center;}
+
+.notification-wrapper span p{ background: #ff4949; font-size: 9px; color: #fff; border-radius: 50%; line-height: 40px; width: 17px; height: 17px; margin-left: -10px; border: 1px solid #fff; display: flex; align-items: center; justify-content: center; -webkit-border-radius: 50%; -moz-border-radius: 50%; -ms-border-radius: 50%; -o-border-radius: 50%; }
+
+#collapse{
+    margin-left: 0px;
+}
+
+.right:hover{
+    cursor: pointer;
+}
+.logout-btn{
+    text-align: right;
+    margin-top: 50px;
+
+    padding-right: 50px;
+}
+.logout-btn a{
+    text-align: right;
+    font-size: 22px;
+    font-weight: 600;
+    color: #373636;
+    text-decoration: underline;
+}
+.logout-btn a:hover{
+    color: #007de4;
+}
+
+.right:hover{
+    cursor: pointer;
+}
+.dasboard-wrapper .sidebar .logo-wrapper{
+    margin-top: 16px;
+}
+.dasboard-wrapper .sidebar .logo-wrapper{
+    margin-top: 15px;
+}
+
+.riotAccount {
+    font-size: 30px;
+}
+.riotAccount .modal-dialog{max-width: 700px; text-align: center; }
+// .riotAccount .modal-body{background: #fff; padding: 50px; border-radius: 25px;}
+.riotAccount .modal-body img{max-width: 230px; text-align: center; }
+// .riotAccount .details{ text-align: left; margin-top: 70px; }
+.riotAccount .details label{font-size: 24px; margin: 15px 0;  color:#000; font-family: 'Conv_AvenirLTStd-Medium'; }
+// .riotAccount .details input{border:1px solid #eaeaea; border-radius: 6px; background: #f3f3f3;  width: 100%;}
+.riotAccount .submit { color: #fff; text-transform: uppercase; border:none; border-radius: 5px; max-width: 310px; width: 100%; font-family: 'Conv_AvenirLTStd-Heavy'; font-size:25px; margin-top:50px;height:50px;line-height:50px;cursor:pointer;} 
+.riotAccount .tournament_create_inner .submit{font-size: 16px;margin-top: 18px;min-width: 70px;height: 43px;line-height: 34px;width: auto;}
+
+@media(max-width:1600px){
+    .menus{
+        margin-top: 41px !important;
+    }
+}

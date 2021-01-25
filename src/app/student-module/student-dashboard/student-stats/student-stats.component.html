@@ -1,0 +1,215 @@
+<div id="home" class="tab-pane fade in active">
+  <div class="container-fluid">
+    <div class="dashboard-wrapper">
+      <div class="row">
+        <div class="col-12">
+          <div class="heading-wrapper">
+            <h3>Welcome to your Dashboard, {{ userData?.firstName | titlecase}}!</h3>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="row">
+        <div class="offset-md-4"></div>
+        <div class="col-md-5">
+          <div class="sincejoing"></div>
+        </div>
+      </div> -->
+      <div class="row">
+        <div class="col-md-6 col-lg-6 col-xl-4">
+          <div class="dasshbord-content-wrapper">
+            <div class="moreinwrapper">
+              <h3>To-do List ({{ moreTodo ? finalTodos.length : finalTodos.length}})</h3>
+            </div>
+            <div class="live-request to-list">
+              <ng-container *ngFor="let todo of todos; let i=index;">
+                <span *ngIf="!moreTodo"> {{i+1}}. {{todo}}</span>
+              </ng-container>
+              <ng-container *ngFor="let todo of finalTodos; let i=index;">
+                <span *ngIf="moreTodo" > {{i+1}}. {{todo}}</span>
+              </ng-container>
+            </div>
+            <h4 class="more-btn" *ngIf="finalTodos.length > 2" (click)="moreTodo = !moreTodo">{{moreTodo ? 'Less' : 'More'}}</h4> 
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-6 col-xl-5">
+          <div class="dasshbord-content-wrapper rmvmed padd-0">
+            <div class="newadding-padding ">
+              <h3>My Activity</h3>
+              <div class="live-request">
+                <div class="number justify-content-between w-100">
+                  <div class="text-left">
+                    <p>{{ dashboardData?.messageCount ? (dashboardData?.messageCount | number) : '0' }}</p>
+                    <span>Message Exchanges</span>
+                  </div>
+                  <div class="text-left">
+                    <div *ngIf="dashboardData?.timeUnit == 'minute'">
+                      <p *ngIf="firstValueOfTime > 0">
+                        {{ firstValueOfTime }}m {{ secondValueOfTime }}s
+                      </p>
+                      <p *ngIf="firstValueOfTime <= 0">
+                             {{ secondValueOfTime }}s
+                      </p>
+                    </div>
+                    <div *ngIf="dashboardData?.timeUnit == 'hour'">
+                      <p *ngIf="firstValueOfTime > 0">
+                        {{ firstValueOfTime }}h {{ secondValueOfTime }}m
+                      </p>
+                      <p *ngIf="firstValueOfTime <= 0">
+                         {{ secondValueOfTime }}m
+                      </p>
+                    </div>
+                    <div
+                      *ngIf="
+                        !(dashboardData?.timeUnit == 'minute') &&
+                        !(dashboardData?.timeUnit == 'hour')
+                      "
+                    >
+                      <p>0</p>
+                    </div>
+
+                    <span>Avg. Response Time</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="new-drpbar downsince">
+              <div class="since-joingdrp">
+                <ul>
+                  <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                      {{ selectedVal }}<b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <div class="lastdys">
+                          <!-- <span>Last {{ no_of_days }} days</span> -->
+                          <p class="selected-opt">{{ selectedVal }}</p>
+                          <p>
+                            {{ selectedDat | date: "d MMM y" + " - " }}
+                            {{ todayDate | date: "d MMM y" }}
+                          </p>
+                        </div>
+                      </li>
+                      <hr />
+                      <div style="cursor: pointer;">
+                        <li
+                          class="eqspace"
+                          [ngClass]="{ active_tab: joining['Since Joining'] }"
+                          (click)="joiningTabs('Since Joining')"
+                        >
+                          <span>Since Joining</span>
+                        </li>
+                        <li
+                          class="eqspace"
+                          [ngClass]="{ active_tab: joining['Last 12 Months'] }"
+                          (click)="joiningTabs('Last 12 Months')"
+                        >
+                          <span>Last 12 Months</span>
+                        </li>
+                        <li
+                          class="eqspace"
+                          [ngClass]="{ active_tab: joining['Ytd'] }"
+                          (click)="joiningTabs('YTD')"
+                        >
+                          <span>YTD</span>
+                        </li>
+                        <li
+                          class="eqspace"
+                          [ngClass]="{ active_tab: joining['Last 90 Days'] }"
+                          (click)="joiningTabs('Last 90 Days')"
+                        >
+                          <span>Last 90 Days</span>
+                        </li>
+                        <li
+                          class="eqspace"
+                          [ngClass]="{ active_tab: joining['Last Month'] }"
+                          (click)="joiningTabs('Last Month')"
+                        >
+                          <span>Last Month</span>
+                        </li>
+                        <li
+                          class="eqspace"
+                          [ngClass]="{ active_tab: joining['Today'] }"
+                          (click)="joiningTabs('Today')"
+                        >
+                          <span>Today</span>
+                        </li>
+                        <hr />
+                        <li>
+                          <div class="lastdys">
+                            <a
+                              [ngClass]="{ active_tab: joining['Custom'] }"
+                              (click)="joiningTabs('Custom', temp)"
+                              ><p>Custom...</p></a
+                            >
+                          </div>
+                        </li>
+                      </div>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <!-- <div class="thredots">
+                                  <a href="#" data-toggle="modal" data-target="#modal-tabbing" >
+                                      <span></span>
+                                      <span></span>
+                                      <span></span>
+                                  </a>
+                              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<ng-template #temp>
+  <div class="advisor-modal">
+    <div class="close-modal-icon meesage-checklist">
+      <div id="career-path">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Select Date</h5>
+            <button
+              type="button"
+              class="close"
+              (click)="modalRef2.hide()"
+              aria-label="Close"
+            >
+              <span aria-hidden="true"
+                ><img src="assets/images/close-icon.png" alt=""
+              /></span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form [formGroup]="addDate">
+              <div class="form-group">
+                <label for="">Start Date</label>
+                <my-date-picker
+                  name="startdate"
+                  [options]="myDatePickerOptions"
+                  formControlName="startDate"
+                  (dateChanged)="onDateChanged($event)"
+                ></my-date-picker>
+              </div>
+              <div class="form-group">
+                <label for="">End Date</label>
+                <my-date-picker
+                  name="enddate"
+                  [options]="myDatePickerOptions2"
+                  formControlName="endDate"
+                ></my-date-picker>
+              </div>
+              <div class="btns">
+                <a (click)="onApply()"> Apply</a>
+                <a (click)="modalRef2.hide()"> Cancel</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

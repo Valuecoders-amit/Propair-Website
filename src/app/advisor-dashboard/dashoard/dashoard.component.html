@@ -1,0 +1,194 @@
+
+<div class="dashboard-wrpper customize-div ">
+  <div class="row">
+    <div class="col-12">
+        <div class="heading-wrapper">
+            <h3>Welcome to your Dashboard, {{userData?.firstName ? userData?.firstName : 'N/A'}}!</h3>
+        </div>
+    </div>
+</div>
+<div class="row">
+  <div class="col-xl-8 col-lg-12">
+    <div class="card-box">
+     
+      <div class="live-request">
+      
+        <div class="number  w-100 statsdashbord">
+          <div class="text-left">
+            <!-- <span>{{milestoneData?.kp | number}} KPs</span> -->
+            <span style="cursor: pointer;" title="{{milestoneData?.kp | number}} KPs">{{milestoneData?.leftPosition}}</span>
+        </div> 
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" aria-valuenow="10"
+          [title]="mileprogress"    
+          aria-valuemin="0" aria-valuemax="100" style="height:100%" [ngStyle]="{'width.%': mileprogress ? mileprogress : 0 }">
+           <span class="sr-only"></span>
+          </div>
+        </div>
+        <div class="text-left">
+          <!-- <span>{{milestoneData?.maxPoint | number}} KPs</span> -->
+          <span style="cursor: pointer;" title="{{milestoneData?.maxPoint | number}} KPs">{{milestoneData?.postName}}</span>
+        </div> 
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="row">
+  <div class="col-xl-4 col-lg-6">
+    <div class="socailimpact alignedaccordingle sfds">
+      <div class="morelessbtn"> 
+        <!-- <h3>To-do List ({{ moreTodo ? finalTodos.length : todos.length}})</h3> -->
+         
+        <h3>To-do List ({{ moreTodo ? finalTodos.length : finalTodos.length}})</h3> 
+      </div>
+      <div class="live-request to-list">
+        <ng-container *ngFor="let todo of todos; let i=index;">
+          <span *ngIf="!moreTodo"> {{i+1}}. {{todo}}</span>
+        </ng-container>
+        <ng-container *ngFor="let todo of finalTodos; let i=index;">
+          <span *ngIf="moreTodo" > {{i+1}}. {{todo}}</span>
+        </ng-container>
+      </div>
+      <h3 style="cursor: pointer; color:#007de4; display:flex; justify-content:flex-end;" *ngIf="finalTodos.length > 2" (click)="moreTodo = !moreTodo">{{moreTodo ? 'Less' : 'More'}}</h3>
+    </div>
+  </div>
+  <div class="col-xl-4 col-lg-6">
+    <div class="socailimpact alignedaccordingle">
+      <h3>Open Requests</h3>
+        <div class="live-request">
+          <div class="number  w-100">
+            <div class="text-left">
+              <p style="cursor: pointer;" routerLink="/advisor-dashboard/student-requests/open-request">{{openRequests.length}}</p>
+              <span style="cursor: pointer;" routerLink="/advisor-dashboard/student-requests/open-request">Matches For You</span>
+          </div> 
+        </div>
+      </div>
+  </div>
+
+  </div>
+  
+</div>
+    <div class="row">
+      <div class=" col-xl-8  col-lg-12">
+        <!-- <div class="sincejoing" style="cursor: pointer;">
+          <a href="javascript:void(0)" >Since Joining</a>
+          <a href="javascript:void(0)" >1y</a>
+          <a href="javascript:void(0)" [ngClass]="{active_tab : joining['ytd']}" (click)="joiningTabs('ytd')">YTD</a>
+          <a href="javascript:void(0)" >3m</a>
+          <a href="javascript:void(0)" >1m</a>
+          <a href="javascript:void(0)" >Today</a>
+          <a href="javascript:void(0)" >Custom</a>
+        </div> -->
+        <div class="socailimpact1 padd-0">
+          <div class="newadding-padding">
+          <h3>My Social Impact</h3>
+            <div class="live-request">
+           
+                <div class="number  w-100">
+                  <div class="text-left">
+                    <p style="cursor: pointer;" routerLink="/advisor-dashboard/advisor-stats/stats-overview">{{milestoneData?.messageCount | number}}</p>
+                    <span>Message Exchanges</span>
+                </div> 
+                <div class="text-left">
+                  <p style="cursor: pointer;" routerLink="/advisor-dashboard/advisor-stats/stats-overview">{{milestoneData?.viewCount | number}}</p>
+                  <span>Student Views</span>
+                </div> 
+                <div class="text-left">
+                  <p style="cursor: pointer;" routerLink="/advisor-dashboard/advisor-stats/stats-overview">{{milestoneData?.upvoteCount | number}}</p>
+                  <span>Student Up-votes</span>
+                </div> 
+                </div>
+             
+          </div>
+        </div>
+        <div class="new-drpbar">
+          <div class="since-joingdrp">
+            <ul>
+              <li class="dropdown">
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                    {{selectedVal}}<b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                      <div class="lastdys">
+                        <p>{{selectedVal}}</p>
+                          <!-- <span>Last {{no_of_days}} days</span> -->
+                          <p>{{selectedDat | date: 'd MMM y' + ' - '}}  {{ todayDate | date:'d MMM y'}}</p>
+                      </div>
+                  </li>
+                  <hr>
+                <div style="cursor: pointer;">
+                  <li class="eqspace" [ngClass]="{active_tab : joining['Since Joining']}" (click)="joiningTabs('Since Joining')" ><span>Since joining</span></li>
+                  <li class="eqspace" [ngClass]="{active_tab : joining['Last 12 Months']}" (click)="joiningTabs('Last 12 Months')"><span>Last 12 Months</span></li>
+                  <li class="eqspace" [ngClass]="{active_tab : joining['Ytd']}"(click)="joiningTabs('Ytd')"><span>Ytd</span></li>
+                  <li class="eqspace" [ngClass]="{active_tab : joining['Last 90 Days']}" (click)="joiningTabs('Last 90 Days')"><span>Last 90 Days</span></li>
+                  <li class="eqspace" [ngClass]="{active_tab : joining['Last Month']}" (click)="joiningTabs('Last Month')"><span>Last Month</span></li>
+                  <li class="eqspace" [ngClass]="{active_tab : joining['Today']}" (click)="joiningTabs('Today')"><span>Today</span></li>
+                  <hr>
+                  <li>
+                    <div class="lastdys">
+                        <a [ngClass]="{active_tab : joining['Custom']}" (click)="joiningTabs('Custom' , temp)"><p>Custom...</p></a>
+                    </div>
+                </li>
+              </div>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <!-- <div class="thredots">
+              <a href="#" data-toggle="modal" data-target="#modal-tabbing" >
+                  <span></span>
+                  <span></span>
+                  <span></span>
+              </a>
+          </div> -->
+        </div>
+      </div>
+    
+      </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<ng-template #temp>
+  <div class="advisor-modal">
+      <div class="close-modal-icon meesage-checklist">
+        <div  id="career-path" >
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Select Date</h5>
+                  <button type="button" class="close" (click)="modalRef2.hide()" aria-label="Close">
+                      <span aria-hidden="true"><img src="assets/images/close-icon.png" alt=""></span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                  <form [formGroup]="addDate">
+                      <div class="form-group">
+                          <label for="">Start Date</label>
+                          <my-date-picker name="startdate" [options]="myDatePickerOptions"
+                          formControlName="startDate" (dateChanged)="onDateChanged($event)"></my-date-picker>
+                      </div>
+                      <div class="form-group">
+                          <label for="">End Date</label>
+                          <my-date-picker name="enddate" [options]="myDatePickerOptions2"
+                          formControlName="endDate"></my-date-picker>
+                      </div>
+                      <div class="btns">
+                          <a (click)="onApply()">
+                              Apply</a>
+                          <a  (click)="modalRef2.hide()">
+                              Cancel</a>
+                      </div>
+                  </form>
+              </div>
+  
+          </div>
+  
+        </div>
+      </div>
+  </div>
+  </ng-template>
+  
+  <!-- Modal Ends -->
